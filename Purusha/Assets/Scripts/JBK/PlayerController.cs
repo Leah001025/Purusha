@@ -4,52 +4,89 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField]
-    private Transform characterBody;
-    [SerializeField]
-    private Transform cameraArm;
+    public Transform playerTransform;
+    public Transform cameraTransform;
 
-    Animator animator;
-    // Start is called before the first frame update
+    private bool joystickActive = false;
+    private Vector2 touchStart;
+    private Vector2 direction;
+
+    public float minMoveSpeed = 5.0f;
+    public float maxMoveSpeed = 15.0f;
+    public float rotationSpeed = 5.0f;
+
+    public float sensitivity = 1.0f; // 조절 가능한 감도
+
+    private Animator animator;
+
+    private float screenCenterX;
+
     void Start()
     {
-        animator = characterBody.GetComponent<Animator>();
+        animator = GetComponent<Animator>();
+        screenCenterX = Screen.width * 0.5f;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        LookAround();
-        Move();
-    }
-
-    private void Move()
-    {
-        Vector2 moveInput = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
-        bool isMove = moveInput.magnitude != 0;
-        animator.SetBool("Walking", isMove);
-        if (isMove)
+        if (Input.touchCount > 0)
         {
-            Vector3 lookForward = new Vector3(cameraArm.forward.x, 0f, cameraArm.forward.z).normalized;
-            Vector3 lookRight = new Vector3(cameraArm.right.x, 0f, cameraArm.right.z).normalized;
-            Vector3 moveDir = lookForward * moveInput.y + lookRight * moveInput.x;
+            Touch touch = Input.GetTouch(0);
 
-            characterBody.forward = moveDir;
-            transform.position += moveDir * Time.deltaTime * 5f;
+            switch (touch.phase)
+            {
+                case TouchPhase.Began:
+                    joystickActive = touch.position.x < screenCenterX;
+                    touchStart = touch.position;
+                    break;
+                case TouchPhase.Moved:
+                    if (joystickActive)
+                        direction = (touch.position - touchStart) / sensitivity; // 감도 조절
+                    break;
+                case TouchPhase.Ended:
+                    joystickActive = false;
+                    direction = Vector2.zero;
+                    break;
+            }
         }
+        MovePlayer();
     }
 
-    private void LookAround()
+    void MovePlayer()
     {
-        Vector2 mouseDelta = new Vector2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
-        Vector3 camAngle = cameraArm.rotation.eulerAngles;
-        float x = camAngle.x - mouseDelta.y;
+        if (joystickActive)
+        {
+            float distance = Vector2.Distance(touchStart, touchStart + direction);
+            float speedFactor = Mathf.Clamp(distance, 0f, 200f) / 200f;
 
-        if (x < 180f)
-            x = Mathf.Clamp(x, -1f, 70f);
+            float moveSpeed = Mathf.Lerp(minMoveSpeed, maxMoveSpeed, speedFactor);
+
+            Vector3 moveDirection = new Vector3(-direction.x, 0, -direction.y).normalized;
+            playerTransform.position += moveDirection * moveSpeed * Time.deltaTime;
+
+            if (moveDirection.magnitude > 0.1f)
+            {
+                Quaternion targetRotation = Quaternion.LookRotation(new Vector3(moveDirection.x, 0, moveDirection.z), Vector3.up);
+                playerTransform.rotation = Quaternion.Slerp(playerTransform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+            }
+
+            if (moveSpeed > 7f)
+            {
+                animator.SetBool("Running", true);
+                animator.SetBool("Walking", false);
+            }
+            else
+            {
+                animator.SetBool("Running", false);
+                animator.SetBool("Walking", true);
+            }
+        }
         else
-            x = Mathf.Clamp(x, 335f, 361f);
+        {
+            animator.SetBool("Running", false);
+            animator.SetBool("Walking", false);
+        }
 
-        cameraArm.rotation = Quaternion.Euler(camAngle.x - mouseDelta.y, camAngle.y + mouseDelta.x, camAngle.z);
+        cameraTransform.position = new Vector3(playerTransform.position.x, cameraTransform.position.y, playerTransform.position.z);
     }
 }
