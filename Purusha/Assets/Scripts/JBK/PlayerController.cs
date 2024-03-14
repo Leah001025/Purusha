@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour
     public float maxMoveSpeed = 15.0f;
     public float rotationSpeed = 5.0f;
 
-    public float sensitivity = 1.0f; // 조절 가능한 감도
+    public float sensitivity = 1.0f;
 
     private Animator animator;
 
@@ -41,7 +41,7 @@ public class PlayerController : MonoBehaviour
                     break;
                 case TouchPhase.Moved:
                     if (joystickActive)
-                        direction = (touch.position - touchStart) / sensitivity; // 감도 조절
+                        direction = (touch.position - touchStart) / sensitivity;
                     break;
                 case TouchPhase.Ended:
                     joystickActive = false;
@@ -70,20 +70,17 @@ public class PlayerController : MonoBehaviour
                 playerTransform.rotation = Quaternion.Slerp(playerTransform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
             }
 
-            if (moveSpeed > 7f)
+            if (moveDirection.magnitude > 0.1f)
             {
-                animator.SetBool("Running", true);
-                animator.SetBool("Walking", false);
+                animator.SetBool("Walking", true);
             }
             else
             {
-                animator.SetBool("Running", false);
-                animator.SetBool("Walking", true);
+                animator.SetBool("Walking", false);
             }
         }
         else
         {
-            animator.SetBool("Running", false);
             animator.SetBool("Walking", false);
         }
 
