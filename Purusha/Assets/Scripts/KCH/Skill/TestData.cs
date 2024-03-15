@@ -10,12 +10,4 @@ public class TestData : DataBase<TestData>
     public string Description;
     public int Type;
 
-    public override void SetData(TestData testData)
-    {
-        this.ID = testData.ID;
-        this.Name = testData.Name;
-        this.Description = testData.Description;
-        this.Type = testData.Type;
-
-    }
 }

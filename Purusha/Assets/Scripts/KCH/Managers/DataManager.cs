@@ -2,31 +2,28 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Assertions;
 
-public class DataManager : ScriptableObject
+public class DataManager : SingleTon<DataManager>
 {
-    //public Dictionary<int, SkillData> skillDB;
-    //public Dictionary<int, TestData> testDB;
-    public SkillDataList skillDataList = new SkillDataList();
-    private void Awake()
+    private SkillDataBase _skillDB;
+    public DataList dataList;
+    protected override void Awake()
     {
-        var resources = Resources.Load<DataList>("KCH/DataBase/DataList");
-        var skillData = Instantiate(resources).SkillData;
-        var testData = Instantiate(resources).TestData;
-        //skillDB = SetData<SkillData>(skillData);
-        //testDB = SetData<TestData>(testData);
+        base.Awake();
 
-        skillDataList.SetData(skillData);
-        Debug.Log(skillDataList.datas[101011]);
     }
+    public SkillDataBase SkillDB { get { return _skillDB ??= new(); } }
+}
 
-    //private Dictionary<int,T> SetData<T>(List<T> data)
-    //{
-    //    Dictionary<int, T> datas = new Dictionary<int, T>(data.Count);
-    //    for (int i = 0; i < data.Count; i++)
-    //    {
-    //        datas.Add(i+1, data[i]);
-    //    }
-    //    return datas;
-    //}
+public class SkillDataBase : DataBase<SkillData>
+{
+    public SkillDataBase()
+    {
+        var resources = DataManager.Instance.dataList.SkillData;
+        foreach (var data in resources)
+        {
+            _data.Add(data.ID, data);
+        }        
+    }
 }

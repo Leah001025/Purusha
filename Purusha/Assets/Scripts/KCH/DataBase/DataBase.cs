@@ -5,14 +5,11 @@ using UnityEngine.Assertions;
 
 public abstract class DataBase<T>
 {
-    public abstract void SetData(T metaData);
+    protected Dictionary<int, T> _data = new Dictionary<int, T>();
+    public virtual T GetData(int key)
+    {
+        if (_data.ContainsKey(key))
+            return _data[key];
+        return default;
+    }
 }
-
-public abstract class DataBaseList<T1, T2>
-{
-    public Dictionary<T1, T2> datas = new Dictionary<T1, T2>();
-
-    public abstract void SetData(List<T2> metaDataList);
-}
-
-
