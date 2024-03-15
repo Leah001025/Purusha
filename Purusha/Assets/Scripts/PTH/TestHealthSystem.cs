@@ -17,7 +17,6 @@ public class TestHealthSystem : MonoBehaviour
     private void Init()
     {
         characterType = Utility.GetLayerWithTag(gameObject);
-
     }
     public void TakeDamage()
     {
@@ -26,7 +25,7 @@ public class TestHealthSystem : MonoBehaviour
             case (int)CharacterType.Player:
                 //OnHit?.Invoke();
                 break;
-            case (int)CharacterType.Monster:
+            case (int)CharacterType.Enemy:
                 OnHit?.Invoke();
                 break;
         }

@@ -574,3 +574,30 @@ MonoBehaviour:
     Name: "\uD558\uB8E8\uC0B4\uC774"
     Description: "\uD558"
     Type: 0
+  MonsterNormalData:
+  - ID: 0
+    Name: 
+    Level: 0
+    Health: 0
+    Ark: 0
+    Def: 0
+    CriticalChance: 0
+    criticalChance: 0
+    Avoid: 0
+    Speed: 0
+    BrakeGauge: 0
+    PrefabPath: 
+    SpritePath: 
+  - ID: 0
+    Name: 
+    Level: 0
+    Health: 0
+    Ark: 0
+    Def: 0
+    CriticalChance: 0
+    criticalChance: 0
+    Avoid: 0
+    Speed: 0
+    BrakeGauge: 0
+    PrefabPath: 
+    SpritePath: 

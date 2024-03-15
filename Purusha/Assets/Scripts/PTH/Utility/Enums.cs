@@ -3,7 +3,7 @@ namespace Enums
     public enum CharacterType
     {
         Player = 6,
-        Monster
+        Enemy
     }
     public enum Monster
     {

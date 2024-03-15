@@ -8,9 +8,10 @@ public class Enemy : MonoBehaviour
     [field: Header("Animations")]
     [field: SerializeField] public EnemyAnimationData AnimationData { get; private set; }
 
-    private EnemyStateMachine stateMachine;
     public TestHealthSystem TestHealthSystem { get; private set; }
     public Animator Animator { get; private set; }
+
+    private EnemyStateMachine stateMachine;
 
     private int EnemyName;
 
