@@ -6,6 +6,7 @@ using UnityEngine.Assertions;
 
 public class DataManager : SingleTon<DataManager>
 {
+    private PlayerDataBase _PlayerDB;
     private SkillDataBase _skillDB;
     private EnemyDataBase _enemyDB;
     public DataList dataList;
@@ -14,8 +15,20 @@ public class DataManager : SingleTon<DataManager>
         base.Awake();
 
     }
+    public PlayerDataBase PlayerDB { get { return _PlayerDB ??= new(); } }
     public SkillDataBase SkillDB { get { return _skillDB ??= new(); } }
     public EnemyDataBase EnemyDB { get { return _enemyDB ??= new(); } }
+}
+public class PlayerDataBase : DataBase<PlayerData>
+{
+    public PlayerDataBase()
+    {
+        var resources = DataManager.Instance.dataList.PlayerData;
+        foreach (var data in resources)
+        {
+            _data.Add(data.ID, data);
+        }
+    }
 }
 
 public class SkillDataBase : DataBase<SkillData>

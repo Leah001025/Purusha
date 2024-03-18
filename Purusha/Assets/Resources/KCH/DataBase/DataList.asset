@@ -12,6 +12,73 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4dcabd480360e5b4d96ff9783a531477, type: 3}
   m_Name: DataList
   m_EditorClassIdentifier: 
+  PlayerData:
+  - ID: 1
+    Name: Breesha
+    Level: 1
+    Exp: 0
+    EquipLevel: 1
+    Atk: 110
+    Def: 60
+    CriticalChance: 50
+    CriticalDamage: 140
+    Avoid: 10
+    Speed: 1
+  - ID: 100
+    Name: Eve
+    Level: 1
+    Exp: 0
+    EquipLevel: 1
+    Atk: 70
+    Def: 50
+    CriticalChance: 50
+    CriticalDamage: 100
+    Avoid: 10
+    Speed: 1
+  - ID: 200
+    Name: Adam
+    Level: 1
+    Exp: 0
+    EquipLevel: 1
+    Atk: 100
+    Def: 40
+    CriticalChance: 50
+    CriticalDamage: 130
+    Avoid: 10
+    Speed: 1
+  - ID: 300
+    Name: Abel
+    Level: 1
+    Exp: 0
+    EquipLevel: 1
+    Atk: 30
+    Def: 30
+    CriticalChance: 50
+    CriticalDamage: 60
+    Avoid: 10
+    Speed: 1
+  - ID: 400
+    Name: Kain
+    Level: 1
+    Exp: 0
+    EquipLevel: 1
+    Atk: 110
+    Def: 30
+    CriticalChance: 50
+    CriticalDamage: 140
+    Avoid: 15
+    Speed: 1.2
+  - ID: 500
+    Name: Japheth
+    Level: 1
+    Exp: 0
+    EquipLevel: 1
+    Atk: 50
+    Def: 100
+    CriticalChance: 50
+    CriticalDamage: 80
+    Avoid: 8
+    Speed: 0.8
   SkillData:
   - ID: 101011
     Name: "\uC77C\uBC18\uACF5\uACA9"

@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    private PlayerDataBase playerDB;
+    private PlayerData playerData;
+
     public Transform playerTransform;
     public Transform cameraTransform;
 
@@ -23,6 +26,9 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
+        playerDB = DataManager.Instance.PlayerDB;
+        playerData = playerDB.GetData(100);
+
         animator = GetComponent<Animator>();
         screenCenterX = Screen.width * 0.5f;
     }
