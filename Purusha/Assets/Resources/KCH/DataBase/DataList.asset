@@ -622,6 +622,85 @@ MonoBehaviour:
     Duration: 0
     SkillGage: -5
     EffectPath: 
+  PlayerData:
+  - ID: 101
+    Name: Eve
+    Level: 1
+    Atk: 70
+    Health: 2500
+    Def: 50
+    CriticalChance: 0.5
+    CriticalDamage: 100
+    Avoid: 0.1
+    Speed: 1
+    BrakeGauge: 0
+    PrefabPath: 
+    SpritePath: 
+  - ID: 102
+    Name: Breesha
+    Level: 1
+    Atk: 110
+    Health: 3000
+    Def: 60
+    CriticalChance: 0.5
+    CriticalDamage: 140
+    Avoid: 0.1
+    Speed: 1
+    BrakeGauge: 0
+    PrefabPath: 
+    SpritePath: 
+  - ID: 103
+    Name: Adam
+    Level: 1
+    Atk: 100
+    Health: 2500
+    Def: 40
+    CriticalChance: 0.5
+    CriticalDamage: 130
+    Avoid: 0.1
+    Speed: 1
+    BrakeGauge: 0
+    PrefabPath: 
+    SpritePath: 
+  - ID: 104
+    Name: Abel
+    Level: 1
+    Atk: 30
+    Health: 2000
+    Def: 30
+    CriticalChance: 0.5
+    CriticalDamage: 60
+    Avoid: 0.1
+    Speed: 1
+    BrakeGauge: 0
+    PrefabPath: 
+    SpritePath: 
+  - ID: 105
+    Name: Kain
+    Level: 1
+    Atk: 110
+    Health: 2000
+    Def: 30
+    CriticalChance: 0.5
+    CriticalDamage: 140
+    Avoid: 0.15
+    Speed: 1.2
+    BrakeGauge: 0
+    PrefabPath: 
+    SpritePath: 
+  - ID: 106
+    Name: Japheth
+    Level: 1
+    Atk: 50
+    Health: 4000
+    Def: 100
+    CriticalChance: 0.5
+    CriticalDamage: 80
+    Avoid: 0.08
+    Speed: 0.8
+    BrakeGauge: 0
+    PrefabPath: 
+    SpritePath: 
   TestData:
   - ID: 1
     Name: "\uCCA0\uC218"

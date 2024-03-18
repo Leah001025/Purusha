@@ -500,6 +500,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0137ed9acd1151347a0bd81d6dd2c364, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  skillData:
+    ID: 0
+    Name: 
+    Description: 
+    Type: 0
+    AtkCoefficient: 0
+    DefCoefficient: 0
+    HealthCoefficient: 0
+    CoolTime: 0
+    DebuffProbability: 0
+    Duration: 0
+    SkillGage: 0
+    EffectPath: 
 --- !u!4 &1110830092
 Transform:
   m_ObjectHideFlags: 0
