@@ -7,6 +7,7 @@ using UnityEngine.Assertions;
 public class DataManager : SingleTon<DataManager>
 {
     private SkillDataBase _skillDB;
+    private PlayerDataBase _playerDB;
     public DataList dataList;
     protected override void Awake()
     {
@@ -14,6 +15,7 @@ public class DataManager : SingleTon<DataManager>
 
     }
     public SkillDataBase SkillDB { get { return _skillDB ??= new(); } }
+    public PlayerDataBase PlayerDB { get { return _playerDB ??= new(); } }
 }
 
 public class SkillDataBase : DataBase<SkillData>
@@ -25,5 +27,17 @@ public class SkillDataBase : DataBase<SkillData>
         {
             _data.Add(data.ID, data);
         }        
+    }
+}
+
+public class PlayerDataBase : DataBase<PlayerData>
+{
+    public PlayerDataBase()
+    {
+        var resources = DataManager.Instance.dataList.PlayerData;
+        foreach (var data in resources)
+        {
+            _data.Add(data.ID, data);
+        }
     }
 }
