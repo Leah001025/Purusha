@@ -8,6 +8,6 @@ public class DataList : ScriptableObject
 {
 	public List<SkillData> SkillData; 
 	public List<TestData> TestData;
-
+	public List<EnemyData> EnemyData;
 
 }

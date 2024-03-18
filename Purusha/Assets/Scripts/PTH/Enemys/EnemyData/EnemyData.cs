@@ -2,19 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 [System.Serializable]
-public class EnemyData
+public class EnemyData : DataBase<EnemyData>
 {
-    public byte ID;
+    public int ID;
     public string Name;
-    public short Level;
-    public int Health;
-    public int Ark;
-    public int Def;
-    public byte CriticalChance;
-    public short criticalChance;
-    public byte Avoid;
-    public byte Speed;
-    public short BrakeGauge;
+    public int Level;
+    public float Health;
+    public float Atk;
+    public float Def;
+    public float CriticalChance;
+    public float CriticalDamage;
+    public float Avoid;
+    public float Speed; //공격 우선순위
+    public float BreakGauge;
     public string PrefabPath;
     public string SpritePath;
 }
