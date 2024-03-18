@@ -1,15 +1,22 @@
+using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TestPlayerController : MonoBehaviour
 {
     public Transform playerTransform;
     public Transform cameraTransform;
+    public CinemachineBrain cinemachineBrain;
+    public Image battleEffect;
+    public Camera battlaCamera;
 
     private bool joystickActive = false;
+    private bool isBattle = false;
     private Vector2 touchStart;
     private Vector2 direction;
+    Vector3 targetPos;
 
     public float minMoveSpeed = 5.0f;
     public float maxMoveSpeed = 15.0f;
@@ -25,6 +32,7 @@ public class TestPlayerController : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         screenCenterX = Screen.width * 0.5f;
+        battlaCamera.gameObject.SetActive(false);
     }
 
     void Update()
@@ -52,7 +60,13 @@ public class TestPlayerController : MonoBehaviour
             Vector2 currentMousePos = new Vector2(mousePosition.x, mousePosition.y); // mousePosition을 Vector2로 변환
             direction = (currentMousePos - touchStart) / sensitivity;
         }
+        if(!isBattle)
         MovePlayer();
+        if (isBattle) 
+        { 
+            Camera.main.transform.position = Vector3.Lerp(Camera.main.transform.position, targetPos, 1f * Time.deltaTime);
+            battleEffect.color = Color.Lerp(battleEffect.color, new Color(1, 1, 1, 1), 1f* Time.deltaTime);
+        }
     }
     
     void MovePlayer()
@@ -87,15 +101,25 @@ public class TestPlayerController : MonoBehaviour
             animator.SetBool("Walking", false);
         }
 
-        cameraTransform.position = new Vector3(playerTransform.position.x, cameraTransform.position.y, playerTransform.position.z);
+        //cameraTransform.position = new Vector3(playerTransform.position.x, cameraTransform.position.y, playerTransform.position.z);
     }
 
     private void OnCollisionEnter(Collision collision)
     {
         if(collision.gameObject.tag == "Enemy")
         {
-            Vector3 targetPos = collision.transform.position;
-            Camera.main.transform.position = Vector3.Lerp(Camera.main.transform.position, targetPos, 1);
+            isBattle = true;
+            targetPos = collision.transform.position;
+            cinemachineBrain.enabled = false;
+            StartCoroutine(CameraControll());
         }
+    }
+    private IEnumerator CameraControll()
+    {
+        yield return new WaitForSeconds(1.5f);
+        isBattle = false; 
+        battleEffect.color = new Color(1,1,1,0);   
+        Camera.main.gameObject.SetActive(false);
+        battlaCamera.gameObject.SetActive(true);
     }
 }
