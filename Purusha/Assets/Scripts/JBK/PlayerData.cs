@@ -7,6 +7,7 @@ public class PlayerData : DataBase<PlayerData>
 {
     public int ID;
     public string Name;
+    public float Health;
     public int Level;
     public int Exp;
     public int EquipLevel;
