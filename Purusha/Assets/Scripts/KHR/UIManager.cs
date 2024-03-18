@@ -1,16 +1,11 @@
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UIManager : SingletoneBase<UIManager>
+public class UIManager : SingleTon<UIManager>
 {
-    public TextMeshProUGUI promptText;
-    public Slider loadingBar;
-
-    private static UIManager _singleton = new UIManager();
-    public static UIManager Get() { return _singleton; }
-    public static bool Has() { return _singleton != null; }
 
     private List<UIPopup> popups = new List<UIPopup>();
 
@@ -26,9 +21,9 @@ public class UIManager : SingletoneBase<UIManager>
         return ShowPopupWithPrefab(obj, popupname, parents);
     }
 
-    public T ShowPopup<T>() where T : UIPopup
+    public T ShowPopup<T>(Transform parents = null) where T : UIPopup
     {
-        return ShowPopup(typeof(T).Name) as T;
+        return ShowPopup(typeof(T).Name,parents) as T;
     }
 
     public UIPopup ShowPopupWithPrefab(GameObject prefab, string popupName, Transform parents = null)
