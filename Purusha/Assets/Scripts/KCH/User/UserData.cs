@@ -14,14 +14,14 @@ public class UserData
     {
         userLv = 1;
         userExp = 0;
-        CharacterData eve = new CharacterData(101);
-        characterDatas.Add(eve.status.ID, eve);   
+        CharacterData eve = new CharacterData(102);
+        characterDatas.Add(eve.status.iD, eve);   
     }
     //캐릭터 추가
     public void AddCharacter(int id)
     {
         CharacterData newCharacter = new CharacterData(id);
-        characterDatas.Add(newCharacter.status.ID, newCharacter);
+        characterDatas.Add(newCharacter.status.iD, newCharacter);
     }
 
     //팀원 추가
