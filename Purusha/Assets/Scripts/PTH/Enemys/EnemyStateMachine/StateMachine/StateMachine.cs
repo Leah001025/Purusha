@@ -12,7 +12,10 @@ public abstract class StateMachine
         currentState = newState;
         currentState?.Enter();
     }
-
+    public void HandleInput()
+    {
+        currentState?.HandleInput();
+    }
     public void Update()
     {
         currentState?.Update();
