@@ -9,9 +9,9 @@ public class TestPlayerController : MonoBehaviour
     public Transform playerTransform;
     public Transform cameraTransform;
     public CinemachineBrain cinemachineBrain;
-    public Image battleEffect;
-    public GameObject battlaCamera;
-    public GameObject worldCanvas;
+    //public Image battleEffect;
+    //public GameObject battlaCamera;
+    //public GameObject worldCanvas;
 
     private bool joystickActive = false;
     private bool isBattle = false;
@@ -33,7 +33,7 @@ public class TestPlayerController : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         screenCenterX = Screen.width * 0.5f;
-        battlaCamera.gameObject.SetActive(false);
+        //battlaCamera.gameObject.SetActive(false);
     }
 
     void Update()
@@ -63,11 +63,11 @@ public class TestPlayerController : MonoBehaviour
         }
         if(!isBattle)
         MovePlayer();
-        if (isBattle)
-        {
-            Camera.main.transform.position = Vector3.Lerp(Camera.main.transform.position, targetPos, 1f * Time.deltaTime);
-            battleEffect.color = Color.Lerp(battleEffect.color, new Color(1, 1, 1, 1), 1f * Time.deltaTime);
-        }
+        //if (isBattle)
+        //{
+        //    Camera.main.transform.position = Vector3.Lerp(Camera.main.transform.position, targetPos, 1f * Time.deltaTime);
+        //    battleEffect.color = Color.Lerp(battleEffect.color, new Color(1, 1, 1, 1), 1f * Time.deltaTime);
+        //}
     }
     
     void MovePlayer()
@@ -105,24 +105,24 @@ public class TestPlayerController : MonoBehaviour
         //cameraTransform.position = new Vector3(playerTransform.position.x, cameraTransform.position.y, playerTransform.position.z);
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.tag == "Enemy")
-        {
-            isBattle = true;
-            targetPos = collision.transform.position;
-            cinemachineBrain.enabled = false;
-            StartCoroutine(CameraControll());
-        }
-    }
-    private IEnumerator CameraControll()
-    {
-        yield return new WaitForSeconds(1.5f);
-        isBattle = false;
-        TestBattle.Instance.isBattle = true;
-        battleEffect.color = new Color(1, 1, 1, 0);
-        Camera.main.gameObject.SetActive(false);
-        battlaCamera.gameObject.SetActive(true);
-        worldCanvas.gameObject.SetActive(false);
-    }
+    //private void OnCollisionEnter(Collision collision)
+    //{
+    //    if (collision.gameObject.tag == "Enemy")
+    //    {
+    //        isBattle = true;
+    //        targetPos = collision.transform.position;
+    //        cinemachineBrain.enabled = false;
+    //        StartCoroutine(CameraControll());
+    //    }
+    //}
+    //private IEnumerator CameraControll()
+    //{
+    //    yield return new WaitForSeconds(1.5f);
+    //    isBattle = false;
+    //    TestBattle.Instance.isBattle = true;
+    //    battleEffect.color = new Color(1, 1, 1, 0);
+    //    Camera.main.gameObject.SetActive(false);
+    //    battlaCamera.gameObject.SetActive(true);
+    //    worldCanvas.gameObject.SetActive(false);
+    //}
 }

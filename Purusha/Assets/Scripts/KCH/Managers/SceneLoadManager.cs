@@ -7,7 +7,7 @@ public class SceneLoadManager : SingleTon<SceneLoadManager>
     public bool isDontDestroy = false;
 
     public string NowSceneName = "";
-
+    public string NextSceneName = "";
     protected override void Awake()
     {
         base.Awake();
@@ -40,5 +40,15 @@ public class SceneLoadManager : SingleTon<SceneLoadManager>
         }
 
         callback?.Invoke();
+
+    }
+
+        // 씬이 이동할시 , 로딩씬이 필요한경우 해당 함수의 매개변수의 인자값으로 씬 이름을 넣어주시면 됩니다!
+        // 로딩씬 거친 후에 다음씬으로 넘어가짐(비동기로)
+        //LoadingChangeScene("SceneName"); 이리 적어주시면 되요!
+    public async void LoadingChangeScene(string SceneName)
+    {
+         NextSceneName = SceneName;
+        ChangeScene("LoadingScene");
     }
 }
