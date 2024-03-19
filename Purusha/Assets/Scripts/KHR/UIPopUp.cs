@@ -4,6 +4,6 @@ using UnityEngine.UI;
 
 public class UIPopup : UIBase
 {
-
+    
 
 }

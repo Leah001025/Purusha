@@ -7,55 +7,47 @@ using UnityEngine.UI;
 public class UIManager : SingleTon<UIManager>
 {
 
-    private List<UIPopup> popups = new List<UIPopup>();
+    private Dictionary<string, UIBase> popups = new Dictionary<string, UIBase>();
 
     // 팝업 불러오기
-    public UIPopup ShowPopup(string popupname, Transform parents = null)
+    public UIBase ShowPopup(string popupname, Transform parents = null)
     {
+        if (popups.ContainsKey(popupname))
+        {
+            popups[popupname].gameObject.SetActive(true);
+            return null;
+        }
+
         var obj = Resources.Load("Popups/" + popupname, typeof(GameObject)) as GameObject;
         if (!obj)
         {
             Debug.LogWarning($"Failed to ShowPopup({popupname})");
             return null;
         }
+
         return ShowPopupWithPrefab(obj, popupname, parents);
     }
 
-    public T ShowPopup<T>(Transform parents = null) where T : UIPopup
+    public T ShowPopup<T>(Transform parents = null) where T : UIBase
     {
-        return ShowPopup(typeof(T).Name,parents) as T;
+        return ShowPopup(typeof(T).Name, parents) as T;
     }
 
-    public UIPopup ShowPopupWithPrefab(GameObject prefab, string popupName, Transform parents = null)
+    public UIBase ShowPopupWithPrefab(GameObject prefab, string popupName, Transform parents = null)
     {
         var obj = Instantiate(prefab, parents);
         obj.name = popupName;
+        obj.GetComponent<Canvas>().sortingOrder = popups.Count;
         return ShowPopup(obj, popupName);
     }
 
-    public UIPopup ShowPopup(GameObject obj, string popupname)
+    public UIBase ShowPopup(GameObject obj, string popupname)
     {
-        var popup = obj.GetComponent<UIPopup>();
-        popups.Insert(0, popup);
+        var popup = obj.GetComponent<UIBase>();
+        popups.Add(popupname, popup);
 
         obj.SetActive(true);
         return popup;
     }
 
-    // 추가된 메서드: 특정 팝업 열기
-    public void OpenPopup(string popupName)
-    {
-        ShowPopup(popupName);
-    }
-
-    // 추가된 메서드: 최상위 팝업 닫기
-    public void ClosePopup()
-    {
-        if (popups.Count > 0)
-        {
-            var topPopup = popups[0];
-            popups.RemoveAt(0);
-            Destroy(topPopup.gameObject);
-        }
-    }
 }
