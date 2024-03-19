@@ -622,85 +622,6 @@ MonoBehaviour:
     Duration: 0
     SkillGage: -5
     EffectPath: 
-  PlayerData:
-  - ID: 101
-    Name: Eve
-    Level: 1
-    Atk: 70
-    Health: 2500
-    Def: 50
-    CriticalChance: 0.5
-    CriticalDamage: 100
-    Avoid: 0.1
-    Speed: 1
-    BrakeGauge: 0
-    PrefabPath: 
-    SpritePath: 
-  - ID: 102
-    Name: Breesha
-    Level: 1
-    Atk: 110
-    Health: 3000
-    Def: 60
-    CriticalChance: 0.5
-    CriticalDamage: 140
-    Avoid: 0.1
-    Speed: 1
-    BrakeGauge: 0
-    PrefabPath: 
-    SpritePath: 
-  - ID: 103
-    Name: Adam
-    Level: 1
-    Atk: 100
-    Health: 2500
-    Def: 40
-    CriticalChance: 0.5
-    CriticalDamage: 130
-    Avoid: 0.1
-    Speed: 1
-    BrakeGauge: 0
-    PrefabPath: 
-    SpritePath: 
-  - ID: 104
-    Name: Abel
-    Level: 1
-    Atk: 30
-    Health: 2000
-    Def: 30
-    CriticalChance: 0.5
-    CriticalDamage: 60
-    Avoid: 0.1
-    Speed: 1
-    BrakeGauge: 0
-    PrefabPath: 
-    SpritePath: 
-  - ID: 105
-    Name: Kain
-    Level: 1
-    Atk: 110
-    Health: 2000
-    Def: 30
-    CriticalChance: 0.5
-    CriticalDamage: 140
-    Avoid: 0.15
-    Speed: 1.2
-    BrakeGauge: 0
-    PrefabPath: 
-    SpritePath: 
-  - ID: 106
-    Name: Japheth
-    Level: 1
-    Atk: 50
-    Health: 4000
-    Def: 100
-    CriticalChance: 0.5
-    CriticalDamage: 80
-    Avoid: 0.08
-    Speed: 0.8
-    BrakeGauge: 0
-    PrefabPath: 
-    SpritePath: 
   TestData:
   - ID: 1
     Name: "\uCCA0\uC218"
@@ -727,29 +648,42 @@ MonoBehaviour:
     Description: "\uD558"
     Type: 0
   EnemyData:
-  - ID: 0
-    Name: 
-    Level: 0
-    Health: 0
-    Atk: 0
-    Def: 0
-    CriticalChance: 0
-    CriticalDamage: 0
-    Avoid: 0
-    Speed: 0
-    BreakGauge: 0
+  - ID: 101001
+    Name: Drone
+    Level: 1
+    Health: 2000
+    Atk: 50
+    Def: 10
+    CriticalChance: 10
+    CriticalDamage: 150
+    Avoid: 10
+    Speed: 1
+    BreakGauge: 100
     PrefabPath: 
     SpritePath: 
-  - ID: 0
-    Name: 
-    Level: 0
-    Health: 0
-    Atk: 0
-    Def: 0
-    CriticalChance: 0
-    CriticalDamage: 0
-    Avoid: 0
-    Speed: 0
-    BreakGauge: 0
+  - ID: 201001
+    Name: TaehoMon
+    Level: 5
+    Health: 5000
+    Atk: 200
+    Def: 100
+    CriticalChance: 50
+    CriticalDamage: 200
+    Avoid: 50
+    Speed: 5
+    BreakGauge: 200
+    PrefabPath: 
+    SpritePath: 
+  - ID: 301001
+    Name: JaekyungMon
+    Level: 99
+    Health: 999999
+    Atk: 100
+    Def: 99999
+    CriticalChance: 100
+    CriticalDamage: 999
+    Avoid: 100
+    Speed: 999
+    BreakGauge: 999999
     PrefabPath: 
     SpritePath: 

@@ -13,7 +13,7 @@ public class EnemyData : DataBase<EnemyData>
     public float CriticalChance;
     public float CriticalDamage;
     public float Avoid;
-    public float Speed; //공격 우선순위
+    public float Speed;
     public float BreakGauge;
     public string PrefabPath;
     public string SpritePath;
