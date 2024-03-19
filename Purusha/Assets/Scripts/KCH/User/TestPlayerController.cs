@@ -10,7 +10,8 @@ public class TestPlayerController : MonoBehaviour
     public Transform cameraTransform;
     public CinemachineBrain cinemachineBrain;
     public Image battleEffect;
-    public Camera battlaCamera;
+    public GameObject battlaCamera;
+    public GameObject worldCanvas;
 
     private bool joystickActive = false;
     private bool isBattle = false;
@@ -62,10 +63,10 @@ public class TestPlayerController : MonoBehaviour
         }
         if(!isBattle)
         MovePlayer();
-        if (isBattle) 
-        { 
+        if (isBattle)
+        {
             Camera.main.transform.position = Vector3.Lerp(Camera.main.transform.position, targetPos, 1f * Time.deltaTime);
-            battleEffect.color = Color.Lerp(battleEffect.color, new Color(1, 1, 1, 1), 1f* Time.deltaTime);
+            battleEffect.color = Color.Lerp(battleEffect.color, new Color(1, 1, 1, 1), 1f * Time.deltaTime);
         }
     }
     
@@ -106,7 +107,7 @@ public class TestPlayerController : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.tag == "Enemy")
+        if (collision.gameObject.tag == "Enemy")
         {
             isBattle = true;
             targetPos = collision.transform.position;
@@ -117,9 +118,11 @@ public class TestPlayerController : MonoBehaviour
     private IEnumerator CameraControll()
     {
         yield return new WaitForSeconds(1.5f);
-        isBattle = false; 
-        battleEffect.color = new Color(1,1,1,0);   
+        isBattle = false;
+        TestBattle.Instance.isBattle = true;
+        battleEffect.color = new Color(1, 1, 1, 0);
         Camera.main.gameObject.SetActive(false);
         battlaCamera.gameObject.SetActive(true);
+        worldCanvas.gameObject.SetActive(false);
     }
 }
