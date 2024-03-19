@@ -8,18 +8,27 @@ public class GameManager : SingleTon<GameManager>
     {
         base.Awake();
         User = new UserData();
+        User.AddCharacter(101);
+        User.AddCharacter(103);
+        User.AddCharacter(104);
+        User.AddCharacter(105);
+        User.AddTeam(101);
+        User.AddTeam(102);
+        User.AddTeam(103);
+        User.AddTeam(104);
+        User.AddTeam(105);
+        User.characterDatas[101].status.speed = 1.05f;
+        User.characterDatas[102].status.speed = 1.15f;
+        User.characterDatas[103].status.speed = 1.3f;
+        User.characterDatas[104].status.speed = 1.45f;
     }
     private void Start()
     {
-        User.AddCharacter(102);
-        User.AddTeam(101);
-        User.AddTeam(102);
-        User.teamData[1].status.Health -= 50;
-        User.teamData[2].status.Health -= 500;
-        Debug.Log("팀데이터1: " + User.teamData[1].status.Health + User.teamData[1].status.Name);
-        Debug.Log("팀데이터2: " + User.teamData[2].status.Health + User.teamData[2].status.Name);
-        Debug.Log("캐릭터1: " + User.characterDatas[101].status.Health);
-        Debug.Log("캐릭터2: " + User.characterDatas[102].status.Health);
+        
+        Debug.Log("팀데이터1: " + User.teamData[1].status.health + User.teamData[1].status.name);
+        Debug.Log("팀데이터2: " + User.teamData[2].status.health + User.teamData[2].status.name);
+        Debug.Log("캐릭터1: " + User.characterDatas[101].status.health);
+        Debug.Log("캐릭터2: " + User.characterDatas[102].status.health);
     }
 
 
