@@ -23,8 +23,7 @@ public class BattleManager : SingleTon<BattleManager>
 
     private SEnemyData enemyData;
 
-    private PlayerDataBase playerDB;
-    private PlayerData playerData;
+    private StageDataBase stageDB;
 
     public event Action SkillSlot1;
     public event Action SkillSlot2;
@@ -38,9 +37,10 @@ public class BattleManager : SingleTon<BattleManager>
     protected override void Awake()
     {
         base.Awake();
-        playerDB = DataManager.Instance.PlayerDB;
+        stageDB = DataManager.Instance.StageDB;
     }
-    private void Start()
+
+    private void BattleStart()
     {
         CreateUnit();
         StartCoroutine(AttackOrder());
@@ -67,8 +67,6 @@ public class BattleManager : SingleTon<BattleManager>
                     switch ((CharacterType)_unitData.unitType)
                     {
                         case CharacterType.Player:
-                            playerData = playerDB.GetData(_unitData.unitID);
-                            _unitData.unitGauge += (playerData.Speed * DefaultUpGauge) * Time.deltaTime;
                             break;
                         case CharacterType.Enemy:
                             enemyData = (SEnemyData)_unitData.unitObject.GetComponent<Enemy>().EnemyData;

@@ -648,42 +648,94 @@ MonoBehaviour:
     Description: "\uD558"
     Type: 0
   EnemyData:
-  - ID: 101001
-    Name: Drone
-    Level: 1
-    Health: 2000
-    Atk: 50
-    Def: 10
-    CriticalChance: 10
-    CriticalDamage: 150
-    Avoid: 10
-    Speed: 1
-    BreakGauge: 100
-    PrefabPath: 
-    SpritePath: 
-  - ID: 201001
-    Name: TaehoMon
-    Level: 5
-    Health: 5000
-    Atk: 200
-    Def: 100
-    CriticalChance: 50
-    CriticalDamage: 200
-    Avoid: 50
-    Speed: 5
-    BreakGauge: 200
-    PrefabPath: 
-    SpritePath: 
-  - ID: 301001
-    Name: JaekyungMon
-    Level: 99
-    Health: 999999
-    Atk: 100
-    Def: 99999
-    CriticalChance: 100
-    CriticalDamage: 999
-    Avoid: 100
-    Speed: 999
-    BreakGauge: 999999
-    PrefabPath: 
-    SpritePath: 
+  - _id: 101001
+    _name: Drone
+    _level: 1
+    _health: 2000
+    _atk: 50
+    _def: 10
+    _criticalChance: 10
+    _criticalDamage: 150
+    _avoid: 10
+    _speed: 1
+    _breakGauge: 100
+    _prefabPath: 
+    _spritePath: 
+  - _id: 201001
+    _name: TaehoMon
+    _level: 5
+    _health: 5000
+    _atk: 200
+    _def: 100
+    _criticalChance: 50
+    _criticalDamage: 200
+    _avoid: 50
+    _speed: 5
+    _breakGauge: 200
+    _prefabPath: 
+    _spritePath: 
+  - _id: 301001
+    _name: JaekyungMon
+    _level: 99
+    _health: 999999
+    _atk: 100
+    _def: 99999
+    _criticalChance: 100
+    _criticalDamage: 999
+    _avoid: 100
+    _speed: 999
+    _breakGauge: 999999
+    _prefabPath: 
+    _spritePath: 
+  StageData:
+  - _id: 110101
+    _enemyID_1: 101001
+    _enemyCount_1: 2
+    _enemyID_2: 0
+    _enemyCount_2: 0
+    _enemyID_3: 0
+    _enemyCount_3: 0
+    _enemyID_4: 0
+    _enemyCount_4: 0
+    _enemyID_5: 0
+    _enemyCount_5: 0
+    _compensation_1: 0
+    _compensationCount_1: 0
+    _compensation_2: 0
+    _compensationCount_2: 0
+    _compensation_3: 0
+    _compensationCount_3: 0
+  - _id: 110102
+    _enemyID_1: 101001
+    _enemyCount_1: 3
+    _enemyID_2: 0
+    _enemyCount_2: 0
+    _enemyID_3: 0
+    _enemyCount_3: 0
+    _enemyID_4: 0
+    _enemyCount_4: 0
+    _enemyID_5: 0
+    _enemyCount_5: 0
+    _compensation_1: 0
+    _compensationCount_1: 0
+    _compensation_2: 0
+    _compensationCount_2: 0
+    _compensation_3: 0
+    _compensationCount_3: 0
+  - _id: 110103
+    _enemyID_1: 101001
+    _enemyCount_1: 5
+    _enemyID_2: 0
+    _enemyCount_2: 0
+    _enemyID_3: 0
+    _enemyCount_3: 0
+    _enemyID_4: 0
+    _enemyCount_4: 0
+    _enemyID_5: 0
+    _enemyCount_5: 0
+    _compensation_1: 0
+    _compensationCount_1: 0
+    _compensation_2: 0
+    _compensationCount_2: 0
+    _compensation_3: 0
+    _compensationCount_3: 0
