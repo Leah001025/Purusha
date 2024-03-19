@@ -5,8 +5,8 @@ namespace Enums
         Player = 6,
         Enemy
     }
-    public enum Monster
+    public enum EnemyID
     {
-        Drone
+        Drone = 101001
     }
 }

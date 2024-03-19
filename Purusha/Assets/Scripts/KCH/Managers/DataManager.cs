@@ -9,6 +9,8 @@ public class DataManager : SingleTon<DataManager>
     private PlayerDataBase _PlayerDB;
     private SkillDataBase _skillDB;
     private EnemyDataBase _enemyDB;
+    private StageDataBase _stageDB;
+
     public DataList dataList;
     protected override void Awake()
     {
@@ -18,6 +20,7 @@ public class DataManager : SingleTon<DataManager>
     public PlayerDataBase PlayerDB { get { return _PlayerDB ??= new(); } }
     public SkillDataBase SkillDB { get { return _skillDB ??= new(); } }
     public EnemyDataBase EnemyDB { get { return _enemyDB ??= new(); } }
+    public StageDataBase StageDB { get { return _stageDB ??= new(); } }
 }
 public class PlayerDataBase : DataBase<PlayerData>
 {
@@ -30,7 +33,6 @@ public class PlayerDataBase : DataBase<PlayerData>
         }
     }
 }
-
 public class SkillDataBase : DataBase<SkillData>
 {
     public SkillDataBase()
@@ -47,6 +49,17 @@ public class EnemyDataBase : DataBase<EnemyData>
     public EnemyDataBase()
     {
         var resources = DataManager.Instance.dataList.EnemyData;
+        foreach (var data in resources)
+        {
+            _data.Add(data.ID, data);
+        }
+    }
+}
+public class StageDataBase : DataBase<StageData>
+{
+    public StageDataBase()
+    {
+        var resources = DataManager.Instance.dataList.StageData;
         foreach (var data in resources)
         {
             _data.Add(data.ID, data);

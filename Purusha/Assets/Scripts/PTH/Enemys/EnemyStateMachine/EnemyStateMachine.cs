@@ -7,13 +7,13 @@ public class EnemyStateMachine : StateMachine
     public Enemy Enemy { get; }
     public EnemyIdleState IdleState { get; set; }
     public EnemyHitState HitState { get; set; }
-    public EnemyAttackState AttackState { get; set; }
+    public EnemySkill1State Skill1State { get; set; }
     public EnemyStateMachine(Enemy enemy)
     {
         this.Enemy = enemy;
 
         IdleState = new EnemyIdleState(this);
         HitState = new EnemyHitState(this);
-        AttackState = new EnemyAttackState(this);
+        Skill1State = new EnemySkill1State(this);
     }
 }
