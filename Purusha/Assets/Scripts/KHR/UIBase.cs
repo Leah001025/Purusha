@@ -1,39 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UIBase : MonoBehaviour
 {
-   // UI가 활성화 될때 홏
-
-    public virtual void Show()
+    [SerializeField] protected Button closeButton;
+    private void Awake()
     {
-        gameObject.SetActive(true);
-        OnShow();
+        CloseUI();
     }
 
-    //UI가 비활성화 될때
-    public virtual void Hide()
+    public virtual void CloseUI()
     {
-        gameObject.SetActive(false);
-        OnHide();
-    }
-
-    // UI가 활성화 된 이후, 추가적 로직 처리 (동작 커스텀을 위해, 현재는 작동 x )
-    protected virtual void OnShow()
-    {
-
-    }
-
-    // UI가 비활성화 된 이후, 추가적 로직 처리
-    protected virtual void OnHide()
-    {
-
-    }
-
-    //UI 초기화를 위한 메소드
-    public virtual void Initialize()
-    {
-
+        closeButton.onClick.AddListener(() => gameObject.SetActive(false));
     }
 }
