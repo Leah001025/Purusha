@@ -1,4 +1,5 @@
 using System;
+using UnityEngine;
 using System.Threading.Tasks;
 using UnityEngine.SceneManagement;
 
@@ -8,8 +9,10 @@ public class SceneLoadManager : SingleTon<SceneLoadManager>
 
     public string NowSceneName = "";
     public string NextSceneName = "";
+    public DataList DataList_;
     protected override void Awake()
     {
+        DataList_ = Resources.Load<DataList>("KCH/DataBase/DataList");
         base.Awake();
 
         NowSceneName = SceneManager.GetActiveScene().name;
@@ -51,4 +54,7 @@ public class SceneLoadManager : SingleTon<SceneLoadManager>
          NextSceneName = SceneName;
         ChangeScene("LoadingScene");
     }
+
+
+    
 }
