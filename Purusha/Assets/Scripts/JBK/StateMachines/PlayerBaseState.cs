@@ -54,14 +54,17 @@ public class PlayerBaseState : IState
         input.PlayerActions.Run.started -= OnRunStarted;
 
     }
+
     protected virtual void OnRunStarted(InputAction.CallbackContext context)
     {
 
     }
+
     protected virtual void OnMovementCanceled(InputAction.CallbackContext context)
     {
 
     }
+
     private void ReadMovementInput()
     {
         stateMachine.MovementInput = stateMachine.Player.Input.PlayerActions.Movement.ReadValue<Vector2>();
