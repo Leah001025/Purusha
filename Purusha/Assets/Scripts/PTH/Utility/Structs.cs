@@ -17,7 +17,7 @@ namespace Structs
             this.BreakGauge = enemyData.BreakGauge;
             this.PrefabPath = enemyData.PrefabPath;
             this.SpritePath = enemyData.SpritePath;
-    }
+        }
         public int ID;
         public string Name;
         public int Level;
