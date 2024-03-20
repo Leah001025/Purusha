@@ -16,8 +16,6 @@ public class Enemy : MonoBehaviour
 
     private EnemyStateMachine stateMachine;
 
-    public SEnemyData EnemyData;
-
     private void Awake()
     {
         AnimationData.Initialize();
