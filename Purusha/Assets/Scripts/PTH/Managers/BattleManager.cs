@@ -4,31 +4,26 @@ using UnityEngine;
 using Enums;
 using Structs;
 using System;
+using UnityEditor.PackageManager;
 public class UnitInfo
 {
     public int unitID;
-    public int unitType;
+    public CharacterType unitType;
     public float unitGauge;
     public GameObject unitObject;
-}
-public class StageInfo
-{
-    public int Enemy;
-    public int Player;
+    public SEnemyData unitData;
 }
 public class BattleManager : SingleTon<BattleManager>
 {
-    private List<UnitInfo> battleInfo;
+    private List<UnitInfo> lUnitInfo;
+    private UnitInfo unitInfo;
+
     private Queue<UnitInfo> attackOrder;
 
-    private SEnemyData enemyData;
-
+    private EnemyDataBase enemyDB;
     private StageDataBase stageDB;
 
-    public event Action SkillSlot1;
-    public event Action SkillSlot2;
-    public event Action SkillSlot3;
-    public event Action SkillSlot4;
+    private StageData stageData;
 
     public GameObject target;
 
@@ -38,90 +33,97 @@ public class BattleManager : SingleTon<BattleManager>
     {
         base.Awake();
         stageDB = DataManager.Instance.StageDB;
+        enemyDB = DataManager.Instance.EnemyDB;
     }
-
-    private void BattleStart()
+    public void BattleStart(int StageID)
     {
-        CreateUnit();
+        CreateUnit(StageID);
         StartCoroutine(AttackOrder());
     }
-    private void CreateUnit()
+    private void CreateUnit(int StageID)
     {
-        battleInfo = new List<UnitInfo>();
-        battleInfo.Add(new UnitInfo());
-        var _Resources = Resources.Load($"PTH/EnemyPrefabs/{battleInfo}");
+        lUnitInfo = new List<UnitInfo>();
+        stageData = stageDB.GetData(StageID);
+        for (int i = 0; stageData.Enemys.Count > i; i++)
+        {
+            for (int j = 0; stageData.Enemys[i]._enemyCount > j; j++)
+            {
+                unitInfo = new UnitInfo();
+                unitInfo.unitID = stageData.Enemys[i]._enemyID;
+                var _Resources = Resources.Load($"PTH/EnemyPrefabs/{enemyDB.GetData(unitInfo.unitID).Name}") as GameObject;
+                unitInfo.unitType = CharacterType.Enemy;
+                unitInfo.unitGauge = 0;
+                unitInfo.unitObject = Instantiate(_Resources);
+                unitInfo.unitData = CreateEnemyData(unitInfo.unitObject.tag);
 
-        attackOrder = new Queue<UnitInfo>();
-
-        var unitsObj = new GameObject("Units");
+                lUnitInfo.Add(unitInfo);
+            }
+        }
+    }
+    private SEnemyData CreateEnemyData(string name)
+    {
+        int _id = (int)Enum.Parse(typeof(EnemyID), name);
+        SEnemyData sEnemyData = new SEnemyData(DataManager.Instance.EnemyDB.GetData(_id));
+        return sEnemyData;
     }
     private IEnumerator AttackOrder()
     {
-        yield return null;
-        while (false)
+        int testtun = 200;  // 실험용@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+        attackOrder = new Queue<UnitInfo>();
+        while (testtun > 0)  // 실험용@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
         {
-            if (battleInfo != null)
+            yield return new WaitForSeconds(1f);
+            if (lUnitInfo != null)
             {
-                foreach (UnitInfo _unitData in battleInfo)
+                foreach (UnitInfo _unitData in lUnitInfo)
                 {
-                    switch ((CharacterType)_unitData.unitType)
+                    switch (_unitData.unitType)
                     {
                         case CharacterType.Player:
                             break;
                         case CharacterType.Enemy:
-                            enemyData = (SEnemyData)_unitData.unitObject.GetComponent<Enemy>().EnemyData;
-                            _unitData.unitGauge += (enemyData.Speed * DefaultUpGauge) * Time.deltaTime;
-                            Debug.Log(_unitData.unitID);// 실험용@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-                            Debug.Log(_unitData.unitGauge);// 실험용@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+                            _unitData.unitGauge += _unitData.unitData.Speed * DefaultUpGauge;
+                            Debug.Log($"{_unitData.unitObject.GetHashCode()},{_unitData.unitGauge}");// 실험용@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
                             break;
                     }
                 }
-                for (int i = 0; battleInfo.Count - 1 > i; i++)
+                for (int i = 1; lUnitInfo.Count > i; i++)
                 {
-                    for (int j = i + 1; battleInfo.Count > j; j++)
+                    float Gauge = lUnitInfo[i].unitGauge;
+                    unitInfo = lUnitInfo[i];
+                    for (int j = i - 1; j > 0 && lUnitInfo[j].unitGauge < Gauge; j--)
                     {
-                        if (battleInfo[i].unitGauge < battleInfo[j].unitGauge)
-                        {
-                            float temp = battleInfo[i].unitGauge;
-                            battleInfo[i].unitGauge = battleInfo[j].unitGauge;
-                            battleInfo[j].unitGauge = temp;
-                        }
+                        lUnitInfo[j + 1] = lUnitInfo[j];
+                        lUnitInfo[j + 1] = unitInfo;
                     }
                 }
-                for (int i = 0; battleInfo.Count > i; i++)
+                for (int i = 0; lUnitInfo.Count > i; i++)
                 {
-                    if (battleInfo[i].unitGauge >= DefaultGauge)
+                    if (lUnitInfo[i].unitGauge >= DefaultGauge)
                     {
-                        attackOrder.Enqueue(battleInfo[i]);
-                        battleInfo[i].unitGauge = 0;
+                        attackOrder.Enqueue(lUnitInfo[i]);
+                        lUnitInfo[i].unitGauge = 0;
                     }
                 }
                 if (attackOrder.Count >= 1)
                 {
                     yield return StartCoroutine(UnitAttack(attackOrder.Dequeue()));
                 }
+                testtun--;  // 실험용@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
             }
         }
     }
     private IEnumerator UnitAttack(UnitInfo attackOrder)
     {
         yield return null;
-        switch ((CharacterType)attackOrder.unitType)
+        switch (attackOrder.unitType)
         {
             case CharacterType.Player:
                 break;
             case CharacterType.Enemy:
-                attackOrder.unitObject.GetComponent<CharacterActionController>();
+                attackOrder.unitObject.GetComponent<CharacterActionController>().Skill1();
                 Debug.Log(attackOrder.unitID); // 실험용@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
                 break;
         }
-    }
-    public void OnDamage(float damage,int skillRange, GameObject target)
-    {
-
-    }
-    public void StageEnemy()
-    {
-
     }
 }
