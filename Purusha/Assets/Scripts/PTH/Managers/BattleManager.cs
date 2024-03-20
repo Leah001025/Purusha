@@ -26,6 +26,7 @@ public class BattleManager : SingleTon<BattleManager>
     private StageData stageData;
 
     public GameObject target;
+    private WaitForSeconds forSeconds;
 
     private float DefaultGauge = 100.0f;
     private float DefaultUpGauge = 5.0f;
@@ -38,6 +39,7 @@ public class BattleManager : SingleTon<BattleManager>
     public void BattleStart(int StageID)
     {
         CreateUnit(StageID);
+        ForSeconds(0.15f);
         StartCoroutine(AttackOrder());
     }
     private void CreateUnit(int StageID)
@@ -72,7 +74,7 @@ public class BattleManager : SingleTon<BattleManager>
         attackOrder = new Queue<UnitInfo>();
         while (testtun > 0)  // 실험용@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
         {
-            yield return new WaitForSeconds(1f);
+            yield return forSeconds;
             if (lUnitInfo != null)
             {
                 foreach (UnitInfo _unitData in lUnitInfo)
@@ -125,5 +127,11 @@ public class BattleManager : SingleTon<BattleManager>
                 Debug.Log(attackOrder.unitID); // 실험용@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
                 break;
         }
+        yield break;
+    }
+    public WaitForSeconds ForSeconds(float time)
+    {
+        forSeconds = new WaitForSeconds(time);
+        return forSeconds;
     }
 }
