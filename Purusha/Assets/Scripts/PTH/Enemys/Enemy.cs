@@ -16,35 +16,17 @@ public class Enemy : MonoBehaviour
 
     private EnemyStateMachine stateMachine;
 
-    private SEnemyData? enemyData;
-    public SEnemyData? EnemyData { 
-        get { if (enemyData == null)
-                enemyData = CreateEnemyData(enemyHash); 
-                    return enemyData; } 
-        set { } }
-
-    private string enemyHash;
+    public SEnemyData EnemyData;
 
     private void Awake()
     {
-        enemyHash = gameObject.tag;
         AnimationData.Initialize();
         actionController = GetComponent<CharacterActionController>();
         Animator = GetComponent<Animator>();
         stateMachine = new EnemyStateMachine(this);
     }
-    void Start()
+    private void Start()
     {
         stateMachine.ChangeState(stateMachine.IdleState);
-    }
-    void Update()
-    {
-
-    }
-    private SEnemyData CreateEnemyData(string name)
-    {
-        int _id = (int)Enum.Parse(typeof(EnemyID), name);
-        SEnemyData sEnemyData = new SEnemyData(DataManager.Instance.EnemyDB.GetData(_id));
-        return sEnemyData;
     }
 }
