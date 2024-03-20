@@ -5,36 +5,27 @@ using UnityEngine.Assertions;
 
 public class ResourceManager : SingleTon<ResourceManager>
 {
-    public GameObject Instantiate(string path)
+    public T Load<T>(string path) where T : Object
     {
-        var obj = Resources.Load<GameObject>(path);
-        Assert.IsNotNull(obj, $"Prefab Load Faill : {path}");
-        GameObject result = Instantiate(obj);
-        return result;
-    }
-    public GameObject Instantiate(string path, Transform parent)
-    {
-        var obj = Resources.Load<GameObject>(path);
-        Assert.IsNotNull(obj, $"Prefab Load Faill : {path}");
-        GameObject result = Instantiate(obj, parent);
-        return result;
-    }
-    public GameObject Instantiate(string path, Vector3 position)
-    {
-        var obj = Resources.Load<GameObject>(path);
-        Assert.IsNotNull(obj, $"Prefab Load Faill : {path}");
-        GameObject result = Instantiate(obj, position, Quaternion.identity);
-        return result;
-    }
-    public GameObject LoadPrefab(string path)
-    {
-        var obj = Resources.Load<GameObject>(path);
-        Assert.IsNotNull(obj, $"Prefab Load Faill : {path}");
-        return obj;
+        return Resources.Load<T>(path);
     }
 
-    public void UnloadUnusedAssets()
+    public GameObject Instantiate(string path, Transform parent = null)
     {
-        Resources.UnloadUnusedAssets();
+        GameObject prefab = Load<GameObject>($"Prefabs/{path}");
+        if (prefab == null)
+        {
+            Debug.Log($"Failed to load prefab : {path}");
+            return null;
+        }
+
+        return Instantiate(prefab, parent);
+    }
+
+    public GameObject Instantiate(GameObject prefab, Transform parent = null)
+    {
+        GameObject go = Object.Instantiate(prefab, parent);
+        go.name = prefab.name;
+        return go;
     }
 }
