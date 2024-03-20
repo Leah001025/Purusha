@@ -13,6 +13,11 @@ public class EnemyBaseState : IState
         stateMachine = enemyStateMachine;
         actionController = stateMachine.Enemy.actionController;
     }
+    public virtual void HandleInput()
+    {
+
+    }
+
     public virtual void Enter()
     {
         actionController.OnHit += OnEnemyHit;
