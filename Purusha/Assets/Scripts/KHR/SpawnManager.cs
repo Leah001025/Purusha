@@ -10,13 +10,15 @@ public class SpawnManager : SingleTon<SpawnManager>
 
     private void Awake()
     {
+
     }
     public void SettingSpawnPoints()
     {
-        GameObject spawnPoints = new GameObject("SpawnPoints");
-        ResourceManager.Instance.Instantiate("Monster/Stage1-1_SpawnPoint", spawnPoints.transform);
-        ResourceManager.Instance.Instantiate("Monster/Stage1-2_SpawnPoint", spawnPoints.transform);
-        ResourceManager.Instance.Instantiate("Monster/Stage1-3_SpawnPoint", spawnPoints.transform);
-
+        GameObject spawnPointsObject = new GameObject("SpawnPoints");
+      
+        SpawnPoints.Add(ResourceManager.Instance.Instantiate("Monster/Stage1-1_SpawnPoint", spawnPointsObject.transform).transform);
+        SpawnPoints.Add(ResourceManager.Instance.Instantiate("Monster/Stage1-2_SpawnPoint", spawnPointsObject.transform).transform);
+        SpawnPoints.Add(ResourceManager.Instance.Instantiate("Monster/Stage1-3_SpawnPoint", spawnPointsObject.transform).transform);
+        
     }
 }
