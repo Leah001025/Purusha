@@ -52,6 +52,7 @@ public abstract class SingleTon<T> : MonoBehaviour where T : SingleTon<T>
         }
         else
         {
+            if(gameObject.name!= "BattleManager")
             DontDestroyOnLoad(this);
         }
     }
