@@ -2,17 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyRunState : MonoBehaviour
+public class EnemyRunState : EnemyBaseState
 {
-    // Start is called before the first frame update
-    void Start()
+    public EnemyRunState(EnemyStateMachine enemyStateMachine) : base(enemyStateMachine)
     {
-        
+
     }
 
-    // Update is called once per frame
-    void Update()
+    public override void Enter()
     {
-        
+        base.Enter();
+        StartAnimation(stateMachine.Enemy.AnimationData.RunParameterHash);
+    }
+    public override void Exit()
+    {
+        base.Exit();
+        StopAnimation(stateMachine.Enemy.AnimationData.RunParameterHash);
+    }
+    public override void Update()
+    {
+        base.Update();
     }
 }

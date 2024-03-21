@@ -19,7 +19,7 @@ public class Enemy : MonoBehaviour
     private void Awake()
     {
         AnimationData.Initialize();
-        actionController = GetComponent<CharacterActionController>();
+        actionController = new CharacterActionController();
         Animator = GetComponentInChildren<Animator>();
         stateMachine = new EnemyStateMachine(this);
     }

@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4877021019221652636}
   - component: {fileID: 9193084071170415419}
-  - component: {fileID: 6981945872428898784}
   m_Layer: 7
   m_Name: Drone
   m_TagString: Drone
@@ -26,14 +25,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 921065181304332348}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6897973027014922946}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &9193084071170415419
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -48,20 +47,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <AnimationData>k__BackingField:
     idleParameterName: Idle
+    runParameterName: Run
     hitParameterName: Hit
     skill1ParameterName: Skill1
---- !u!114 &6981945872428898784
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 921065181304332348}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5273177624b98de419d1ee4e3db9a831, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+    skill2ParameterName: Skill2
 --- !u!1001 &6897973027015051330
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -77,6 +66,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 28723f10c2a8e094a9351e892f5271b8, type: 3}
       propertyPath: m_Layer
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 28723f10c2a8e094a9351e892f5271b8, type: 3}
+      propertyPath: m_TagString
+      value: Drone
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 28723f10c2a8e094a9351e892f5271b8, type: 3}
       propertyPath: m_LocalScale.x

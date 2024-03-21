@@ -659,7 +659,7 @@ MonoBehaviour:
     _avoid: 10
     _speed: 1
     _breakGauge: 100
-    _prefabPath: 
+    _prefabPath: Prefabs/Monster/Drone
     _spritePath: 
   - _id: 201001
     _name: CodeNumber001
@@ -672,7 +672,7 @@ MonoBehaviour:
     _avoid: 20
     _speed: 1.5
     _breakGauge: 300
-    _prefabPath: 
+    _prefabPath: Prefabs/Monster/CodeNumber001
     _spritePath: 
   - _id: 301001
     _name: JaekyungMon

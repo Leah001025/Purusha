@@ -6,6 +6,7 @@ using Structs;
 using System;
 using UnityEditor.PackageManager;
 using Unity.Burst.Intrinsics;
+using Unity.VisualScripting;
 public class UnitInfo
 {
     public int unitID;
@@ -22,32 +23,54 @@ public class BattleManager : SingleTon<BattleManager>
     private Dictionary<int, CharacterTurnController> turnControllers = new Dictionary<int, CharacterTurnController>(5);
     private UnitInfo unitInfo;
 
-    private Queue<UnitInfo> attackOrder;
+    private Queue<int> attackOrder;
+
+    [HideInInspector]
     public Transform targerTrans;
+    [HideInInspector]
+    public GameObject target;
+    [SerializeField]
+    private Transform stageTrans;
 
     private EnemyDataBase enemyDB;
     private StageDataBase stageDB;
 
     private StageData stageData;
 
-    public GameObject target;
-    private WaitForSeconds forSeconds;
+    private WaitForSeconds gameForSeconds;
+    private WaitForSeconds animForSeconds;
 
+    private CharacterActionController characterActionController;
+
+    [HideInInspector]
     public int tempIndex;
-    public bool isAttacking=false;
-    private Vector3[] playerPos = new Vector3[5];
-    private Vector3[] enemyPos = new Vector3[5];
+    [HideInInspector]
+    public bool isAttacking = false;
+    private bool playerAttack = true;
+
+    private Vector3[] playerSpawnPos = new Vector3[5];
+    private Vector3[] enemySpawnPos = new Vector3[5];
     public float speedModifier = 1;
+
+    [HideInInspector]
     public float turnIndicator1;
+    [HideInInspector]
     public float turnIndicator2;
+    [HideInInspector]
     public float turnIndicator3;
+    [HideInInspector]
     public float turnIndicator4;
+    [HideInInspector]
     public float turnIndicator5;
-    public event Action skill1;
-    public event Action skill2;
-    public event Action skill3;
-    public event Action skill4;
-    //public bool isAttacking = false;
+
+    [HideInInspector]
+    public float animTime;
+
+    public Action skill1;
+    public Action skill2;
+    public Action skill3;
+    public Action skill4;
+
     private float DefaultGauge = 100.0f;
     private float DefaultUpGauge = 1.0f;
     protected override void Awake()
@@ -57,7 +80,7 @@ public class BattleManager : SingleTon<BattleManager>
         enemyDB = DataManager.Instance.EnemyDB;
         lUnitInfo = new List<UnitInfo>();
         teamData = GameManager.Instance.User.teamData;
-        SetPos();
+        SetSpawnPos();
         BattleStart(110101);
     }
     private void Start()
@@ -68,12 +91,11 @@ public class BattleManager : SingleTon<BattleManager>
     {
         AddUnitInfo();
         CreateUnit(StageID);
-        ForSeconds(0.03f);
-        //target = lUnitInfo.Find(x => x.unitType == CharacterType.Enemy).unitObject;        
+        GameForSeconds(0.03f);
         StartCoroutine(AttackOrder());
     }
     private void CreateUnit(int StageID)
-    {        
+    {
         stageData = stageDB.GetData(StageID);
         for (int i = 0; stageData.Enemys.Count > i; i++)
         {
@@ -81,14 +103,17 @@ public class BattleManager : SingleTon<BattleManager>
             {
                 unitInfo = new UnitInfo();
                 unitInfo.unitID = stageData.Enemys[i]._enemyID;
-                var _Resources = Resources.Load($"PTH/EnemyPrefabs/{enemyDB.GetData(unitInfo.unitID).Name}") as GameObject;
+                var _Resources = Resources.Load(enemyDB.GetData(unitInfo.unitID).PrefabPath) as GameObject;
                 unitInfo.unitType = CharacterType.Enemy;
                 unitInfo.unitGauge = 0;
-                unitInfo.unitObject = Instantiate(_Resources);
-                unitInfo.unitObject.transform.position = enemyPos[j];
+                unitInfo.unitObject = Instantiate(_Resources, stageTrans);
+                unitInfo.unitObject.transform.localPosition = enemySpawnPos[j];
+                unitInfo.unitObject.transform.GetChild(0).transform.AddComponent<EnemyClickController>();
                 unitInfo.unitData = CreateEnemyData(unitInfo.unitObject.tag);
 
                 lUnitInfo.Add(unitInfo);
+
+                targerTrans = unitInfo.unitObject.transform;
             }
         }
     }
@@ -103,13 +128,13 @@ public class BattleManager : SingleTon<BattleManager>
                 var Resource = Resources.Load<GameObject>($"KCH/Prefabs/{teamData[i].status.name}");
                 unitInfo.unitType = CharacterType.Player;
                 unitInfo.unitGauge = 0;
-                unitInfo.unitObject = Instantiate(Resource);
+                unitInfo.unitObject = Instantiate(Resource, stageTrans);
                 if (!turnControllers.ContainsKey(unitInfo.unitID))
                 {
                     turnControllers.Add(unitInfo.unitID, unitInfo.unitObject.GetComponent<CharacterTurnController>());
                 }
                 turnControllers[unitInfo.unitID].teamIndex = i;
-                unitInfo.unitObject.transform.position = playerPos[i - 1];
+                unitInfo.unitObject.transform.localPosition = playerSpawnPos[i - 1];
                 unitInfo.characterData = CreateCharacterData(i);
                 lUnitInfo.Add(unitInfo);
             }
@@ -130,18 +155,18 @@ public class BattleManager : SingleTon<BattleManager>
     private IEnumerator AttackOrder()
     {
         int testtun = 992200;  // 실험용@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-        attackOrder = new Queue<UnitInfo>();
+        attackOrder = new Queue<int>();
         while (testtun > 0)  // 실험용@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
         {
-            yield return forSeconds;
-            if (lUnitInfo != null&&!isAttacking)
+            yield return gameForSeconds;
+            if (lUnitInfo != null && !isAttacking)
             {
                 foreach (UnitInfo _unitData in lUnitInfo)
                 {
                     switch (_unitData.unitType)
                     {
                         case CharacterType.Player:
-                            _unitData.unitGauge += _unitData.characterData.status.speed*speedModifier * DefaultUpGauge;
+                            _unitData.unitGauge += _unitData.characterData.status.speed * speedModifier * DefaultUpGauge;
                             break;
                         case CharacterType.Enemy:
                             _unitData.unitGauge += _unitData.unitData.Speed * speedModifier * DefaultUpGauge;
@@ -153,11 +178,11 @@ public class BattleManager : SingleTon<BattleManager>
                 {
                     int j = i - 1;
                     float Gauge = lUnitInfo[i].unitGauge;
-                    while(j>=0&& lUnitInfo[j].unitGauge < Gauge)
+                    while (j >= 0 && lUnitInfo[j].unitGauge < Gauge)
                     {
                         UnitInfo temp = lUnitInfo[j];
-                        lUnitInfo[j] = lUnitInfo[j+1];
-                        lUnitInfo[j+1] = temp;
+                        lUnitInfo[j] = lUnitInfo[j + 1];
+                        lUnitInfo[j + 1] = temp;
                         j--;
                     }
                 }
@@ -165,57 +190,88 @@ public class BattleManager : SingleTon<BattleManager>
                 {
                     if (lUnitInfo[i].unitGauge >= DefaultGauge)
                     {
-                        attackOrder.Enqueue(lUnitInfo[i]);
+                        attackOrder.Enqueue(i);
+                        Debug.Log("attackOrder");
                         tempIndex = i;
-                        //lUnitInfo[i].unitGauge = 0; 행동 한 후에 게이지를 0으로 바꿔주려고 변경
                     }
                 }
-                if (attackOrder.Count >= 1)
+                while (attackOrder.Count > 0)
                 {
-                    speedModifier = 0;
-                    isAttacking = true;
-                    StartCoroutine(UnitAttack(attackOrder.Dequeue()));                    
+                    yield return StartCoroutine(UnitAttack(attackOrder.Peek()));
+                    attackOrder.Dequeue();
                 }
-                testtun--;  // 실험용@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
             }
+            testtun--;  // 실험용@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
         }
     }
-    private IEnumerator UnitAttack(UnitInfo attackOrder)
+    private IEnumerator UnitAttack(int index)
     {
-        yield return null;
-        switch (attackOrder.unitType)
+        switch (lUnitInfo[index].unitType)
         {
             case CharacterType.Player:
-                turnControllers[attackOrder.unitID].TurnOn();                
+                int waitTime = 10;
+                turnControllers[lUnitInfo[index].unitID].TurnOn();
                 var popup = UIManager.Instance.ShowPopup<SkillPopUp>();
+                while (!playerAttack && waitTime != 0)
+                {
+                    yield return new WaitForSeconds(1);
+                    waitTime--;
+                }
+                playerAttack = false;
                 break;
             case CharacterType.Enemy:
-                attackOrder.unitObject.GetComponent<CharacterActionController>().Skill1();
-                lUnitInfo[tempIndex].unitGauge = 0;
+                var isAnimTime = animTime;
+                characterActionController = lUnitInfo[index].unitObject.GetComponent<Enemy>().actionController;
+                EnemyAttack(characterActionController);
+                AnimForSeconds(isAnimTime, animTime);
+
                 speedModifier = 1;
                 isAttacking = false;
-                Debug.Log(attackOrder.unitID); // 실험용@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+                yield return animForSeconds;
+                //딜계산
+                lUnitInfo[index].unitGauge = 0;
+                characterActionController.Idle();
                 break;
         }
         yield break;
     }
-    public WaitForSeconds ForSeconds(float time)
+    public WaitForSeconds GameForSeconds(float time)
     {
-        forSeconds = new WaitForSeconds(time);
-        return forSeconds;
+        gameForSeconds = new WaitForSeconds(time);
+        return gameForSeconds;
     }
-    private void SetPos()
+    public WaitForSeconds AnimForSeconds(float IsAnimTime, float animTime)
     {
-        playerPos[0] = new Vector3(1, 1, -5);
-        playerPos[1] = new Vector3(5, 1, -5);
-        playerPos[2] = new Vector3(-1, 1, -8);
-        playerPos[3] = new Vector3(3, 1, -8);
-        playerPos[4] = new Vector3(7, 1, -8);
-        enemyPos[0] = new Vector3(1, 2, 5);
-        enemyPos[1] = new Vector3(5, 2, 5);
-        enemyPos[2] = new Vector3(-1, 2, 8);
-        enemyPos[3] = new Vector3(3, 2, 8);
-        enemyPos[4] = new Vector3(7, 2, 8);
+        if (IsAnimTime != animTime)
+        {
+            animForSeconds = new WaitForSeconds(animTime);
+        }
+        return animForSeconds;
+    }
+    private void EnemyAttack(CharacterActionController Action)
+    {
+        if (false) //몬스터 스킬 쿨타임
+        {
+            characterActionController.Skill2();
+        }
+        else
+        {
+            characterActionController.Skill1();
+        }
+    }
+    private void SetSpawnPos()
+    {
+        playerSpawnPos[0] = new Vector3(0, 0, -5f);
+        playerSpawnPos[1] = new Vector3(4, 0, -5f);
+        playerSpawnPos[2] = new Vector3(-1, 0, -6.5f);
+        playerSpawnPos[3] = new Vector3(2, 0, -6.5f);
+        playerSpawnPos[4] = new Vector3(5, 0, -6.5f);
+
+        enemySpawnPos[0] = new Vector3(0, 0, -1.5f);
+        enemySpawnPos[1] = new Vector3(4, 0, -1.5f);
+        enemySpawnPos[2] = new Vector3(-1, 0, -0.5f);
+        enemySpawnPos[3] = new Vector3(2, 0, -0.5f);
+        enemySpawnPos[4] = new Vector3(5, 0, -0.5f);
     }
 
     public void SetTurnIndicator(int teamIndex, float curtime)
@@ -259,17 +315,21 @@ public class BattleManager : SingleTon<BattleManager>
     public void CallSkill1Event()
     {
         skill1?.Invoke();
+        playerAttack = true;
     }
     public void CallSkill2Event()
     {
         skill2?.Invoke();
+        playerAttack = true;
     }
     public void CallSkill3Event()
     {
         skill3?.Invoke();
+        playerAttack = true;
     }
     public void CallSkill4Event()
     {
         skill4?.Invoke();
+        playerAttack = true;
     }
 }
