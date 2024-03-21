@@ -8,8 +8,9 @@ public class MapSetting : MonoBehaviour
     private void Awake()
     {
         SpawnManager.Instance.SettingSpawnPoints();
+        SpawnManager.Instance.SpawnStage1_Monsters();
 
     }
 
-    
+
 }
