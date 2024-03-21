@@ -24,6 +24,7 @@ public class CharacterStatus
     public int iD;
     public string name;
     public float health;
+    public float maxhealth;
     public int level;
     public int exp;
     public int equipLevel;
@@ -40,6 +41,7 @@ public class CharacterStatus
         iD = data.ID;
         name = data.Name;
         health = data.Health;
+        maxhealth = data.MaxHealth;
         level = data.Level;
         exp = data.Exp;
         equipLevel = data.EquipLevel;

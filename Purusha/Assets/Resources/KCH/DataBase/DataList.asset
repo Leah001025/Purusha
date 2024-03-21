@@ -13,78 +13,78 @@ MonoBehaviour:
   m_Name: DataList
   m_EditorClassIdentifier: 
   PlayerData:
-  - ID: 101
-    Name: Breesha
-    Health: 3000
-    Level: 1
+  - ID: 0
+    Name: 
+    Health: 0
+    Level: 0
     Exp: 0
-    EquipLevel: 1
-    Atk: 110
-    Def: 60
-    CriticalChance: 50
-    CriticalDamage: 140
-    Avoid: 10
-    Speed: 1
-  - ID: 102
-    Name: Eve
-    Health: 2500
-    Level: 1
+    EquipLevel: 0
+    Atk: 0
+    Def: 0
+    CriticalChance: 0
+    CriticalDamage: 0
+    Avoid: 0
+    Speed: 0
+  - ID: 0
+    Name: 
+    Health: 0
+    Level: 0
     Exp: 0
-    EquipLevel: 1
-    Atk: 70
-    Def: 50
-    CriticalChance: 50
-    CriticalDamage: 100
-    Avoid: 10
-    Speed: 1
-  - ID: 103
-    Name: Adam
-    Health: 2500
-    Level: 1
+    EquipLevel: 0
+    Atk: 0
+    Def: 0
+    CriticalChance: 0
+    CriticalDamage: 0
+    Avoid: 0
+    Speed: 0
+  - ID: 0
+    Name: 
+    Health: 0
+    Level: 0
     Exp: 0
-    EquipLevel: 1
-    Atk: 100
-    Def: 40
-    CriticalChance: 50
-    CriticalDamage: 130
-    Avoid: 10
-    Speed: 1
-  - ID: 104
-    Name: Abel
-    Health: 2000
-    Level: 1
+    EquipLevel: 0
+    Atk: 0
+    Def: 0
+    CriticalChance: 0
+    CriticalDamage: 0
+    Avoid: 0
+    Speed: 0
+  - ID: 0
+    Name: 
+    Health: 0
+    Level: 0
     Exp: 0
-    EquipLevel: 1
-    Atk: 30
-    Def: 30
-    CriticalChance: 50
-    CriticalDamage: 60
-    Avoid: 10
-    Speed: 1
-  - ID: 105
-    Name: Kain
-    Health: 2000
-    Level: 1
+    EquipLevel: 0
+    Atk: 0
+    Def: 0
+    CriticalChance: 0
+    CriticalDamage: 0
+    Avoid: 0
+    Speed: 0
+  - ID: 0
+    Name: 
+    Health: 0
+    Level: 0
     Exp: 0
-    EquipLevel: 1
-    Atk: 110
-    Def: 30
-    CriticalChance: 50
-    CriticalDamage: 140
-    Avoid: 15
-    Speed: 1.2
-  - ID: 106
-    Name: Japheth
-    Health: 4000
-    Level: 1
+    EquipLevel: 0
+    Atk: 0
+    Def: 0
+    CriticalChance: 0
+    CriticalDamage: 0
+    Avoid: 0
+    Speed: 0
+  - ID: 0
+    Name: 
+    Health: 0
+    Level: 0
     Exp: 0
-    EquipLevel: 1
-    Atk: 50
-    Def: 100
-    CriticalChance: 50
-    CriticalDamage: 80
-    Avoid: 8
-    Speed: 0.8
+    EquipLevel: 0
+    Atk: 0
+    Def: 0
+    CriticalChance: 0
+    CriticalDamage: 0
+    Avoid: 0
+    Speed: 0
   SkillData:
   - ID: 101011
     Name: "\uC77C\uBC18\uACF5\uACA9"
