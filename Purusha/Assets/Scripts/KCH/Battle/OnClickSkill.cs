@@ -6,18 +6,18 @@ public class OnClickSkill : MonoBehaviour
 {
     public void OnClickSkill1()
     {
-        TestBattle.Instance.CallSkill1Event();
+        BattleManager.Instance.CallSkill1Event();
     }
     public void OnClickSkill2()
     {
-        TestBattle.Instance.CallSkill2Event();
+        BattleManager.Instance.CallSkill2Event();
     }
     public void OnClickSkill3()
     {
-        TestBattle.Instance.CallSkill3Event();
+        BattleManager.Instance.CallSkill3Event();
     }
     public void OnClickSkill4()
     {
-        TestBattle.Instance.CallSkill4Event();
+        BattleManager.Instance.CallSkill4Event();
     }
 }
