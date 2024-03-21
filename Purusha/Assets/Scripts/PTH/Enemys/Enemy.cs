@@ -20,7 +20,7 @@ public class Enemy : MonoBehaviour
     {
         AnimationData.Initialize();
         actionController = GetComponent<CharacterActionController>();
-        Animator = GetComponent<Animator>();
+        Animator = GetComponentInChildren<Animator>();
         stateMachine = new EnemyStateMachine(this);
     }
     private void Start()

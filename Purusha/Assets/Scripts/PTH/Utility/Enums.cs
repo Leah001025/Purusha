@@ -7,6 +7,7 @@ namespace Enums
     }
     public enum EnemyID
     {
-        Drone = 101001
+        Drone = 101001,
+        CodeNumber001 = 201001
     }
 }

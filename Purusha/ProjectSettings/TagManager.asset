@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Drone
   - Enemy
+  - CodeNumber001
   layers:
   - Default
   - TransparentFX
