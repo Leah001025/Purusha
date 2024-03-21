@@ -49,23 +49,23 @@ public class TestBattle : SingleTon<TestBattle>
     {
         skill4?.Invoke();
     }
-    public void SetTurnIndicator(string teamIndex, float curtime)
+    public void SetTurnIndicator(int teamIndex, float curtime)
     {
         switch (teamIndex)
         {
-            case "1":
+            case 1:
                 turnIndicator1 = curtime * 200;
                 break;
-            case "2":
+            case 2:
                 turnIndicator2 = curtime * 200;
                 break;
-            case "3":
+            case 3:
                 turnIndicator3 = curtime * 200;
                 break;
-            case "4":
+            case 4:
                 turnIndicator4 = curtime * 200;
                 break;
-            case "5":
+            case 5:
                 turnIndicator5 = curtime * 200;
                 break;
         }
