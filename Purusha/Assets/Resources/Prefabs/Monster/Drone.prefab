@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4877021019221652636}
-  - component: {fileID: 5361672375669232687}
   - component: {fileID: 9193084071170415419}
   - component: {fileID: 6981945872428898784}
   m_Layer: 7
@@ -35,27 +34,6 @@ Transform:
   - {fileID: 6897973027014922946}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &5361672375669232687
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 921065181304332348}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 0e0a7845b3d0fb64db7021546eedc21a, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &9193084071170415419
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -70,8 +48,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <AnimationData>k__BackingField:
     idleParameterName: Idle
-    attackParameterName: Attack
     hitParameterName: Hit
+    skill1ParameterName: Skill1
 --- !u!114 &6981945872428898784
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -101,12 +79,24 @@ PrefabInstance:
       value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 28723f10c2a8e094a9351e892f5271b8, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 28723f10c2a8e094a9351e892f5271b8, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 28723f10c2a8e094a9351e892f5271b8, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 28723f10c2a8e094a9351e892f5271b8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 28723f10c2a8e094a9351e892f5271b8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 28723f10c2a8e094a9351e892f5271b8, type: 3}
       propertyPath: m_LocalPosition.z
@@ -143,7 +133,15 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 100000, guid: 28723f10c2a8e094a9351e892f5271b8,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 387036374952510882}
+    - targetCorrespondingSourceObject: {fileID: 100000, guid: 28723f10c2a8e094a9351e892f5271b8,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4410899931043561813}
   m_SourcePrefab: {fileID: 100100000, guid: 28723f10c2a8e094a9351e892f5271b8, type: 3}
 --- !u!4 &6897973027014922946 stripped
 Transform:
@@ -151,3 +149,52 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 6897973027015051330}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &6897973027015020258 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100000, guid: 28723f10c2a8e094a9351e892f5271b8,
+    type: 3}
+  m_PrefabInstance: {fileID: 6897973027015051330}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &387036374952510882
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6897973027015020258}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0e0a7845b3d0fb64db7021546eedc21a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!64 &4410899931043561813
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6897973027015020258}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 28723f10c2a8e094a9351e892f5271b8, type: 3}

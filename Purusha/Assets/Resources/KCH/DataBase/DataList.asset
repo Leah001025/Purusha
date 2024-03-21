@@ -662,16 +662,16 @@ MonoBehaviour:
     _prefabPath: 
     _spritePath: 
   - _id: 201001
-    _name: TaehoMon
+    _name: CodeNumber001
     _level: 5
-    _health: 5000
-    _atk: 200
-    _def: 100
+    _health: 6000
+    _atk: 150
+    _def: 20
     _criticalChance: 50
-    _criticalDamage: 200
-    _avoid: 50
-    _speed: 5
-    _breakGauge: 200
+    _criticalDamage: 150
+    _avoid: 20
+    _speed: 1.5
+    _breakGauge: 300
     _prefabPath: 
     _spritePath: 
   - _id: 301001
