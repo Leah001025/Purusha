@@ -14,7 +14,7 @@ public class TurnIndicator : MonoBehaviour
     }
     private void Update()
     {
-        chracterTurnPos.y = TestBattle.Instance.GetTurnIndicator(characterID);
+        chracterTurnPos.y = BattleManager.Instance.GetTurnIndicator(characterID);
         gameObject.GetComponent<RectTransform>().anchoredPosition = chracterTurnPos;
     }
 }
