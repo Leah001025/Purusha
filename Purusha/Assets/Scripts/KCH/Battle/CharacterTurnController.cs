@@ -29,7 +29,7 @@ public class CharacterTurnController : MonoBehaviour
             unitInfo = battleManager.lUnitInfo.Find(x => x.unitID == characterData.status.iD);
         }        
         isCharacterTurn = false;
-        runHash = Animator.StringToHash("Run");
+        runHash = Animator.StringToHash("isRun");
         battleManager.skill1 += Skill1;
         battleManager.skill2 += Skill2;
         battleManager.skill3 += Skill3;
