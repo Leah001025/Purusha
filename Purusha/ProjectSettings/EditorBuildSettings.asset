@@ -15,7 +15,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Main.unity
     guid: 867996bbc5e8b9445b7fd22f7bc506b7
   - enabled: 1
-    path: Assets/Scenes/Dev_Main_Scene.unity
+    path: Assets/Resources/Prefabs/Scene/Dev_Main_Scene.unity
     guid: a55deded4a3793f4b92fbbf80e50d700
   - enabled: 1
     path: Assets/Scenes/SampleScene.unity
