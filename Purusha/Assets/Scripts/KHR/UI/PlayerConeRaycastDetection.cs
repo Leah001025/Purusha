@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System;
+using Cinemachine;
+using UnityEngine.UI;
 
 public class PlayerConeRaycastDetection : MonoBehaviour
 {
@@ -12,7 +14,11 @@ public class PlayerConeRaycastDetection : MonoBehaviour
     public string BattleScene__; // 전투 씬의 이름
     public LayerMask monsterLayer; // 몬스터 레이어
     private Vector3 startPos;
+    private Vector3 targetPos;
     private float detectionTimer = 0.0f;
+    public CinemachineBrain cinemachineBrain;
+    public Image battleEffect;
+    private bool isBattle = false;
 
     private void Start()
     {
@@ -28,6 +34,11 @@ public class PlayerConeRaycastDetection : MonoBehaviour
         //    //PerformConeRaycast();
         //    detectionTimer = 0.0f; // 타이머 초기화
         //}
+        if (isBattle)
+        {
+            Camera.main.transform.position = Vector3.Lerp(Camera.main.transform.position, targetPos, 1f * Time.deltaTime);
+            battleEffect.color = Color.Lerp(battleEffect.color, new Color(1, 1, 1, 1), 1f * Time.deltaTime);
+        }
     }
 
     void PerformConeRaycast()
@@ -46,9 +57,10 @@ public class PlayerConeRaycastDetection : MonoBehaviour
         foreach (var ray in rays)
         {
             if (Physics.Raycast(ray, out hit, detectionDistance, monsterLayer))
-            {
+            {                
                 Debug.Log("바이오닉스를 감지했습니다. 바이오닉스 이름: " + hit.collider.name);
-                SceneManager.LoadScene("BattleScene__"); // 전투 씬으로 전환
+                EnterBattle(hit);
+                //SceneManager.LoadScene("BattleScene__");  전투 씬으로 전환
                 return;
             }
         }
@@ -66,6 +78,21 @@ public class PlayerConeRaycastDetection : MonoBehaviour
         Gizmos.DrawRay(startPos, rightSpread * detectionDistance);
 
     }
+    private void EnterBattle(RaycastHit hit)
+    {
+
+        isBattle = true;
+        targetPos = hit.collider.transform.position;
+        cinemachineBrain.enabled = false;
+        StartCoroutine(CameraControll());
+
+    }
+    private IEnumerator CameraControll()
+    {
+        yield return new WaitForSeconds(1.5f);
+        isBattle = false;
+        SceneLoadManager.Instance.ChangeScene("BattleScene__");
+    }
 
     private IEnumerator StartDetect()
     {
@@ -73,6 +100,7 @@ public class PlayerConeRaycastDetection : MonoBehaviour
         while (true)
         {
             yield return detectDelay;
+            if(!isBattle)
             PerformConeRaycast();
         }
     }

@@ -191,12 +191,12 @@ public class BattleManager : SingleTon<BattleManager>
                     if (lUnitInfo[i].unitGauge >= DefaultGauge)
                     {
                         attackOrder.Enqueue(i);
-                        Debug.Log("attackOrder");
                         tempIndex = i;
                     }
                 }
                 while (attackOrder.Count > 0)
                 {
+                    isAttacking = true;
                     yield return StartCoroutine(UnitAttack(attackOrder.Peek()));
                     attackOrder.Dequeue();
                 }
@@ -209,14 +209,14 @@ public class BattleManager : SingleTon<BattleManager>
         switch (lUnitInfo[index].unitType)
         {
             case CharacterType.Player:
-                int waitTime = 10;
+                //int waitTime = 10;
                 turnControllers[lUnitInfo[index].unitID].TurnOn();
                 var popup = UIManager.Instance.ShowPopup<SkillPopUp>();
-                while (!playerAttack && waitTime != 0)
-                {
-                    yield return new WaitForSeconds(1);
-                    waitTime--;
-                }
+                //while (!playerAttack && waitTime != 0)
+                //{
+                //    yield return new WaitForSeconds(1);
+                //    waitTime--;
+                //}
                 playerAttack = false;
                 break;
             case CharacterType.Enemy:
@@ -315,21 +315,21 @@ public class BattleManager : SingleTon<BattleManager>
     public void CallSkill1Event()
     {
         skill1?.Invoke();
-        playerAttack = true;
+        //playerAttack = true;
     }
     public void CallSkill2Event()
     {
         skill2?.Invoke();
-        playerAttack = true;
+        //playerAttack = true;
     }
     public void CallSkill3Event()
     {
         skill3?.Invoke();
-        playerAttack = true;
+        //playerAttack = true;
     }
     public void CallSkill4Event()
     {
         skill4?.Invoke();
-        playerAttack = true;
+        //playerAttack = true;
     }
 }

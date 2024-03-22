@@ -59,38 +59,38 @@ public class CharacterTurnController : MonoBehaviour
         if (isCharacterTurn)
         {
             animator.SetBool(runHash, true);
-            StartCoroutine(SkillEffect(1.5f, "1"));
+            StartCoroutine(SkillEffect(1f, "1"));
             animator.SetBool(runHash, false);
         }
-        StartCoroutine(WaitForSkillEffect(2.5f));
+        StartCoroutine(WaitForSkillEffect(2f));
     }
     private void Skill2()
     {
         if (isCharacterTurn)
         {
-            StartCoroutine(SkillEffect(1.5f, "2"));
+            StartCoroutine(SkillEffect(1f, "2"));
             animator.SetBool(runHash, false);
         }
-        StartCoroutine(WaitForSkillEffect(2.5f));
+        StartCoroutine(WaitForSkillEffect(2f));
     }
     private void Skill3()
     {
         if (isCharacterTurn)
         {
-            StartCoroutine(SkillEffect(1.5f, "3"));
+            StartCoroutine(SkillEffect(1f, "3"));
             animator.SetBool(runHash, false);
         }
-        StartCoroutine(WaitForSkillEffect(2.5f));
+        StartCoroutine(WaitForSkillEffect(2f));
 
     }
     private void Skill4()
     {
         if (isCharacterTurn)
         {
-            StartCoroutine(SkillEffect(1.5f, "4"));
+            StartCoroutine(SkillEffect(1f, "4"));
             animator.SetBool(runHash, false);
         }
-        StartCoroutine(WaitForSkillEffect(2.5f));
+        StartCoroutine(WaitForSkillEffect(2f));
     }
     IEnumerator WaitForSkillEffect(float time)
     {

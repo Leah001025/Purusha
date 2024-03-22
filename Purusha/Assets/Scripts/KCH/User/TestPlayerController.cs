@@ -131,9 +131,7 @@ public class TestPlayerController : MonoBehaviour
     {
         yield return new WaitForSeconds(1.5f);
         isBattle = false;
-        battleEffect.color = new Color(1, 1, 1, 0);
         SceneLoadManager.Instance.ChangeScene("BattleScene__");
-        //SceneManager.LoadScene("BattleTestTestScene");
     }
     //private void OnDrawGizmos()
     //{
