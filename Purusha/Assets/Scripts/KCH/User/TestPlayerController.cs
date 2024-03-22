@@ -13,7 +13,7 @@ public class TestPlayerController : MonoBehaviour
     public Transform cameraTransform;
     public CinemachineBrain cinemachineBrain;
     public Image battleEffect;
-    [SerializeField]public LayerMask Enemy;
+    [SerializeField] public LayerMask Enemy;
     public GameObject worldCanvas;
 
     private bool joystickActive = false;
@@ -42,7 +42,7 @@ public class TestPlayerController : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0) && !isBattle)
         {
-        Ray ray = new Ray(transform.position + (transform.up * 1f) + (transform.forward * 0.2f), transform.forward);
+            Ray ray = new Ray(transform.position + (transform.up * 1f) + (transform.forward * 0.2f), transform.forward);
             RaycastHit hit;
             Physics.Raycast(ray, out hit, 2f, Enemy);
             if (Physics.Raycast(ray, out hit, 2f, Enemy))
@@ -135,9 +135,9 @@ public class TestPlayerController : MonoBehaviour
         SceneLoadManager.Instance.ChangeScene("BattleScene__");
         //SceneManager.LoadScene("BattleTestTestScene");
     }
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawRay(transform.position  + (transform.up * 1f) + (transform.forward * 0.2f), Vector3.forward);
-    }
+    //private void OnDrawGizmos()
+    //{
+    //    Gizmos.color = Color.red;
+    //    Gizmos.DrawRay(transform.position + (transform.up * 1f) + (transform.forward * 0.2f), Vector3.forward);
+    //}
 }
