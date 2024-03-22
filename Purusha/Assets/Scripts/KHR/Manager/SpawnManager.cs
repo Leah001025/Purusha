@@ -40,7 +40,7 @@ public class SpawnManager : SingleTon<SpawnManager>
     public void SpawnStage1_Monsters()
     {
         ResourceManager.Instance.Instantiate("Monster/Drone", Stage1_SpawnPoints[0]);
-        ResourceManager.Instance.Instantiate("Monster/Drone_1", Stage1_SpawnPoints[1]);
-        ResourceManager.Instance.Instantiate("Monster/Drone_2", Stage1_SpawnPoints[2]);
+        ResourceManager.Instance.Instantiate("Monster/Drone", Stage1_SpawnPoints[1]);
+        ResourceManager.Instance.Instantiate("Monster/Drone", Stage1_SpawnPoints[2]);
     }
 }
