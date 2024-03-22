@@ -1,9 +1,19 @@
 fileFormatVersion: 2
-guid: 143ffebccde9a0043951bb63f6f5131d
+guid: 12749e497856c734ba45a73bd37e014c
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Vice
+    second: {fileID: 2100000, guid: f522fc8c3cf0ab64b9d9eb5c45024e5c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Vice_Hair
+    second: {fileID: 2100000, guid: e4456f0b022a65c4cba4814384310b8b, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -16,7 +26,8 @@ ModelImporter:
     optimizeGameObjects: 0
     removeConstantScaleCurves: 0
     motionNodeName: 
-    rigImportErrors: 
+    rigImportErrors: "Invalid Avatar Rig Configuration. Missing or invalid transform:\n\tRequired
+      human bone 'Hips' not found\n"
     rigImportWarnings: 
     animationImportErrors: 
     animationImportWarnings: 
@@ -82,7 +93,12 @@ ModelImporter:
   humanDescription:
     serializedVersion: 3
     human: []
-    skeleton: []
+    skeleton:
+    - name: Kana(Clone)
+      parentName: 
+      position: {x: -2.5048752, y: -0.00000073909797, z: -0.0000007629403}
+      rotation: {x: -0.7071068, y: -0.0000000042146873, z: -2.6341884e-10, w: 0.7071067}
+      scale: {x: 100, y: 100, z: 100}
     armTwist: 0.5
     foreArmTwist: 0.5
     upperLegTwist: 0.5
@@ -93,7 +109,7 @@ ModelImporter:
     globalScale: 1
     rootMotionBoneName: 
     hasTranslationDoF: 0
-    hasExtraRoot: 1
+    hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   autoGenerateAvatarMappingIfUnspecified: 1
