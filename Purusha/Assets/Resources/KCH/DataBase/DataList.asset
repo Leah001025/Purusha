@@ -13,78 +13,84 @@ MonoBehaviour:
   m_Name: DataList
   m_EditorClassIdentifier: 
   PlayerData:
-  - ID: 101
-    Name: Breesha
-    Health: 3000
-    Level: 1
-    Exp: 0
-    EquipLevel: 1
-    Atk: 110
-    Def: 60
-    CriticalChance: 50
-    CriticalDamage: 140
-    Avoid: 10
-    Speed: 1
-  - ID: 102
-    Name: Eve
-    Health: 2500
-    Level: 1
-    Exp: 0
-    EquipLevel: 1
-    Atk: 70
-    Def: 50
-    CriticalChance: 50
-    CriticalDamage: 100
-    Avoid: 10
-    Speed: 1
-  - ID: 103
-    Name: Adam
-    Health: 2500
-    Level: 1
-    Exp: 0
-    EquipLevel: 1
-    Atk: 100
-    Def: 40
-    CriticalChance: 50
-    CriticalDamage: 130
-    Avoid: 10
-    Speed: 1
-  - ID: 104
-    Name: Abel
-    Health: 2000
-    Level: 1
-    Exp: 0
-    EquipLevel: 1
-    Atk: 30
-    Def: 30
-    CriticalChance: 50
-    CriticalDamage: 60
-    Avoid: 10
-    Speed: 1
-  - ID: 105
-    Name: Kain
-    Health: 2000
-    Level: 1
-    Exp: 0
-    EquipLevel: 1
-    Atk: 110
-    Def: 30
-    CriticalChance: 50
-    CriticalDamage: 140
-    Avoid: 15
-    Speed: 1.2
-  - ID: 106
-    Name: Japheth
-    Health: 4000
-    Level: 1
-    Exp: 0
-    EquipLevel: 1
-    Atk: 50
-    Def: 100
-    CriticalChance: 50
-    CriticalDamage: 80
-    Avoid: 8
-    Speed: 0.8
+  - _id: 101
+    _name: Breesha
+    _maxHealth: 3000
+    _health: 3000
+    _level: 1
+    _exp: 0
+    _equipLevel: 1
+    _atk: 110
+    _def: 60
+    _criticalChance: 0.5
+    _criticalDamage: 140
+    _avoid: 0.1
+    _speed: 1.2
+  - _id: 102
+    _name: Eve
+    _maxHealth: 2500
+    _health: 2500
+    _level: 1
+    _exp: 0
+    _equipLevel: 1
+    _atk: 70
+    _def: 50
+    _criticalChance: 0.5
+    _criticalDamage: 100
+    _avoid: 0.1
+    _speed: 1
+  - _id: 103
+    _name: Adam
+    _maxHealth: 2500
+    _health: 2500
+    _level: 1
+    _exp: 0
+    _equipLevel: 1
+    _atk: 100
+    _def: 40
+    _criticalChance: 0.5
+    _criticalDamage: 130
+    _avoid: 0.1
+    _speed: 1.1
+  - _id: 104
+    _name: Abel
+    _maxHealth: 2000
+    _health: 2000
+    _level: 1
+    _exp: 0
+    _equipLevel: 1
+    _atk: 30
+    _def: 30
+    _criticalChance: 0.5
+    _criticalDamage: 60
+    _avoid: 0.1
+    _speed: 0.9
+  - _id: 105
+    _name: Kain
+    _maxHealth: 2000
+    _health: 2000
+    _level: 1
+    _exp: 0
+    _equipLevel: 1
+    _atk: 110
+    _def: 30
+    _criticalChance: 0.5
+    _criticalDamage: 140
+    _avoid: 0.15
+    _speed: 1.5
+  - _id: 106
+    _name: Lain
+    _maxHealth: 4000
+    _health: 4000
+    _level: 1
+    _exp: 0
+    _equipLevel: 1
+    _atk: 50
+    _def: 100
+    _criticalChance: 0.5
+    _criticalDamage: 80
+    _avoid: 0.08
+    _speed: 0.8
   SkillData:
   - ID: 101011
     Name: "\uC77C\uBC18\uACF5\uACA9"
