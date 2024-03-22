@@ -20,15 +20,17 @@ public class EnemyBaseState : IState
 
     public virtual void Enter()
     {
+        actionController.OnIdle += OnEnemyIdle;
+        actionController.OnRun += OnEnemyRun;
         actionController.OnHit += OnEnemyHit;
-        actionController.OnDie += OnEnemyDie;
         actionController.OnSkill1 += OnEnemySkill1;
         actionController.OnSkill2 += OnEnemySkill2;
     }
     public virtual void Exit()
     {
+        actionController.OnIdle -= OnEnemyIdle;
+        actionController.OnRun -= OnEnemyRun;
         actionController.OnHit -= OnEnemyHit;
-        actionController.OnDie -= OnEnemyDie;
         actionController.OnSkill1 -= OnEnemySkill1;
         actionController.OnSkill2 -= OnEnemySkill2;
     }
@@ -39,19 +41,19 @@ public class EnemyBaseState : IState
 
     public virtual void Update()
     {
-        if (stateMachine.Enemy.Animator.GetBool("Skill1") == false 
-            && stateMachine.Enemy.Animator.GetBool("Hit") == false)
-        {
-            stateMachine.ChangeState(stateMachine.IdleState);
-        }
+
+    }
+    protected virtual void OnEnemyIdle()
+    {
+        stateMachine.ChangeState(stateMachine.IdleState);
+    }
+    protected virtual void OnEnemyRun()
+    {
+        stateMachine.ChangeState(stateMachine.RunState);
     }
     protected virtual void OnEnemyHit()
     {
         stateMachine.ChangeState(stateMachine.HitState);
-    }
-    protected virtual void OnEnemyDie()
-    {
-        
     }
     protected virtual void OnEnemySkill1()
     {
@@ -59,7 +61,7 @@ public class EnemyBaseState : IState
     }
     protected virtual void OnEnemySkill2()
     {
-        //stateMachine.ChangeState(stateMachine.Skill2State); 
+        stateMachine.ChangeState(stateMachine.Skill2State); 
     }
 
     protected void StartAnimation(int animationHash)
@@ -73,5 +75,10 @@ public class EnemyBaseState : IState
     protected void OnTriggerAnimation(int animationHash)
     {
         stateMachine.Enemy.Animator.SetTrigger(animationHash);
+    }
+    protected void AnimationTime()
+    {
+        float curAnimationTime = stateMachine.Enemy.Animator.GetCurrentAnimatorStateInfo(0).length;
+        BattleManager.Instance.animTime = curAnimationTime;
     }
 }
