@@ -9,11 +9,11 @@ public class SkillData : DataBase<SkillData>
     public string Name;
     public string Description;
     public int Type;
-    public double AtkCoefficient;
-    public double DefCoefficient;
-    public double HealthCoefficient;
+    public float AtkCoefficient;
+    public float DefCoefficient;
+    public float HealthCoefficient;
     public int CoolTime;
-    public double DebuffProbability;
+    public float DebuffProbability;
     public int Duration;
     public int SkillGage;
     public string EffectPath;

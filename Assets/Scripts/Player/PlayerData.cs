@@ -20,6 +20,8 @@ public class PlayerData : DataBase<PlayerData>
     [SerializeField] private float _criticalDamage;
     [SerializeField] private float _avoid;
     [SerializeField] private float _speed;
+    [SerializeField] private string _prefabPath;
+    [SerializeField] private string _spritePath;
 
     public int ID { get{ return _id; } set { _id = value; } }
     public string Name { get{ return _name; } set { _name = value; } }
@@ -34,4 +36,7 @@ public class PlayerData : DataBase<PlayerData>
     public float CriticalDamage { get{ return _criticalDamage; } set { _criticalDamage = value; } }
     public float Avoid { get{ return _avoid; } set { _avoid = value; } }
     public float Speed { get{ return _speed; } set { _speed = value; } }
+    public string PrefabPath { get { return _prefabPath; } set { _prefabPath = value; } }
+    public string SpritePath { get { return _spritePath; } set { _spritePath = value; } }
+
 }

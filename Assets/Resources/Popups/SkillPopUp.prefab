@@ -892,10 +892,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 8814745396772545805}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c8fab79983fbfc04387abe78ef98639d, type: 3}
+  m_Script: {fileID: 11500000, guid: 185d3f83ff1ad3a4f8805f4ea41ea8fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  closeButton: {fileID: 3558974289998221}
+  closeButton: {fileID: 0}
   skill1: {fileID: 7175806740979479723}
   skill2: {fileID: 3632748228441430289}
   skill3: {fileID: 5272153221611213157}

@@ -34,6 +34,8 @@ public class CharacterStatus
     public float criticalDamage;
     public float avoid;
     public float speed;
+    public string prefabPath;
+    public string spritePath;
 
     public CharacterStatus(int id)
     {
@@ -51,6 +53,8 @@ public class CharacterStatus
         criticalDamage = data.CriticalDamage;
         avoid = data.Avoid;
         speed = data.Speed;
+        prefabPath = data.PrefabPath;
+        spritePath = data.SpritePath;
     }
 }
 public class CharacterSkill
@@ -59,11 +63,11 @@ public class CharacterSkill
     public string name;
     public string description;
     public int type;
-    public double atkCoefficient;
-    public double defCoefficient;
-    public double healthCoefficient;
+    public float atkCoefficient;
+    public float defCoefficient;
+    public float healthCoefficient;
     public int coolTime;
-    public double debuffProbability;
+    public float debuffProbability;
     public int duration;
     public int skillGage;
     public string effectPath;

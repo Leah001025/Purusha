@@ -10,7 +10,7 @@ public class EnemyClickController : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0))
             {
-                BattleManager.Instance.target = gameObject;
+                BattleManager.Instance.target = gameObject.transform.parent.gameObject;
                 BattleManager.Instance.targerTrans = transform.parent;
             }
         }

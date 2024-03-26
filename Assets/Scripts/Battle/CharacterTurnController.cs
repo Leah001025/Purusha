@@ -32,7 +32,7 @@ public class CharacterTurnController : MonoBehaviour
         {
             characterData = GameManager.Instance.User.teamData[teamIndex];
             unitInfo = battleManager.lUnitInfo.Find(x => x.unitID == characterData.status.iD);
-        }        
+        }
         isCharacterTurn = false;
         runHash = Animator.StringToHash("isRun");
         battleManager.skill1 += Skill1;
@@ -47,7 +47,7 @@ public class CharacterTurnController : MonoBehaviour
 
         unitGauge = unitInfo.unitGauge;
         battleManager.SetTurnIndicator(teamIndex, unitGauge);
-        if (!isTargetPos&&isAttack)
+        if (!isTargetPos && isAttack)
         {
             MoveToTarget();
         }
@@ -134,13 +134,16 @@ public class CharacterTurnController : MonoBehaviour
         //    if (diffPos.magnitude < 0.3f) { isArrive = true; }
         //}
         animator.SetTrigger(Animator.StringToHash("Skill" + num));
+
+        battleManager.OnSkill(characterData, int.Parse(num));
+
         yield return new WaitForSeconds(time);
         //isArrive = false;
         //count = 0;
-        character.transform.localPosition = Vector3.zero; 
+        character.transform.localPosition = Vector3.zero;
         animator.SetTrigger(Animator.StringToHash("Jump"));
         yield return new WaitForSeconds(0.2f);
-        isStartPos =false;
+        isStartPos = false;
         yield return new WaitForSeconds(0.5f);
         //while (!isArrive && count < 1500)
         //{
@@ -150,6 +153,6 @@ public class CharacterTurnController : MonoBehaviour
         //    count++;
         //    if (diffPos.magnitude < 0.3f) { isArrive = true; }
         //}
-        isAttack =false;
+        isAttack = false;
     }
 }
