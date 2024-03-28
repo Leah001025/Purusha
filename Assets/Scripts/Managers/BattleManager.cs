@@ -13,6 +13,7 @@ public class UnitInfo
     public CharacterType unitType;
     public float unitGauge;
     public GameObject unitObject;
+    public CharacterActionController actionController;
     public SEnemyData unitData;
     public CharacterData characterData;
 }
@@ -21,12 +22,11 @@ public class BattleManager : SingleTon<BattleManager>
     public List<UnitInfo> lUnitInfo;
     private Dictionary<int, CharacterData> teamData;
     private Dictionary<int, CharacterTurnController> turnControllers = new Dictionary<int, CharacterTurnController>(5);
-    private Dictionary<int, CharacterActionController> actionController = new Dictionary<int, CharacterActionController>();
+
     private UnitInfo unitInfo;
 
     private Queue<int> attackOrder;
 
-    public Transform targerTrans;
     public GameObject target;
     [SerializeField]
     private Transform stageTrans;
@@ -41,6 +41,8 @@ public class BattleManager : SingleTon<BattleManager>
 
     public int tempIndex;
     public bool isAttacking = false;
+
+    private GameEnd gameState;
 
     private Vector3[] playerSpawnPos = new Vector3[5];
     private Vector3[] enemySpawnPos = new Vector3[5];
@@ -58,12 +60,17 @@ public class BattleManager : SingleTon<BattleManager>
     public float turnIndicator5;
 
     [HideInInspector]
-    public float animTime;
+    public float beforeAnimTime = 0;
+    [HideInInspector]
+    public float newAnimTime;
 
     public Action skill1;
     public Action skill2;
     public Action skill3;
     public Action skill4;
+
+    public event Action<string> OnTarget;
+    public event Action<float, string> OnAddDamage;
 
     private float DefaultGauge = 100.0f;
     private float DefaultUpGauge = 1.0f;
@@ -83,6 +90,7 @@ public class BattleManager : SingleTon<BattleManager>
     }
     public void BattleStart(int StageID)
     {
+        gameState = GameEnd.Paly;
         AddUnitInfo(StageID);
         GameForSeconds(0.03f);
         StartCoroutine(AttackOrder());
@@ -123,14 +131,13 @@ public class BattleManager : SingleTon<BattleManager>
                 unitInfo.unitGauge = 0;
                 unitInfo.unitObject = Instantiate(_Resources, stageTrans);
                 unitInfo.unitObject.name = lUnitInfo.Count.ToString();
-                actionController.Add(lUnitInfo.Count, unitInfo.unitObject.GetComponent<Enemy>().actionController);
+                UIManager.Instance.BattleShowPopup(unitInfo.unitObject);
+                unitInfo.actionController = unitInfo.unitObject.GetComponent<Enemy>().actionController;
                 unitInfo.unitObject.transform.localPosition = enemySpawnPos[j];
-                unitInfo.unitObject.transform.GetChild(0).transform.AddComponent<EnemyClickController>();
                 unitInfo.unitData = CreateEnemyData(unitInfo.unitObject.tag);
 
                 lUnitInfo.Add(unitInfo);
 
-                targerTrans = unitInfo.unitObject.transform;
             }
         }
     }
@@ -147,9 +154,9 @@ public class BattleManager : SingleTon<BattleManager>
     }
     private IEnumerator AttackOrder()
     {
-        int testtun = 992200;  // 실험용@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
         attackOrder = new Queue<int>();
-        while (testtun > 0)  // 실험용@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+        while (gameState == GameEnd.Paly)
         {
             yield return gameForSeconds;
             if (lUnitInfo != null && !isAttacking)
@@ -193,7 +200,7 @@ public class BattleManager : SingleTon<BattleManager>
                     attackOrder.Dequeue();
                 }
             }
-            testtun--;  // 실험용@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+            //WaveEndChack();
         }
     }
     private IEnumerator UnitAttack(int index)
@@ -205,10 +212,8 @@ public class BattleManager : SingleTon<BattleManager>
                 var popup = UIManager.Instance.ShowPopup<SkillPopUp>();
                 break;
             case CharacterType.Enemy:
-                var isAnimTime = animTime;
-                EnemyAttack(actionController[index]);
-                AnimForSeconds(isAnimTime, animTime);
-
+                EnemyAttack(lUnitInfo[index]);
+                AnimForSeconds(newAnimTime, beforeAnimTime);
                 speedModifier = 1;
                 isAttacking = false;
                 yield return animForSeconds;
@@ -219,18 +224,24 @@ public class BattleManager : SingleTon<BattleManager>
     }
     public void OnSkill(CharacterData characterData, int skillNum)
     {
+        float _damage = AddDamage(characterData, skillNum);
         switch (characterData.skillData[skillNum].type)
         {
             case 0:
-                lUnitInfo[int.Parse(target.name)].unitData.Health -= AddDamage(characterData, skillNum);
-                actionController[int.Parse(target.name)].Hit();
-                DieCheck(int.Parse(target.name));
+                lUnitInfo[int.Parse(target.name)].unitData.Health -= _damage;
+                lUnitInfo[int.Parse(target.name)].actionController.Hit();
+                AddDamageUI(_damage, target.name);
+                DieCheck(lUnitInfo[int.Parse(target.name)]);
                 break;
             case 1:
                 foreach (UnitInfo _unitData in lUnitInfo)
                 {
                     if (_unitData.unitType == CharacterType.Enemy)
-                        _unitData.unitData.Health -= AddDamage(characterData, skillNum);
+                    {
+                        _unitData.unitData.Health -= _damage;
+                        AddDamageUI(_damage, _unitData.unitObject.name);
+                        DieCheck(lUnitInfo[int.Parse(target.name)]);
+                    }
                 }
                 break;
             case 2:
@@ -239,39 +250,34 @@ public class BattleManager : SingleTon<BattleManager>
                 break;
         }
     }
-    private void EnemyAttack(CharacterActionController Action)
+    private void EnemyAttack(UnitInfo unitInfo)
     {
-        int index = UnityEngine.Random.Range(0, teamData.Count);
-        target = lUnitInfo[index].unitObject;
+        TargetChange(CharacterType.Player);
         if (false) //몬스터 스킬 쿨타임
         {
-            Action.Skill2();
+            unitInfo.actionController.Skill2();
         }
         else
         {
-            Action.Skill1();
+            unitInfo.actionController.Skill1();
         }
-        index = teamData.Count;
-        Debug.Log(index);
-        target = lUnitInfo[index].unitObject;
+        TargetChange(CharacterType.Enemy);
     }
     private float AddDamage(CharacterData characterData, int skillNum)
     {
         float damage = 0;
-        float crirocalChance = UnityEngine.Random.Range(0, 1);
+        float crirocalChance = UnityEngine.Random.Range(0, 1.0f);
         if (crirocalChance <= characterData.status.criticalChance)
         {
-            damage = (characterData.status.atk * characterData.skillData[skillNum].atkCoefficient) * (100 / (100.0f + characterData.status.def)) * characterData.status.criticalDamage;
+            damage = (characterData.status.atk * characterData.skillData[skillNum].atkCoefficient)
+                * (100 / (100.0f + lUnitInfo[int.Parse(target.name)].unitData.Def)) * characterData.status.criticalDamage;
         }
         else
         {
-            damage = (characterData.status.atk * characterData.skillData[skillNum].atkCoefficient) * (100 / (100.0f + characterData.status.def));
+            damage = (characterData.status.atk * characterData.skillData[skillNum].atkCoefficient)
+                * (100 / (100.0f + lUnitInfo[int.Parse(target.name)].unitData.Def));
         }
         return damage;
-    }
-    private void DieCheck(int index)
-    {
-
     }
     private void SetSpawnPos()
     {
@@ -347,12 +353,67 @@ public class BattleManager : SingleTon<BattleManager>
         gameForSeconds = new WaitForSeconds(time);
         return gameForSeconds;
     }
-    public WaitForSeconds AnimForSeconds(float IsAnimTime, float animTime)
+    public WaitForSeconds AnimForSeconds(float newAnim, float beforeAnim)
     {
-        if (IsAnimTime != animTime)
+        if (newAnim != beforeAnim)
         {
-            animForSeconds = new WaitForSeconds(animTime);
+            animForSeconds = new WaitForSeconds(newAnim);
         }
+        beforeAnimTime = newAnimTime;
         return animForSeconds;
+    }
+    public void ChangeTarget()
+    {
+        OnTarget?.Invoke(target.name);
+    }
+    private void DieCheck(UnitInfo unitInfo)
+    {
+        switch (unitInfo.unitType)
+        {
+            case CharacterType.Player:
+                if (unitInfo.characterData.status.health <= 0)
+                {
+
+                }
+                break;
+            case CharacterType.Enemy:
+                if (unitInfo.unitData.Health <= 0)
+                {
+
+                }
+                break;
+        }
+    }
+    //private GameEnd WaveEndChack()
+    //{
+    //    gameState = GameEnd.Paly;
+    //    if (lUnitInfo.FindIndex(type => type.unitType.Equals(CharacterType.Player)) == 0)
+    //    {
+    //        gameState = GameEnd.fail;
+    //    }
+    //    else if (lUnitInfo.FindIndex(type => type.unitType.Equals(CharacterType.Enemy)) == 0)
+    //    {
+    //        gameState = GameEnd.success;
+    //    }
+    //    return gameState;
+    //}
+    private void AddDamageUI(float damage, string name)
+    {
+        OnAddDamage?.Invoke(damage, name);
+    }
+    private void TargetChange(CharacterType type)
+    {
+        switch (type)
+        {
+            case CharacterType.Player:
+                var usercount = UnityEngine.Random.Range(0, teamData.Count);
+                target = lUnitInfo[usercount].unitObject;
+                break;
+            case CharacterType.Enemy:
+                var enemycount = UnityEngine.Random.Range(teamData.Count, lUnitInfo.Count);
+                target = lUnitInfo[enemycount].unitObject;
+                break;
+        }
+        ChangeTarget();
     }
 }
