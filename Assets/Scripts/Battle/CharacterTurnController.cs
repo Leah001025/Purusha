@@ -14,6 +14,8 @@ public class CharacterTurnController : MonoBehaviour
     public Vector3 targetPos;
     public Vector3 startPos;
     public Vector3 diffPos;
+    private Vector3 onTurnPos;
+    private Vector3 offTurnPos;
     public float unitGauge;
     int runHash;
     private bool isCharacterTurn;
@@ -21,12 +23,15 @@ public class CharacterTurnController : MonoBehaviour
     private bool isStartPos = true;
     private bool isAttack = false;
     public GameObject character;
-
+    private GameObject skillObj;
+    private WaitForSeconds wait05 = new WaitForSeconds(0.5f);
 
     private void Start()
     {
         //animator = GetComponentInChildren<Animator>();
         battleManager = BattleManager.Instance;
+        onTurnPos = new Vector3(2, 0, -4.5f);
+        offTurnPos = transform.localPosition;
         //character = GetComponentInChildren<GameObject>();
         if (GameManager.Instance.User.teamData.ContainsKey(teamIndex))
         {
@@ -57,15 +62,28 @@ public class CharacterTurnController : MonoBehaviour
         }
 
     }
+
+    
     public void TurnOn()
     {
         isCharacterTurn = true;
+        transform.localPosition = onTurnPos;
+        Camera.main.transform.SetLocalPositionAndRotation(battleManager.cameraPos,Quaternion.Euler(20,-30,0));
     }
     private void Skill1()
     {
         if (isCharacterTurn)
         {
-            StartCoroutine(SkillEffect(2f, "1"));
+            switch (characterData.skillData[1].range)
+            {
+                case 0:
+                    StartCoroutine(MeleeSkillEffect("1"));
+                    break;
+                case 1:
+                    StartCoroutine(RangedSkillEffect(1f, "1"));
+                    break;
+            }
+            
         }
         StartCoroutine(WaitForSkillEffect(4f));
     }
@@ -73,7 +91,16 @@ public class CharacterTurnController : MonoBehaviour
     {
         if (isCharacterTurn)
         {
-            StartCoroutine(SkillEffect(1f, "2"));
+            switch (characterData.skillData[2].range)
+            {
+                case 0:
+                    StartCoroutine(MeleeSkillEffect("2"));
+                    break;
+                case 1:
+                    StartCoroutine(RangedSkillEffect(1f, "2"));
+                    break;
+            }
+
         }
         StartCoroutine(WaitForSkillEffect(4f));
     }
@@ -81,18 +108,44 @@ public class CharacterTurnController : MonoBehaviour
     {
         if (isCharacterTurn)
         {
-            StartCoroutine(SkillEffect(1f, "3"));
+            switch (characterData.skillData[3].range)
+            {
+                case 0:
+                    StartCoroutine(MeleeSkillEffect("3"));
+                    break;
+                case 1:
+                    StartCoroutine(RangedSkillEffect(1f, "3"));
+                    break;
+            }
+
         }
-        StartCoroutine(WaitForSkillEffect(2f));
+        StartCoroutine(WaitForSkillEffect(4f));
 
     }
     private void Skill4()
     {
         if (isCharacterTurn)
         {
-            StartCoroutine(SkillEffect(1f, "4"));
+            switch (characterData.skillData[4].range)
+            {
+                case 0:
+                    StartCoroutine(MeleeSkillEffect("4"));
+                    break;
+                case 1:
+                    StartCoroutine(RangedSkillEffect(2f, "4"));
+                    break;
+            }
+
         }
-        StartCoroutine(WaitForSkillEffect(2f));
+        StartCoroutine(WaitForSkillEffect(4f));
+    }
+    private void OnSkillEffect(CharacterSkill skill)
+    {
+        var res = Resources.Load<GameObject>(skill.effectPath);
+        if(res != null)
+        {
+            skillObj = Instantiate<GameObject>(res, transform);
+        }       
     }
     private void MoveToTarget()
     {
@@ -109,50 +162,55 @@ public class CharacterTurnController : MonoBehaviour
     IEnumerator WaitForSkillEffect(float time)
     {
         yield return new WaitForSeconds(time);
+        transform.localPosition = offTurnPos;
+        //Camera.main.transform.SetLocalPositionAndRotation(battleManager.defalutCameraPos, Quaternion.Euler(20, 0, 0));
         battleManager.speedModifier = 1;
-        battleManager.lUnitInfo[battleManager.tempIndex].unitGauge = 0;
+        battleManager.lUnitInfo[battleManager.onTurnIndex].unitGauge = 0;
         battleManager.isAttacking = false;
         isCharacterTurn = false;
-
     }
-    IEnumerator SkillEffect(float time, string num)
+    IEnumerator MeleeSkillEffect(string num)
     {
+        int skillNum = int.Parse(num);
         startPos = transform.localPosition;
         targetPos = battleManager.targerTrans.localPosition + new Vector3(0, 0, -1);
         animator.SetTrigger(Animator.StringToHash("Move"));
         isAttack = true;
         isStartPos = true;
         isTargetPos = false;
-        //int count = 0;
-        yield return new WaitForSeconds(0.5f);
-        //while (!isArrive && count < 1500)
-        //{
-        //    transform.localPosition = Vector3.Lerp(transform.localPosition, targetPos, 5f * Time.deltaTime);
-        //    yield return new WaitForEndOfFrame();
-        //    diffPos = targetPos - transform.localPosition;
-        //    count++;
-        //    if (diffPos.magnitude < 0.3f) { isArrive = true; }
-        //}
+
+        yield return wait05;
         animator.SetTrigger(Animator.StringToHash("Skill" + num));
+        yield return new WaitForSeconds(1f);
+        OnSkillEffect(characterData.skillData[skillNum]);
+        yield return wait05;
 
-        battleManager.OnSkill(characterData, int.Parse(num));
+        battleManager.OnSkill(characterData, skillNum);
 
-        yield return new WaitForSeconds(time);
-        //isArrive = false;
-        //count = 0;
+        yield return wait05;
+        Destroy(skillObj);
         character.transform.localPosition = Vector3.zero;
         animator.SetTrigger(Animator.StringToHash("Jump"));
         yield return new WaitForSeconds(0.2f);
         isStartPos = false;
-        yield return new WaitForSeconds(0.5f);
-        //while (!isArrive && count < 1500)
-        //{
-        //    transform.localPosition = Vector3.Lerp(transform.localPosition, startPos, 5f * Time.deltaTime);
-        //    yield return new WaitForEndOfFrame();
-        //    diffPos = targetPos - transform.localPosition;
-        //    count++;
-        //    if (diffPos.magnitude < 0.3f) { isArrive = true; }
-        //}
+        yield return wait05;
+
+        isAttack = false;
+    }
+    IEnumerator RangedSkillEffect(float time, string num)
+    {
+        int skillNum = int.Parse(num);
+        targetPos = battleManager.targerTrans.localPosition + new Vector3(0, 0, -1);
+        isAttack = true;
+        isTargetPos = true;
+        isStartPos = true;
+        animator.SetTrigger(Animator.StringToHash("Skill" + num));
+        OnSkillEffect(characterData.skillData[skillNum]);
+        yield return new WaitForSeconds(0.2f);
+        battleManager.OnSkill(characterData, skillNum);
+        yield return new WaitForSeconds(time);
+        Destroy(skillObj);
+        character.transform.localPosition = Vector3.zero;        
         isAttack = false;
     }
 }
