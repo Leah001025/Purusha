@@ -118,7 +118,7 @@ public class CharacterTurnController : MonoBehaviour
     IEnumerator SkillEffect(float time, string num)
     {
         startPos = transform.localPosition;
-        targetPos = battleManager.targerTrans.localPosition + new Vector3(0, 0, -1);
+        targetPos = battleManager.target.transform.localPosition + new Vector3(0, 0, -2);
         animator.SetTrigger(Animator.StringToHash("Move"));
         isAttack = true;
         isStartPos = true;

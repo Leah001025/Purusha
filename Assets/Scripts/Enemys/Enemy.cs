@@ -16,6 +16,8 @@ public class Enemy : MonoBehaviour
 
     private EnemyStateMachine stateMachine;
 
+    public event Action OnUpdate;
+
     private void Awake()
     {
         AnimationData.Initialize();
@@ -26,5 +28,9 @@ public class Enemy : MonoBehaviour
     private void Start()
     {
         stateMachine.ChangeState(stateMachine.IdleState);
+    }
+    private void Update()
+    {
+        OnUpdate?.Invoke();
     }
 }

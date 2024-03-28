@@ -49,5 +49,19 @@ public class UIManager : SingleTon<UIManager>
         obj.SetActive(true);
         return popup;
     }
-
+    public void BattleShowPopup(GameObject monster)
+    {
+        var info = Resources.Load("Prefabs/Battle/MonsterInfo") as GameObject;
+        if (!info)
+        {
+            Debug.LogWarning("Failed to MonsterInfo");
+        }
+        Instantiate(info, monster.transform.GetChild(1).gameObject.transform);
+        var target = Resources.Load("Prefabs/Battle/Target") as GameObject;
+        if (!info)
+        {
+            Debug.LogWarning("Failed to Target");
+        }
+        Instantiate(target, monster.transform.GetChild(2).gameObject.transform);
+    }
 }

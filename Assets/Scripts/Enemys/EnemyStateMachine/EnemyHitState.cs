@@ -12,7 +12,7 @@ public class EnemyHitState : EnemyBaseState
     {
         base.Enter();
         StartAnimation(stateMachine.Enemy.AnimationData.HitParameterHash);
-        AnimationTime();
+        NewAnimationTime();
     }
     public override void Exit()
     {

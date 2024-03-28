@@ -20,6 +20,8 @@ public class EnemyBaseState : IState
 
     public virtual void Enter()
     {
+        stateMachine.Enemy.OnUpdate += Update;
+
         actionController.OnIdle += OnEnemyIdle;
         actionController.OnRun += OnEnemyRun;
         actionController.OnHit += OnEnemyHit;
@@ -28,6 +30,8 @@ public class EnemyBaseState : IState
     }
     public virtual void Exit()
     {
+        stateMachine.Enemy.OnUpdate -= Update;
+
         actionController.OnIdle -= OnEnemyIdle;
         actionController.OnRun -= OnEnemyRun;
         actionController.OnHit -= OnEnemyHit;
@@ -41,7 +45,13 @@ public class EnemyBaseState : IState
 
     public virtual void Update()
     {
-
+        if (stateMachine.Enemy.Animator.GetCurrentAnimatorStateInfo(0).IsName("Idle") == false &&
+            stateMachine.Enemy.Animator.GetCurrentAnimatorStateInfo(0).IsName("Sikll1") == false &&
+            stateMachine.Enemy.Animator.GetCurrentAnimatorStateInfo(0).IsName("Sikll2") == false &&
+            stateMachine.Enemy.Animator.GetCurrentAnimatorStateInfo(0).IsName("Hit") == false)
+        {
+            OnEnemyIdle();
+        }
     }
     protected virtual void OnEnemyIdle()
     {
@@ -76,9 +86,9 @@ public class EnemyBaseState : IState
     {
         stateMachine.Enemy.Animator.SetTrigger(animationHash);
     }
-    protected void AnimationTime()
+    protected void NewAnimationTime()
     {
         float curAnimationTime = stateMachine.Enemy.Animator.GetCurrentAnimatorStateInfo(0).length;
-        BattleManager.Instance.animTime = curAnimationTime;
+        BattleManager.Instance.newAnimTime = curAnimationTime;
     }
 }

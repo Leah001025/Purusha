@@ -12,7 +12,7 @@ public class EnemySkill2State : EnemyBaseState
     {
         base.Enter();
         StartAnimation(stateMachine.Enemy.AnimationData.Skill2ParameterHash);
-        AnimationTime();
+        NewAnimationTime();
     }
     public override void Exit()
     {
