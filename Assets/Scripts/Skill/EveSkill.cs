@@ -31,7 +31,7 @@ public class EveSkill : MonoBehaviour
         _hitEffect2.SetActive(false);
         _muzzleEffect1.SetActive(false);
         _muzzleEffect2.SetActive(false);
-        targetPos = BattleManager.Instance.targerTrans.position+new Vector3(0,1,0);
+        targetPos = BattleManager.Instance.target.transform.position+new Vector3(0,1,0);
         _maxLength = 20f;
         switch (gameObject.tag)
         {

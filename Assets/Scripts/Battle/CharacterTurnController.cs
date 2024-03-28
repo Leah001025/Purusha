@@ -209,7 +209,7 @@ public class CharacterTurnController : MonoBehaviour
     IEnumerator RangedSkillEffect(float time, string num)
     {
         int skillNum = int.Parse(num);
-        targetPos = battleManager.targerTrans.localPosition + new Vector3(0, 0, -1);
+        targetPos = battleManager.target.transform.localPosition + new Vector3(0, 0, -1);
         isAttack = true;
         isTargetPos = true;
         isStartPos = true;
