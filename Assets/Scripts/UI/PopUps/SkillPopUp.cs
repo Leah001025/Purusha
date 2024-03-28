@@ -13,6 +13,8 @@ public class SkillPopUp : UIBase
     private void Awake()
     {
         CloseUI();
+        skill3.enabled = false;
+        skill4.enabled = false;
     }
     public override void CloseUI()
     {
@@ -21,5 +23,9 @@ public class SkillPopUp : UIBase
         skill3.onClick.AddListener(() => gameObject.SetActive(false));
         skill4.onClick.AddListener(() => gameObject.SetActive(false));
     }
-    
+    private void CheckCoolTime()
+    {
+        if(BattleManager.Instance.isSkill3On) skill3.enabled = true;
+        if(BattleManager.Instance.isSkill4On) skill4.enabled = true;
+    }
 }
