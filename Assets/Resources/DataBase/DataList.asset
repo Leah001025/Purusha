@@ -108,6 +108,7 @@ MonoBehaviour:
     Name: "\uC77C\uBC18\uACF5\uACA9"
     Description: "\uB300\uC0C1 1\uBA85\uC5D0\uAC8C \uC77C\uBC18\uACF5\uACA9"
     Type: 0
+    Range: 1
     AtkCoefficient: 1
     DefCoefficient: 0
     HealthCoefficient: 0
@@ -115,12 +116,13 @@ MonoBehaviour:
     DebuffProbability: 1
     Duration: 0
     SkillGage: 1
-    EffectPath: 
+    EffectPath: Prefabs/Skill/Breesha/Skill1
   - ID: 101021
     Name: "\uC274\uB4DC"
     Description: "\uD50C\uB808\uC774\uC5B4 \uBC29\uC5B4\uB825\uB9CC\uD07C \uC274\uB4DC
       \uC0DD\uC131"
     Type: 3
+    Range: 1
     AtkCoefficient: 0
     DefCoefficient: 1
     HealthCoefficient: 0
@@ -128,76 +130,79 @@ MonoBehaviour:
     DebuffProbability: 1
     Duration: 1
     SkillGage: 0
-    EffectPath: 
+    EffectPath: Prefabs/Skill/Breesha/Skill2
   - ID: 101031
     Name: "\uD2B9\uC218(\uB808\uBCA81)"
-    Description: "\uC801 \uC804\uCCB4\uC5D0\uAC8C \uB4DC\uB860\uC73C\uB85C \uB808\uC774\uC800
-      \uACF5\uACA9"
-    Type: 1
-    AtkCoefficient: 0.6
+    Description: "\uC801 \uB300\uC0C1\uC744 \uB4DC\uB860\uC73C\uB85C \uACF5\uACA9"
+    Type: 0
+    Range: 1
+    AtkCoefficient: 1.4
     DefCoefficient: 0
     HealthCoefficient: 0
     CoolTime: 2
     DebuffProbability: 1
     Duration: 0
     SkillGage: 2
-    EffectPath: 
+    EffectPath: Prefabs/Skill/Breesha/Skill3
   - ID: 101032
     Name: "\uD2B9\uC218(\uB808\uBCA82)"
-    Description: "\uC801 \uC804\uCCB4\uC5D0\uAC8C \uB4DC\uB860\uC73C\uB85C \uB808\uC774\uC800
-      \uACF5\uACA9"
-    Type: 1
-    AtkCoefficient: 0.7
+    Description: "\uC801 \uB300\uC0C1\uC744 \uB4DC\uB860\uC73C\uB85C \uACF5\uACA9"
+    Type: 0
+    Range: 1
+    AtkCoefficient: 1.6
     DefCoefficient: 0
     HealthCoefficient: 0
     CoolTime: 2
     DebuffProbability: 1
     Duration: 0
     SkillGage: 2
-    EffectPath: 
+    EffectPath: Prefabs/Skill/Breesha/Skill3
   - ID: 101033
     Name: "\uD2B9\uC218(\uB808\uBCA83)"
-    Description: "\uC801 \uC804\uCCB4\uC5D0\uAC8C \uB4DC\uB860\uC73C\uB85C \uB808\uC774\uC800
-      \uACF5\uACA9"
-    Type: 1
-    AtkCoefficient: 0.85
+    Description: "\uC801 \uB300\uC0C1\uC744 \uB4DC\uB860\uC73C\uB85C \uACF5\uACA9"
+    Type: 0
+    Range: 1
+    AtkCoefficient: 1.8
     DefCoefficient: 0
     HealthCoefficient: 0
     CoolTime: 1
     DebuffProbability: 1
     Duration: 0
     SkillGage: 2
-    EffectPath: 
+    EffectPath: Prefabs/Skill/Breesha/Skill3
   - ID: 101041
     Name: "\uAD81\uADF9(\uB808\uBCA81)"
     Description: "\uC218\uC2ED\uAE30\uC758 \uB4DC\uB860\uC744 \uC18C\uD658\uD558\uC5EC
       \uC801 \uC804\uCCB4\uB97C \uACF5\uACA9 (20%\uD655\uB960 \uAE30\uC808)"
     Type: 1
-    AtkCoefficient: 1.2
+    Range: 1
+    AtkCoefficient: 2.5
     DefCoefficient: 0
     HealthCoefficient: 0
     CoolTime: 0
     DebuffProbability: 0.2
     Duration: 1
     SkillGage: -5
-    EffectPath: 
+    EffectPath: Prefabs/Skill/Breesha/Skill4
   - ID: 101042
     Name: "\uAD81\uADF9(\uB808\uBCA83)"
     Description: "\uC218\uC2ED\uAE30\uC758 \uB4DC\uB860\uC744 \uC18C\uD658\uD558\uC5EC
       \uC801 \uC804\uCCB4\uB97C \uACF5\uACA9 (30%\uD655\uB960 \uAE30\uC808)"
     Type: 1
-    AtkCoefficient: 1.4
+    Range: 1
+    AtkCoefficient: 3
     DefCoefficient: 0
     HealthCoefficient: 0
     CoolTime: 0
     DebuffProbability: 0.3
     Duration: 1
     SkillGage: -5
-    EffectPath: 
+    EffectPath: Prefabs/Skill/Breesha/Skill4
   - ID: 102011
     Name: "\uC77C\uBC18\uACF5\uACA9"
     Description: "\uB300\uC0C1 1\uBA85\uC5D0\uAC8C \uC77C\uBC18\uACF5\uACA9"
     Type: 0
+    Range: 1
     AtkCoefficient: 1
     DefCoefficient: 0
     HealthCoefficient: 0
@@ -205,12 +210,13 @@ MonoBehaviour:
     DebuffProbability: 1
     Duration: 0
     SkillGage: 1
-    EffectPath: 
+    EffectPath: Prefabs/Skill/Eve/Skill1
   - ID: 102021
     Name: "\uC274\uB4DC"
     Description: "\uD50C\uB808\uC774\uC5B4 \uBC29\uC5B4\uB825\uB9CC\uD07C \uC274\uB4DC
       \uC0DD\uC131"
     Type: 3
+    Range: 1
     AtkCoefficient: 0
     DefCoefficient: 1
     HealthCoefficient: 0
@@ -218,76 +224,82 @@ MonoBehaviour:
     DebuffProbability: 1
     Duration: 1
     SkillGage: 0
-    EffectPath: 
+    EffectPath: Prefabs/Skill/Eve/Skill2
   - ID: 102031
     Name: "\uD2B9\uC218(\uB808\uBCA81)"
-    Description: "\uC801 \uB300\uC0C1\uC5D0\uAC8C \uC288\uD37C\uB4DC\uB860\uC73C\uB85C
+    Description: "\uC801 \uC804\uCCB4\uC5D0\uAC8C \uB4DC\uB860\uC73C\uB85C \uB808\uC774\uC800
       \uACF5\uACA9"
-    Type: 0
-    AtkCoefficient: 3
+    Type: 1
+    Range: 1
+    AtkCoefficient: 0.6
     DefCoefficient: 0
     HealthCoefficient: 0
     CoolTime: 1
     DebuffProbability: 1
     Duration: 0
     SkillGage: 4
-    EffectPath: 
+    EffectPath: Prefabs/Skill/Eve/Skill3
   - ID: 102032
     Name: "\uD2B9\uC218(\uB808\uBCA82)"
-    Description: "\uC801 \uB300\uC0C1\uC5D0\uAC8C \uC288\uD37C\uB4DC\uB860\uC73C\uB85C
+    Description: "\uC801 \uC804\uCCB4\uC5D0\uAC8C \uB4DC\uB860\uC73C\uB85C \uB808\uC774\uC800
       \uACF5\uACA9"
-    Type: 0
-    AtkCoefficient: 4
+    Type: 1
+    Range: 1
+    AtkCoefficient: 0.7
     DefCoefficient: 0
     HealthCoefficient: 0
     CoolTime: 1
     DebuffProbability: 1
     Duration: 0
     SkillGage: 4
-    EffectPath: 
+    EffectPath: Prefabs/Skill/Eve/Skill3
   - ID: 102033
     Name: "\uD2B9\uC218(\uB808\uBCA83)"
-    Description: "\uC801 \uB300\uC0C1\uC5D0\uAC8C \uC288\uD37C\uB4DC\uB860\uC73C\uB85C
+    Description: "\uC801 \uC804\uCCB4\uC5D0\uAC8C \uB4DC\uB860\uC73C\uB85C \uB808\uC774\uC800
       \uACF5\uACA9"
-    Type: 0
-    AtkCoefficient: 5
+    Type: 1
+    Range: 1
+    AtkCoefficient: 0.85
     DefCoefficient: 0
     HealthCoefficient: 0
     CoolTime: 1
     DebuffProbability: 1
     Duration: 0
     SkillGage: 4
-    EffectPath: 
+    EffectPath: Prefabs/Skill/Eve/Skill3
   - ID: 102041
     Name: "\uAD81\uADF9(\uB808\uBCA81)"
     Description: "\uC778\uACF5\uC704\uC131\uC744 \uC774\uC6A9\uD55C \uC801 \uC804\uCCB4
       \uACF5\uACA9"
     Type: 1
-    AtkCoefficient: 10
+    Range: 1
+    AtkCoefficient: 1.2
     DefCoefficient: 0
     HealthCoefficient: 0
     CoolTime: 0
     DebuffProbability: 1
     Duration: 0
     SkillGage: -5
-    EffectPath: 
+    EffectPath: Prefabs/Skill/Eve/Skill4
   - ID: 102042
     Name: "\uAD81\uADF9(\uB808\uBCA83)"
     Description: "\uC778\uACF5\uC704\uC131\uC744 \uC774\uC6A9\uD55C \uC801 \uC804\uCCB4
       \uACF5\uACA9"
     Type: 1
-    AtkCoefficient: 10
+    Range: 1
+    AtkCoefficient: 1.4
     DefCoefficient: 0
     HealthCoefficient: 0
     CoolTime: 0
     DebuffProbability: 1
     Duration: 0
     SkillGage: -5
-    EffectPath: 
+    EffectPath: Prefabs/Skill/Eve/Skill4
   - ID: 103011
     Name: "\uC77C\uBC18\uACF5\uACA9"
     Description: "\uB300\uC0C1 1\uBA85\uC5D0\uAC8C \uC77C\uBC18\uACF5\uACA9"
     Type: 0
+    Range: 0
     AtkCoefficient: 1
     DefCoefficient: 0
     HealthCoefficient: 0
@@ -295,12 +307,13 @@ MonoBehaviour:
     DebuffProbability: 1
     Duration: 0
     SkillGage: 1
-    EffectPath: 
+    EffectPath: Prefabs/Skill/Adam/Skill1
   - ID: 103021
     Name: "\uC274\uB4DC"
     Description: "\uD50C\uB808\uC774\uC5B4 \uBC29\uC5B4\uB825\uB9CC\uD07C \uC274\uB4DC
       \uC0DD\uC131"
     Type: 3
+    Range: 1
     AtkCoefficient: 0
     DefCoefficient: 1
     HealthCoefficient: 0
@@ -308,12 +321,13 @@ MonoBehaviour:
     DebuffProbability: 1
     Duration: 1
     SkillGage: 0
-    EffectPath: 
+    EffectPath: Prefabs/Skill/Adam/Skill2
   - ID: 103031
     Name: "\uD2B9\uC218(\uB808\uBCA81)"
     Description: "\uC804\uBC29 1\uC5F4\uC758 \uC801\uC5D0\uAC8C \uCC38\uACA9\uC744
       \uAC00\uD55C\uB2E4"
-    Type: 2
+    Type: 1
+    Range: 1
     AtkCoefficient: 0.7
     DefCoefficient: 0
     HealthCoefficient: 0
@@ -321,12 +335,13 @@ MonoBehaviour:
     DebuffProbability: 1
     Duration: 0
     SkillGage: 2
-    EffectPath: 
+    EffectPath: Prefabs/Skill/Adam/Skill3
   - ID: 103032
     Name: "\uD2B9\uC218(\uB808\uBCA82)"
     Description: "\uC804\uBC29 1\uC5F4\uC758 \uC801\uC5D0\uAC8C \uCC38\uACA9\uC744
       \uAC00\uD55C\uB2E4"
-    Type: 2
+    Type: 1
+    Range: 1
     AtkCoefficient: 0.8
     DefCoefficient: 0
     HealthCoefficient: 0
@@ -334,12 +349,13 @@ MonoBehaviour:
     DebuffProbability: 1
     Duration: 0
     SkillGage: 2
-    EffectPath: 
+    EffectPath: Prefabs/Skill/Adam/Skill3
   - ID: 103033
     Name: "\uD2B9\uC218(\uB808\uBCA83)"
     Description: "\uC804\uBC29 1\uC5F4\uC758 \uC801\uC5D0\uAC8C \uCC38\uACA9\uC744
       \uAC00\uD55C\uB2E4"
-    Type: 2
+    Type: 1
+    Range: 1
     AtkCoefficient: 0.9
     DefCoefficient: 0
     HealthCoefficient: 0
@@ -347,12 +363,13 @@ MonoBehaviour:
     DebuffProbability: 1
     Duration: 0
     SkillGage: 2
-    EffectPath: 
+    EffectPath: Prefabs/Skill/Adam/Skill3
   - ID: 103041
     Name: "\uAD81\uADF9(\uB808\uBCA81)"
     Description: "\uC5D0\uB108\uC9C0\uB97C \uC9D1\uC911\uD558\uC5EC \uC801 \uB300\uC0C1
       1\uBA85\uC744 \uCC0C\uB978 \uD6C4 \uD3ED\uBC1C\uC2DC\uD0A8\uB2E4"
     Type: 0
+    Range: 0
     AtkCoefficient: 2.5
     DefCoefficient: 0
     HealthCoefficient: 0
@@ -360,12 +377,13 @@ MonoBehaviour:
     DebuffProbability: 1
     Duration: 0
     SkillGage: -5
-    EffectPath: 
+    EffectPath: Prefabs/Skill/Adam/Skill4
   - ID: 103042
     Name: "\uAD81\uADF9(\uB808\uBCA83)"
     Description: "\uC5D0\uB108\uC9C0\uB97C \uC9D1\uC911\uD558\uC5EC \uC801 \uB300\uC0C1
       1\uBA85\uC744 \uCC0C\uB978 \uD6C4 \uD3ED\uBC1C\uC2DC\uD0A8\uB2E4"
     Type: 0
+    Range: 0
     AtkCoefficient: 3
     DefCoefficient: 0
     HealthCoefficient: 0
@@ -373,11 +391,12 @@ MonoBehaviour:
     DebuffProbability: 1
     Duration: 0
     SkillGage: -5
-    EffectPath: 
+    EffectPath: Prefabs/Skill/Adam/Skill4
   - ID: 104011
     Name: "\uC77C\uBC18\uACF5\uACA9"
     Description: "\uB300\uC0C1 1\uBA85\uC5D0\uAC8C \uC77C\uBC18\uACF5\uACA9"
     Type: 0
+    Range: 0
     AtkCoefficient: 1
     DefCoefficient: 0
     HealthCoefficient: 0
@@ -385,12 +404,13 @@ MonoBehaviour:
     DebuffProbability: 1
     Duration: 0
     SkillGage: 1
-    EffectPath: 
+    EffectPath: Prefabs/Skill/Abel/Skill1
   - ID: 104021
     Name: "\uC274\uB4DC"
     Description: "\uD50C\uB808\uC774\uC5B4 \uBC29\uC5B4\uB825\uB9CC\uD07C \uC274\uB4DC
       \uC0DD\uC131"
     Type: 3
+    Range: 1
     AtkCoefficient: 0
     DefCoefficient: 1
     HealthCoefficient: 0
@@ -398,12 +418,13 @@ MonoBehaviour:
     DebuffProbability: 1
     Duration: 1
     SkillGage: 0
-    EffectPath: 
+    EffectPath: Prefabs/Skill/Abel/Skill2
   - ID: 104031
     Name: "\uD2B9\uC218(\uB808\uBCA81)"
     Description: "\uCCB4\uB825\uC774 \uAC00\uC7A5 \uB0AE\uC740 \uC544\uAD70 2\uBA85
       \uCCB4\uB825\uD68C\uBCF5"
     Type: 4
+    Range: 1
     AtkCoefficient: 1.5
     DefCoefficient: 0
     HealthCoefficient: 0
@@ -411,12 +432,13 @@ MonoBehaviour:
     DebuffProbability: 1
     Duration: 0
     SkillGage: 2
-    EffectPath: 
+    EffectPath: Prefabs/Skill/Abel/Skill3
   - ID: 104032
     Name: "\uD2B9\uC218(\uB808\uBCA82)"
     Description: "\uCCB4\uB825\uC774 \uAC00\uC7A5 \uB0AE\uC740 \uC544\uAD70 2\uBA85
       \uCCB4\uB825\uD68C\uBCF5"
     Type: 4
+    Range: 1
     AtkCoefficient: 2
     DefCoefficient: 0
     HealthCoefficient: 0
@@ -424,12 +446,13 @@ MonoBehaviour:
     DebuffProbability: 1
     Duration: 0
     SkillGage: 2
-    EffectPath: 
+    EffectPath: Prefabs/Skill/Abel/Skill3
   - ID: 104033
     Name: "\uD2B9\uC218(\uB808\uBCA83)"
     Description: "\uCCB4\uB825\uC774 \uAC00\uC7A5 \uB0AE\uC740 \uC544\uAD70 2\uBA85
       \uCCB4\uB825\uD68C\uBCF5"
     Type: 4
+    Range: 1
     AtkCoefficient: 2
     DefCoefficient: 0
     HealthCoefficient: 0
@@ -437,11 +460,12 @@ MonoBehaviour:
     DebuffProbability: 1
     Duration: 0
     SkillGage: 2
-    EffectPath: 
+    EffectPath: Prefabs/Skill/Abel/Skill3
   - ID: 104041
     Name: "\uAD81\uADF9(\uB808\uBCA81)"
     Description: "\uC544\uAD70 \uC804\uCCB4 \uCCB4\uB825\uC758 60% \uD68C\uBCF5(\uACF5\uC5C5/\uBC29\uC5C5)"
     Type: 5
+    Range: 1
     AtkCoefficient: 0
     DefCoefficient: 0
     HealthCoefficient: 0.6
@@ -449,11 +473,12 @@ MonoBehaviour:
     DebuffProbability: 1
     Duration: 2
     SkillGage: -5
-    EffectPath: 
+    EffectPath: Prefabs/Skill/Abel/Skill4
   - ID: 104042
     Name: "\uAD81\uADF9(\uB808\uBCA83)"
     Description: "\uC544\uAD70 \uC804\uCCB4 \uCCB4\uB825\uC758 80% \uD68C\uBCF5(\uACF5\uC5C5/\uBC29\uC5C5)"
     Type: 5
+    Range: 1
     AtkCoefficient: 0
     DefCoefficient: 0
     HealthCoefficient: 0.8
@@ -461,11 +486,12 @@ MonoBehaviour:
     DebuffProbability: 1
     Duration: 2
     SkillGage: -5
-    EffectPath: 
+    EffectPath: Prefabs/Skill/Abel/Skill4
   - ID: 105011
     Name: "\uC77C\uBC18\uACF5\uACA9"
     Description: "\uB300\uC0C1 1\uBA85\uC5D0\uAC8C \uC77C\uBC18\uACF5\uACA9"
     Type: 0
+    Range: 0
     AtkCoefficient: 1
     DefCoefficient: 0
     HealthCoefficient: 0
@@ -473,12 +499,13 @@ MonoBehaviour:
     DebuffProbability: 1
     Duration: 0
     SkillGage: 1
-    EffectPath: 
+    EffectPath: Prefabs/Skill/Kain/Skill1
   - ID: 105021
     Name: "\uC274\uB4DC"
     Description: "\uD50C\uB808\uC774\uC5B4 \uBC29\uC5B4\uB825\uB9CC\uD07C \uC274\uB4DC
       \uC0DD\uC131"
     Type: 3
+    Range: 1
     AtkCoefficient: 0
     DefCoefficient: 1
     HealthCoefficient: 0
@@ -486,74 +513,82 @@ MonoBehaviour:
     DebuffProbability: 1
     Duration: 1
     SkillGage: 0
-    EffectPath: 
+    EffectPath: Prefabs/Skill/Kain/Skill2
   - ID: 105031
     Name: "\uD2B9\uC218(\uB808\uBCA81)"
-    Description: "\uB300\uC0C1 1\uBA85\uC5D0\uAC8C \uC5F0\uBC1C\uC0AC\uACA9 (\uCE58\uBA85\uD0C0
-      \uC2DC \uD134\uD68D\uB4DD 1\uD68C)"
+    Description: "\uBC29\uD328\uB85C \uC801 \uD55C\uBA85\uC744 \uAC00\uACA9 (60%
+      \uD655\uB960 \uB3C4\uBC1C)"
     Type: 0
-    AtkCoefficient: 1.2
-    DefCoefficient: 0
+    Range: 0
+    AtkCoefficient: 0
+    DefCoefficient: 2
     HealthCoefficient: 0
     CoolTime: 2
-    DebuffProbability: 1
-    Duration: 0
+    DebuffProbability: 0.6
+    Duration: 1
     SkillGage: 2
-    EffectPath: 
+    EffectPath: Prefabs/Skill/Kain/Skill3
   - ID: 105032
     Name: "\uD2B9\uC218(\uB808\uBCA82)"
-    Description: "\uB300\uC0C1 1\uBA85\uC5D0\uAC8C \uC5F0\uBC1C\uC0AC\uACA9 (\uCE58\uBA85\uD0C0
-      \uC2DC \uD134\uD68D\uB4DD 1\uD68C)"
+    Description: "\uBC29\uD328\uB85C \uC801 \uD55C\uBA85\uC744 \uAC00\uACA9 (80%
+      \uD655\uB960 \uB3C4\uBC1C)"
     Type: 0
-    AtkCoefficient: 1.5
-    DefCoefficient: 0
+    Range: 0
+    AtkCoefficient: 0
+    DefCoefficient: 2.5
     HealthCoefficient: 0
     CoolTime: 2
-    DebuffProbability: 1
-    Duration: 0
+    DebuffProbability: 0.8
+    Duration: 1
     SkillGage: 2
-    EffectPath: 
+    EffectPath: Prefabs/Skill/Kain/Skill3
   - ID: 105033
     Name: "\uD2B9\uC218(\uB808\uBCA83)"
-    Description: "\uB300\uC0C1 1\uBA85\uC5D0\uAC8C \uC5F0\uBC1C\uC0AC\uACA9 (\uCE58\uBA85\uD0C0
-      \uC2DC \uD134\uD68D\uB4DD 1\uD68C)"
+    Description: "\uBC29\uD328\uB85C \uC801 \uD55C\uBA85\uC744 \uAC00\uACA9 (90%
+      \uD655\uB960 \uB3C4\uBC1C)"
     Type: 0
-    AtkCoefficient: 1.8
-    DefCoefficient: 0
+    Range: 0
+    AtkCoefficient: 0
+    DefCoefficient: 3
     HealthCoefficient: 0
     CoolTime: 2
-    DebuffProbability: 1
-    Duration: 0
+    DebuffProbability: 0.9
+    Duration: 1
     SkillGage: 2
-    EffectPath: 
+    EffectPath: Prefabs/Skill/Kain/Skill3
   - ID: 105041
     Name: "\uAD81\uADF9(\uB808\uBCA81)"
-    Description: "\uD5E4\uB4DC\uC0F7 (\uCE58\uD655+15%/\uCE58\uD53C+25\uD37C)"
+    Description: "\uC57C\uBCB3\uC774 \uC783\uC740 \uCCB4\uB825\uC5D0 \uBE44\uB840\uD558\uC5EC
+      \uB300\uC0C1 1\uBA85 \uACF5\uACA9"
     Type: 0
-    AtkCoefficient: 2.2
+    Range: 0
+    AtkCoefficient: 0
     DefCoefficient: 0
-    HealthCoefficient: 0
+    HealthCoefficient: 1.2
     CoolTime: 0
     DebuffProbability: 1
     Duration: 0
     SkillGage: -5
-    EffectPath: 
+    EffectPath: Prefabs/Skill/Kain/Skill4
   - ID: 105042
     Name: "\uAD81\uADF9(\uB808\uBCA83)"
-    Description: "\uD5E4\uB4DC\uC0F7 (\uCE58\uD655+20%/\uCE58\uD53C+40\uD37C)"
+    Description: "\uC57C\uBCB3\uC774 \uC783\uC740 \uCCB4\uB825\uC5D0 \uBE44\uB840\uD558\uC5EC
+      \uB300\uC0C1 1\uBA85 \uACF5\uACA9"
     Type: 0
-    AtkCoefficient: 2.7
+    Range: 0
+    AtkCoefficient: 0
     DefCoefficient: 0
-    HealthCoefficient: 0
+    HealthCoefficient: 1.5
     CoolTime: 0
     DebuffProbability: 1
     Duration: 0
     SkillGage: -5
-    EffectPath: 
+    EffectPath: Prefabs/Skill/Kain/Skill4
   - ID: 106011
     Name: "\uC77C\uBC18\uACF5\uACA9"
     Description: "\uB300\uC0C1 1\uBA85\uC5D0\uAC8C \uC77C\uBC18\uACF5\uACA9"
     Type: 0
+    Range: 1
     AtkCoefficient: 1
     DefCoefficient: 0
     HealthCoefficient: 0
@@ -567,6 +602,7 @@ MonoBehaviour:
     Description: "\uD50C\uB808\uC774\uC5B4 \uBC29\uC5B4\uB825\uB9CC\uD07C \uC274\uB4DC
       \uC0DD\uC131"
     Type: 3
+    Range: 1
     AtkCoefficient: 0
     DefCoefficient: 1
     HealthCoefficient: 0
@@ -577,51 +613,54 @@ MonoBehaviour:
     EffectPath: 
   - ID: 106031
     Name: "\uD2B9\uC218(\uB808\uBCA81)"
-    Description: "\uBC29\uD328\uB85C \uC801 \uD55C\uBA85\uC744 \uAC00\uACA9 (60%
-      \uD655\uB960 \uB3C4\uBC1C)"
+    Description: "\uB300\uC0C1 1\uBA85\uC5D0\uAC8C \uC5F0\uBC1C\uC0AC\uACA9 (\uCE58\uBA85\uD0C0
+      \uC2DC \uD134\uD68D\uB4DD 1\uD68C)"
     Type: 0
-    AtkCoefficient: 0
-    DefCoefficient: 2
+    Range: 1
+    AtkCoefficient: 1.2
+    DefCoefficient: 0
     HealthCoefficient: 0
     CoolTime: 2
-    DebuffProbability: 0.6
-    Duration: 1
+    DebuffProbability: 1
+    Duration: 0
     SkillGage: 2
     EffectPath: 
   - ID: 106032
     Name: "\uD2B9\uC218(\uB808\uBCA82)"
-    Description: "\uBC29\uD328\uB85C \uC801 \uD55C\uBA85\uC744 \uAC00\uACA9 (80%
-      \uD655\uB960 \uB3C4\uBC1C)"
+    Description: "\uB300\uC0C1 1\uBA85\uC5D0\uAC8C \uC5F0\uBC1C\uC0AC\uACA9 (\uCE58\uBA85\uD0C0
+      \uC2DC \uD134\uD68D\uB4DD 1\uD68C)"
     Type: 0
-    AtkCoefficient: 0
-    DefCoefficient: 2.5
+    Range: 1
+    AtkCoefficient: 1.5
+    DefCoefficient: 0
     HealthCoefficient: 0
     CoolTime: 2
-    DebuffProbability: 0.8
-    Duration: 1
+    DebuffProbability: 1
+    Duration: 0
     SkillGage: 2
     EffectPath: 
   - ID: 106033
     Name: "\uD2B9\uC218(\uB808\uBCA83)"
-    Description: "\uBC29\uD328\uB85C \uC801 \uD55C\uBA85\uC744 \uAC00\uACA9 (90%
-      \uD655\uB960 \uB3C4\uBC1C)"
+    Description: "\uB300\uC0C1 1\uBA85\uC5D0\uAC8C \uC5F0\uBC1C\uC0AC\uACA9 (\uCE58\uBA85\uD0C0
+      \uC2DC \uD134\uD68D\uB4DD 1\uD68C)"
     Type: 0
-    AtkCoefficient: 0
-    DefCoefficient: 3
+    Range: 1
+    AtkCoefficient: 1.8
+    DefCoefficient: 0
     HealthCoefficient: 0
     CoolTime: 2
-    DebuffProbability: 0.9
-    Duration: 1
+    DebuffProbability: 1
+    Duration: 0
     SkillGage: 2
     EffectPath: 
   - ID: 106041
     Name: "\uAD81\uADF9(\uB808\uBCA81)"
-    Description: "\uC57C\uBCB3\uC774 \uC783\uC740 \uCCB4\uB825\uC5D0 \uBE44\uB840\uD558\uC5EC
-      \uB300\uC0C1 1\uBA85 \uACF5\uACA9"
+    Description: "\uD5E4\uB4DC\uC0F7 (\uCE58\uD655+15%/\uCE58\uD53C+25\uD37C)"
     Type: 0
-    AtkCoefficient: 0
+    Range: 1
+    AtkCoefficient: 2.2
     DefCoefficient: 0
-    HealthCoefficient: 1.2
+    HealthCoefficient: 0
     CoolTime: 0
     DebuffProbability: 1
     Duration: 0
@@ -629,12 +668,12 @@ MonoBehaviour:
     EffectPath: 
   - ID: 106042
     Name: "\uAD81\uADF9(\uB808\uBCA83)"
-    Description: "\uC57C\uBCB3\uC774 \uC783\uC740 \uCCB4\uB825\uC5D0 \uBE44\uB840\uD558\uC5EC
-      \uB300\uC0C1 1\uBA85 \uACF5\uACA9"
+    Description: "\uD5E4\uB4DC\uC0F7 (\uCE58\uD655+20%/\uCE58\uD53C+40\uD37C)"
     Type: 0
-    AtkCoefficient: 0
+    Range: 1
+    AtkCoefficient: 2.7
     DefCoefficient: 0
-    HealthCoefficient: 1.5
+    HealthCoefficient: 0
     CoolTime: 0
     DebuffProbability: 1
     Duration: 0
