@@ -18,6 +18,8 @@ public class CharacterTurnController : MonoBehaviour
     private Vector3 offTurnPos;
     public float unitGauge;
     int runHash;
+    private int skill3CoolTime;
+    private int skill4Gauge;
     private bool isCharacterTurn;
     private bool isTargetPos = false;
     private bool isStartPos = true;
@@ -28,18 +30,16 @@ public class CharacterTurnController : MonoBehaviour
 
     private void Start()
     {
-        //animator = GetComponentInChildren<Animator>();
+        skill4Gauge = 5;
         battleManager = BattleManager.Instance;
         onTurnPos = new Vector3(2, 0, -4.5f);
         offTurnPos = transform.localPosition;
-        //character = GetComponentInChildren<GameObject>();
         if (GameManager.Instance.User.teamData.ContainsKey(teamIndex))
         {
             characterData = GameManager.Instance.User.teamData[teamIndex];
             unitInfo = battleManager.lUnitInfo.Find(x => x.unitID == characterData.status.iD);
         }
         isCharacterTurn = false;
-        runHash = Animator.StringToHash("isRun");
         battleManager.skill1 += Skill1;
         battleManager.skill2 += Skill2;
         battleManager.skill3 += Skill3;
@@ -63,12 +63,14 @@ public class CharacterTurnController : MonoBehaviour
 
     }
 
-    
+
     public void TurnOn()
     {
         isCharacterTurn = true;
         transform.localPosition = onTurnPos;
-        Camera.main.transform.SetLocalPositionAndRotation(battleManager.cameraPos,Quaternion.Euler(20,-30,0));
+        battleManager.skill3CoolTime = skill3CoolTime;
+        battleManager.skill4Gauge = skill4Gauge;
+        Camera.main.transform.SetLocalPositionAndRotation(battleManager.cameraPos, Quaternion.Euler(20, -30, 0));
     }
     private void Skill1()
     {
@@ -78,14 +80,16 @@ public class CharacterTurnController : MonoBehaviour
             {
                 case 0:
                     StartCoroutine(MeleeSkillEffect("1"));
+                    StartCoroutine(WaitForSkillEffect(3.5f));
                     break;
                 case 1:
                     StartCoroutine(RangedSkillEffect(1f, "1"));
+                    StartCoroutine(WaitForSkillEffect(3f));
                     break;
             }
+            skill4Gauge += characterData.skillData[1].skillGage;
             
         }
-        StartCoroutine(WaitForSkillEffect(4f));
     }
     private void Skill2()
     {
@@ -95,57 +99,61 @@ public class CharacterTurnController : MonoBehaviour
             {
                 case 0:
                     StartCoroutine(MeleeSkillEffect("2"));
+                    StartCoroutine(WaitForSkillEffect(3.5f));
                     break;
                 case 1:
                     StartCoroutine(RangedSkillEffect(1f, "2"));
+                    StartCoroutine(WaitForSkillEffect(3f));
                     break;
             }
-
         }
-        StartCoroutine(WaitForSkillEffect(4f));
     }
     private void Skill3()
     {
-        if (isCharacterTurn)
+        if (isCharacterTurn && skill3CoolTime <= 0)
         {
             switch (characterData.skillData[3].range)
             {
                 case 0:
                     StartCoroutine(MeleeSkillEffect("3"));
+                    skill3CoolTime = characterData.skillData[3].coolTime;
+                    StartCoroutine(WaitForSkillEffect(3.5f));
                     break;
                 case 1:
                     StartCoroutine(RangedSkillEffect(1f, "3"));
+                    skill3CoolTime = characterData.skillData[3].coolTime;
+                    StartCoroutine(WaitForSkillEffect(2f));
                     break;
-            }
-
+            } 
+            skill4Gauge += characterData.skillData[3].skillGage;
         }
-        StartCoroutine(WaitForSkillEffect(4f));
 
     }
     private void Skill4()
     {
-        if (isCharacterTurn)
+        if (isCharacterTurn && skill4Gauge >= 5)
         {
             switch (characterData.skillData[4].range)
             {
                 case 0:
                     StartCoroutine(MeleeSkillEffect("4"));
+                    StartCoroutine(WaitForSkillEffect(3.7f));
                     break;
                 case 1:
                     StartCoroutine(RangedSkillEffect(2f, "4"));
+                    StartCoroutine(WaitForSkillEffect(3f));
                     break;
             }
-
+            skill4Gauge = 0;
         }
-        StartCoroutine(WaitForSkillEffect(4f));
     }
     private void OnSkillEffect(CharacterSkill skill)
     {
         var res = Resources.Load<GameObject>(skill.effectPath);
-        if(res != null)
+        if (res != null)
         {
             skillObj = Instantiate<GameObject>(res, transform);
-        }       
+        }
     }
     private void MoveToTarget()
     {
@@ -168,6 +176,7 @@ public class CharacterTurnController : MonoBehaviour
         battleManager.lUnitInfo[battleManager.onTurnIndex].unitGauge = 0;
         battleManager.isAttacking = false;
         isCharacterTurn = false;
+        skill3CoolTime--;
     }
     IEnumerator MeleeSkillEffect(string num)
     {
@@ -210,7 +219,7 @@ public class CharacterTurnController : MonoBehaviour
         battleManager.OnSkill(characterData, skillNum);
         yield return new WaitForSeconds(time);
         Destroy(skillObj);
-        character.transform.localPosition = Vector3.zero;        
+        character.transform.localPosition = Vector3.zero;
         isAttack = false;
     }
 }

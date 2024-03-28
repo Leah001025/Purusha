@@ -39,8 +39,10 @@ public class BattleManager : SingleTon<BattleManager>
     private WaitForSeconds gameForSeconds;
     private WaitForSeconds animForSeconds;
 
-    public int tempIndex;
+    public int onTurnIndex;
     public bool isAttacking = false;
+    public int skill3CoolTime;
+    public int skill4Gauge;
 
     private GameEnd gameState;
 
@@ -68,6 +70,8 @@ public class BattleManager : SingleTon<BattleManager>
     public Action skill2;
     public Action skill3;
     public Action skill4;
+    public Vector3 defalutCameraPos;
+    public Vector3 cameraPos = new Vector3(3.7f, 2.2f, -5.3f);
 
     public event Action<string> OnTarget;
     public event Action<float, string> OnAddDamage;
@@ -94,6 +98,7 @@ public class BattleManager : SingleTon<BattleManager>
         AddUnitInfo(StageID);
         GameForSeconds(0.03f);
         StartCoroutine(AttackOrder());
+        defalutCameraPos = Camera.main.transform.localPosition;
     }
     private void AddUnitInfo(int StageID)
     {
@@ -190,13 +195,13 @@ public class BattleManager : SingleTon<BattleManager>
                     if (lUnitInfo[i].unitGauge >= DefaultGauge)
                     {
                         attackOrder.Enqueue(i);
-                        tempIndex = i;
                     }
                 }
                 while (attackOrder.Count > 0)
                 {
                     isAttacking = true;
                     yield return StartCoroutine(UnitAttack(attackOrder.Peek()));
+                    onTurnIndex = attackOrder.Peek();
                     attackOrder.Dequeue();
                 }
             }
@@ -281,8 +286,8 @@ public class BattleManager : SingleTon<BattleManager>
     }
     private void SetSpawnPos()
     {
-        playerSpawnPos[0] = new Vector3(0.5f, 0, -5f);
-        playerSpawnPos[1] = new Vector3(3.5f, 0, -5f);
+        playerSpawnPos[0] = new Vector3(0.5f, 0, -6.5f);
+        playerSpawnPos[1] = new Vector3(3.5f, 0, -6.5f);
         playerSpawnPos[2] = new Vector3(-1, 0, -6.5f);
         playerSpawnPos[3] = new Vector3(2, 0, -6.5f);
         playerSpawnPos[4] = new Vector3(5, 0, -6.5f);
