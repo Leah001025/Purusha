@@ -63,6 +63,7 @@ public class CharacterSkill
     public string name;
     public string description;
     public int type;
+    public int range;
     public float atkCoefficient;
     public float defCoefficient;
     public float healthCoefficient;
@@ -78,6 +79,7 @@ public class CharacterSkill
         name = data.Name;
         description = data.Description;
         type = data.Type;
+        range = data.Range;
         atkCoefficient = data.AtkCoefficient;
         defCoefficient = data.DefCoefficient;
         healthCoefficient = data.HealthCoefficient;

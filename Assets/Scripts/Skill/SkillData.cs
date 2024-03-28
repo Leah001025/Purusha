@@ -9,6 +9,7 @@ public class SkillData : DataBase<SkillData>
     public string Name;
     public string Description;
     public int Type;
+    public int Range;
     public float AtkCoefficient;
     public float DefCoefficient;
     public float HealthCoefficient;
