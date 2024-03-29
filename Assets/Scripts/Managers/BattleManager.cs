@@ -200,8 +200,8 @@ public class BattleManager : SingleTon<BattleManager>
                 while (attackOrder.Count > 0)
                 {
                     isAttacking = true;
-                    yield return StartCoroutine(UnitAttack(attackOrder.Peek()));
                     onTurnIndex = attackOrder.Peek();
+                    yield return StartCoroutine(UnitAttack(attackOrder.Peek()));
                     attackOrder.Dequeue();
                 }
             }

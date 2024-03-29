@@ -90,7 +90,6 @@ public class PlayerConeRaycastDetection : MonoBehaviour
     private IEnumerator CameraControll()
     {
         yield return new WaitForSeconds(1.5f);
-        isBattle = false;
         SceneLoadManager.Instance.ChangeScene("BattleScene__");
     }
 

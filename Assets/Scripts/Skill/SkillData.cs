@@ -18,7 +18,7 @@ public class SkillData : DataBase<SkillData>
     public int Duration;
     public int SkillGage;
     public string EffectPath;
-
+    public string IconPath;
 }
 
 

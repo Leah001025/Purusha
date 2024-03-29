@@ -72,6 +72,7 @@ public class CharacterSkill
     public int duration;
     public int skillGage;
     public string effectPath;
+    public string iconPath;
     public CharacterSkill(int id)
     {
         SkillData data = DataManager.Instance.SkillDB.GetData(id);
@@ -88,5 +89,6 @@ public class CharacterSkill
         duration = data.Duration;
         skillGage = data.SkillGage;
         effectPath = data.EffectPath;
+        iconPath = data.IconPath;
     }
 }
