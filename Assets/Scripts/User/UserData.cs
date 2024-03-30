@@ -6,16 +6,28 @@ public class UserData
 {
     public int userLv;
     public int userExp;
+    public string userName;
+    public int gold;
+    public int cash;
+    public Stack<int> stageClear;
     public Dictionary<int, CharacterData> characterDatas = new();
     public Dictionary<int, CharacterData> teamData = new Dictionary<int, CharacterData>(5);
+    public List<ItemData> Inventory = new();
+
+    public ItemDataBase ItemData = DataManager.Instance.ItemDB;
 
     //UseData 초기 생성
-    public UserData()
+    public UserData(string name)
     {
         userLv = 1;
         userExp = 0;
+        userName = name;
+        gold = 1000;
+        cash = 100;
         CharacterData eve = new CharacterData(102);
-        characterDatas.Add(eve.status.iD, eve);   
+        characterDatas.Add(eve.status.iD, eve);
+        AddTeam(eve.status.iD);
+        // stageClear.Push(110101);
     }
     //캐릭터 추가
     public void AddCharacter(int id)
@@ -43,7 +55,18 @@ public class UserData
         teamData.Remove(index);
     }
 
-
+    public void AddItem(int id)
+    {
+        foreach (ItemData _itemData in Inventory)
+        {
+            if (_itemData.ID == id)
+            {
+                _itemData.Quantity++;
+            }
+            else
+            {
+                Inventory.Add(ItemData.GetData(id));
+            }
+        }
+    }
 }
-
-

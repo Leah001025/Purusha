@@ -4,16 +4,16 @@ using UnityEngine;
 public class GameManager : SingleTon<GameManager>
 {
     public UserData User;
+    public string userName = "Leah";
     protected override void Awake()
     {
         base.Awake();
-        User = new UserData();
+        User = new UserData(userName);
         User.AddCharacter(101);
         User.AddCharacter(103);
         User.AddCharacter(104);
         User.AddCharacter(105);
         User.AddTeam(101);
-        User.AddTeam(102);
         User.AddTeam(103);
         User.AddTeam(104);
         User.AddTeam(105);
@@ -31,5 +31,18 @@ public class GameManager : SingleTon<GameManager>
         Debug.Log("Ä³¸¯ÅÍ2: " + User.characterDatas[102].status.health);
     }
 
+    public void AddItem(int id)
+    {
+        User.AddItem(id);
+    }
 
+    public void AddTeam(int id)
+    {
+        User.AddTeam(id);
+    }
+
+    public void RemoveTeam(int id)
+    {
+        User.RemoveTeam(id);
+    }
 }
