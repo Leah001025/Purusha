@@ -23,7 +23,6 @@ public class PlayerConeRaycastDetection : MonoBehaviour
     private void Start()
     {
         startPos = transform.position + (transform.up * 1f) + (transform.forward * 0.2f);
-        StartCoroutine(StartDetect());
     }
     void Update()
     {
@@ -34,6 +33,13 @@ public class PlayerConeRaycastDetection : MonoBehaviour
         //    //PerformConeRaycast();
         //    detectionTimer = 0.0f; // 타이머 초기화
         //}
+        if (!isBattle)
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+                PerformConeRaycast();
+            }
+        }
         if (isBattle)
         {
             Camera.main.transform.position = Vector3.Lerp(Camera.main.transform.position, targetPos, 1f * Time.deltaTime);
@@ -51,8 +57,8 @@ public class PlayerConeRaycastDetection : MonoBehaviour
         Vector3 rightSpread = spreadRotation * forward;
         Ray[] rays = new Ray[3];
         rays[0] = new Ray(startPos, forward * detectionDistance);
-        rays[1] = new Ray(startPos, leftSpread * detectionDistance);
-        rays[2] = new Ray(startPos, rightSpread * detectionDistance);
+        //rays[1] = new Ray(startPos, leftSpread * detectionDistance);
+        //rays[2] = new Ray(startPos, rightSpread * detectionDistance);
         RaycastHit hit;
         foreach (var ray in rays)
         {
@@ -89,18 +95,8 @@ public class PlayerConeRaycastDetection : MonoBehaviour
     }
     private IEnumerator CameraControll()
     {
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(3f);
         SceneLoadManager.Instance.ChangeScene("BattleScene__");
     }
 
-    private IEnumerator StartDetect()
-    {
-        WaitForSeconds detectDelay = new WaitForSeconds(detectionInterval);
-        while (true)
-        {
-            yield return detectDelay;
-            if(!isBattle)
-            PerformConeRaycast();
-        }
-    }
 }

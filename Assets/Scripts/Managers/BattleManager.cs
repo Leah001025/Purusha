@@ -21,7 +21,7 @@ public class BattleManager : SingleTon<BattleManager>
 {
     public List<UnitInfo> lUnitInfo;
     private Dictionary<int, CharacterData> teamData;
-    private Dictionary<int, CharacterTurnController> turnControllers = new Dictionary<int, CharacterTurnController>(5);
+    public Dictionary<int, CharacterTurnController> turnControllers = new Dictionary<int, CharacterTurnController>(5);
 
     private UnitInfo unitInfo;
 
@@ -30,6 +30,8 @@ public class BattleManager : SingleTon<BattleManager>
     public GameObject target;
     [SerializeField]
     private Transform stageTrans;
+    [SerializeField]
+    private Transform playerInfoTrans;
 
     private EnemyDataBase enemyDB;
     private StageDataBase stageDB;
@@ -71,10 +73,10 @@ public class BattleManager : SingleTon<BattleManager>
     public Action skill3;
     public Action skill4;
     public Vector3 defalutCameraPos;
-    public Vector3 cameraPos = new Vector3(3.7f, 2.2f, -5.3f);
+    public Vector3 cameraPos;
 
     public event Action<string> OnTarget;
-    public event Action<float, string> OnAddDamage;
+    public event Action<float, string> OnAddDamage; 
 
     private float DefaultGauge = 100.0f;
     private float DefaultUpGauge = 1.0f;
@@ -91,6 +93,7 @@ public class BattleManager : SingleTon<BattleManager>
     private void Start()
     {
         UIManager.Instance.ShowPopup<TurnIndicatorUI>();
+        cameraPos = new Vector3(5f, 2f, -6.2f);
     }
     public void BattleStart(int StageID)
     {
@@ -121,6 +124,7 @@ public class BattleManager : SingleTon<BattleManager>
                 unitInfo.unitObject.transform.localPosition = playerSpawnPos[i - 1];
                 unitInfo.characterData = CreateCharacterData(i);
                 lUnitInfo.Add(unitInfo);
+                UIManager.Instance.BattlePlayerPopup(i-1,playerInfoTrans);
             }
             else Debug.Log($"TeamData{i} : null");
         }
@@ -253,6 +257,8 @@ public class BattleManager : SingleTon<BattleManager>
                 break;
             case 3:
                 break;
+            case 4:
+                break;
         }
     }
     private void EnemyAttack(UnitInfo unitInfo)
@@ -286,11 +292,11 @@ public class BattleManager : SingleTon<BattleManager>
     }
     private void SetSpawnPos()
     {
-        playerSpawnPos[0] = new Vector3(0.5f, 0, -6.5f);
-        playerSpawnPos[1] = new Vector3(3.5f, 0, -6.5f);
-        playerSpawnPos[2] = new Vector3(-1, 0, -6.5f);
-        playerSpawnPos[3] = new Vector3(2, 0, -6.5f);
-        playerSpawnPos[4] = new Vector3(5, 0, -6.5f);
+        playerSpawnPos[0] = new Vector3(0.5f, 0, -7f);
+        playerSpawnPos[1] = new Vector3(3.5f, 0, -7f);
+        playerSpawnPos[2] = new Vector3(-1, 0, -7f);
+        playerSpawnPos[3] = new Vector3(2, 0, -7f);
+        playerSpawnPos[4] = new Vector3(5, 0, -7f);
 
         enemySpawnPos[0] = new Vector3(0.5f, 0, -1.5f);
         enemySpawnPos[1] = new Vector3(3.5f, 0, -1.5f);

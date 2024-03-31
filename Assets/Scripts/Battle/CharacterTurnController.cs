@@ -19,18 +19,19 @@ public class CharacterTurnController : MonoBehaviour
     public float unitGauge;
     int runHash;
     private int skill3CoolTime;
-    private int skill4Gauge;
+    public int skill4Gauge;
     private bool isCharacterTurn;
     private bool isTargetPos = false;
     private bool isStartPos = true;
     private bool isAttack = false;
+    public Action changeSkill4Gauge;
     public GameObject character;
     private GameObject skillObj;
     private WaitForSeconds wait05 = new WaitForSeconds(0.5f);
 
     private void Start()
     {
-        skill4Gauge = 5;
+        //skill4Gauge = 5;
         battleManager = BattleManager.Instance;
         onTurnPos = new Vector3(2, 0, -4.5f);
         offTurnPos = transform.localPosition;
@@ -62,6 +63,10 @@ public class CharacterTurnController : MonoBehaviour
         }
 
     }
+    public void CallChangeSkill4Gauge()
+    {
+        changeSkill4Gauge?.Invoke();
+    }
 
 
     public void TurnOn()
@@ -70,7 +75,8 @@ public class CharacterTurnController : MonoBehaviour
         transform.localPosition = onTurnPos;
         battleManager.skill3CoolTime = skill3CoolTime;
         battleManager.skill4Gauge = skill4Gauge;
-        Camera.main.transform.SetLocalPositionAndRotation(battleManager.cameraPos, Quaternion.Euler(20, -30, 0));
+        CallChangeSkill4Gauge();
+        Camera.main.transform.SetLocalPositionAndRotation(battleManager.cameraPos, Quaternion.Euler(10, -30, 0));
     }
     private void Skill1()
     {
@@ -88,7 +94,8 @@ public class CharacterTurnController : MonoBehaviour
                     break;
             }
             skill4Gauge += characterData.skillData[1].skillGage;
-            
+            CallChangeSkill4Gauge();
+
         }
     }
     private void Skill2()
@@ -126,6 +133,7 @@ public class CharacterTurnController : MonoBehaviour
                     break;
             } 
             skill4Gauge += characterData.skillData[3].skillGage;
+            CallChangeSkill4Gauge();
         }
 
     }
@@ -145,6 +153,7 @@ public class CharacterTurnController : MonoBehaviour
                     break;
             }
             skill4Gauge = 0;
+            CallChangeSkill4Gauge();
         }
     }
     private void OnSkillEffect(CharacterSkill skill)
