@@ -19,7 +19,7 @@ public class SpawnManager : MonoBehaviour
 
     [SerializeField] private Transform mapSpawnPoint;
 
-    private int stageID = 1101;
+    private int stageID;
     private StageDataBase stageDB;
     private WaveDataBase waveDB;
     private EnemyDataBase enemyDB;
@@ -37,6 +37,8 @@ public class SpawnManager : MonoBehaviour
 
     private void Awake()
     {
+        stageID = GameManager.Instance.stageID;
+
         stageDB = DataManager.Instance.StageDB;
         waveDB = DataManager.Instance.WaveDB;
         enemyDB = DataManager.Instance.EnemyDB;
@@ -49,12 +51,13 @@ public class SpawnManager : MonoBehaviour
     }
     private void Start()
     {
+        MonsterSpawn();
+
         var _obj = mapSpawnController.PlayerSpawn(player);
         virtualCamera.Follow = _obj.transform;
         raycastDetection = _obj.GetComponent<PlayerConeRaycastDetection>();
         raycastDetection.battleEffect = effectImage;
         raycastDetection.cinemachineBrain = brainCamera;
-        MonsterSpawn();
     }
     private void MonsterSpawn()
     {

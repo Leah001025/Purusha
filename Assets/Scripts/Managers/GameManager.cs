@@ -3,6 +3,13 @@ using UnityEngine;
 
 public class GameManager : SingleTon<GameManager>
 {
+    public int stageID = 1101;
+    public int waveID;
+
+    public bool wave1Clear = false;
+    public bool wave2Clear = false;
+    public bool wave3Clear = false;
+
     public UserData User;
     public string userName = "Leah";
     protected override void Awake()

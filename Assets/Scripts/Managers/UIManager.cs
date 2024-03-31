@@ -92,5 +92,7 @@ public class UIManager : SingleTon<UIManager>
     public void BattleEnd()
     {
         battlePlayerStatus.Clear();
+        var info = Resources.Load("Prefabs/Battle/MonsterInfo") as GameObject;
+        //Instantiate(info, monster.transform.GetChild(1).gameObject.transform);
     }
 }

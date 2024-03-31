@@ -64,7 +64,7 @@ public class PlayerConeRaycastDetection : MonoBehaviour
         {
             if (Physics.Raycast(ray, out hit, detectionDistance, monsterLayer))
             {                
-                Debug.Log("바이오닉스를 감지했습니다. 바이오닉스 이름: " + hit.collider.name);
+                Debug.Log("Wave : " + hit.collider.gameObject.transform.parent.name);
                 EnterBattle(hit);
                 //SceneManager.LoadScene("BattleScene__");  전투 씬으로 전환
                 return;
@@ -90,6 +90,7 @@ public class PlayerConeRaycastDetection : MonoBehaviour
         isBattle = true;
         targetPos = hit.collider.transform.position;
         cinemachineBrain.enabled = false;
+        GameManager.Instance.waveID = int.Parse(hit.collider.gameObject.transform.parent.name);
         StartCoroutine(CameraControll());
 
     }

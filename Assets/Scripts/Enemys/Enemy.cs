@@ -38,6 +38,7 @@ public class Enemy : MonoBehaviour
             targetUI = GetComponentInChildren<TargetUI>();
             actionController.OnTarget += TargetOn;
             actionController.OffTarget += TargetOff;
+            actionController.OnDie += ThisDie;
         }
     }
     private void Update()
@@ -51,5 +52,12 @@ public class Enemy : MonoBehaviour
     private void TargetOff()
     {
         targetUI.OffTarget();
+    }
+    private void ThisDie()
+    {
+        actionController.OnTarget -= TargetOn;
+        actionController.OffTarget -= TargetOff;
+        actionController.OnDie -= ThisDie;
+        Destroy(gameObject);
     }
 }

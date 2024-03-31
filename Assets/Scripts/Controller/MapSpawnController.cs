@@ -10,6 +10,7 @@ public class MapSpawnController : MonoBehaviour
     [SerializeField] private Transform monsterSpawnPoint2;
     [SerializeField] private Transform monsterSpawnPoint3;
 
+    private int spawnCount;
     public GameObject PlayerSpawn(GameObject player)
     {
         var _player = Instantiate(player, playerSpawnPoint);
@@ -18,20 +19,33 @@ public class MapSpawnController : MonoBehaviour
     }
     public void MonsterSpawn(GameObject monster, int wave)
     {
-        if (monsterSpawnPoint1.childCount == 0)
+        spawnCount++;
+        if (spawnCount == 1)
         {
-            var _obj = Instantiate(monster, monsterSpawnPoint1);
-            _obj.name = wave.ToString();
+            if (!GameManager.Instance.wave1Clear)
+            {
+                var _obj = Instantiate(monster, monsterSpawnPoint1);
+                _obj.name = wave.ToString();
+            }
+            else playerSpawnPoint.transform.position = monsterSpawnPoint1.transform.position;
         }
-        else if (monsterSpawnPoint2.childCount == 0)
+        else if (spawnCount == 2)
         {
-            var _obj = Instantiate(monster, monsterSpawnPoint2);
-            _obj.name = wave.ToString();
+            if (!GameManager.Instance.wave2Clear)
+            {
+                var _obj = Instantiate(monster, monsterSpawnPoint2);
+                _obj.name = wave.ToString();
+            }
+            else playerSpawnPoint.transform.position = monsterSpawnPoint2.transform.position;
         }
-        else
+        else if (spawnCount == 3)
         {
-            var _obj = Instantiate(monster, monsterSpawnPoint3);
-            _obj.name = wave.ToString();
+            if (!GameManager.Instance.wave3Clear)
+            {
+                var _obj = Instantiate(monster, monsterSpawnPoint3);
+                _obj.name = wave.ToString();
+            }
+            else playerSpawnPoint.transform.position = monsterSpawnPoint3.transform.position;
         }
     }
 }

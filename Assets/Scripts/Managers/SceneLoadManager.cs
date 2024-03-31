@@ -7,14 +7,10 @@ public class SceneLoadManager : SingleTon<SceneLoadManager>
 {
     public bool isDontDestroy = false;
 
-    public int stageID;
-
-    public string NowSceneName = "";
-    public string NextSceneName = "";
-    public DataList DataList_;
+    public string NowSceneName;
+    public string NextSceneName;
     protected override void Awake()
     {
-        DataList_ = Resources.Load<DataList>("KCH/DataBase/DataList");
         base.Awake();
 
         NowSceneName = SceneManager.GetActiveScene().name;
