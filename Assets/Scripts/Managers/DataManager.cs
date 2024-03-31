@@ -10,6 +10,7 @@ public class DataManager : SingleTon<DataManager>
     private ItemDataBase _ItemDB;
     private SkillDataBase _skillDB;
     private EnemyDataBase _enemyDB;
+    private WaveDataBase _WaveDB;
     private StageDataBase _stageDB;
 
     public DataList dataList;
@@ -23,6 +24,7 @@ public class DataManager : SingleTon<DataManager>
     public SkillDataBase SkillDB { get { return _skillDB ??= new(); } }
     public EnemyDataBase EnemyDB { get { return _enemyDB ??= new(); } }
     public StageDataBase StageDB { get { return _stageDB ??= new(); } }
+    public WaveDataBase WaveDB { get { return _WaveDB ??= new(); } }
 }
 public class PlayerDataBase : DataBase<PlayerData>
 {
@@ -73,6 +75,17 @@ public class StageDataBase : DataBase<StageData>
     public StageDataBase()
     {
         var resources = DataManager.Instance.dataList.StageData;
+        foreach (var data in resources)
+        {
+            _data.Add(data.ID, data);
+        }
+    }
+}
+public class WaveDataBase : DataBase<WaveData>
+{
+    public WaveDataBase()
+    {
+        var resources = DataManager.Instance.dataList.WaveData;
         foreach (var data in resources)
         {
             _data.Add(data.ID, data);
