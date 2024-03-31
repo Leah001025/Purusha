@@ -43,8 +43,8 @@ public class BattleManager : MonoBehaviour
     public static BattleManager Instance { get { if (instance == null) return null; return instance; } }
 
     public Dictionary<int, UnitInfo> lUnitInfo;
+    public Dictionary<int, CharacterTurnController> turnControllers = new Dictionary<int, CharacterTurnController>(5);
     private Dictionary<int, CharacterData> teamData;
-    private Dictionary<int, CharacterTurnController> turnControllers = new Dictionary<int, CharacterTurnController>(5);
     private Queue<int> attackOrder;
     private UnitInfo unitInfo;
 
