@@ -7,6 +7,7 @@ using UnityEngine;
 public class DataList : ScriptableObject
 {
     public List<PlayerData> PlayerData;
+    public List<ItemData> ItemData;
     public List<SkillData> SkillData; 
 	public List<TestData> TestData;
 	public List<EnemyData> EnemyData;
