@@ -472,7 +472,7 @@ MonoBehaviour:
     Type: 3
     Range: 1
     BuffID: 0
-    AtkCoefficient: 1.5
+    AtkCoefficient: -1.5
     DefCoefficient: 0
     HealthCoefficient: 0
     CoolTime: 2
@@ -488,7 +488,7 @@ MonoBehaviour:
     Type: 3
     Range: 1
     BuffID: 0
-    AtkCoefficient: 2
+    AtkCoefficient: -2
     DefCoefficient: 0
     HealthCoefficient: 0
     CoolTime: 2
@@ -504,7 +504,7 @@ MonoBehaviour:
     Type: 3
     Range: 1
     BuffID: 0
-    AtkCoefficient: 2
+    AtkCoefficient: -2
     DefCoefficient: 0
     HealthCoefficient: 0
     CoolTime: 1
@@ -521,7 +521,7 @@ MonoBehaviour:
     BuffID: 102
     AtkCoefficient: 0
     DefCoefficient: 0
-    HealthCoefficient: 0.6
+    HealthCoefficient: -0.6
     CoolTime: 0
     DebuffProbability: 1
     Duration: 2
@@ -536,7 +536,7 @@ MonoBehaviour:
     BuffID: 102
     AtkCoefficient: 0
     DefCoefficient: 0
-    HealthCoefficient: 0.8
+    HealthCoefficient: -0.8
     CoolTime: 0
     DebuffProbability: 1
     Duration: 2
@@ -629,9 +629,9 @@ MonoBehaviour:
     Type: 0
     Range: 0
     BuffID: 0
-    AtkCoefficient: 0
+    AtkCoefficient: 1
     DefCoefficient: 0
-    HealthCoefficient: 1.2
+    HealthCoefficient: 0.3
     CoolTime: 0
     DebuffProbability: 1
     Duration: 0
@@ -645,9 +645,9 @@ MonoBehaviour:
     Type: 0
     Range: 0
     BuffID: 0
-    AtkCoefficient: 0
+    AtkCoefficient: 1
     DefCoefficient: 0
-    HealthCoefficient: 1.5
+    HealthCoefficient: 0.5
     CoolTime: 0
     DebuffProbability: 1
     Duration: 0

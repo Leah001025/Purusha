@@ -39,7 +39,7 @@ public class SkillPopUp : UIBase
     }
     private void Init()
     {
-        portraitIcon.sprite = Resources.Load<Sprite>("UI/Icon/Portrait_" + characterData.status.name);
+        portraitIcon.sprite = Resources.Load<Sprite>("UI/Icon/Portrait_" + characterData.status.iD);
         skill1Icon.sprite = Resources.Load<Sprite>(characterData.skillData[1].iconPath);
         skill2Icon.sprite = Resources.Load<Sprite>(characterData.skillData[2].iconPath);
         skill3Icon.sprite = Resources.Load<Sprite>(characterData.skillData[3].iconPath);
