@@ -40,7 +40,13 @@ public class CharacterTurnController : MonoBehaviour
         if (GameManager.Instance.User.teamData.ContainsKey(teamIndex))
         {
             characterData = GameManager.Instance.User.teamData[teamIndex];
-            unitInfo = battleManager.lUnitInfo.Find(x => x.unitID == characterData.status.iD);
+            foreach (UnitInfo _unitInfo in battleManager.lUnitInfo.Values)
+            {
+                if (_unitInfo.unitID == characterData.status.iD)
+                {
+                    unitInfo = _unitInfo;
+                }
+            }
         }
         isCharacterTurn = false;
         battleManager.skill1 += Skill1;

@@ -5,23 +5,12 @@ using UnityEngine;
 public class TargetUI : MonoBehaviour
 {
     [SerializeField] private GameObject targetObj;
-
-    private void Start()
+    public void OnTarget()
     {
-        BattleManager.Instance.OnTarget += OnTarget;
+        targetObj.SetActive(true);
     }
-    private void OnTarget(string targetName)
+    public void OffTarget()
     {
-        if (BattleManager.Instance != null)
-        {
-            if (targetName == gameObject.transform.parent.gameObject.transform.parent.gameObject.name)
-            {
-                targetObj.SetActive(true);
-            }
-            else
-            {
-                targetObj.SetActive(false);
-            }
-        }
+        targetObj.SetActive(false);
     }
 }

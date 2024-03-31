@@ -10,11 +10,16 @@ public class Enemy : MonoBehaviour
 {
     [field: Header("Animations")]
     [field: SerializeField] public EnemyAnimationData AnimationData { get; private set; }
-
     public CharacterActionController actionController { get; private set; }
     public Animator Animator { get; private set; }
 
     private EnemyStateMachine stateMachine;
+
+    private TargetUI targetUI;
+
+    [Header("GameObject Point")]
+    [SerializeField] private GameObject monsterInfoPoint;
+    [SerializeField] private GameObject targetPoint;
 
     public event Action OnUpdate;
 
@@ -28,9 +33,23 @@ public class Enemy : MonoBehaviour
     private void Start()
     {
         stateMachine.ChangeState(stateMachine.IdleState);
+        if (BattleManager.Instance != null)
+        {
+            targetUI = GetComponentInChildren<TargetUI>();
+            actionController.OnTarget += TargetOn;
+            actionController.OffTarget += TargetOff;
+        }
     }
     private void Update()
     {
         OnUpdate?.Invoke();
+    }
+    private void TargetOn()
+    {
+        targetUI.OnTarget();
+    }
+    private void TargetOff()
+    {
+        targetUI.OffTarget();
     }
 }

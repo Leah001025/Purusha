@@ -7,6 +7,8 @@ public class SceneLoadManager : SingleTon<SceneLoadManager>
 {
     public bool isDontDestroy = false;
 
+    public int stageID;
+
     public string NowSceneName = "";
     public string NextSceneName = "";
     public DataList DataList_;
