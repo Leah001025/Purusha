@@ -132,11 +132,11 @@ public class BattleManager : MonoBehaviour
                 var Resource = Resources.Load<GameObject>(teamData[i].status.prefabPath);
                 unitInfo.unitType = CharacterType.Player;
                 unitInfo.unitObject = Instantiate(Resource, stageTrans);
-                if (!turnControllers.ContainsKey(unitInfo.unitID))
+                if (!turnControllers.ContainsKey(i))
                 {
-                    turnControllers.Add(unitInfo.unitID, unitInfo.unitObject.GetComponent<CharacterTurnController>());
+                    turnControllers.Add(i, unitInfo.unitObject.GetComponent<CharacterTurnController>());
                 }
-                turnControllers[unitInfo.unitID].teamIndex = i;
+                turnControllers[i].teamIndex = i;
                 unitInfo.unitObject.transform.localPosition = playerSpawnPos[i - 1];
                 unitInfo.characterData = CreateCharacterData(i);
 
@@ -233,7 +233,7 @@ public class BattleManager : MonoBehaviour
         switch (lUnitInfo[index].unitType)
         {
             case CharacterType.Player:
-                turnControllers[lUnitInfo[index].unitID].TurnOn();
+                turnControllers[index].TurnOn();
                 var popup = UIManager.Instance.ShowPopup<SkillPopUp>();
                 break;
             case CharacterType.Enemy:
@@ -271,7 +271,7 @@ public class BattleManager : MonoBehaviour
             case 0:
                 lUnitInfo[targetIndex].unitData.Health -= _damage;
                 lUnitInfo[targetIndex].actionController.Hit();
-                turnControllers[targetIndex].SetBuffandDebuff(buffID);
+                //turnControllers[targetIndex].SetBuffandDebuff(buffID);
                 AddDamageUI(_damage, target.name);
                 DieCheck(lUnitInfo[targetIndex]);
                 break;

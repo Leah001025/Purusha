@@ -97,7 +97,7 @@ public class CharacterTurnController : MonoBehaviour
             {
                 case 0:
                     StartCoroutine(MeleeSkillEffect("1"));
-                    StartCoroutine(WaitForSkillEffect(3.5f));
+                    StartCoroutine(WaitForSkillEffect(4f));
                     break;
                 case 1:
                     StartCoroutine(RangedSkillEffect(1f, "1"));
@@ -140,7 +140,7 @@ public class CharacterTurnController : MonoBehaviour
                 case 1:
                     StartCoroutine(RangedSkillEffect(1f, "3"));
                     skill3CoolTime = characterData.skillData[3].coolTime;
-                    StartCoroutine(WaitForSkillEffect(2f));
+                    StartCoroutine(WaitForSkillEffect(2.5f));
                     break;
             } 
             skill4Gauge += characterData.skillData[3].skillGage;
@@ -213,11 +213,10 @@ public class CharacterTurnController : MonoBehaviour
         yield return new WaitForSeconds(1f);
         OnSkillEffect(characterData.skillData[skillNum]);
         yield return wait05;
-
-        battleManager.OnSkillPlayer(characterData, skillNum);
-
         yield return wait05;
         Destroy(skillObj);
+        yield return wait05;
+        battleManager.OnSkillPlayer(characterData, skillNum);
         character.transform.localPosition = Vector3.zero;
         animator.SetTrigger(Animator.StringToHash("Jump"));
         yield return new WaitForSeconds(0.2f);
@@ -235,10 +234,10 @@ public class CharacterTurnController : MonoBehaviour
         isStartPos = true;
         animator.SetTrigger(Animator.StringToHash("Skill" + num));
         OnSkillEffect(characterData.skillData[skillNum]);
-        yield return new WaitForSeconds(0.2f);
-        battleManager.OnSkillPlayer(characterData, skillNum);
         yield return new WaitForSeconds(time);
         Destroy(skillObj);
+        yield return new WaitForSeconds(0.2f);
+        battleManager.OnSkillPlayer(characterData, skillNum);
         character.transform.localPosition = Vector3.zero;
         isAttack = false;
     }

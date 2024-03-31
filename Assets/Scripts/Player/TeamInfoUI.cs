@@ -25,7 +25,7 @@ public class TeamInfoUI : MonoBehaviour
         characterName.text = characterInfo.characterData.status.name;
         characterCurHealth = characterInfo.characterData.status.health;
         characterMaxHealth = characterInfo.characterData.status.maxhealth;
-        turnController = BattleManager.Instance.turnControllers[characterInfo.unitID];
+        turnController = BattleManager.Instance.turnControllers[index];
         turnController.changeSkill4Gauge += ChangeSkill4BarAmount;
         BattleManager.Instance.OnAddDamage += ChangeHealthBarAmount;
         characterHealth.text = characterCurHealth.ToString() + " / " + characterMaxHealth.ToString();
