@@ -9,6 +9,7 @@ public class DataManager : SingleTon<DataManager>
     private PlayerDataBase _PlayerDB;
     private ItemDataBase _ItemDB;
     private SkillDataBase _skillDB;
+    private BuffDataBase _buffDB;
     private EnemyDataBase _enemyDB;
     private WaveDataBase _WaveDB;
     private StageDataBase _stageDB;
@@ -25,6 +26,7 @@ public class DataManager : SingleTon<DataManager>
     public EnemyDataBase EnemyDB { get { return _enemyDB ??= new(); } }
     public StageDataBase StageDB { get { return _stageDB ??= new(); } }
     public WaveDataBase WaveDB { get { return _WaveDB ??= new(); } }
+    public BuffDataBase BuffDB { get { return _buffDB ??= new(); } }
 }
 public class PlayerDataBase : DataBase<PlayerData>
 {
@@ -90,5 +92,24 @@ public class WaveDataBase : DataBase<WaveData>
         {
             _data.Add(data.ID, data);
         }
+    }
+}
+
+public class BuffDataBase : DataBase<BuffData>,ICloneable
+{
+    public BuffDataBase()
+    {
+        var resources = DataManager.Instance.dataList.BuffData;
+        foreach (var data in resources)
+        {
+            _data.Add(data.BuffID, data);
+        }
+    }
+
+    public object Clone()
+    {
+        BuffDataBase buffData = new BuffDataBase();
+        buffData._data = _data;
+        return buffData;
     }
 }

@@ -9,11 +9,13 @@ public class TeamInfoUI : MonoBehaviour
 {
     [SerializeField] private Slider hpBar;
     [SerializeField] private Slider skill4Gauge;
+    [SerializeField] private Slider shieldBar;
     [SerializeField] private TextMeshProUGUI characterName;
     [SerializeField] private TextMeshProUGUI characterHealth;
     [SerializeField] private Outline outline;
     private UnitInfo characterInfo;
     private CharacterTurnController turnController;
+    private float shield;
     private int index;
     private float characterMaxHealth;
     private float characterCurHealth;
@@ -27,12 +29,17 @@ public class TeamInfoUI : MonoBehaviour
         characterMaxHealth = characterInfo.characterData.status.maxhealth;
         turnController = BattleManager.Instance.turnControllers[index];
         turnController.changeSkill4Gauge += ChangeSkill4BarAmount;
+        turnController.changeShieldGauge += ChangeShieldBarAmount;
         BattleManager.Instance.OnAddDamage += ChangeHealthBarAmount;
         characterHealth.text = characterCurHealth.ToString() + " / " + characterMaxHealth.ToString();
         hpBar.value = characterCurHealth/ characterMaxHealth;
         skill4Gauge.value = 0;
     }
-
+    private void ChangeShieldBarAmount()
+    {
+        shield = turnController.buffShield;
+        shieldBar.value = shield / characterMaxHealth; 
+    }
     private void ChangeSkill4BarAmount()
     {
         float value = (turnController.skill4Gauge / 5f);
