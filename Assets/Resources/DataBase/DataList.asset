@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerData:
   - _id: 101
-    _name: Breesha
+    _name: "\uBE0C\uB9AC\uC0E4"
     _maxHealth: 0
     _health: 3000
     _level: 1
@@ -29,7 +29,7 @@ MonoBehaviour:
     _prefabPath: Prefabs/Skill/Breesha
     _spritePath: 
   - _id: 102
-    _name: Eve
+    _name: "\uC774\uBE0C"
     _maxHealth: 0
     _health: 2500
     _level: 1
@@ -44,7 +44,7 @@ MonoBehaviour:
     _prefabPath: Prefabs/Skill/Eve
     _spritePath: 
   - _id: 103
-    _name: Adam
+    _name: "\uC544\uB2F4"
     _maxHealth: 0
     _health: 2500
     _level: 1
@@ -59,7 +59,7 @@ MonoBehaviour:
     _prefabPath: Prefabs/Skill/Adam
     _spritePath: 
   - _id: 104
-    _name: Abel
+    _name: "\uC544\uBCA8"
     _maxHealth: 0
     _health: 2000
     _level: 1
@@ -74,7 +74,7 @@ MonoBehaviour:
     _prefabPath: Prefabs/Skill/Abel
     _spritePath: 
   - _id: 105
-    _name: Lain
+    _name: "\uB77C\uC778"
     _maxHealth: 0
     _health: 2000
     _level: 1
@@ -89,7 +89,7 @@ MonoBehaviour:
     _prefabPath: Prefabs/Skill/Kain
     _spritePath: 
   - _id: 106
-    _name: Kana
+    _name: "\uCE74\uB098"
     _maxHealth: 0
     _health: 4000
     _level: 1

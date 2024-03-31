@@ -8,8 +8,7 @@ public class UIManager : SingleTon<UIManager>
 {
 
     private Dictionary<string, UIBase> popups = new Dictionary<string, UIBase>();
-
-    // 팝업 불러오기
+    
     public UIBase ShowPopup(string popupname, Transform parents = null)
     {
         if (popups.ContainsKey(popupname))
