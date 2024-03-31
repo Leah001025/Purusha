@@ -110,6 +110,7 @@ public class BattleManager : MonoBehaviour
     private void Start()
     {
         UIManager.Instance.ShowPopup<TurnIndicatorUI>();
+        cameraPos = new Vector3(5f, 2f, -6.2f);
     }
     public void BattleStart(int StageID)
     {
@@ -283,6 +284,8 @@ public class BattleManager : MonoBehaviour
                 break;
             case 3:
                 break;
+            case 4:
+                break;
         }
     }
     private float AddDamage(CharacterData characterData, int skillNum)
@@ -307,11 +310,11 @@ public class BattleManager : MonoBehaviour
     }
     private void SetSpawnPos()
     {
-        playerSpawnPos[0] = new Vector3(0.5f, 0, -6.5f);
-        playerSpawnPos[1] = new Vector3(3.5f, 0, -6.5f);
-        playerSpawnPos[2] = new Vector3(-1, 0, -6.5f);
-        playerSpawnPos[3] = new Vector3(2, 0, -6.5f);
-        playerSpawnPos[4] = new Vector3(5, 0, -6.5f);
+        playerSpawnPos[0] = new Vector3(0.5f, 0, -7f);
+        playerSpawnPos[1] = new Vector3(3.5f, 0, -7f);
+        playerSpawnPos[2] = new Vector3(-1, 0, -7f);
+        playerSpawnPos[3] = new Vector3(2, 0, -7f);
+        playerSpawnPos[4] = new Vector3(5, 0, -7f);
 
         enemySpawnPos[0] = new Vector3(0.5f, 0, -1.5f);
         enemySpawnPos[1] = new Vector3(3.5f, 0, -1.5f);

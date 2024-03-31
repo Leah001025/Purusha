@@ -444,7 +444,6 @@ GameObject:
   - component: {fileID: 4846214368889910507}
   - component: {fileID: 3042994119152816646}
   - component: {fileID: 3426478029070599786}
-  - component: {fileID: 301988132563662585}
   m_Layer: 0
   m_Name: TurnIndicatorUI
   m_TagString: Untagged
@@ -535,18 +534,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &301988132563662585
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8666891613544024073}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8bccf236b5685ea44888f467b7c81ceb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &8794868667587273264
 GameObject:
   m_ObjectHideFlags: 0

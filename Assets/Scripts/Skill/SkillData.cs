@@ -10,6 +10,7 @@ public class SkillData : DataBase<SkillData>
     public string Description;
     public int Type;
     public int Range;
+    public int BuffID;
     public float AtkCoefficient;
     public float DefCoefficient;
     public float HealthCoefficient;
@@ -18,7 +19,7 @@ public class SkillData : DataBase<SkillData>
     public int Duration;
     public int SkillGage;
     public string EffectPath;
-
+    public string IconPath;
 }
 
 

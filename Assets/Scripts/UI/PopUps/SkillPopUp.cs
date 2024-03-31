@@ -9,12 +9,25 @@ public class SkillPopUp : UIBase
     [SerializeField] private Button skill2;
     [SerializeField] private Button skill3;
     [SerializeField] private Button skill4;
+    [SerializeField] private Image portraitIcon;
+    [SerializeField] private Image skill1Icon;
+    [SerializeField] private Image skill2Icon;
+    [SerializeField] private Image skill3Icon;
+    [SerializeField] private Image skill4Icon;
+    private CharacterData characterData;
     private int skill3CoolTime;
     private int skill4Gauge;
+    private int onTurnIndex;
 
     private void Awake()
     {
         CloseUI();
+    }
+    private void OnEnable()
+    {
+        onTurnIndex = BattleManager.Instance.onTurnIndex;
+        characterData = BattleManager.Instance.lUnitInfo[onTurnIndex].characterData;
+        Init();
     }
 
     public override void CloseUI()
@@ -23,6 +36,14 @@ public class SkillPopUp : UIBase
         skill2.onClick.AddListener(() => gameObject.SetActive(false));
         skill3.onClick.AddListener(CheckCoolTime);
         skill4.onClick.AddListener(CheckGauge);
+    }
+    private void Init()
+    {
+        portraitIcon.sprite = Resources.Load<Sprite>("UI/Icon/Portrait_" + characterData.status.name);
+        skill1Icon.sprite = Resources.Load<Sprite>(characterData.skillData[1].iconPath);
+        skill2Icon.sprite = Resources.Load<Sprite>(characterData.skillData[2].iconPath);
+        skill3Icon.sprite = Resources.Load<Sprite>(characterData.skillData[3].iconPath);
+        skill4Icon.sprite = Resources.Load<Sprite>(characterData.skillData[4].iconPath);
     }
     public void CheckCoolTime()
     {
