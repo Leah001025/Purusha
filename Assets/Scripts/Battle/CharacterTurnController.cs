@@ -17,6 +17,8 @@ public class CharacterTurnController : MonoBehaviour
     private Vector3 onTurnPos;
     private Vector3 offTurnPos;
     public float unitGauge;
+    public float buffAtk;
+    public float buffDef;
     int runHash;
     private int skill3CoolTime;
     public int skill4Gauge;
@@ -67,7 +69,10 @@ public class CharacterTurnController : MonoBehaviour
     {
         changeSkill4Gauge?.Invoke();
     }
+    public void SetBuffandDebuff(int buffID)
+    {
 
+    }
 
     public void TurnOn()
     {
@@ -203,7 +208,7 @@ public class CharacterTurnController : MonoBehaviour
         OnSkillEffect(characterData.skillData[skillNum]);
         yield return wait05;
 
-        battleManager.OnSkill(characterData, skillNum);
+        battleManager.OnSkillPlayer(characterData, skillNum);
 
         yield return wait05;
         Destroy(skillObj);
@@ -225,7 +230,7 @@ public class CharacterTurnController : MonoBehaviour
         animator.SetTrigger(Animator.StringToHash("Skill" + num));
         OnSkillEffect(characterData.skillData[skillNum]);
         yield return new WaitForSeconds(0.2f);
-        battleManager.OnSkill(characterData, skillNum);
+        battleManager.OnSkillPlayer(characterData, skillNum);
         yield return new WaitForSeconds(time);
         Destroy(skillObj);
         character.transform.localPosition = Vector3.zero;
