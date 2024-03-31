@@ -9,7 +9,7 @@ public class DataList : ScriptableObject
     public List<PlayerData> PlayerData;
     public List<ItemData> ItemData;
     public List<SkillData> SkillData; 
-	public List<TestData> TestData;
+    public List<BuffData> BuffData;
 	public List<EnemyData> EnemyData;
     public List<WaveData> WaveData;
     public List<StageData> StageData;

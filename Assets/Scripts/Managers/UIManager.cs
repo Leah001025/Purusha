@@ -80,14 +80,15 @@ public class UIManager : SingleTon<UIManager>
         }
         
     }
-    public void BattleBuffIcon(int index)
+    public GameObject BattleBuffIcon(int index)
     {
         var info = Resources.Load("UI/BuffandDebuff/BuffBg") as GameObject;
         if (!info)
         {
             Debug.LogWarning("null");
         }
-        Instantiate(info, battlePlayerStatus[index].transform.GetChild(4).gameObject.transform);
+        var obj = Instantiate(info, battlePlayerStatus[index].gameObject.transform.GetChild(3).gameObject.transform);
+        return obj;
     }
     public void BattleEnd()
     {
