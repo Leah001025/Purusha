@@ -708,7 +708,7 @@ MonoBehaviour:
   - _id: 101001
     _name: Drone
     _level: 1
-    _health: 2000
+    _health: 200
     _atk: 50
     _def: 10
     _criticalChance: 0.1
@@ -744,8 +744,9 @@ MonoBehaviour:
     _breakGauge: 999999
     _prefabPath: 
     _spritePath: 
-  StageData:
+  WaveData:
   - _id: 110101
+    _battleMapPath: Prefabs/Map/Chapter1/BattleMap_1
     _enemyID_1: 101001
     _enemyCount_1: 2
     _enemyID_2: 0
@@ -763,6 +764,7 @@ MonoBehaviour:
     _compensation_3: 0
     _compensationCount_3: 0
   - _id: 110102
+    _battleMapPath: Prefabs/Map/Chapter1/BattleMap_1
     _enemyID_1: 101001
     _enemyCount_1: 3
     _enemyID_2: 0
@@ -780,6 +782,7 @@ MonoBehaviour:
     _compensation_3: 0
     _compensationCount_3: 0
   - _id: 110103
+    _battleMapPath: Prefabs/Map/Chapter1/BattleMap_1
     _enemyID_1: 101001
     _enemyCount_1: 5
     _enemyID_2: 0
@@ -796,3 +799,19 @@ MonoBehaviour:
     _compensationCount_2: 0
     _compensation_3: 0
     _compensationCount_3: 0
+  StageData:
+  - _id: 1101
+    _openMapPath: Prefabs/Map/Chapter1/OpenMap_1
+    _waveID_1: 110101
+    _waveID_2: 110102
+    _waveID_3: 110103
+  - _id: 1102
+    _openMapPath: Prefabs/Map/Chapter2/OpenMap_2
+    _waveID_1: 0
+    _waveID_2: 0
+    _waveID_3: 0
+  - _id: 1103
+    _openMapPath: Prefabs/Map/Chapter3/OpenMap_3
+    _waveID_1: 0
+    _waveID_2: 0
+    _waveID_3: 0

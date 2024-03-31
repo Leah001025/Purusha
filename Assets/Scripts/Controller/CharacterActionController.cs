@@ -16,6 +16,8 @@ public class CharacterActionController
     public event Action OnSkill3;
     public event Action OnSkill4;
 
+    public event Action OnTarget;
+    public event Action OffTarget;
     public void Idle()
     {
         OnIdle?.Invoke();
@@ -47,5 +49,13 @@ public class CharacterActionController
     public void Skill4()
     {
         OnSkill1?.Invoke();
+    }
+    public void TargetOn()
+    {
+        OnTarget?.Invoke();
+    }
+    public void TargetOff()
+    {
+        OffTarget?.Invoke();
     }
 }

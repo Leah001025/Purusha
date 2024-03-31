@@ -1,101 +1,49 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 [System.Serializable]
-public class StageData : DataBase<StageData>
+public class StageData : DataBase<WaveData>
 {
     [SerializeField] private int _id;
-
-    [SerializeField] private int _enemyID_1;
-    [SerializeField] private int _enemyCount_1;
-    [SerializeField] private int _enemyID_2;
-    [SerializeField] private int _enemyCount_2;
-    [SerializeField] private int _enemyID_3;
-    [SerializeField] private int _enemyCount_3;
-    [SerializeField] private int _enemyID_4;
-    [SerializeField] private int _enemyCount_4;
-    [SerializeField] private int _enemyID_5;
-    [SerializeField] private int _enemyCount_5;
-
-    [SerializeField] private int _compensation_1;
-    [SerializeField] private int _compensationCount_1;
-    [SerializeField] private int _compensation_2;
-    [SerializeField] private int _compensationCount_2;
-    [SerializeField] private int _compensation_3;
-    [SerializeField] private int _compensationCount_3;
+    [SerializeField] private string _openMapPath;
+    [SerializeField] private int _waveID_1;
+    [SerializeField] private int _waveID_2;
+    [SerializeField] private int _waveID_3;
 
     public int ID => _id;
+    public string OpenMapPath => _openMapPath;
 
-    private List<Enemys> _enemys;
-    private List<Compensations> _compensations;
+    private List<StageWave> _stageWaves;
 
-    public List<Enemys> Enemys
+    public List<StageWave> StageWaves
     {
         get 
         {
-            if(_enemys == null)
+            if (_stageWaves == null)
             {
-                _enemys = new List<Enemys>();
+                _stageWaves = new List<StageWave>();
 
-                AddEnemys(_enemyID_1, _enemyCount_1);
-                AddEnemys(_enemyID_2, _enemyCount_2);
-                AddEnemys(_enemyID_3, _enemyCount_3);
-                AddEnemys(_enemyID_4, _enemyCount_4);
-                AddEnemys(_enemyID_5, _enemyCount_5);
+                AddWaves(_waveID_1);
+                AddWaves(_waveID_2);
+                AddWaves(_waveID_3);
             }
-            return _enemys;
+            return _stageWaves;
         }
     }
-    private void AddEnemys(int enemyID, int enemyCount)
+    private void AddWaves(int waveID)
     {
-        if (enemyID != 0)
+        if (waveID != 0)
         {
-            _enemys.Add(new Enemys(enemyID, enemyCount));
-        }
-    }
-    public List<Compensations> Compensations
-    {
-        get
-        {
-            if (_compensations == null)
-            {
-                _compensations = new List<Compensations>();
-
-                AddCompensations(_compensation_1, _compensationCount_1);
-                AddCompensations(_compensation_2, _compensationCount_2);
-                AddCompensations(_compensation_3, _compensationCount_3);
-            }
-            return _compensations;
-        }
-    }
-    private void AddCompensations(int compensation, int compensationCount)
-    {
-        if (compensation != 0)
-        {
-            _compensations.Add(new Compensations(compensation, compensationCount));
+            _stageWaves.Add(new StageWave(waveID));
         }
     }
 }
-public class Enemys
+public class StageWave
 {
-    public int _enemyID { get; }
-    public int _enemyCount { get; }
+    public int _waveID { get; }
 
-    public Enemys(int enemyID, int enemyCount)
+    public StageWave(int waveID)
     {
-        _enemyID = enemyID;
-        _enemyCount = enemyCount;
-    }
-}
-public class Compensations
-{
-    public int _compensation { get; }
-    public int _compensationCount { get; }
-
-    public Compensations(int compensation, int enemyCount)
-    {
-        _compensation = compensation;
-        _compensationCount = enemyCount;
+        _waveID = waveID;
     }
 }

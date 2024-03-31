@@ -1,46 +1,69 @@
+using Cinemachine;
+using Enums;
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class SpawnManager : SingleTon<SpawnManager>
+public class SpawnManager : MonoBehaviour
 {
-    //특정한 문자열로 된 키값을 입력하면 트랜스폼 값  반환
-    public List<Transform> Stage1_SpawnPoints;
-    public GameObject SpawnPointsObject;
+    private static SpawnManager instance = null;
+    public SpawnManager()
+    {
+        if (instance == null) instance = this;
+        else Destroy(this.gameObject);
+    }
+    public static SpawnManager Instance { get { if (instance == null) return null; return instance; } }
+
+    [SerializeField] private Transform mapSpawnPoint;
+
+    private int stageID = 1101;
+    private StageDataBase stageDB;
+    private WaveDataBase waveDB;
+    private EnemyDataBase enemyDB;
+
+    private WaveData waveData;
+
+    private MapSpawnController mapSpawnController;
+    private PlayerConeRaycastDetection raycastDetection;
+
+    private GameObject player;
+
+    public CinemachineVirtualCamera virtualCamera;
+    public CinemachineBrain brainCamera;
+    public Image effectImage;
+
     private void Awake()
     {
-        Stage1_SpawnPoints = new List<Transform>();
+        stageDB = DataManager.Instance.StageDB;
+        waveDB = DataManager.Instance.WaveDB;
+        enemyDB = DataManager.Instance.EnemyDB;
 
+        var resources = Resources.Load(stageDB.GetData(stageID).OpenMapPath) as GameObject;
+        var _map = Instantiate(resources, mapSpawnPoint);
+        mapSpawnController = _map.GetComponent<MapSpawnController>();
+
+        player = Resources.Load("Prefabs/Player/Player") as GameObject;
     }
-
-    //
-    public void SettingSpawnPoints()
+    private void Start()
     {
-        SpawnPointsObject = new GameObject("SpawnPoints");
-        // 생성된 몬스터를 스폰 위치의 트랜스폼으로 생성될 수 있게 만들기 
-
-        // Stage1-1_SpawnPoint 프리팹 리스트에 추가
-        Transform spawnPoint1 = ResourceManager.Instance.Instantiate("Monster/Stage1-1_SpawnPoint", SpawnPointsObject.transform).transform;
-        Stage1_SpawnPoints.Add(spawnPoint1);
-
-        // Stage1-2_SpawnPoint 프리팹 리스트에 추가
-        Transform spawnPoint2 = ResourceManager.Instance.Instantiate("Monster/Stage1-2_SpawnPoint", SpawnPointsObject.transform).transform;
-        Stage1_SpawnPoints.Add(spawnPoint2);
-
-
-        // Stage1-3_SpawnPoint 프리팹 리스트에 추가
-        Transform spawnPoint3 = ResourceManager.Instance.Instantiate("Monster/Stage1-3_SpawnPoint", SpawnPointsObject.transform).transform;
-        Stage1_SpawnPoints.Add(spawnPoint3);
-
+        var _obj = mapSpawnController.PlayerSpawn(player);
+        virtualCamera.Follow = _obj.transform;
+        raycastDetection = _obj.GetComponent<PlayerConeRaycastDetection>();
+        raycastDetection.battleEffect = effectImage;
+        raycastDetection.cinemachineBrain = brainCamera;
+        MonsterSpawn();
     }
-
-    //스테이지 1에 필요한 몬스터들 소환
-    public void SpawnStage1_Monsters()
+    private void MonsterSpawn()
     {
-        ResourceManager.Instance.Instantiate("Monster/Drone", Stage1_SpawnPoints[0]);
-        ResourceManager.Instance.Instantiate("Monster/Drone", Stage1_SpawnPoints[1]);
-        ResourceManager.Instance.Instantiate("Monster/Drone", Stage1_SpawnPoints[2]);
+        foreach (StageWave stageWave in stageDB.GetData(stageID).StageWaves)
+        {
+            waveData = waveDB.GetData(stageWave._waveID);
+            var enemyID = waveData.Enemys[waveData.Enemys.Count - 1]._enemyID;
+            var resources = Resources.Load(enemyDB.GetData(enemyID).PrefabPath) as GameObject;
+            mapSpawnController.MonsterSpawn(resources, stageWave._waveID);
+        }
     }
 }
