@@ -1,12 +1,14 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using static Cinemachine.DocumentationSortingAttribute;
 
-public class CharacterData
+public class CharacterData : ICloneable
 {
     public CharacterStatus status;
     public Dictionary<int, CharacterSkill> skillData = new Dictionary<int, CharacterSkill>(4);
+    int _id;
 
     public CharacterData(int id)
     {
@@ -18,6 +20,27 @@ public class CharacterData
         }
     }
 
+    public object Clone()
+    {
+        if (_id != 0)
+        {
+            CharacterData characterData = new CharacterData(_id);
+            characterData.status = status;
+            characterData.skillData = skillData;
+            return characterData;
+        }
+        else
+        {
+            Debug.Log("id를 확인하세요");
+            return null;
+        }
+
+    }
+    public object CloneCharacter(int id)
+    {
+        _id = id;
+        return Clone();
+    }
 }
 public class CharacterStatus
 {
@@ -64,6 +87,7 @@ public class CharacterSkill
     public string description;
     public int type;
     public int range;
+    public int buffID;
     public float atkCoefficient;
     public float defCoefficient;
     public float healthCoefficient;
@@ -72,6 +96,7 @@ public class CharacterSkill
     public int duration;
     public int skillGage;
     public string effectPath;
+    public string iconPath;
     public CharacterSkill(int id)
     {
         SkillData data = DataManager.Instance.SkillDB.GetData(id);
@@ -80,6 +105,7 @@ public class CharacterSkill
         description = data.Description;
         type = data.Type;
         range = data.Range;
+        buffID = data.BuffID;
         atkCoefficient = data.AtkCoefficient;
         defCoefficient = data.DefCoefficient;
         healthCoefficient = data.HealthCoefficient;
@@ -88,5 +114,6 @@ public class CharacterSkill
         duration = data.Duration;
         skillGage = data.SkillGage;
         effectPath = data.EffectPath;
+        iconPath = data.IconPath;
     }
 }

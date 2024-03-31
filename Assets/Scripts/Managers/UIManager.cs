@@ -8,7 +8,9 @@ public class UIManager : SingleTon<UIManager>
 {
 
     private Dictionary<string, UIBase> popups = new Dictionary<string, UIBase>();
-    
+    private Dictionary<int, GameObject> battlePlayerStatus = new Dictionary<int, GameObject>();
+
+    // 팝업 불러오기
     public UIBase ShowPopup(string popupname, Transform parents = null)
     {
         if (popups.ContainsKey(popupname))
@@ -62,5 +64,33 @@ public class UIManager : SingleTon<UIManager>
             Debug.LogWarning("Failed to Target");
         }
         Instantiate(target, monster.transform.GetChild(2).gameObject.transform);
+    }
+    public void BattlePlayerPopup(int index, Transform statusUI)
+    {
+        var info = Resources.Load("UI/StatusInfo/Character") as GameObject;
+        if (info==null)
+        {
+            Debug.LogWarning("null");
+        }
+        var obj = Instantiate(info, statusUI);
+        obj.name = index.ToString();
+        if(!battlePlayerStatus.ContainsKey(index))
+        {
+            battlePlayerStatus.Add(index, obj);
+        }
+        
+    }
+    public void BattleBuffIcon(int index)
+    {
+        var info = Resources.Load("UI/BuffandDebuff/BuffBg") as GameObject;
+        if (!info)
+        {
+            Debug.LogWarning("null");
+        }
+        Instantiate(info, battlePlayerStatus[index].transform.GetChild(4).gameObject.transform);
+    }
+    public void BattleEnd()
+    {
+        battlePlayerStatus.Clear();
     }
 }

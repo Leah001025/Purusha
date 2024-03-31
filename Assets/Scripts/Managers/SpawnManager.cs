@@ -39,8 +39,8 @@ public class SpawnManager : SingleTon<SpawnManager>
     //스테이지 1에 필요한 몬스터들 소환
     public void SpawnStage1_Monsters()
     {
-        ResourceManager.Instance.Instantiate("Monster/Drone", Stage1_SpawnPoints[0]);
-        ResourceManager.Instance.Instantiate("Monster/Drone", Stage1_SpawnPoints[1]);
-        ResourceManager.Instance.Instantiate("Monster/Drone", Stage1_SpawnPoints[2]);
+        ResourceManager.Instance.Instantiate("Monster/Drone2", Stage1_SpawnPoints[0]);
+        ResourceManager.Instance.Instantiate("Monster/Drone2", Stage1_SpawnPoints[1]);
+        ResourceManager.Instance.Instantiate("Monster/Drone2", Stage1_SpawnPoints[2]);
     }
 }
