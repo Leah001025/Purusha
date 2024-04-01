@@ -147,8 +147,9 @@ GameObject:
   - component: {fileID: 350405550152268326}
   - component: {fileID: 142108397863595473}
   - component: {fileID: -8509402814968053849}
+  - component: {fileID: 9032866028175954204}
   m_Layer: 5
-  m_Name: Adam
+  m_Name: 103
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -255,4 +256,28 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 142108397863595473}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 9032866028175954204}
+        m_TargetAssemblyTypeName: CharacterSlot, Assembly-CSharp
+        m_MethodName: AddTeamSlot
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &9032866028175954204
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2803045868290119471}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 737d243552341e84791ef8346f7ab60d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
