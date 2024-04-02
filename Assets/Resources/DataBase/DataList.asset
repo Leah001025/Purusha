@@ -167,6 +167,7 @@ MonoBehaviour:
     Type: 0
     Range: 1
     BuffID: 0
+    BuffID2: 0
     AtkCoefficient: 1
     DefCoefficient: 0
     HealthCoefficient: 0
@@ -183,6 +184,7 @@ MonoBehaviour:
     Type: 2
     Range: 1
     BuffID: 101
+    BuffID2: 0
     AtkCoefficient: 0
     DefCoefficient: 1
     HealthCoefficient: 0
@@ -198,6 +200,7 @@ MonoBehaviour:
     Type: 0
     Range: 1
     BuffID: 0
+    BuffID2: 0
     AtkCoefficient: 1.4
     DefCoefficient: 0
     HealthCoefficient: 0
@@ -213,6 +216,7 @@ MonoBehaviour:
     Type: 0
     Range: 1
     BuffID: 0
+    BuffID2: 0
     AtkCoefficient: 1.6
     DefCoefficient: 0
     HealthCoefficient: 0
@@ -228,6 +232,7 @@ MonoBehaviour:
     Type: 0
     Range: 1
     BuffID: 0
+    BuffID2: 0
     AtkCoefficient: 1.8
     DefCoefficient: 0
     HealthCoefficient: 0
@@ -244,6 +249,7 @@ MonoBehaviour:
     Type: 1
     Range: 1
     BuffID: 205
+    BuffID2: 0
     AtkCoefficient: 2.5
     DefCoefficient: 0
     HealthCoefficient: 0
@@ -260,6 +266,7 @@ MonoBehaviour:
     Type: 1
     Range: 1
     BuffID: 206
+    BuffID2: 0
     AtkCoefficient: 3
     DefCoefficient: 0
     HealthCoefficient: 0
@@ -275,6 +282,7 @@ MonoBehaviour:
     Type: 0
     Range: 1
     BuffID: 0
+    BuffID2: 0
     AtkCoefficient: 1
     DefCoefficient: 0
     HealthCoefficient: 0
@@ -291,6 +299,7 @@ MonoBehaviour:
     Type: 2
     Range: 1
     BuffID: 101
+    BuffID2: 0
     AtkCoefficient: 0
     DefCoefficient: 1
     HealthCoefficient: 0
@@ -307,6 +316,7 @@ MonoBehaviour:
     Type: 1
     Range: 1
     BuffID: 0
+    BuffID2: 0
     AtkCoefficient: 0.6
     DefCoefficient: 0
     HealthCoefficient: 0
@@ -323,6 +333,7 @@ MonoBehaviour:
     Type: 1
     Range: 1
     BuffID: 0
+    BuffID2: 0
     AtkCoefficient: 0.7
     DefCoefficient: 0
     HealthCoefficient: 0
@@ -339,6 +350,7 @@ MonoBehaviour:
     Type: 1
     Range: 1
     BuffID: 0
+    BuffID2: 0
     AtkCoefficient: 0.85
     DefCoefficient: 0
     HealthCoefficient: 0
@@ -355,6 +367,7 @@ MonoBehaviour:
     Type: 1
     Range: 1
     BuffID: 0
+    BuffID2: 0
     AtkCoefficient: 1.2
     DefCoefficient: 0
     HealthCoefficient: 0
@@ -371,6 +384,7 @@ MonoBehaviour:
     Type: 1
     Range: 1
     BuffID: 0
+    BuffID2: 0
     AtkCoefficient: 1.4
     DefCoefficient: 0
     HealthCoefficient: 0
@@ -386,6 +400,7 @@ MonoBehaviour:
     Type: 0
     Range: 0
     BuffID: 0
+    BuffID2: 0
     AtkCoefficient: 1
     DefCoefficient: 0
     HealthCoefficient: 0
@@ -402,6 +417,7 @@ MonoBehaviour:
     Type: 2
     Range: 1
     BuffID: 101
+    BuffID2: 0
     AtkCoefficient: 0
     DefCoefficient: 1
     HealthCoefficient: 0
@@ -418,6 +434,7 @@ MonoBehaviour:
     Type: 1
     Range: 1
     BuffID: 0
+    BuffID2: 0
     AtkCoefficient: 0.7
     DefCoefficient: 0
     HealthCoefficient: 0
@@ -434,6 +451,7 @@ MonoBehaviour:
     Type: 1
     Range: 1
     BuffID: 0
+    BuffID2: 0
     AtkCoefficient: 0.8
     DefCoefficient: 0
     HealthCoefficient: 0
@@ -450,6 +468,7 @@ MonoBehaviour:
     Type: 1
     Range: 1
     BuffID: 0
+    BuffID2: 0
     AtkCoefficient: 0.9
     DefCoefficient: 0
     HealthCoefficient: 0
@@ -466,6 +485,7 @@ MonoBehaviour:
     Type: 0
     Range: 0
     BuffID: 0
+    BuffID2: 0
     AtkCoefficient: 2.5
     DefCoefficient: 0
     HealthCoefficient: 0
@@ -482,6 +502,7 @@ MonoBehaviour:
     Type: 0
     Range: 0
     BuffID: 0
+    BuffID2: 0
     AtkCoefficient: 3
     DefCoefficient: 0
     HealthCoefficient: 0
@@ -497,6 +518,7 @@ MonoBehaviour:
     Type: 0
     Range: 0
     BuffID: 201
+    BuffID2: 0
     AtkCoefficient: 1
     DefCoefficient: 0
     HealthCoefficient: 0
@@ -513,6 +535,7 @@ MonoBehaviour:
     Type: 2
     Range: 1
     BuffID: 101
+    BuffID2: 0
     AtkCoefficient: 0
     DefCoefficient: 1
     HealthCoefficient: 0
@@ -529,9 +552,10 @@ MonoBehaviour:
     Type: 3
     Range: 1
     BuffID: 0
-    AtkCoefficient: 1.5
+    BuffID2: 0
+    AtkCoefficient: 0
     DefCoefficient: 0
-    HealthCoefficient: 0
+    HealthCoefficient: 0.2
     CoolTime: 2
     DebuffProbability: 1
     Duration: 0
@@ -545,9 +569,10 @@ MonoBehaviour:
     Type: 3
     Range: 1
     BuffID: 0
-    AtkCoefficient: 2
+    BuffID2: 0
+    AtkCoefficient: 0
     DefCoefficient: 0
-    HealthCoefficient: 0
+    HealthCoefficient: 0.25
     CoolTime: 2
     DebuffProbability: 1
     Duration: 0
@@ -561,9 +586,10 @@ MonoBehaviour:
     Type: 3
     Range: 1
     BuffID: 0
-    AtkCoefficient: 2
+    BuffID2: 0
+    AtkCoefficient: 0
     DefCoefficient: 0
-    HealthCoefficient: 0
+    HealthCoefficient: 0.3
     CoolTime: 1
     DebuffProbability: 1
     Duration: 0
@@ -576,6 +602,7 @@ MonoBehaviour:
     Type: 4
     Range: 1
     BuffID: 102
+    BuffID2: 103
     AtkCoefficient: 0
     DefCoefficient: 0
     HealthCoefficient: 0.6
@@ -591,6 +618,7 @@ MonoBehaviour:
     Type: 4
     Range: 1
     BuffID: 102
+    BuffID2: 103
     AtkCoefficient: 0
     DefCoefficient: 0
     HealthCoefficient: 0.8
@@ -606,6 +634,7 @@ MonoBehaviour:
     Type: 0
     Range: 0
     BuffID: 203
+    BuffID2: 0
     AtkCoefficient: 1
     DefCoefficient: 0
     HealthCoefficient: 0
@@ -622,6 +651,7 @@ MonoBehaviour:
     Type: 2
     Range: 1
     BuffID: 101
+    BuffID2: 0
     AtkCoefficient: 0
     DefCoefficient: 1
     HealthCoefficient: 0
@@ -638,6 +668,7 @@ MonoBehaviour:
     Type: 0
     Range: 0
     BuffID: 207
+    BuffID2: 0
     AtkCoefficient: 0
     DefCoefficient: 2
     HealthCoefficient: 0
@@ -654,6 +685,7 @@ MonoBehaviour:
     Type: 0
     Range: 0
     BuffID: 208
+    BuffID2: 0
     AtkCoefficient: 0
     DefCoefficient: 2.5
     HealthCoefficient: 0
@@ -670,6 +702,7 @@ MonoBehaviour:
     Type: 0
     Range: 0
     BuffID: 209
+    BuffID2: 0
     AtkCoefficient: 0
     DefCoefficient: 3
     HealthCoefficient: 0
@@ -686,9 +719,10 @@ MonoBehaviour:
     Type: 0
     Range: 0
     BuffID: 0
-    AtkCoefficient: 0
+    BuffID2: 0
+    AtkCoefficient: 1
     DefCoefficient: 0
-    HealthCoefficient: 1.2
+    HealthCoefficient: 0.3
     CoolTime: 0
     DebuffProbability: 1
     Duration: 0
@@ -702,9 +736,10 @@ MonoBehaviour:
     Type: 0
     Range: 0
     BuffID: 0
-    AtkCoefficient: 0
+    BuffID2: 0
+    AtkCoefficient: 1
     DefCoefficient: 0
-    HealthCoefficient: 1.5
+    HealthCoefficient: 0.4
     CoolTime: 0
     DebuffProbability: 1
     Duration: 0
@@ -717,6 +752,7 @@ MonoBehaviour:
     Type: 0
     Range: 1
     BuffID: 0
+    BuffID2: 0
     AtkCoefficient: 1
     DefCoefficient: 0
     HealthCoefficient: 0
@@ -733,6 +769,7 @@ MonoBehaviour:
     Type: 2
     Range: 1
     BuffID: 101
+    BuffID2: 0
     AtkCoefficient: 0
     DefCoefficient: 1
     HealthCoefficient: 0
@@ -749,6 +786,7 @@ MonoBehaviour:
     Type: 0
     Range: 1
     BuffID: 0
+    BuffID2: 0
     AtkCoefficient: 1.2
     DefCoefficient: 0
     HealthCoefficient: 0
@@ -765,6 +803,7 @@ MonoBehaviour:
     Type: 0
     Range: 1
     BuffID: 0
+    BuffID2: 0
     AtkCoefficient: 1.5
     DefCoefficient: 0
     HealthCoefficient: 0
@@ -781,6 +820,7 @@ MonoBehaviour:
     Type: 0
     Range: 1
     BuffID: 0
+    BuffID2: 0
     AtkCoefficient: 1.8
     DefCoefficient: 0
     HealthCoefficient: 0
@@ -796,6 +836,7 @@ MonoBehaviour:
     Type: 0
     Range: 1
     BuffID: 0
+    BuffID2: 0
     AtkCoefficient: 2.2
     DefCoefficient: 0
     HealthCoefficient: 0
@@ -811,6 +852,7 @@ MonoBehaviour:
     Type: 0
     Range: 1
     BuffID: 0
+    BuffID2: 0
     AtkCoefficient: 2.7
     DefCoefficient: 0
     HealthCoefficient: 0
@@ -826,6 +868,7 @@ MonoBehaviour:
     Type: 0
     Range: 1
     BuffID: 0
+    BuffID2: 0
     AtkCoefficient: 1
     DefCoefficient: 0
     HealthCoefficient: 0
@@ -833,7 +876,7 @@ MonoBehaviour:
     DebuffProbability: 0
     Duration: 0
     SkillGage: 0
-    EffectPath: 
+    EffectPath: Prefabs/Skill/Drone/Skill1
     IconPath: 
   - ID: 101001021
     Name: "\uD2B9\uC218"
@@ -841,6 +884,7 @@ MonoBehaviour:
     Type: 0
     Range: 1
     BuffID: 203
+    BuffID2: 0
     AtkCoefficient: 1.2
     DefCoefficient: 0
     HealthCoefficient: 0
@@ -848,7 +892,7 @@ MonoBehaviour:
     DebuffProbability: 0.7
     Duration: 1
     SkillGage: 0
-    EffectPath: 
+    EffectPath: Prefabs/Skill/Drone/Skill2
     IconPath: 
   - ID: 201001011
     Name: "\uC77C\uBC18\uACF5\uACA9"
@@ -856,6 +900,7 @@ MonoBehaviour:
     Type: 0
     Range: 1
     BuffID: 0
+    BuffID2: 0
     AtkCoefficient: 1
     DefCoefficient: 0
     HealthCoefficient: 0
@@ -871,6 +916,7 @@ MonoBehaviour:
     Type: 0
     Range: 1
     BuffID: 202
+    BuffID2: 0
     AtkCoefficient: 0.8
     DefCoefficient: 0
     HealthCoefficient: 0
@@ -886,6 +932,7 @@ MonoBehaviour:
     Type: 0
     Range: 0
     BuffID: 0
+    BuffID2: 0
     AtkCoefficient: 0
     DefCoefficient: 0
     HealthCoefficient: 0
@@ -901,6 +948,7 @@ MonoBehaviour:
     Type: 0
     Range: 0
     BuffID: 0
+    BuffID2: 0
     AtkCoefficient: 0
     DefCoefficient: 0
     HealthCoefficient: 0
@@ -924,84 +972,84 @@ MonoBehaviour:
     Coefficient: 10
     Duration: 1
     DebuffProbability: 1
-    IconPath: 
+    IconPath: UI/BuffandDebuff/101
   - BuffID: 102
     Name: "\uACF5\uACA9\uB825\uC99D\uAC00"
     CharacterData: 0
     Coefficient: 0.5
     Duration: 2
     DebuffProbability: 1
-    IconPath: 
+    IconPath: UI/BuffandDebuff/102
   - BuffID: 103
     Name: "\uBC29\uC5B4\uB825\uC99D\uAC00"
     CharacterData: 0
     Coefficient: 0.5
     Duration: 2
     DebuffProbability: 1
-    IconPath: 
+    IconPath: UI/BuffandDebuff/103
   - BuffID: 201
     Name: "\uACF5\uACA9\uB825\uAC10\uC18C(\uB2E8\uC77C)"
     CharacterData: 0
     Coefficient: -0.5
     Duration: 1
     DebuffProbability: 0.7
-    IconPath: 
+    IconPath: UI/BuffandDebuff/201
   - BuffID: 202
     Name: "\uACF5\uACA9\uB825\uAC10\uC18C(\uC804\uCCB4)"
     CharacterData: 0
     Coefficient: -0.5
     Duration: 1
     DebuffProbability: 0.5
-    IconPath: 
+    IconPath: UI/BuffandDebuff/201
   - BuffID: 203
     Name: "\uBC29\uC5B4\uB825\uAC10\uC18C(\uB2E8\uC77C)"
     CharacterData: 0
     Coefficient: -0.5
     Duration: 1
     DebuffProbability: 0.7
-    IconPath: 
+    IconPath: UI/BuffandDebuff/203
   - BuffID: 204
     Name: "\uBC29\uC5B4\uB825\uAC10\uC18C(\uC804\uCCB4)"
     CharacterData: 0
     Coefficient: -0.5
     Duration: 1
     DebuffProbability: 0.5
-    IconPath: 
+    IconPath: UI/BuffandDebuff/203
   - BuffID: 205
     Name: "\uC2A4\uD134(1\uB808\uBCA8)"
     CharacterData: 0
     Coefficient: 0
     Duration: 1
     DebuffProbability: 0.2
-    IconPath: 
+    IconPath: UI/BuffandDebuff/205
   - BuffID: 206
     Name: "\uC2A4\uD134(2\uB808\uBCA8)"
     CharacterData: 0
     Coefficient: 0
     Duration: 1
     DebuffProbability: 0.3
-    IconPath: 
+    IconPath: UI/BuffandDebuff/205
   - BuffID: 207
     Name: "\uB3C4\uBC1C(1\uB808\uBCA8)"
     CharacterData: 0
     Coefficient: 0
     Duration: 1
     DebuffProbability: 0.6
-    IconPath: 
+    IconPath: UI/BuffandDebuff/207
   - BuffID: 208
     Name: "\uB3C4\uBC1C(2\uB808\uBCA8)"
     CharacterData: 0
     Coefficient: 0
     Duration: 1
     DebuffProbability: 0.8
-    IconPath: 
+    IconPath: UI/BuffandDebuff/207
   - BuffID: 209
     Name: "\uB3C4\uBC1C(3\uB808\uBCA8)"
     CharacterData: 0
     Coefficient: 0
     Duration: 1
     DebuffProbability: 0.9
-    IconPath: 
+    IconPath: UI/BuffandDebuff/207
   EnemyData:
   - _id: 101001
     _name: Drone

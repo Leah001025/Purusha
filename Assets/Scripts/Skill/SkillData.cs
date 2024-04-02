@@ -11,6 +11,7 @@ public class SkillData : DataBase<SkillData>
     public int Type;
     public int Range;
     public int BuffID;
+    public int BuffID2;
     public float AtkCoefficient;
     public float DefCoefficient;
     public float HealthCoefficient;

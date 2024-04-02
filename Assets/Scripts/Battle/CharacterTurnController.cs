@@ -24,10 +24,7 @@ public class CharacterTurnController : MonoBehaviour
     public BuffData buffID;
     public BuffData shield;
     public float unitGauge;
-    public float buffAtk;
-    public float buffDef;
-    public float buffShield;
-    int runHash;
+    public float shieldQuantity;
     private int skill3CoolTime;
     public int skill4Gauge;
     private bool isCharacterTurn;
@@ -40,10 +37,11 @@ public class CharacterTurnController : MonoBehaviour
     private GameObject skillObj;
     private BuffAndDebuff buffAndDebuff;
     private WaitForSeconds wait05 = new WaitForSeconds(0.5f);
+    private Dictionary<string,GameObject> OnBuff;
 
     private void Start()
     {
-        //skill4Gauge = 5;
+        skill4Gauge = 5;
         battleManager = BattleManager.Instance;
         onTurnPos = new Vector3(2, 0, -4.5f);
         offTurnPos = transform.localPosition;
@@ -60,7 +58,9 @@ public class CharacterTurnController : MonoBehaviour
         }
         isCharacterTurn = false;
         characterBuffData = (CharacterData)characterData.CloneCharacter(characterData.status.iD);
-        buffAndDebuff = new BuffAndDebuff(characterData.status.iD);
+        buffAndDebuff = new BuffAndDebuff(characterData.status.iD,0,"Player");
+        OnBuff = new Dictionary<string, GameObject>();
+        InitBuffData();
         battleManager.skill1 += Skill1;
         battleManager.skill2 += Skill2;
         battleManager.skill3 += Skill3;
@@ -97,47 +97,66 @@ public class CharacterTurnController : MonoBehaviour
         {
             case 101://쉴드
                 buffAndDebuff.SetShield(buffID);
-                if (shield != null) shield.Duration = buffAndDebuff.shield.Duration;
-                if (shield == null) 
+                if (shield != null && buffAndDebuff.defDown != null)
+                {
+                    shieldQuantity = shield.CharacterData;
+                    shield.Duration = buffAndDebuff.shield.Duration;
+                }
+                if (shield == null && buffAndDebuff.shield != null)
                 {
                     shield = SetBuffData(buffAndDebuff.shield);
-                    buffShield = shield.CharacterData;
+                    shieldQuantity = shield.CharacterData;
+                    var obj = UIManager.Instance.PlayerBuffIcon(teamIndex, shield.IconPath);
+                    OnBuff.Add("Shield", obj);
                 }
                 CallChangeShieldGauge();
-                UIManager.Instance.BattleBuffIcon(teamIndex);
+
                 break;
             case 102://공증
                 buffAndDebuff.SetAtkUp(buffID);
-                if (attackUp != null) attackUp.Duration = buffAndDebuff.attackUp.Duration;
-                if (attackUp == null)
+                if (attackUp != null && buffAndDebuff.defDown != null) attackUp.Duration = buffAndDebuff.attackUp.Duration;
+                if (attackUp == null && buffAndDebuff.attackUp != null)
                 {
                     attackUp = SetBuffData(buffAndDebuff.attackUp);
                     characterBuffData.status.atk += attackUp.CharacterData;
+                    var obj = UIManager.Instance.PlayerBuffIcon(teamIndex, attackUp.IconPath);
+                    OnBuff.Add("AttackUp", obj);
                 }
-                UIManager.Instance.BattleBuffIcon(teamIndex);
                 break;
             case 103://방증
                 buffAndDebuff.SetDefUp(buffID);
-                if (defUp != null) defUp.Duration = buffAndDebuff.defUp.Duration;
-                if (defUp == null) defUp = SetBuffData(buffAndDebuff.defUp);
-                characterBuffData.status.def += defUp.CharacterData;
-                UIManager.Instance.BattleBuffIcon(teamIndex);
+                if (defUp != null && buffAndDebuff.defDown != null) defUp.Duration = buffAndDebuff.defUp.Duration;
+                if (defUp == null && buffAndDebuff.defUp != null)
+                {
+                    defUp = SetBuffData(buffAndDebuff.defUp);
+                    characterBuffData.status.def += defUp.CharacterData;
+                    var obj = UIManager.Instance.PlayerBuffIcon(teamIndex, defUp.IconPath);
+                    OnBuff.Add("DefUp", obj);
+                }
                 break;
             case 201:
             case 202://공감
                 buffAndDebuff.SetAtkUp(buffID);
-                if (attackDown != null) attackDown.Duration = buffAndDebuff.attackDown.Duration;
-                if (attackDown == null) attackDown = SetBuffData(buffAndDebuff.attackDown);
-                characterBuffData.status.atk += attackDown.CharacterData;
-                UIManager.Instance.BattleBuffIcon(teamIndex);
+                if (attackDown != null && buffAndDebuff.defDown != null) attackDown.Duration = buffAndDebuff.attackDown.Duration;
+                if (attackDown == null && buffAndDebuff.attackDown != null)
+                {
+                    attackDown = SetBuffData(buffAndDebuff.attackDown);
+                    characterBuffData.status.atk += attackDown.CharacterData;
+                    var obj = UIManager.Instance.PlayerBuffIcon(teamIndex, attackDown.IconPath);
+                    OnBuff.Add("AttackDown", obj);
+                }
                 break;
             case 203:
             case 204://방감
                 buffAndDebuff.SetDefDown(buffID);
-                if (defDown != null) defDown.Duration = buffAndDebuff.defDown.Duration;
-                if (defDown == null) defDown = SetBuffData(buffAndDebuff.defDown);
-                characterBuffData.status.def += defDown.CharacterData;
-                UIManager.Instance.BattleBuffIcon(teamIndex);
+                if (defDown != null && buffAndDebuff.defDown != null) defDown.Duration = buffAndDebuff.defDown.Duration;
+                if (defDown == null && buffAndDebuff.defDown != null)
+                {
+                    defDown = SetBuffData(buffAndDebuff.defDown);
+                    characterBuffData.status.def += defDown.CharacterData;
+                    var obj = UIManager.Instance.PlayerBuffIcon(teamIndex, defDown.IconPath);
+                    OnBuff.Add("DefDown", obj);
+                }
                 break;
             case 205:
             case 206://스턴
@@ -163,51 +182,39 @@ public class CharacterTurnController : MonoBehaviour
         buff.CharacterData = buffData.CharacterData;
         return buff;
     }
+    private void InitBuffData()
+    {
+        attackUp = null;
+        attackDown = null;
+        defUp = null;
+        defDown = null;
+        buffID = null;
+        shield = null;
+    }
     private void BuffDuration()
     {
-        if (attackUp != null) 
-        { 
-            attackUp.Duration--; 
-            if (attackUp.Duration <= 0) 
-            { 
-                characterBuffData.status.atk = characterData.status.atk;
-                attackUp = null; 
-            } 
-        }
-        if (attackDown != null)
+        BuffCheck(attackUp, characterBuffData.status.atk, characterData.status.atk, "AttackUp");
+        BuffCheck(attackDown, characterBuffData.status.atk, characterData.status.atk, "AttackDown");
+        BuffCheck(defUp, characterBuffData.status.def, characterData.status.def, "DefUp");
+        BuffCheck(defDown, characterBuffData.status.def, characterData.status.def, "DefDown");
+        BuffCheck(shield, shieldQuantity, 0, "Shield");
+        CallChangeShieldGauge();
+    }
+    public void BuffCheck(BuffData buff, float buffStat, float oriStat, string buffName)
+    {
+        if (buff != null)
         {
-            attackDown.Duration--;
-            if (attackDown.Duration <= 0)
+            buff.Duration--;
+            if (buff.Duration <= 0)
             {
-                characterBuffData.status.atk = characterData.status.atk;
-                attackDown = null;
-            }
-        }
-        if (defUp != null)
-        {
-            defUp.Duration--;
-            if (defUp.Duration <= 0)
-            {
-                characterBuffData.status.def = characterData.status.def;
-                defUp = null;
-            }
-        }
-        if (defDown != null)
-        {
-            defDown.Duration--;
-            if (defDown.Duration <= 0)
-            {
-                characterBuffData.status.def = characterData.status.def;
-                defDown = null;
-            }
-        }
-        if (shield != null)
-        {
-            shield.Duration--;
-            if (shield.Duration <= 0)
-            {
-                buffShield = 0;
-                defDown = null;
+                buffStat = oriStat;
+                //characterBuffData.status.atk = characterData.status.atk;
+                if (OnBuff.ContainsKey(buffName))
+                {
+                    Destroy(OnBuff[buffName].gameObject);
+                    OnBuff.Remove(buffName);
+                }
+                buff = null;
             }
         }
     }
@@ -215,6 +222,7 @@ public class CharacterTurnController : MonoBehaviour
     {
         isCharacterTurn = true;
         BuffDuration();
+        skill3CoolTime--;
         transform.localPosition = onTurnPos;
         battleManager.skill3CoolTime = skill3CoolTime;
         battleManager.skill4Gauge = skill4Gauge;
@@ -267,14 +275,14 @@ public class CharacterTurnController : MonoBehaviour
                 case 0:
                     StartCoroutine(MeleeSkillEffect("3"));
                     skill3CoolTime = characterData.skillData[3].coolTime;
-                    StartCoroutine(WaitForSkillEffect(3.5f));
+                    StartCoroutine(WaitForSkillEffect(4f));
                     break;
                 case 1:
                     StartCoroutine(RangedSkillEffect(1f, "3"));
                     skill3CoolTime = characterData.skillData[3].coolTime;
                     StartCoroutine(WaitForSkillEffect(2.5f));
                     break;
-            } 
+            }
             skill4Gauge += characterData.skillData[3].skillGage;
             CallChangeSkill4Gauge();
         }
@@ -328,7 +336,6 @@ public class CharacterTurnController : MonoBehaviour
         battleManager.lUnitInfo[battleManager.onTurnIndex].unitGauge = 0;
         battleManager.isAttacking = false;
         isCharacterTurn = false;
-        skill3CoolTime--;
     }
     IEnumerator MeleeSkillEffect(string num)
     {
@@ -348,7 +355,7 @@ public class CharacterTurnController : MonoBehaviour
         yield return wait05;
         Destroy(skillObj);
         yield return wait05;
-        battleManager.OnSkillPlayer(characterData, skillNum);
+        battleManager.OnSkillPlayer(characterBuffData, skillNum);
         character.transform.localPosition = Vector3.zero;
         animator.SetTrigger(Animator.StringToHash("Jump"));
         yield return new WaitForSeconds(0.2f);
@@ -369,7 +376,7 @@ public class CharacterTurnController : MonoBehaviour
         yield return new WaitForSeconds(time);
         Destroy(skillObj);
         yield return new WaitForSeconds(0.2f);
-        battleManager.OnSkillPlayer(characterData, skillNum);
+        battleManager.OnSkillPlayer(characterBuffData, skillNum);
         character.transform.localPosition = Vector3.zero;
         isAttack = false;
     }

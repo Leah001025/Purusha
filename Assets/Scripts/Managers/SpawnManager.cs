@@ -47,17 +47,17 @@ public class SpawnManager : MonoBehaviour
         var _map = Instantiate(resources, mapSpawnPoint);
         mapSpawnController = _map.GetComponent<MapSpawnController>();
 
-        player = Resources.Load("Prefabs/Player/Player") as GameObject;
+        player = Resources.Load("Prefabs/Player/PlayerAndCamera") as GameObject;
     }
     private void Start()
     {
         MonsterSpawn();
 
         var _obj = mapSpawnController.PlayerSpawn(player);
-        virtualCamera.Follow = _obj.transform;
-        raycastDetection = _obj.GetComponent<PlayerConeRaycastDetection>();
-        raycastDetection.battleEffect = effectImage;
-        raycastDetection.cinemachineBrain = brainCamera;
+        //virtualCamera.Follow = _obj.transform;
+        //raycastDetection = _obj.GetComponent<PlayerConeRaycastDetection>();
+        //raycastDetection.battleEffect = effectImage;
+        //raycastDetection.cinemachineBrain = brainCamera;
     }
     private void MonsterSpawn()
     {

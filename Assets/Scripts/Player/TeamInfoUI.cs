@@ -37,7 +37,7 @@ public class TeamInfoUI : MonoBehaviour
     }
     private void ChangeShieldBarAmount()
     {
-        shield = turnController.buffShield;
+        shield = turnController.shieldQuantity;
         shieldBar.value = shield / characterMaxHealth; 
     }
     private void ChangeSkill4BarAmount()
@@ -59,7 +59,7 @@ public class TeamInfoUI : MonoBehaviour
         if (gameObject.name == name)
         {
             characterCurHealth = characterInfo.characterData.status.health;
-            characterHealth.text = characterCurHealth.ToString() + " / " + characterMaxHealth.ToString();
+            characterHealth.text = characterCurHealth.ToString("0") + " / " + characterMaxHealth.ToString("0");
             float fillDamage = characterCurHealth / characterMaxHealth;
             hpBar.value = fillDamage;
         }

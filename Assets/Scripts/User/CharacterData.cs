@@ -25,7 +25,21 @@ public class CharacterData : ICloneable
         if (_id != 0)
         {
             CharacterData characterData = new CharacterData(_id);
-            characterData.status = status;
+            characterData.status.atk = status.atk;
+            characterData.status.iD = status.iD;
+            characterData.status.name = status.name;
+            characterData.status.health = status.health;
+            characterData.status.maxhealth = status.maxhealth;
+            characterData.status.level = status.level;
+            characterData.status.exp = status.exp;
+            characterData.status.equipLevel = status.equipLevel;
+            characterData.status.def = status.def;
+            characterData.status.criticalChance = status.criticalChance;
+            characterData.status.criticalDamage = status.criticalDamage;
+            characterData.status.avoid = status.avoid;
+            characterData.status.speed = status.speed;
+            characterData.status.prefabPath = status.prefabPath;
+            characterData.status.spritePath = status.spritePath;
             characterData.skillData = skillData;
             return characterData;
         }
@@ -88,6 +102,7 @@ public class CharacterSkill
     public int type;
     public int range;
     public int buffID;
+    public int buffID2;
     public float atkCoefficient;
     public float defCoefficient;
     public float healthCoefficient;
@@ -106,6 +121,7 @@ public class CharacterSkill
         type = data.Type;
         range = data.Range;
         buffID = data.BuffID;
+        buffID2 = data.BuffID2;
         atkCoefficient = data.AtkCoefficient;
         defCoefficient = data.DefCoefficient;
         healthCoefficient = data.HealthCoefficient;

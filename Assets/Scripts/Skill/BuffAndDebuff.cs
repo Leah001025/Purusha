@@ -1,11 +1,13 @@
+using Structs;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class BuffAndDebuff : MonoBehaviour
+public class BuffAndDebuff
 {
     CharacterData characterBuffData;
+    EnemyCharacterData enemyCharacterBuffData;
     BuffDataBase buffData;
     public BuffData attackUp;
     public BuffData attackDown;
@@ -14,51 +16,65 @@ public class BuffAndDebuff : MonoBehaviour
     public BuffData buffID;
     public BuffData shield;
     public float probability;
-    public BuffAndDebuff(int id)
+    private string targetType;
+
+    public BuffAndDebuff(int playerId=0,int enemyId= 0, string type="Player")
     {
-        characterBuffData = (CharacterData)GameManager.Instance.User.characterDatas[id].CloneCharacter(id);
+        if(playerId != 0) characterBuffData = (CharacterData)GameManager.Instance.User.characterDatas[playerId].CloneCharacter(playerId);
+        else if(enemyId != 0) enemyCharacterBuffData = new EnemyCharacterData(enemyId);
         buffData = (BuffDataBase)DataManager.Instance.BuffDB.Clone();
+        targetType = type;
     }
-    public void SetBuffandDebuff(int buffID)
-    {
-        switch (buffID)
-        {
-            case 101://쉴드
-                SetShield(buffID);
-                break;
-            case 102://공증
-                SetAtkUp(buffID);
-                break;
-            case 103://방증
-                SetDefUp(buffID);
-                break;
-            case 201:
-            case 202://공감
-                SetAtkDown(buffID);
-                break;
-            case 203:
-            case 204://방감
-                SetDefDown(buffID);
-                break;
-            case 205:
-            case 206://스턴
-                SetShield(buffID);
-                break;
-            case 207:
-            case 208:
-            case 209://도발
-                SetShield(buffID);
-                break;
-        }
-    }
+    //public void SetBuffandDebuff(int buffID)
+    //{
+    //    switch (buffID)
+    //    {
+    //        case 101://쉴드
+    //            SetShield(buffID);
+    //            break;
+    //        case 102://공증
+    //            SetAtkUp(buffID);
+    //            break;
+    //        case 103://방증
+    //            SetDefUp(buffID);
+    //            break;
+    //        case 201:
+    //        case 202://공감
+    //            SetAtkDown(buffID);
+    //            break;
+    //        case 203:
+    //        case 204://방감
+    //            SetDefDown(buffID);
+    //            break;
+    //        case 205:
+    //        case 206://스턴
+    //            SetShield(buffID);
+    //            break;
+    //        case 207:
+    //        case 208:
+    //        case 209://도발
+    //            SetShield(buffID);
+    //            break;
+    //    }
+    //}
     public void SetShield(int buffId)
     {
         probability = Random.Range(0f, 1f);
         shield = buffData.GetData(buffId);
         if (probability <= buffData.GetData(buffId).DebuffProbability)
         {
-            shield.CharacterData = characterBuffData.status.def * shield.Coefficient;
+            switch (targetType)
+            {
+                case "Player":
+                    shield.CharacterData = characterBuffData.status.def * shield.Coefficient;
+                    break;
+                case "Enemy":
+                    shield.CharacterData = enemyCharacterBuffData.enemyData.Def * shield.Coefficient;
+                    break;
+            }
+            
         }
+        else shield = null;
     }
     public void SetAtkUp(int buffId)
     {
@@ -66,8 +82,17 @@ public class BuffAndDebuff : MonoBehaviour
         attackUp = buffData.GetData(buffId);
         if (probability <= buffData.GetData(buffId).DebuffProbability)
         {
-            attackUp.CharacterData = characterBuffData.status.atk * attackUp.Coefficient;
+            switch (targetType)
+            {
+                case "Player":
+                    attackUp.CharacterData = characterBuffData.status.def * attackUp.Coefficient;
+                    break;
+                case "Enemy":
+                    attackUp.CharacterData = enemyCharacterBuffData.enemyData.Atk * attackUp.Coefficient;
+                    break;
+            }
         }
+        else attackUp = null;
     }
     public void SetDefUp(int buffId)
     {
@@ -75,8 +100,17 @@ public class BuffAndDebuff : MonoBehaviour
         defUp = buffData.GetData(buffId);
         if (probability <= buffData.GetData(buffId).DebuffProbability)
         {
-            defUp.CharacterData = characterBuffData.status.def * defUp.Coefficient;
+            switch (targetType)
+            {
+                case "Player":
+                    defUp.CharacterData = characterBuffData.status.def * defUp.Coefficient;
+                    break;
+                case "Enemy":
+                    defUp.CharacterData = enemyCharacterBuffData.enemyData.Def * defUp.Coefficient;
+                    break;
+            }
         }
+        else defUp = null;
     }
     public void SetAtkDown(int buffId)
     {
@@ -84,8 +118,17 @@ public class BuffAndDebuff : MonoBehaviour
         attackDown = buffData.GetData(buffId);
         if (probability <= buffData.GetData(buffId).DebuffProbability)
         {
-            attackDown.CharacterData = characterBuffData.status.atk * attackDown.Coefficient;
+            switch (targetType)
+            {
+                case "Player":
+                    attackDown.CharacterData = characterBuffData.status.atk * attackDown.Coefficient;
+                    break;
+                case "Enemy":
+                    attackDown.CharacterData = enemyCharacterBuffData.enemyData.Atk * attackDown.Coefficient;
+                    break;
+            }
         }
+        else attackDown = null;
     }
     public void SetDefDown(int buffId)
     {
@@ -93,7 +136,16 @@ public class BuffAndDebuff : MonoBehaviour
         defDown = buffData.GetData(buffId);
         if (probability <= buffData.GetData(buffId).DebuffProbability)
         {
-            defDown.CharacterData = characterBuffData.status.def * defDown.Coefficient;
+            switch (targetType)
+            {
+                case "Player":
+                    defDown.CharacterData = characterBuffData.status.def * defDown.Coefficient;
+                    break;
+                case "Enemy":
+                    defDown.CharacterData = enemyCharacterBuffData.enemyData.Def * defDown.Coefficient;
+                    break;
+            }
         }
+        else defDown = null;
     }
 }

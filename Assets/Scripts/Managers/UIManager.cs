@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
@@ -9,6 +10,7 @@ public class UIManager : SingleTon<UIManager>
 
     private Dictionary<string, UIBase> popups = new Dictionary<string, UIBase>();
     private Dictionary<int, GameObject> battlePlayerStatus = new Dictionary<int, GameObject>();
+    private Dictionary<int, GameObject> battleEnemyStatus = new Dictionary<int, GameObject>();
 
     // 팝업 불러오기
     public UIBase ShowPopup(string popupname, Transform parents = null)
@@ -57,7 +59,12 @@ public class UIManager : SingleTon<UIManager>
         {
             Debug.LogWarning("Failed to MonsterInfo");
         }
-        Instantiate(info, monster.transform.GetChild(1).gameObject.transform);
+        var obj = Instantiate(info, monster.transform.GetChild(1).gameObject.transform);
+        int index = int.Parse(obj.transform.parent.parent.name);
+        if (!battlePlayerStatus.ContainsKey(index))
+        {
+            battleEnemyStatus.Add(index, obj);
+        }
         var target = Resources.Load("Prefabs/Battle/Target") as GameObject;
         if (!info)
         {
@@ -80,14 +87,24 @@ public class UIManager : SingleTon<UIManager>
         }
         
     }
-    public GameObject BattleBuffIcon(int index)
+    public GameObject PlayerBuffIcon(int index,string IconPath)
     {
-        var info = Resources.Load("UI/BuffandDebuff/BuffBg") as GameObject;
+        var info = Resources.Load(IconPath) as GameObject;
         if (!info)
         {
             Debug.LogWarning("null");
         }
         var obj = Instantiate(info, battlePlayerStatus[index].gameObject.transform.GetChild(3).gameObject.transform);
+        return obj;
+    }
+    public GameObject EnemyBuffIcon(int index, string IconPath)
+    {
+        var info = Resources.Load(IconPath) as GameObject;
+        if (!info)
+        {
+            Debug.LogWarning("null");
+        }
+        var obj = Instantiate(info, battleEnemyStatus[index].gameObject.transform.GetChild(1).gameObject.transform);
         return obj;
     }
     public void BattleEnd()
