@@ -6,12 +6,14 @@ public class StageData : DataBase<WaveData>
 {
     [SerializeField] private int _id;
     [SerializeField] private string _openMapPath;
+    [SerializeField] private string _stageName;
     [SerializeField] private int _waveID_1;
     [SerializeField] private int _waveID_2;
     [SerializeField] private int _waveID_3;
 
     public int ID => _id;
     public string OpenMapPath => _openMapPath;
+    public string StageName => _stageName;
 
     private List<StageWave> _stageWaves;
 

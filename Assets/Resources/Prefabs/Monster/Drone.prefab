@@ -53,8 +53,8 @@ MonoBehaviour:
     hitParameterName: Hit
     skill1ParameterName: Skill1
     skill2ParameterName: Skill2
-  targetPoint: {fileID: 8260156897340215892}
   monsterInfoPoint: {fileID: 2890712399688291867}
+  targetPoint: {fileID: 8260156897340215892}
 --- !u!1 &2890712399688291867
 GameObject:
   m_ObjectHideFlags: 0
@@ -111,7 +111,7 @@ Transform:
   m_GameObject: {fileID: 8260156897340215892}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 0.5}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
