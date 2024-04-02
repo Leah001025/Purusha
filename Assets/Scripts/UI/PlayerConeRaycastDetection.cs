@@ -63,7 +63,8 @@ public class PlayerConeRaycastDetection : MonoBehaviour
         foreach (var ray in rays)
         {
             if (Physics.Raycast(ray, out hit, detectionDistance, monsterLayer))
-            {                
+            {
+                SpawnManager.Instance.battleCanvas.gameObject.SetActive(true);
                 Debug.Log("Wave : " + hit.collider.gameObject.transform.parent.name);
                 EnterBattle(hit);
                 //SceneManager.LoadScene("BattleScene__");  전투 씬으로 전환

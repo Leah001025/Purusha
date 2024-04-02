@@ -38,4 +38,8 @@ public class PopupManager : MonoBehaviour
         var seq = DOTween.Sequence();
         seq.Play().OnComplete(() => {gameObject.SetActive(false);});
     }
+    public void CloseBtn()
+    {
+        SceneLoadManager.Instance.LoadingChangeScene("Main");
+    }
 }

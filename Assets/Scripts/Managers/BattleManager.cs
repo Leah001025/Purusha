@@ -494,7 +494,7 @@ public class BattleManager : MonoBehaviour
         }
         return totalDamage;
     }
-    private void GameResultUI(GameEnd gameState)
+    private void GameResult(GameEnd gameState)
     {
         string waveID = GameManager.Instance.waveID.ToString();
         Debug.Log(waveID.Substring(waveID.Length - 1, 1));

@@ -18,6 +18,7 @@ public class SpawnManager : MonoBehaviour
     public static SpawnManager Instance { get { if (instance == null) return null; return instance; } }
 
     [SerializeField] private Transform mapSpawnPoint;
+    public Canvas battleCanvas;
 
     private int stageID;
     private StageDataBase stageDB;
@@ -31,8 +32,6 @@ public class SpawnManager : MonoBehaviour
 
     private GameObject player;
 
-    public CinemachineVirtualCamera virtualCamera;
-    public CinemachineBrain brainCamera;
     public Image effectImage;
 
     private void Awake()
@@ -54,10 +53,8 @@ public class SpawnManager : MonoBehaviour
         MonsterSpawn();
 
         var _obj = mapSpawnController.PlayerSpawn(player);
-        //virtualCamera.Follow = _obj.transform;
-        //raycastDetection = _obj.GetComponent<PlayerConeRaycastDetection>();
-        //raycastDetection.battleEffect = effectImage;
-        //raycastDetection.cinemachineBrain = brainCamera;
+        raycastDetection = _obj.transform.GetChild(0).GetComponent<PlayerConeRaycastDetection>();
+        raycastDetection.battleEffect = effectImage;
     }
     private void MonsterSpawn()
     {

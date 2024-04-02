@@ -156,8 +156,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mapSpawnPoint: {fileID: 1749813194}
-  virtualCamera: {fileID: 0}
-  brainCamera: {fileID: 0}
+  battleCanvas: {fileID: 2131300086}
   effectImage: {fileID: 874709476}
 --- !u!4 &252105122
 Transform:
@@ -611,7 +610,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1976587001
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -808,7 +807,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2131300084
 MonoBehaviour:
   m_ObjectHideFlags: 0
