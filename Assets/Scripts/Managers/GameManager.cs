@@ -1,6 +1,13 @@
 using System;
 using UnityEngine;
 
+public class StageInfo
+{
+    public int stageID;
+    public bool wave1Clear;
+    public bool wave2Clear;
+    public bool wave3Clear;
+}
 public class GameManager : SingleTon<GameManager>
 {
     public int stageID = 1101;

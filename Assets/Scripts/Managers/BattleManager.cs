@@ -11,11 +11,15 @@ using UnityEngine.InputSystem;
 using UnityEngine.Timeline;
 public class BattleInfo
 {
+    public Dictionary<int, CharacterBattleInfo> characterInfo;
+    public BattleInfo()
+    {
+        characterInfo = new Dictionary<int, CharacterBattleInfo>();
+    }
     public float battleTime;
     public int battleTurn;
-    public Dictionary<int, CharacterBattleInfo> characterInfo;
 }
-public struct CharacterBattleInfo
+public class CharacterBattleInfo
 {
     public int characterTurn;
     public float attackDamages;
@@ -55,7 +59,10 @@ public class BattleManager : MonoBehaviour
     private WaitForSeconds gameForSeconds;
     private WaitForSeconds animForSeconds;
 
-    private GameEnd gameState;
+    [HideInInspector]
+    public BattleInfo battleInfo;
+    [HideInInspector]
+    public GameEnd gameState;
 
     [Header("Target Point")]
     public GameObject target;
@@ -107,6 +114,7 @@ public class BattleManager : MonoBehaviour
         waveDB = DataManager.Instance.WaveDB;
         enemyDB = DataManager.Instance.EnemyDB;
         lUnitInfo = new Dictionary<int, UnitInfo>();
+        battleInfo = new BattleInfo();
         teamData = GameManager.Instance.User.teamData;
         SetSpawnPos();
         BattleStart(GameManager.Instance.waveID);
@@ -115,6 +123,13 @@ public class BattleManager : MonoBehaviour
     {
         UIManager.Instance.ShowPopup<TurnIndicatorUI>();
         cameraPos = new Vector3(5f, 2f, -6.2f);
+    }
+    private void Update()
+    {
+        if (gameState == GameEnd.Paly)
+        {
+            battleInfo.battleTime += Time.deltaTime;
+        }
     }
     public void BattleStart(int StageID)
     {
@@ -146,6 +161,9 @@ public class BattleManager : MonoBehaviour
                 lUnitInfo.Add(i, unitInfo);
                 UIManager.Instance.BattlePlayerPopup(i, playerInfoTrans);
                 unitInfo.unitObject.name = lUnitInfo.Count.ToString();
+
+
+                battleInfo.characterInfo.Add(i, CreateCharacterBattleInfo());
                 playerCreateCount++;
             }
             else Debug.Log($"TeamData{i} : null");
@@ -184,6 +202,11 @@ public class BattleManager : MonoBehaviour
         CharacterData CharacterData = GameManager.Instance.User.teamData[index];
         return CharacterData;
     }
+    private CharacterBattleInfo CreateCharacterBattleInfo()
+    {
+        CharacterBattleInfo characterBattleInfo = new CharacterBattleInfo();
+        return characterBattleInfo;
+    }
     private IEnumerator AttackOrder()
     {
         attackOrder = new Queue<int>();
@@ -201,11 +224,12 @@ public class BattleManager : MonoBehaviour
                     onTurnIndex = attackOrder.Peek();
                     yield return StartCoroutine(UnitAttack(attackOrder.Peek()));
                     attackOrder.Dequeue();
+                    battleInfo.battleTurn++;
                 }
             }
             WaveEndChack();
         }
-        GameResultUI(gameState);
+        GameResult(gameState);
     }
     private void GaugeUp()
     {
@@ -274,6 +298,7 @@ public class BattleManager : MonoBehaviour
         {
             case 0:
                 lUnitInfo[targetIndex].unitData.Health -= _damage;
+                battleInfo.characterInfo[onTurnIndex].attackDamages += _damage;
                 lUnitInfo[targetIndex].actionController.Hit();
                 //turnControllers[targetIndex].SetBuffandDebuff(buffID);
                 AddDamageUI(_damage, target.name);
@@ -285,6 +310,7 @@ public class BattleManager : MonoBehaviour
                     if (_unitData.unitType == CharacterType.Enemy)
                     {
                         _unitData.unitData.Health -= _damage;
+                        battleInfo.characterInfo[onTurnIndex].attackDamages += _damage;
                         AddDamageUI(_damage, _unitData.unitObject.name);
                         DieCheck(lUnitInfo[targetIndex]);
                     }
@@ -342,24 +368,32 @@ public class BattleManager : MonoBehaviour
         }
         return damage;
     }
-    private void GameResultUI(GameEnd gameState)
+    private void GameResult(GameEnd gameState)
     {
         string waveID = GameManager.Instance.waveID.ToString();
         Debug.Log(waveID.Substring(waveID.Length - 1, 1));
-        switch (waveID.Substring(waveID.Length - 1, 1))
+        if (gameState == GameEnd.success)
         {
-            case "1":
-                GameManager.Instance.wave1Clear = true;
-                break;
-            case "2":
-                GameManager.Instance.wave2Clear = true;
-                break;
-            case "3":
-                GameManager.Instance.wave3Clear = true;
-                //GameManager.Instance.User.stageClear.Push(GameManager.Instance.stageID);
-                break;
+            switch (waveID.Substring(waveID.Length - 1, 1))
+            {
+                case "1":
+                    GameManager.Instance.wave1Clear = true;
+                    break;
+                case "2":
+                    GameManager.Instance.wave2Clear = true;
+                    break;
+                case "3":
+                    GameManager.Instance.wave3Clear = true;
+                    //GameManager.Instance.User.stageClear.Push(GameManager.Instance.stageID);
+                    break;
+            }
+            foreach (Compensations _data in waveDB.GetData(GameManager.Instance.waveID).Compensations)
+            {
+                //GameManager.Instance.User.AddItem(_data._compensation, _data._compensationCount);
+            }
         }
         Debug.Log("gameEnd");
+        UIManager.Instance.BattleEnd();
     }
     private void SetSpawnPos()
     {
