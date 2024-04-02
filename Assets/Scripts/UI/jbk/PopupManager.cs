@@ -1,39 +1,41 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class PopupManager : MonoBehaviour
 {
-    private Dictionary<string, GameObject> popups = new Dictionary<string, GameObject>();
-
-    private void Start()
+    private static PopupManager _instance;
+    public static PopupManager Instance
     {
-        AddPopup("EditTeam");
-        AddPopup("UpgradeChr");
-    }
-    private void AddPopup(string popupName)
-    {
-        GameObject popupPrefab = Resources.Load<GameObject>("Popups/" + popupName);
-        if (popupPrefab != null)
+        get
         {
-            GameObject popup = Instantiate(popupPrefab);
-            popup.SetActive(false);
-            popups.Add(popupName, popup);
-        }
-    }
-    public void OpenPopup(string popupName)
-    {
-        if (popups.ContainsKey(popupName))
-        {
-            popups[popupName].SetActive(true);
+            return _instance;
         }
     }
 
-    public void ClosePopup(string popupName)
+    private void Awake()
     {
-        if (popups.ContainsKey(popupName))
-        {
-            popups[popupName].SetActive(false);
-        }
+        _instance = this;
+    }
+
+    void Start()
+    {
+        DOTween.Init();
+    }
+
+    public void Show()
+    {
+        gameObject.SetActive(true);
+        var seq = DOTween.Sequence();
+        seq.Append(transform.DOScale(1.1f, 0.2f));
+        seq.Append(transform.DOScale(1f, 0.1f));
+        seq.Play();
+    }
+
+    public void Hide()
+    {
+        var seq = DOTween.Sequence();
+        seq.Play().OnComplete(() => {gameObject.SetActive(false);});
     }
 }
