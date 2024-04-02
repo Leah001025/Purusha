@@ -9,7 +9,7 @@ public class UserData
     public string userName;
     public int gold;
     public int cash;
-    public Stack<int> stageClear;
+    public Stack<StageInfo> stageClear;
     public Dictionary<int, CharacterData> characterDatas = new();
     public Dictionary<int, CharacterData> teamData = new Dictionary<int, CharacterData>(5);
     public List<ItemData> Inventory = new();

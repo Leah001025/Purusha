@@ -25,9 +25,9 @@ MonoBehaviour:
     _criticalChance: 0.5
     _criticalDamage: 1.5
     _avoid: 0.1
-    _speed: 1
+    _speed: 1.05
     _prefabPath: Prefabs/Skill/Breesha
-    _spritePath: 
+    _spritePath: CharacterIcon/Breesha
   - _id: 102
     _name: "\uC774\uBE0C"
     _maxHealth: 2500
@@ -40,9 +40,9 @@ MonoBehaviour:
     _criticalChance: 0.5
     _criticalDamage: 1.5
     _avoid: 0.1
-    _speed: 1
+    _speed: 1.15
     _prefabPath: Prefabs/Skill/Eve
-    _spritePath: 
+    _spritePath: CharacterIcon/Eve
   - _id: 103
     _name: "\uC544\uB2F4"
     _maxHealth: 2500
@@ -55,9 +55,9 @@ MonoBehaviour:
     _criticalChance: 0.5
     _criticalDamage: 1.5
     _avoid: 0.1
-    _speed: 1
+    _speed: 1.3
     _prefabPath: Prefabs/Skill/Adam
-    _spritePath: 
+    _spritePath: CharacterIcon/Adam
   - _id: 104
     _name: "\uC544\uBCA8"
     _maxHealth: 2000
@@ -70,9 +70,9 @@ MonoBehaviour:
     _criticalChance: 0.5
     _criticalDamage: 1.5
     _avoid: 0.1
-    _speed: 1
+    _speed: 1.45
     _prefabPath: Prefabs/Skill/Abel
-    _spritePath: 
+    _spritePath: CharacterIcon/Abel
   - _id: 105
     _name: "\uB77C\uC778"
     _maxHealth: 2000
@@ -87,7 +87,7 @@ MonoBehaviour:
     _avoid: 0.15
     _speed: 1.2
     _prefabPath: Prefabs/Skill/Kain
-    _spritePath: 
+    _spritePath: CharacterIcon/Kain
   - _id: 106
     _name: "\uCE74\uB098"
     _maxHealth: 4000
@@ -102,7 +102,7 @@ MonoBehaviour:
     _avoid: 0.08
     _speed: 0.8
     _prefabPath: Prefabs/Skill/Japheth
-    _spritePath: 
+    _spritePath: CharacterIcon/Kana
   ItemData:
   - _id: 10101
     _name: "\uC18C\uD615 \uACBD\uD5D8\uCE58 \uCEA1\uC290"
@@ -1103,10 +1103,10 @@ MonoBehaviour:
     _enemyCount_4: 0
     _enemyID_5: 0
     _enemyCount_5: 0
-    _compensation_1: 0
-    _compensationCount_1: 0
-    _compensation_2: 0
-    _compensationCount_2: 0
+    _compensation_1: 10401
+    _compensationCount_1: 1
+    _compensation_2: 10101
+    _compensationCount_2: 3
     _compensation_3: 0
     _compensationCount_3: 0
   - _id: 110102
@@ -1148,16 +1148,19 @@ MonoBehaviour:
   StageData:
   - _id: 1101
     _openMapPath: Prefabs/Map/Chapter1/OpenMap_1
+    _stageName: stage1
     _waveID_1: 110101
     _waveID_2: 110102
     _waveID_3: 110103
   - _id: 1102
     _openMapPath: Prefabs/Map/Chapter2/OpenMap_2
+    _stageName: stage2
     _waveID_1: 0
     _waveID_2: 0
     _waveID_3: 0
   - _id: 1103
     _openMapPath: Prefabs/Map/Chapter3/OpenMap_3
+    _stageName: stage3
     _waveID_1: 0
     _waveID_2: 0
     _waveID_3: 0

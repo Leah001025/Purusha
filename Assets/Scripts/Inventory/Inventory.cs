@@ -22,6 +22,13 @@ public class Inventory : MonoBehaviour
         { "Kana", 106 }
     };
 
+    private void Start()
+    {
+        //gameObject.name = "Eve";
+        //ShowCharacterData();
+    }
+
+
     public void ShowCharacterData()
     {
         string gameObjectName = gameObject.name;
