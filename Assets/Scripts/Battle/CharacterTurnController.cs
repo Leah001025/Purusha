@@ -218,6 +218,16 @@ public class CharacterTurnController : MonoBehaviour
             }
         }
     }
+    public void RemoveShield()
+    {
+        shieldQuantity = 0;
+        if (OnBuff.ContainsKey("Shield"))
+        {
+            Destroy(OnBuff["Shield"].gameObject);
+            OnBuff.Remove("Shield");
+        }
+        shield = null;
+    }
     public void TurnOn()
     {
         isCharacterTurn = true;

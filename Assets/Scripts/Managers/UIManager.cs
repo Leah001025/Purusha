@@ -109,7 +109,9 @@ public class UIManager : SingleTon<UIManager>
     }
     public void BattleEnd()
     {
+        popups.Clear();
         battlePlayerStatus.Clear();
+        battleEnemyStatus.Clear();
         var _endPopUp = Resources.Load("Prefabs/Battle/ClearUI") as GameObject;
         Instantiate(_endPopUp);
     }

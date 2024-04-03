@@ -337,7 +337,7 @@ public class BattleManager : MonoBehaviour
                 turnControllers[onTurnIndex].SetBuffandDebuff(buffID);
                 break;
             case 3:
-                float temp = 0;
+                float temp = 2;
                 for (int i = 1; i <= lUnitInfo.Count; i++)
                 {
                     if (lUnitInfo.ContainsKey(i) && lUnitInfo[i].unitType == CharacterType.Player)
@@ -350,6 +350,7 @@ public class BattleManager : MonoBehaviour
                     }
                 }
                 PlayerHeal(lUnitInfo[healIndex], skillNum);
+                AddDamageUI(_damage, healIndex.ToString());
                 break;
             case 4:
                 if (lUnitInfo[onTurnIndex].unitType == CharacterType.Player)
@@ -489,7 +490,7 @@ public class BattleManager : MonoBehaviour
         else
         {
             totalDamage = damage - shield;
-            skillController.BuffCheck(skillController.shield, skillController.shieldQuantity, 0, "Shield");
+            skillController.RemoveShield();
             skillController.CallChangeShieldGauge();
         }
         return totalDamage;
