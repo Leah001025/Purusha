@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class LoadingSceneController : MonoBehaviour
 {
-    [SerializeField] private Slider _loadingBar;
+    [SerializeField] private Image _loadingBar;
     [SerializeField] private string _nextSceneName;
 
     private void Awake()
@@ -18,7 +18,7 @@ public class LoadingSceneController : MonoBehaviour
         StartCoroutine(LoadSceneProcess());
     }
 
-    
+
     private IEnumerator LoadSceneProcess()
     {
         AsyncOperation loadScene = SceneManager.LoadSceneAsync(_nextSceneName);
@@ -31,15 +31,15 @@ public class LoadingSceneController : MonoBehaviour
 
             if (loadScene.progress < 0.5f)
             {
-                _loadingBar.value = loadScene.progress;
+                _loadingBar.fillAmount = loadScene.progress;
             }
             else
             {
                 timer += Time.unscaledDeltaTime;
-                _loadingBar.value = Mathf.Lerp(0.5f, 1f, timer);
-             
+                _loadingBar.fillAmount = Mathf.Lerp(0.5f, 1f, timer);
+
             }
-            if(_loadingBar.value >=1f)
+            if (_loadingBar.fillAmount >= 1f)
             {
                 loadScene.allowSceneActivation = true;
             }
