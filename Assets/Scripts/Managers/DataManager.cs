@@ -13,6 +13,7 @@ public class DataManager : SingleTon<DataManager>
     private EnemyDataBase _enemyDB;
     private WaveDataBase _WaveDB;
     private StageDataBase _stageDB;
+    private LevelDataBase _levelDB;
 
     public DataList dataList;
     protected override void Awake()
@@ -27,6 +28,7 @@ public class DataManager : SingleTon<DataManager>
     public StageDataBase StageDB { get { return _stageDB ??= new(); } }
     public WaveDataBase WaveDB { get { return _WaveDB ??= new(); } }
     public BuffDataBase BuffDB { get { return _buffDB ??= new(); } }
+    public LevelDataBase LevelDB {  get { return _levelDB ??= new(); } }
 }
 public class PlayerDataBase : DataBase<PlayerData>
 {
@@ -91,6 +93,17 @@ public class WaveDataBase : DataBase<WaveData>
         foreach (var data in resources)
         {
             _data.Add(data.ID, data);
+        }
+    }
+}
+public class LevelDataBase : DataBase<LevelData>
+{
+    public LevelDataBase()
+    {
+        var resources = DataManager.Instance.dataList.LevelData;
+        foreach (var data in resources)
+        {
+            _data.Add(data.Level, data);
         }
     }
 }

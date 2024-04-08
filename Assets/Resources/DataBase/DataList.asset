@@ -109,56 +109,105 @@ MonoBehaviour:
     _description: "\uACBD\uD5D8\uCE58 \uC18C\uB7C9 \uC99D\uAC00"
     _type: expPotion
     _value: 20
-    _quantity: 0
+    _quantity: 1
     _spritePath: 
   - _id: 10102
     _name: "\uC911\uD615 \uACBD\uD5D8\uCE58 \uCEA1\uC290"
     _description: "\uACBD\uD5D8\uCE58 \uC911\uB7C9 \uC99D\uAC00"
     _type: expPotion
     _value: 50
-    _quantity: 0
+    _quantity: 1
     _spritePath: 
   - _id: 10103
     _name: "\uB300\uD615 \uACBD\uD5D8\uCE58 \uCEA1\uC290"
     _description: "\uACBD\uD5D8\uCE58 \uB300\uB7C9 \uC99D\uAC00"
     _type: expPotion
     _value: 100
-    _quantity: 0
+    _quantity: 1
     _spritePath: 
   - _id: 10201
     _name: "\uBB34\uAE30 \uC2A4\uD0EF \uC99D\uAC00 \uCEA1\uC290"
     _description: "\uBB34\uAE30 \uC2A4\uD0EF 1 \uC99D\uAC00"
     _type: weaponPotion
     _value: 1
-    _quantity: 0
+    _quantity: 1
     _spritePath: 
   - _id: 10301
     _name: "\uBC29\uC5B4\uAD6C \uC2A4\uD0EF \uC99D\uAC00 \uCEA1\uC290"
     _description: "\uBC29\uC5B4\uAD6C \uC2A4\uD0EF 1 \uC99D\uAC00"
     _type: ArmorPotion
     _value: 1
-    _quantity: 0
+    _quantity: 1
     _spritePath: 
   - _id: 10401
     _name: "\uCCB4\uB825 \uBB3C\uC57D(\uC18C)"
     _description: "\uCCB4\uB825 \uC18C\uB7C9 \uC99D\uAC00"
     _type: hpPotion
     _value: 50
-    _quantity: 0
+    _quantity: 1
     _spritePath: 
   - _id: 10402
-    _name: "\uCCB4\uB825 \uBB3C\uC57D(\uC911)"
-    _description: "\uCCB4\uB825 \uC911\uB7C9 \uC99D\uAC00"
-    _type: hpPotion
-    _value: 100
-    _quantity: 0
-    _spritePath: 
-  - _id: 10403
     _name: "\uCCB4\uB825 \uBB3C\uC57D(\uB300)"
     _description: "\uCCB4\uB825 \uB300\uB7C9 \uC99D\uAC00"
     _type: hpPotion
     _value: 150
-    _quantity: 0
+    _quantity: 1
+    _spritePath: 
+  - _id: 10501
+    _name: "\uBF51\uAE30\uAD8C"
+    _description: "\uB3D9\uB8CC\uC18C\uD658"
+    _type: etc
+    _value: 1
+    _quantity: 1
+    _spritePath: 
+  - _id: 10601
+    _name: "\uBE0C\uB9AC\uC0E4 \uC2A4\uD0AC\uCE69"
+    _description: "\uC2A4\uD0AC\uAC15\uD654"
+    _type: skill
+    _value: 101
+    _quantity: 1
+    _spritePath: 
+  - _id: 10602
+    _name: "\uC774\uBE0C \uC2A4\uD0AC\uCE69"
+    _description: "\uC2A4\uD0AC\uAC15\uD654"
+    _type: skill
+    _value: 102
+    _quantity: 1
+    _spritePath: 
+  - _id: 10603
+    _name: "\uC544\uB2F4 \uC2A4\uD0AC\uCE69"
+    _description: "\uC2A4\uD0AC\uAC15\uD654"
+    _type: skill
+    _value: 103
+    _quantity: 1
+    _spritePath: 
+  - _id: 10604
+    _name: "\uC544\uBCA8 \uC2A4\uD0AC\uCE69"
+    _description: "\uC2A4\uD0AC\uAC15\uD654"
+    _type: skill
+    _value: 104
+    _quantity: 1
+    _spritePath: 
+  - _id: 10605
+    _name: "\uB77C\uC778 \uC2A4\uD0AC\uCE69"
+    _description: "\uC2A4\uD0AC\uAC15\uD654"
+    _type: skill
+    _value: 105
+    _quantity: 1
+    _spritePath: 
+  - _id: 10606
+    _name: "\uCE74\uB098 \uC2A4\uD0AC\uCE69"
+    _description: "\uC2A4\uD0AC\uAC15\uD654"
+    _type: skill
+    _value: 106
+    _quantity: 1
+    _spritePath: 
+  - _id: 10701
+    _name: "\uBF51\uAE30\uACB0\uACFC"
+    _description: 
+    _type: none
+    _value: 0
+    _quantity: 1
     _spritePath: 
   SkillData:
   - ID: 101011
@@ -1164,3 +1213,26 @@ MonoBehaviour:
     _waveID_1: 0
     _waveID_2: 0
     _waveID_3: 0
+  LevelData:
+  - _level: 1
+    _exp: 0
+  - _level: 2
+    _exp: 200
+  - _level: 3
+    _exp: 600
+  - _level: 4
+    _exp: 1400
+  - _level: 5
+    _exp: 2500
+  - _level: 6
+    _exp: 4000
+  - _level: 7
+    _exp: 6000
+  - _level: 8
+    _exp: 9000
+  - _level: 9
+    _exp: 13000
+  - _level: 10
+    _exp: 18000
+  - _level: 11
+    _exp: 99999999

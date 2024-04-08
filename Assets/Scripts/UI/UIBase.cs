@@ -8,11 +8,12 @@ public class UIBase : MonoBehaviour
     [SerializeField] protected Button closeButton;
     private void Awake()
     {
-        CloseUI();
+        closeButton.onClick.AddListener(CloseUI);
     }
 
     public virtual void CloseUI()
     {
-        closeButton.onClick.AddListener(() => gameObject.SetActive(false));
+        if(gameObject.name== "DepartmentPopUp") UIManager.Instance.charInventoryUI.Clear();
+        gameObject.SetActive(false);
     }
 }

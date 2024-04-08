@@ -7,10 +7,16 @@ using UnityEngine.UI;
 
 public class UIManager : SingleTon<UIManager>
 {
-
     private Dictionary<string, UIBase> popups = new Dictionary<string, UIBase>();
     private Dictionary<int, GameObject> battlePlayerStatus = new Dictionary<int, GameObject>();
     private Dictionary<int, GameObject> battleEnemyStatus = new Dictionary<int, GameObject>();
+    public Dictionary<int, Inventory> charInventoryUI = new Dictionary<int, Inventory>();
+    public PopupManager popupManager;
+    public UpgradeStatUI upgradeStatUI;
+    public LevelUpUI levelUpUI;
+    public ItemInventory itemInventoryUI;
+    public SkillUI skillUI;
+    public int curTargetID=101;
 
     // 팝업 불러오기
     public UIBase ShowPopup(string popupname, Transform parents = null)
@@ -114,5 +120,12 @@ public class UIManager : SingleTon<UIManager>
         battleEnemyStatus.Clear();
         var _endPopUp = Resources.Load("Prefabs/Battle/ClearUI") as GameObject;
         Instantiate(_endPopUp);
+    }
+    public void CharacterUpdate()
+    {
+        foreach (Inventory character in charInventoryUI.Values)
+        {
+            character.InitCharacterUI();
+        }
     }
 }

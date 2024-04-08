@@ -27,6 +27,21 @@ public class GameManager : SingleTon<GameManager>
         User.AddCharacter(103);
         User.AddCharacter(104);
         User.AddCharacter(105);
+        User.AddItem(10101);
+        User.AddItem(10102);
+        User.AddItem(10103);
+        User.AddItem(10201);
+        User.AddItem(10301);
+        User.AddItem(10401);
+        User.AddItem(10402);
+        User.AddItem(10501);
+        User.itemInventory[10501].quantity = 1000;
+        User.itemInventory[10102].quantity = 100;
+        User.itemInventory[10103].quantity = 50;
+        User.itemInventory[10201].quantity = 100;
+        User.itemInventory[10301].quantity = 100;
+        User.itemInventory[10402].quantity = 10;
+        User.characterDatas[102].status.health = 100;
     }
     private void Start()
     {
@@ -36,6 +51,10 @@ public class GameManager : SingleTon<GameManager>
     public void AddItem(int id)
     {
         User.AddItem(id);
+    }
+    public void RemoveItem(int id)
+    {
+        User.RemoveItem(id);
     }
 
     public void AddTeam(int id)

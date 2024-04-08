@@ -12,7 +12,7 @@ public class PlayerData : DataBase<PlayerData>
     [SerializeField] private float _maxHealth;
     [SerializeField] private float _health;
     [SerializeField] private int _level;
-    [SerializeField] private int _exp;
+    [SerializeField] private float _exp;
     [SerializeField] private int _equipLevel;
     [SerializeField] private float _atk;
     [SerializeField] private float _def;
@@ -28,7 +28,7 @@ public class PlayerData : DataBase<PlayerData>
     public float MaxHealth { get{ return _maxHealth; } set { _maxHealth = value; } }
     public float Health { get{ return _health; } set { _health = value; } }
     public int Level { get{ return _level; } set { _level = value; } }
-    public int Exp { get{ return _exp; } set { _exp = value; } }
+    public float Exp { get{ return _exp; } set { _exp = value; } }
     public int EquipLevel { get{ return _equipLevel; } set { _equipLevel = value; } }
     public float Atk { get{ return _atk; } set { _atk = value; } }
     public float Def { get{ return _def; } set { _def = value; } }

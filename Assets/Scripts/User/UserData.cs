@@ -10,11 +10,12 @@ public class UserData
     public int gold;
     public int cash;
     public Stack<StageInfo> stageClear;
+    public Dictionary<int, UpgradeStatData> upgrades = new Dictionary<int, UpgradeStatData>();
     public Dictionary<int, CharacterData> characterDatas = new();
     public Dictionary<int, CharacterData> teamData = new Dictionary<int, CharacterData>(5);
-    public List<ItemData> Inventory = new();
-
-    public ItemDataBase ItemData = DataManager.Instance.ItemDB;
+    public Dictionary<int, Item> itemInventory = new Dictionary<int, Item>();
+    //public List<ItemData> Inventory = new();
+    //public ItemDataBase ItemData = DataManager.Instance.ItemDB; 아이템데이터 바로 사용금지
 
     //UseData 초기 생성
     public UserData(string name)
@@ -26,6 +27,7 @@ public class UserData
         cash = 100;
         CharacterData eve = new CharacterData(102);
         characterDatas.Add(eve.status.iD, eve);
+        upgrades.Add(eve.status.iD, new UpgradeStatData());
         AddTeam(eve.status.iD);
         // stageClear.Push(110101);
     }
@@ -33,7 +35,9 @@ public class UserData
     public void AddCharacter(int id)
     {
         CharacterData newCharacter = new CharacterData(id);
+        UpgradeStatData newUpgradeStat = new UpgradeStatData();
         characterDatas.Add(newCharacter.status.iD, newCharacter);
+        upgrades.Add(newCharacter.status.iD, newUpgradeStat);
     }
 
     //팀원 추가
@@ -55,18 +59,29 @@ public class UserData
         teamData.Remove(index);
     }
 
-    public void AddItem(int id)
+    public void AddItem(int id, int quantity=1)
     {
-        foreach (ItemData _itemData in Inventory)
+        Item newItem = new Item(id);
+        if(!itemInventory.ContainsKey(id)) 
+        {            
+            itemInventory.Add(id, newItem);
+        }
+        else
         {
-            if (_itemData.ID == id)
-            {
-                _itemData.Quantity++;
-            }
-            else
-            {
-                Inventory.Add(ItemData.GetData(id));
-            }
+            itemInventory[id].quantity+=quantity;
+        }
+    }
+    public void RemoveItem(int id)
+    {
+        Item newItem = new Item(id);
+        if (itemInventory.ContainsKey(id))
+        {
+            itemInventory[id].quantity--;
+            if (itemInventory[id].quantity <= 0) itemInventory.Remove(id);
+        }
+        else
+        {
+            Debug.Log("인벤토리에 삭제할 아이템이 없습니다.");
         }
     }
 }
