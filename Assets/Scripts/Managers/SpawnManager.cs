@@ -45,15 +45,27 @@ public class SpawnManager : MonoBehaviour
         var resources = Resources.Load(stageDB.GetData(stageID).OpenMapPath) as GameObject;
         var _map = Instantiate(resources, mapSpawnPoint);
         mapSpawnController = _map.GetComponent<MapSpawnController>();
-
-        player = Resources.Load("Prefabs/Player/PlayerAndCamera") as GameObject;
     }
     private void Start()
     {
         MonsterSpawn();
-
+        PlayerSpawm();
+    }
+    private void PlayerSpawm()
+    {
+        player = Resources.Load("Prefabs/Player/WorldPlayer") as GameObject;
         var _obj = mapSpawnController.PlayerSpawn(player);
-        raycastDetection = _obj.transform.GetChild(0).GetComponent<PlayerConeRaycastDetection>();
+        for (int i = 1; 5 >= i; i++)
+        {
+            if (GameManager.Instance.User.teamData.ContainsKey(i))
+            {
+                var _playerRsc = Resources.Load(GameManager.Instance.User.teamData[i].status.prefabPath) as GameObject;
+                var _playerObj = Instantiate(_playerRsc, _obj.transform.GetChild(0).transform);
+                _playerObj.GetComponent<CharacterTurnController>().enabled = false;
+                break;
+            }
+        }
+        raycastDetection = _obj.GetComponentInChildren<PlayerConeRaycastDetection>();
         raycastDetection.battleEffect = effectImage;
     }
     private void MonsterSpawn()

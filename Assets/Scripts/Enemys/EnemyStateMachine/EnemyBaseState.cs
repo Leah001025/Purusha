@@ -11,7 +11,7 @@ public class EnemyBaseState : IState
     public EnemyBaseState(EnemyStateMachine enemyStateMachine)
     {
         stateMachine = enemyStateMachine;
-        actionController = stateMachine.Enemy.actionController;
+        actionController = stateMachine.Enemy.ActionController;
     }
     public virtual void HandleInput()
     {
@@ -20,23 +20,21 @@ public class EnemyBaseState : IState
 
     public virtual void Enter()
     {
-        stateMachine.Enemy.OnUpdate += Update;
+        actionController.OnWorldIdle += OnEnemyIdle;
+        actionController.OnWorldRun += OnEnemyRun;
 
-        actionController.OnIdle += OnEnemyIdle;
-        actionController.OnRun += OnEnemyRun;
-        actionController.OnHit += OnEnemyHit;
-        actionController.OnSkill1 += OnEnemySkill1;
-        actionController.OnSkill2 += OnEnemySkill2;
+        actionController.OnBattleHit += OnEnemyHit;
+        actionController.OnBattleSkill1 += OnEnemySkill1;
+        actionController.OnBattleSkill2 += OnEnemySkill2;
     }
     public virtual void Exit()
     {
-        stateMachine.Enemy.OnUpdate -= Update;
+        actionController.OnWorldIdle -= OnEnemyIdle;
+        actionController.OnWorldRun -= OnEnemyRun;
 
-        actionController.OnIdle -= OnEnemyIdle;
-        actionController.OnRun -= OnEnemyRun;
-        actionController.OnHit -= OnEnemyHit;
-        actionController.OnSkill1 -= OnEnemySkill1;
-        actionController.OnSkill2 -= OnEnemySkill2;
+        actionController.OnBattleHit -= OnEnemyHit;
+        actionController.OnBattleSkill1 -= OnEnemySkill1;
+        actionController.OnBattleSkill1 -= OnEnemySkill2;
     }
     public void PhysicsUpdate()
     {

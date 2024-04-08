@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerWalkState : PlayerGroundedState
+public class PlayerWorldWalkState : PlayerWorldState
 {
-    public PlayerWalkState(PlayerStateMachine playerStateMachine) : base(playerStateMachine)
+    public PlayerWorldWalkState(PlayerStateMachine playerStateMachine) : base(playerStateMachine)
     {
     }
 
@@ -13,18 +13,18 @@ public class PlayerWalkState : PlayerGroundedState
     {
         stateMachine.MovementSpeedModifier = groundData.WalkSpeedModifier;
         base.Enter();
-        StartAnimation(stateMachine.Player.AnimationData.WalkParameterHash);
+        StartAnimation(stateMachine.Player.AnimationData.WorldWalkParameterHash);
     }
 
     public override void Exit()
     {
         base.Exit();
-        StopAnimation(stateMachine.Player.AnimationData.WalkParameterHash);
+        StopAnimation(stateMachine.Player.AnimationData.WorldWalkParameterHash);
     }
 
     protected override void OnRunStarted(InputAction.CallbackContext context)
     {
         base.OnRunStarted(context);
-        stateMachine.ChangeState(stateMachine.RunState);
+        stateMachine.ChangeState(stateMachine.WorldRunState);
     }
 }

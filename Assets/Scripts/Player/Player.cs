@@ -14,23 +14,37 @@ public class Player : MonoBehaviour
     public Animator Animator { get; private set; }
     public PlayerInput Input { get; private set; }
     public CharacterController Controller { get; private set; }
+    public CharacterActionController ActionController { get; private set; }
 
     private PlayerStateMachine stateMachine;
 
     private void Awake()
     {
+        Data = Resources.Load<PlayerSO>("DataBase/PlayerSO");
+        AnimationData = new PlayerAnimationData();
         AnimationData.Initialize();
-        Animator = GetComponentInChildren<Animator>();
-        Input = GetComponent<PlayerInput>();
-        Controller = GetComponent<CharacterController>();
-
+        ActionController = new CharacterActionController();
         stateMachine = new PlayerStateMachine(this);
     }
-
+    private void Init()
+    {
+        if (BattleManager.Instance == null)
+        {
+            Animator = gameObject.transform.GetChild(1).GetComponentInChildren<Animator>();
+            Input = GetComponent<PlayerInput>();
+            Controller = GetComponent<CharacterController>();
+            stateMachine.ChangeState(stateMachine.WorldIdleState);
+        }
+        else
+        {
+            Animator = GetComponentInChildren<Animator>();
+            stateMachine.ChangeState(stateMachine.BattleIdleState);
+        }
+    }
     private void Start()
     {
+        Init();
         //Cursor.lockState = CursorLockMode.Locked;
-        stateMachine.ChangeState(stateMachine.IdleState);
     }
 
     private void Update()
@@ -43,4 +57,5 @@ public class Player : MonoBehaviour
     {
         stateMachine.PhysicsUpdate();
     }
+
 }

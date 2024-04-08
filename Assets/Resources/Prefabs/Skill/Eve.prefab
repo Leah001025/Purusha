@@ -1807,7 +1807,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: 4901f6e1cf37a5246b7bf50c4851a60d, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_WarningMessage: 
@@ -2599,7 +2599,57 @@ MonoBehaviour:
   targetPos: {x: 0, y: 0, z: 0}
   startPos: {x: 0, y: 0, z: 0}
   diffPos: {x: 0, y: 0, z: 0}
+  attackUp:
+    BuffID: 0
+    Name: 
+    CharacterData: 0
+    Coefficient: 0
+    Duration: 0
+    DebuffProbability: 0
+    IconPath: 
+  attackDown:
+    BuffID: 0
+    Name: 
+    CharacterData: 0
+    Coefficient: 0
+    Duration: 0
+    DebuffProbability: 0
+    IconPath: 
+  defUp:
+    BuffID: 0
+    Name: 
+    CharacterData: 0
+    Coefficient: 0
+    Duration: 0
+    DebuffProbability: 0
+    IconPath: 
+  defDown:
+    BuffID: 0
+    Name: 
+    CharacterData: 0
+    Coefficient: 0
+    Duration: 0
+    DebuffProbability: 0
+    IconPath: 
+  buffID:
+    BuffID: 0
+    Name: 
+    CharacterData: 0
+    Coefficient: 0
+    Duration: 0
+    DebuffProbability: 0
+    IconPath: 
+  shield:
+    BuffID: 0
+    Name: 
+    CharacterData: 0
+    Coefficient: 0
+    Duration: 0
+    DebuffProbability: 0
+    IconPath: 
   unitGauge: 0
+  shieldQuantity: 0
+  skill4Gauge: 0
   character: {fileID: 4833490581448717853}
 --- !u!1 &6412848901083030429
 GameObject:

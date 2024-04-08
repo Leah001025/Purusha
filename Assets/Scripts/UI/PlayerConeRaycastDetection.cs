@@ -19,9 +19,11 @@ public class PlayerConeRaycastDetection : MonoBehaviour
     public CinemachineBrain cinemachineBrain;
     public Image battleEffect;
     private bool isBattle = false;
+    private Player player;
 
     private void Start()
     {
+        player = GetComponent<Player>();
         startPos = transform.position + (transform.up * 1f) + (transform.forward * 0.2f);
     }
     void Update()
@@ -37,6 +39,7 @@ public class PlayerConeRaycastDetection : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0))
             {
+                player.ActionController.WorldAttack();
                 PerformConeRaycast();
             }
         }

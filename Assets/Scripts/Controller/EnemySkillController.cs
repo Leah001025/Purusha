@@ -179,13 +179,13 @@ public class EnemySkillController : MonoBehaviour
         isStartPos = true;
         if (num == "1")
         {
-            battleManager.lUnitInfo[battleManager.onTurnIndex].actionController.Skill1();
+            battleManager.lUnitInfo[battleManager.onTurnIndex].actionController.BattleSkill1();
             yield return wait05;
             battleManager.AnimForSeconds(battleManager.newAnimTime, battleManager.beforeAnimTime);
         }
         else
         {
-            battleManager.lUnitInfo[battleManager.onTurnIndex].actionController.Skill2();
+            battleManager.lUnitInfo[battleManager.onTurnIndex].actionController.BattleSkill2();
             yield return wait05;
             battleManager.AnimForSeconds(battleManager.newAnimTime, battleManager.beforeAnimTime);
         }
