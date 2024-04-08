@@ -11,6 +11,7 @@ public class PlayerBaseState : IState
     protected PlayerStateMachine stateMachine;
     protected CharacterActionController actionController;
     protected readonly PlayerGroundData groundData;
+    Vector3 gravity = Vector3.down;
 
     public PlayerBaseState(PlayerStateMachine playerStateMachine)
     {
@@ -99,7 +100,7 @@ public class PlayerBaseState : IState
     {
         float movementSpeed = GetMovemenetSpeed();
         stateMachine.Player.Controller.Move(
-            (movementDirection * movementSpeed) * Time.deltaTime
+            ((movementDirection * movementSpeed)+gravity*10) * Time.deltaTime
             );
     }
 

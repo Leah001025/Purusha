@@ -18,4 +18,5 @@ public class OpenButtonManager : MonoBehaviour
 
         seq.Play().OnComplete(() => {popupWindow.Show();});
     }
+
 }

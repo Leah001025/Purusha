@@ -63,7 +63,7 @@ public class CharacterStatus
     public float health;
     public float maxhealth;
     public int level;
-    public int exp;
+    public float exp;
     public int equipLevel;
     public float atk;
     public float def;
