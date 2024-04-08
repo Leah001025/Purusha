@@ -13,7 +13,7 @@ public class UIBase : MonoBehaviour
 
     public virtual void CloseUI()
     {
-        if(gameObject.name== "DepartmentPopUp") UIManager.Instance.charInventoryUI.Clear();
+        //if(gameObject.name== "DepartmentPopUp") UIManager.Instance.charInventoryUI.Clear();
         gameObject.SetActive(false);
     }
 }
