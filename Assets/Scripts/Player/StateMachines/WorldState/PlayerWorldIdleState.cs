@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerIdleState : PlayerGroundedState
+public class PlayerWorldIdleState : PlayerWorldState
 {
-    public PlayerIdleState(PlayerStateMachine playerStateMachine) : base(playerStateMachine)
+    public PlayerWorldIdleState(PlayerStateMachine playerStateMachine) : base(playerStateMachine)
     {
     }
 
@@ -12,13 +12,13 @@ public class PlayerIdleState : PlayerGroundedState
     {
         stateMachine.MovementSpeedModifier = 0f;
         base.Enter();
-        StartAnimation(stateMachine.Player.AnimationData.IdleParameterHash);
+        StartAnimation(stateMachine.Player.AnimationData.WorldIdleParameterHash);
     }
 
     public override void Exit()
     {
         base.Exit();
-        StopAnimation(stateMachine.Player.AnimationData.IdleParameterHash);
+        StopAnimation(stateMachine.Player.AnimationData.WorldIdleParameterHash);
     }
 
     public override void Update()

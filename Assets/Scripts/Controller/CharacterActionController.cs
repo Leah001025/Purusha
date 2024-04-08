@@ -6,50 +6,80 @@ using Enums;
 
 public class CharacterActionController
 {
-    public event Action OnIdle;
-    public event Action OnRun;
-    public event Action OnHit;
-    public event Action OnDie;
+    public event Action OnWorldIdle;
+    public event Action OnWorldWalk;
+    public event Action OnWorldRun;
+    public event Action OnWorldAttack;
+    
+    public event Action OnBattleIdle;
+    public event Action OnBattleJump;
+    public event Action OnBattleMove;
+    public event Action OnBattleHit;
+    public event Action OnBattleSkill1;
+    public event Action OnBattleSkill2;
+    public event Action OnBattleSkill3;
+    public event Action OnBattleSkill4;
 
-    public event Action OnSkill1;
-    public event Action OnSkill2;
-    public event Action OnSkill3;
-    public event Action OnSkill4;
+    public event Action OnDie;
 
     public event Action OnTarget;
     public event Action OffTarget;
-    public void Idle()
+
+    //World Action
+    public void WorldIdle()
     {
-        OnIdle?.Invoke();
+        OnWorldIdle?.Invoke();
     }
-    public void Run()
+    public void WorldWalk()
     {
-        OnRun?.Invoke();
+        OnWorldWalk?.Invoke();
     }
-    public void Hit()
+    public void WorldRun()
     {
-        OnHit?.Invoke();
+        OnWorldRun?.Invoke();
+    }
+    public void WorldAttack()
+    {
+        OnWorldAttack?.Invoke();
+    }
+    //Battle Action
+    public void BattleIdle()
+    {
+        OnBattleIdle?.Invoke();
+    }
+    public void BattleJump()
+    {
+        OnBattleJump?.Invoke();
+    }
+    public void BattleMove()
+    {
+        OnBattleMove?.Invoke();
+    }
+    public void BattleHit()
+    {
+        OnBattleHit?.Invoke();
+    }
+    public void BattleSkill1()
+    {
+        OnBattleSkill1?.Invoke();
+    }
+    public void BattleSkill2()
+    {
+        OnBattleSkill2?.Invoke();
+    }
+    public void BattleSkill3()
+    {
+        OnBattleSkill3?.Invoke();
+    }
+    public void BattleSkill4()
+    {
+        OnBattleSkill4?.Invoke();
     }
     public void Die()
     {
         OnDie?.Invoke();
     }
-    public void Skill1()
-    {
-        OnSkill1?.Invoke();
-    }
-    public void Skill2()
-    {
-        OnSkill2?.Invoke();
-    }
-    public void Skill3()
-    {
-        OnSkill1?.Invoke();
-    }
-    public void Skill4()
-    {
-        OnSkill1?.Invoke();
-    }
+    //Target Action
     public void TargetOn()
     {
         OnTarget?.Invoke();

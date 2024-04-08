@@ -157,6 +157,8 @@ public class BattleManager : MonoBehaviour
                 var Resource = Resources.Load<GameObject>(teamData[i].status.prefabPath);
                 unitInfo.unitType = CharacterType.Player;
                 unitInfo.unitObject = Instantiate(Resource, stageTrans);
+                unitInfo.unitObject.AddComponent<Player>();
+                unitInfo.actionController = unitInfo.unitObject.GetComponent<Player>().ActionController;
                 if (!turnControllers.ContainsKey(i))
                 {
                     turnControllers.Add(i, unitInfo.unitObject.GetComponent<CharacterTurnController>());
@@ -168,7 +170,6 @@ public class BattleManager : MonoBehaviour
                 lUnitInfo.Add(i, unitInfo);
                 UIManager.Instance.BattlePlayerPopup(i, playerInfoTrans);
                 unitInfo.unitObject.name = lUnitInfo.Count.ToString();
-
 
                 battleInfo.characterInfo.Add(i, CreateCharacterBattleInfo());
                 playerCreateCount++;
@@ -188,7 +189,7 @@ public class BattleManager : MonoBehaviour
                 unitInfo.unitObject = Instantiate(_Resources, stageTrans);
                 unitInfo.unitObject.AddComponent<EnemySkillController>();
 
-                unitInfo.actionController = unitInfo.unitObject.GetComponent<Enemy>().actionController;
+                unitInfo.actionController = unitInfo.unitObject.GetComponent<Enemy>().ActionController;
                 unitInfo.unitObject.transform.localPosition = enemySpawnPos[j];
                 unitInfo.unitData = CreateEnemyData(unitInfo.unitObject.tag);
 
@@ -311,7 +312,7 @@ public class BattleManager : MonoBehaviour
             case 0:
                 lUnitInfo[targetIndex].unitData.Health -= _damage;
                 battleInfo.characterInfo[onTurnIndex].attackDamages += _damage;
-                lUnitInfo[targetIndex].actionController.Hit();
+                lUnitInfo[targetIndex].actionController.BattleHit();
                 enemySkillControllers[targetIndex].SetBuffandDebuff(buffID);
                 AddDamageUI(_damage, target.name);
                 DieCheck(lUnitInfo[targetIndex]);

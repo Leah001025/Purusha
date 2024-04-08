@@ -9,6 +9,7 @@ using UnityEngine.UIElements;
 public class PlayerBaseState : IState
 {
     protected PlayerStateMachine stateMachine;
+    protected CharacterActionController actionController;
     protected readonly PlayerGroundData groundData;
     Vector3 gravity = Vector3.down;
 
@@ -16,6 +17,7 @@ public class PlayerBaseState : IState
     {
         stateMachine = playerStateMachine;
         groundData = stateMachine.Player.Data.GroundedData;
+        actionController = playerStateMachine.Player.ActionController;
     }
 
     public virtual void Enter()
@@ -39,20 +41,17 @@ public class PlayerBaseState : IState
 
     public virtual void Update()
     {
-        Move();
+        if (BattleManager.Instance == null)
+        {
+            Move();
+        }
     }
     protected virtual void AddInputActionsCallbacks()
     {
-        PlayerInput input = stateMachine.Player.Input;
-        input.PlayerActions.Movement.canceled += OnMovementCanceled;
-        input.PlayerActions.Run.started += OnRunStarted;
-    }
 
+    }
     protected virtual void RemoveInputActionsCallbacks()
     {
-        PlayerInput input = stateMachine.Player.Input;
-        input.PlayerActions.Movement.canceled -= OnMovementCanceled;
-        input.PlayerActions.Run.started -= OnRunStarted;
 
     }
 
@@ -68,7 +67,10 @@ public class PlayerBaseState : IState
 
     private void ReadMovementInput()
     {
-        stateMachine.MovementInput = stateMachine.Player.Input.PlayerActions.Movement.ReadValue<Vector2>();
+        if (BattleManager.Instance == null)
+        {
+            stateMachine.MovementInput = stateMachine.Player.Input.PlayerActions.Movement.ReadValue<Vector2>();
+        }
     }
 
     private void Move()
@@ -126,5 +128,9 @@ public class PlayerBaseState : IState
     protected void StopAnimation(int animationHash)
     {
         stateMachine.Player.Animator.SetBool(animationHash, false);
+    }
+    protected void StartAnimationTrigger(int animationHash)
+    {
+        stateMachine.Player.Animator.SetTrigger(animationHash);
     }
 }

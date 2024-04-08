@@ -10,7 +10,7 @@ public class Enemy : MonoBehaviour
 {
     [field: Header("Animations")]
     [field: SerializeField] public EnemyAnimationData AnimationData { get; private set; }
-    public CharacterActionController actionController { get; private set; }
+    public CharacterActionController ActionController { get; private set; }
     public Animator Animator { get; private set; }
 
     private EnemyStateMachine stateMachine;
@@ -21,12 +21,10 @@ public class Enemy : MonoBehaviour
     [SerializeField] private GameObject monsterInfoPoint;
     [SerializeField] private GameObject targetPoint;
 
-    public event Action OnUpdate;
-
     private void Awake()
     {
         AnimationData.Initialize();
-        actionController = new CharacterActionController();
+        ActionController = new CharacterActionController();
         Animator = GetComponentInChildren<Animator>();
         stateMachine = new EnemyStateMachine(this);
     }
@@ -36,14 +34,14 @@ public class Enemy : MonoBehaviour
         if (BattleManager.Instance != null)
         {
             targetUI = GetComponentInChildren<TargetUI>();
-            actionController.OnTarget += TargetOn;
-            actionController.OffTarget += TargetOff;
-            actionController.OnDie += ThisDie;
+            ActionController.OnTarget += TargetOn;
+            ActionController.OffTarget += TargetOff;
+            ActionController.OnDie += ThisDie;
         }
     }
     private void Update()
     {
-        OnUpdate?.Invoke();
+        stateMachine.Update();
     }
     private void TargetOn()
     {
@@ -55,9 +53,9 @@ public class Enemy : MonoBehaviour
     }
     private void ThisDie()
     {
-        actionController.OnTarget -= TargetOn;
-        actionController.OffTarget -= TargetOff;
-        actionController.OnDie -= ThisDie;
+        ActionController.OnTarget -= TargetOn;
+        ActionController.OffTarget -= TargetOff;
+        ActionController.OnDie -= ThisDie;
         Destroy(gameObject);
     }
 }

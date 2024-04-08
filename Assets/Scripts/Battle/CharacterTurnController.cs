@@ -38,6 +38,7 @@ public class CharacterTurnController : MonoBehaviour
     private BuffAndDebuff buffAndDebuff;
     private WaitForSeconds wait05 = new WaitForSeconds(0.5f);
     private Dictionary<string,GameObject> OnBuff;
+    private CharacterController characterController;
 
     private void Start()
     {
