@@ -14,4 +14,6 @@ public class DataList : ScriptableObject
     public List<WaveData> WaveData;
     public List<StageData> StageData;
     public List<LevelData> LevelData;
+    public List<ChapterData> ChapterData;
+
 }

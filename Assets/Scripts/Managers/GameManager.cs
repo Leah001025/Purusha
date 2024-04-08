@@ -66,4 +66,9 @@ public class GameManager : SingleTon<GameManager>
     {
         User.RemoveTeam(id);
     }
+
+    public void StageSelect(int stageNumber) // 챕터 들어간 후 스테이지 누르는 버튼에 연결
+    {
+        stageID = stageNumber;
+    }
 }
