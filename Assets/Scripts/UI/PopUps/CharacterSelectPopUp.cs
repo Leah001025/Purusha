@@ -15,6 +15,7 @@ public class CharacterSeletPopUp : UIBase
 
     public void ShowChapterData(string chapterNumber)
     {
+        SoundManager.Instance.ButtonAudio("BasicMenuO_1");
         ChapterData chapterData = DataManager.Instance.ChapterDB.GetData(int.Parse(chapterNumber));
 
 
@@ -29,11 +30,13 @@ public class CharacterSeletPopUp : UIBase
     }
     public void CloseChpaterInfo() // 챕터 정보 닫기
     {
+        SoundManager.Instance.ButtonAudio("BasicMenuC_1");
         _chapterInfo.SetActive(false);
     }
 
     public void OpenStageInfo() // 스테이지 창 열기
     {
+        SoundManager.Instance.ButtonAudio("BasicMenuO_1");
         ChapterData chapterData = DataManager.Instance.ChapterDB.GetData(chapterNum);
 
         _stage.SetActive(true);
@@ -54,6 +57,7 @@ public class CharacterSeletPopUp : UIBase
 
     public void CloseStageInfo() // 스테이지 창 닫기
     {
+        SoundManager.Instance.ButtonAudio("BasicMenuC_1");
         if (_stageInfo.transform.childCount != 0)
         {
             for(int i = 0; _stageInfo.transform.childCount > i; i++)

@@ -91,7 +91,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_RecenterTarget: 0
   m_VerticalAxis:
-    Value: 20.230337
+    Value: -69.999985
     m_SpeedMode: 0
     m_MaxSpeed: 300
     m_AccelTime: 0.1
@@ -115,7 +115,7 @@ MonoBehaviour:
     m_LegacyHeadingDefinition: -1
     m_LegacyVelocityFilterStrength: -1
   m_HorizontalAxis:
-    Value: -2.6160061
+    Value: 86.14613
     m_SpeedMode: 0
     m_MaxSpeed: 300
     m_AccelTime: 0.1
@@ -331,8 +331,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3741659502877204011}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.1755816, y: -0.022472173, z: 0.004009042, w: 0.98420024}
-  m_LocalPosition: {x: 0.21413201, y: 1.7289753, z: 0.31333923}
+  m_LocalRotation: {x: -0.418988, y: 0.5594239, z: 0.39171275, w: 0.59837705}
+  m_LocalPosition: {x: -1.7062352, y: -4.698463, z: 4.885061}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -468,7 +468,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2290179366400373201}
   - component: {fileID: 8692518314236518521}
-  - component: {fileID: 5656385153077318644}
   - component: {fileID: 1803623788728524790}
   - component: {fileID: 1293881965599097651}
   - component: {fileID: 8891081017217528737}
@@ -487,8 +486,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8916763809537842291}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.1755816, y: -0.022472173, z: 0.004009042, w: 0.98420024}
-  m_LocalPosition: {x: 0.21413201, y: 1.7289753, z: 0.31333923}
+  m_LocalRotation: {x: -0.418988, y: 0.5594239, z: 0.39171275, w: 0.59837705}
+  m_LocalPosition: {x: -0.54437995, y: -1.3999999, z: 4.9633284}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -545,14 +544,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!81 &5656385153077318644
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8916763809537842291}
-  m_Enabled: 1
 --- !u!114 &1803623788728524790
 MonoBehaviour:
   m_ObjectHideFlags: 0

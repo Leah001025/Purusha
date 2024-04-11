@@ -15,6 +15,7 @@ public class CharacterSlot : MonoBehaviour
 
     public void AddTeamSlot()
     {
+        SoundManager.Instance.ButtonAudio("CharacterUP");
         teamFormation.OnPointerClick(gameObject.name);
     }
 }

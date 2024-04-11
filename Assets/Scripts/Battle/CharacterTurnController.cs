@@ -6,7 +6,6 @@ using UnityEngine;
 
 public class CharacterTurnController : MonoBehaviour
 {
-    public Animator animator;
     public int teamIndex;
     CharacterData characterData;
     CharacterData characterBuffData;
@@ -353,13 +352,13 @@ public class CharacterTurnController : MonoBehaviour
         int skillNum = int.Parse(num);
         startPos = transform.localPosition;
         targetPos = battleManager.target.transform.localPosition + new Vector3(0, 0, -2);
-        animator.SetTrigger(Animator.StringToHash("Move"));
+        //animator.SetTrigger(Animator.StringToHash("Move"));
         isAttack = true;
         isStartPos = true;
         isTargetPos = false;
 
         yield return wait05;
-        animator.SetTrigger(Animator.StringToHash("Skill" + num));
+        //animator.SetTrigger(Animator.StringToHash("Skill" + num));
         yield return new WaitForSeconds(1f);
         OnSkillEffect(characterData.skillData[skillNum]);
         yield return wait05;
@@ -368,7 +367,7 @@ public class CharacterTurnController : MonoBehaviour
         yield return wait05;
         battleManager.OnSkillPlayer(characterBuffData, skillNum);
         character.transform.localPosition = Vector3.zero;
-        animator.SetTrigger(Animator.StringToHash("Jump"));
+        //animator.SetTrigger(Animator.StringToHash("Jump"));
         yield return new WaitForSeconds(0.2f);
         isStartPos = false;
         yield return wait05;
@@ -382,7 +381,7 @@ public class CharacterTurnController : MonoBehaviour
         isAttack = true;
         isTargetPos = true;
         isStartPos = true;
-        animator.SetTrigger(Animator.StringToHash("Skill" + num));
+        //animator.SetTrigger(Animator.StringToHash("Skill" + num));
         OnSkillEffect(characterData.skillData[skillNum]);
         yield return new WaitForSeconds(time);
         Destroy(skillObj);

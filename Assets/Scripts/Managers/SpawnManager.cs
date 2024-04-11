@@ -19,6 +19,7 @@ public class SpawnManager : MonoBehaviour
 
     [SerializeField] private Transform mapSpawnPoint;
     public Canvas battleCanvas;
+    public Image effectImage;
 
     private int stageID;
     private StageDataBase stageDB;
@@ -31,8 +32,7 @@ public class SpawnManager : MonoBehaviour
     private PlayerConeRaycastDetection raycastDetection;
 
     private GameObject player;
-
-    public Image effectImage;
+    private string mapName;
 
     private void Awake()
     {
@@ -43,11 +43,13 @@ public class SpawnManager : MonoBehaviour
         enemyDB = DataManager.Instance.EnemyDB;
 
         var resources = Resources.Load(stageDB.GetData(stageID).OpenMapPath) as GameObject;
+        mapName = resources.name;
         var _map = Instantiate(resources, mapSpawnPoint);
         mapSpawnController = _map.GetComponent<MapSpawnController>();
     }
     private void Start()
     {
+        SoundManager.Instance.BgmAudio(mapName);
         MonsterSpawn();
         PlayerSpawm();
     }
@@ -61,6 +63,7 @@ public class SpawnManager : MonoBehaviour
             {
                 var _playerRsc = Resources.Load(GameManager.Instance.User.teamData[i].status.prefabPath) as GameObject;
                 var _playerObj = Instantiate(_playerRsc, _obj.transform.GetChild(0).transform);
+                SoundManager.Instance.Player = _playerObj;
                 _playerObj.GetComponent<CharacterTurnController>().enabled = false;
                 break;
             }

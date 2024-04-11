@@ -16,6 +16,7 @@ public class LoadingSceneController : MonoBehaviour
     public void Start()
     {
         StartCoroutine(LoadSceneProcess());
+        SoundManager.Instance.SceneAudioExit();
     }
 
 

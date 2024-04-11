@@ -36,6 +36,7 @@ public class PopupManager : MonoBehaviour
 
     public void Show()
     {
+        SoundManager.Instance.ButtonAudio("BasicMenuO_1");
         gameObject.SetActive(true);
         var seq = DOTween.Sequence();
         seq.Append(transform.DOScale(1.1f, 0.2f));
@@ -45,11 +46,13 @@ public class PopupManager : MonoBehaviour
 
     public void Hide()
     {
+        SoundManager.Instance.ButtonAudio("BasicMenuC_1");
         var seq = DOTween.Sequence();
         seq.Play().OnComplete(() => {gameObject.SetActive(false);});
     }
     public void ShowItem()
     {
+        SoundManager.Instance.ButtonAudio("BasicMenuO_1");
         var seq = DOTween.Sequence();
         seq.Append(infoPanel.GetComponent<RectTransform>().DOAnchorPosX(352, 0.2f));
         seq.Play();
@@ -57,12 +60,14 @@ public class PopupManager : MonoBehaviour
 
     public void HideItem()
     {
+        SoundManager.Instance.ButtonAudio("BasicMenuC_1");
         var seq = DOTween.Sequence();
         seq.Append(infoPanel.GetComponent<RectTransform>().DOAnchorPosX(973, 0.2f));
         seq.Play();
     }
     public void ShowSkill()
     {
+        SoundManager.Instance.ButtonAudio("BasicMenuO_1");
         var seq = DOTween.Sequence();
         seq.Append(skillPanel.GetComponent<RectTransform>().DOAnchorPosY(0, 0.2f));
         seq.Play();
@@ -70,6 +75,7 @@ public class PopupManager : MonoBehaviour
 
     public void HideSkill()
     {
+        SoundManager.Instance.ButtonAudio("BasicMenuC_1");
         var seq = DOTween.Sequence();
         seq.Append(skillPanel.GetComponent<RectTransform>().DOAnchorPosY(-810, 0.2f));
         seq.Play();
@@ -94,6 +100,7 @@ public class PopupManager : MonoBehaviour
     }
     public void ShowUI(GameObject gameObject)
     {
+        SoundManager.Instance.ButtonAudio("BasicMenuO_1");
         gameObject.SetActive(true);
         var seq = DOTween.Sequence();
         seq.Append(gameObject.transform.DOScale(1.1f, 0.2f));
@@ -103,6 +110,7 @@ public class PopupManager : MonoBehaviour
 
     public void HideUI(GameObject gameObject)
     {
+        SoundManager.Instance.ButtonAudio("BasicMenuC_1");
         var seq = DOTween.Sequence();
         seq.Play().OnComplete(() => { gameObject.SetActive(false); });
     }

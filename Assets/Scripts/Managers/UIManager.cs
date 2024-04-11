@@ -21,6 +21,7 @@ public class UIManager : SingleTon<UIManager>
     // 팝업 불러오기
     public UIBase ShowPopup(string popupname, Transform parents = null)
     {
+        SoundManager.Instance.ButtonAudio("BasicMenuO_1");
         if (popups.ContainsKey(popupname))
         {
             popups[popupname].gameObject.SetActive(true);

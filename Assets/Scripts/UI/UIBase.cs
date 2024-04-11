@@ -13,7 +13,8 @@ public class UIBase : MonoBehaviour
 
     public virtual void CloseUI()
     {
-        if(gameObject.name== "DepartmentPopUp") UIManager.Instance.charInventoryUI.Clear();
+        SoundManager.Instance.ButtonAudio("BasicMenuC_1");
+        if (gameObject.name== "DepartmentPopUp") UIManager.Instance.charInventoryUI.Clear();
         gameObject.SetActive(false);
     }
 }
