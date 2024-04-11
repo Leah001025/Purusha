@@ -192,6 +192,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2292071389407909435}
   - component: {fileID: 6555197700426353729}
+  - component: {fileID: 7733788243938374469}
   - component: {fileID: 3132759252494404856}
   - component: {fileID: 2750977921419153547}
   - component: {fileID: 8444184744101154179}
@@ -246,6 +247,18 @@ MonoBehaviour:
     battleSkill2ParameterName: BattleSkill2
     battleSkill3ParameterName: BattleSkill3
     battleSkill4ParameterName: BattleSkill4
+--- !u!114 &7733788243938374469
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2603417535487226572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82fed8bddb24c38479a023f5bfaae27c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &3132759252494404856
 MonoBehaviour:
   m_ObjectHideFlags: 0
