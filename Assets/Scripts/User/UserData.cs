@@ -14,7 +14,7 @@ public class UserData
     public bool tutorial1;
     public bool tutorial2;
     public SaveData saveData;
-    public Stack<StageInfo> stageClear;
+    public Stack<StageInfo> stageClear = new Stack<StageInfo>();
     public Dictionary<int, UpgradeStatData> upgrades = new Dictionary<int, UpgradeStatData>();
     public Dictionary<int, CharacterData> characters = new();
     public Dictionary<int, CharacterData> teamData = new Dictionary<int, CharacterData>(5);
@@ -35,7 +35,9 @@ public class UserData
         characters.Add(eve.status.iD, eve);
         upgrades.Add(eve.status.iD, new UpgradeStatData());
         AddTeam(eve.status.iD);
-        // stageClear.Push(110101);
+        StageInfo stageInfo = new StageInfo();
+        stageInfo.stageID = 1101;
+        stageClear.Push(stageInfo);
     }
     //캐릭터 추가
     public void AddCharacter(int id)
