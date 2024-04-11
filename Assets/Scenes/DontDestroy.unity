@@ -211,6 +211,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bfa6af1ec3caa84da5f2618e77fe0a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  popupManager: {fileID: 0}
+  upgradeStatUI: {fileID: 0}
+  levelUpUI: {fileID: 0}
+  itemInventoryUI: {fileID: 0}
+  skillUI: {fileID: 0}
+  curTargetID: 101
 --- !u!1 &1425871581
 GameObject:
   m_ObjectHideFlags: 0
@@ -300,6 +306,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 093c1256f6a89ac489d54c848a908251, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stageID: 1101
+  waveID: 0
+  wave1Clear: 0
+  wave2Clear: 0
+  wave3Clear: 0
+  User:
+    userLv: 0
+    userExp: 0
+    userName: 
+    gold: 0
+    cash: 0
+    introScene: 0
+    tutorial1: 0
+    tutorial2: 0
+    saveData:
+      upgrades: []
+      teamStatusData: []
+      teamSkillData: []
+      statusData: []
+      skillData: []
+      itemInventory: []
+      stageClear: []
+  userName: Leah
 --- !u!1 &1779184660
 GameObject:
   m_ObjectHideFlags: 0
@@ -347,13 +376,12 @@ MonoBehaviour:
   isDontDestroy: 0
   NowSceneName: 
   NextSceneName: 
-  DataList_: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 1666048167}
   - {fileID: 1425871583}
   - {fileID: 1779184661}
   - {fileID: 1288518243}
   - {fileID: 974285992}
+  - {fileID: 1666048167}

@@ -24,7 +24,7 @@ public class UpgradeStatUI : MonoBehaviour
     {
         UIManager.Instance.upgradeStatUI =this;
         curID = UIManager.Instance.curTargetID;
-        characterDatas = GameManager.Instance.User.characterDatas;
+        characterDatas = GameManager.Instance.User.characters;
         upgrades = GameManager.Instance.User.upgrades;
         inventory = GameManager.Instance.User.itemInventory;
         Init();

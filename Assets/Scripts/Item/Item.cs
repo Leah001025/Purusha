@@ -1,8 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.TextCore.Text;
 
+[System.Serializable]
 public class Item
 {
 
@@ -15,7 +17,7 @@ public class Item
     public string spritePath;
     Dictionary<int, Item> _items;
     Dictionary<int, CharacterData> _characterData;
-    UserData _userData;
+    [NonSerialized]UserData _userData;
 
     public Item(int ID)
     {
@@ -101,7 +103,7 @@ public class Item
                 GameManager.Instance.User.RemoveItem(id);
                 return;
             }
-            int random = Random.Range(3, 5);
+            int random = UnityEngine.Random.Range(3, 5);
             int skillID = character.skillData[random].iD;
             CharacterSkill skillUP = new CharacterSkill(skillID + 1);
             character.skillData.Remove(random);
@@ -116,12 +118,12 @@ public class Item
         string gachaIdstr = "106"+ curId.ToString().Replace("10","0");
         int gachaId = int.Parse(gachaIdstr);
         _items = GameManager.Instance.User.itemInventory;
-        _characterData = GameManager.Instance.User.characterDatas;
+        _characterData = GameManager.Instance.User.characters;
         _userData = GameManager.Instance.User;
         if (_items[id].type == "etc")
         {
             GameManager.Instance.User.RemoveItem(id);
-            float random = Random.Range(0f, 1f);
+            float random = UnityEngine.Random.Range(0f, 1f);
             if (random < 0.2f)
             {
                 if (_characterData.ContainsKey(curId))

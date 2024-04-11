@@ -30,7 +30,7 @@ public class Inventory : MonoBehaviour
         {
             ShowCharacterData();
         }
-        if (!GameManager.Instance.User.characterDatas.ContainsKey(character[gameObject.name]))
+        if (!GameManager.Instance.User.characters.ContainsKey(character[gameObject.name]))
         {
             gameObject.SetActive(false);
         }
@@ -48,7 +48,7 @@ public class Inventory : MonoBehaviour
         if (character.ContainsKey(gameObjectName))
         {
             int _id = character[gameObjectName];
-            CharacterData playerData = GameManager.Instance.User.characterDatas[_id];
+            CharacterData playerData = GameManager.Instance.User.characters[_id];
 
             if (playerData != null)
             {
@@ -65,7 +65,7 @@ public class Inventory : MonoBehaviour
     }
     public void InitCharacterUI()
     {
-        if (GameManager.Instance.User.characterDatas.ContainsKey(character[gameObject.name]))
+        if (GameManager.Instance.User.characters.ContainsKey(character[gameObject.name]))
         {
             gameObject.SetActive(true);
         }

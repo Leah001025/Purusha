@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 
+[System.Serializable]
 public class StageInfo
 {
     public int stageID;
@@ -21,31 +22,11 @@ public class GameManager : SingleTon<GameManager>
     public string userName = "Leah";
     protected override void Awake()
     {
-        base.Awake();
-        User = new UserData(userName);
-        User.AddCharacter(101);
-        User.AddCharacter(103);
-        User.AddCharacter(104);
-        User.AddCharacter(105);
-        User.AddItem(10101);
-        User.AddItem(10102);
-        User.AddItem(10103);
-        User.AddItem(10201);
-        User.AddItem(10301);
-        User.AddItem(10401);
-        User.AddItem(10402);
-        User.AddItem(10501);
-        User.itemInventory[10501].quantity = 1000;
-        User.itemInventory[10102].quantity = 100;
-        User.itemInventory[10103].quantity = 50;
-        User.itemInventory[10201].quantity = 100;
-        User.itemInventory[10301].quantity = 100;
-        User.itemInventory[10402].quantity = 10;
-        User.characterDatas[102].status.health = 100;
+        base.Awake();      
     }
     private void Start()
     {
-
+        User = new UserData(userName);
     }
 
     public void AddItem(int id)
@@ -70,5 +51,20 @@ public class GameManager : SingleTon<GameManager>
     public void StageSelect(int stageNumber) // 챕터 들어간 후 스테이지 누르는 버튼에 연결
     {
         stageID = stageNumber;
+    }
+    [ContextMenu("To Json Data")]
+    public void SaveDatas()
+    {
+        User.saveData.SetData();
+        Utility.SaveToJsonFile(User, "UserData.json");
+        Debug.Log("데이터 저장했음");
+    }
+    [ContextMenu("From Json Data")]
+    public void LoadDatas()
+    {
+        if (!Utility.IsExistsFile("UserData.json")) return;
+        User = Utility.LoadJsonFile<UserData>("UserData.json");
+        User.saveData.GetData();
+        Debug.Log("데이터 불러왔음");
     }
 }

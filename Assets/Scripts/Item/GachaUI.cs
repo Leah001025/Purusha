@@ -17,7 +17,7 @@ public class GachaUI : MonoBehaviour
     private List<Item> results = new List<Item>(10);
     private void OnEnable()
     {
-        characters = GameManager.Instance.User.characterDatas;
+        characters = GameManager.Instance.User.characters;
         inventory = GameManager.Instance.User.itemInventory;
         var res = Resources.Load<Sprite>("UI/Image/102");
         gachaImage.sprite = res;

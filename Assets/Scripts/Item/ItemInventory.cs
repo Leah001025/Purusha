@@ -29,7 +29,7 @@ public class ItemInventory : MonoBehaviour
         epicItem = new Color(0.9f,0,1);
         regendItem = new Color(1,0.8f,0);
         items = GameManager.Instance.User.itemInventory;
-        characters = GameManager.Instance.User.characterDatas;
+        characters = GameManager.Instance.User.characters;
         useButton.onClick.AddListener(UseItem);
         foreach (KeyValuePair<int, Item> item in items)
         {

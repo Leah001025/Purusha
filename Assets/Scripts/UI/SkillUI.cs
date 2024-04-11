@@ -17,7 +17,7 @@ public class SkillUI : MonoBehaviour
     public void InitSkillUI()
     {
         curID = UIManager.Instance.curTargetID;
-        characters = GameManager.Instance.User.characterDatas;
+        characters = GameManager.Instance.User.characters;
         for (int i = 0; i < 4; i++)
         {
             Image icon = transform.GetChild(i).gameObject.GetComponent<Image>();

@@ -25,7 +25,7 @@ public class LevelUpUI : MonoBehaviour
     {
         UIManager.Instance.levelUpUI = this;
         curID = UIManager.Instance.curTargetID;
-        characterDatas = GameManager.Instance.User.characterDatas;
+        characterDatas = GameManager.Instance.User.characters;
         inventory = GameManager.Instance.User.itemInventory;
         levelUpBtn.onClick.AddListener(NextLevelUp);
         Init();
