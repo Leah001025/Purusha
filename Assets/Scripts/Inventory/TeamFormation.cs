@@ -25,7 +25,7 @@ public class TeamFormation : MonoBehaviour
 
     private void init()
     {
-        foreach (var pair in GameManager.Instance.User.characterDatas.Values)
+        foreach (var pair in GameManager.Instance.User.characters.Values)
         {
             string prefabPath = "Prefabs/Inventory/" + pair.status.iD.ToString();
             var _res = Resources.Load(prefabPath) as GameObject;

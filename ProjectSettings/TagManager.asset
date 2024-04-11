@@ -11,6 +11,7 @@ TagManager:
   - Skill1
   - Skill3
   - Skill4
+  - Interactable
   layers:
   - Default
   - TransparentFX

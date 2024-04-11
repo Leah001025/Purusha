@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
 public class UserData
 {
     public int userLv;
@@ -9,9 +10,13 @@ public class UserData
     public string userName;
     public int gold;
     public int cash;
+    public bool introScene;
+    public bool tutorial1;
+    public bool tutorial2;
+    public SaveData saveData;
     public Stack<StageInfo> stageClear;
     public Dictionary<int, UpgradeStatData> upgrades = new Dictionary<int, UpgradeStatData>();
-    public Dictionary<int, CharacterData> characterDatas = new();
+    public Dictionary<int, CharacterData> characters = new();
     public Dictionary<int, CharacterData> teamData = new Dictionary<int, CharacterData>(5);
     public Dictionary<int, Item> itemInventory = new Dictionary<int, Item>();
     //public List<ItemData> Inventory = new();
@@ -25,8 +30,9 @@ public class UserData
         userName = name;
         gold = 1000;
         cash = 100;
+        saveData = new SaveData();
         CharacterData eve = new CharacterData(102);
-        characterDatas.Add(eve.status.iD, eve);
+        characters.Add(eve.status.iD, eve);
         upgrades.Add(eve.status.iD, new UpgradeStatData());
         AddTeam(eve.status.iD);
         // stageClear.Push(110101);
@@ -36,7 +42,7 @@ public class UserData
     {
         CharacterData newCharacter = new CharacterData(id);
         UpgradeStatData newUpgradeStat = new UpgradeStatData();
-        characterDatas.Add(newCharacter.status.iD, newCharacter);
+        characters.Add(newCharacter.status.iD, newCharacter);
         upgrades.Add(newCharacter.status.iD, newUpgradeStat);
     }
 
@@ -47,7 +53,7 @@ public class UserData
         {
             if (!teamData.ContainsKey(i)) 
             {
-                teamData.Add(i, characterDatas[id]);
+                teamData.Add(i, characters[id]);
                 return;
             }
         }        

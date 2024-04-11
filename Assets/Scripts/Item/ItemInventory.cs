@@ -14,6 +14,9 @@ public class ItemInventory : MonoBehaviour
     public Button useButton;
     public TextMeshProUGUI description;
     public TextMeshProUGUI itemName;
+    private Color rareItem;
+    private Color epicItem;
+    private Color regendItem;
     public int enabledIndex;
     public int enabledID;
     private int targetID;
@@ -22,8 +25,11 @@ public class ItemInventory : MonoBehaviour
     private void Start()
     {
         UIManager.Instance.itemInventoryUI = this;
+        rareItem = new Color(0, 0.8f, 1);
+        epicItem = new Color(0.9f,0,1);
+        regendItem = new Color(1,0.8f,0);
         items = GameManager.Instance.User.itemInventory;
-        characters = GameManager.Instance.User.characterDatas;
+        characters = GameManager.Instance.User.characters;
         useButton.onClick.AddListener(UseItem);
         foreach (KeyValuePair<int, Item> item in items)
         {
@@ -53,6 +59,11 @@ public class ItemInventory : MonoBehaviour
             {
                 slot.itemID = containsKey[i];
                 icon.sprite = Resources.Load<Sprite>(items[containsKey[i]].spritePath);
+                if (slot.itemID == 10101) icon.color = rareItem;
+                if (slot.itemID == 10102) icon.color = epicItem;
+                if (slot.itemID == 10103) icon.color = regendItem;
+                if (slot.itemID == 10401) icon.color = rareItem;
+                if (slot.itemID == 10402) icon.color = regendItem;
                 quantity.text = items[containsKey[i]].quantity.ToString();
             }
         }

@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class UIManager : SingleTon<UIManager>
 {
-    private Dictionary<string, UIBase> popups = new Dictionary<string, UIBase>();
+    public Dictionary<string, UIBase> popups = new Dictionary<string, UIBase>();
     private Dictionary<int, GameObject> battlePlayerStatus = new Dictionary<int, GameObject>();
     private Dictionary<int, GameObject> battleEnemyStatus = new Dictionary<int, GameObject>();
     public Dictionary<int, Inventory> charInventoryUI = new Dictionary<int, Inventory>();
