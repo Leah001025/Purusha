@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerStateMachine : StateMachine
 {
-    public Player Player { get; }
+     public Player Player { get; }
 
     public PlayerWorldIdleState WorldIdleState { get; }
     public PlayerWorldWalkState WorldWalkState { get; }

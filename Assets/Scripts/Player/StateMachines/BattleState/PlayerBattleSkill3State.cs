@@ -23,5 +23,9 @@ public class PlayerBattleSkill3State : PlayerBattleState
     public override void Update()
     {
         base.Update();
+        if (stateMachine.Player.Animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1f && stateMachine.Player.Animator.GetCurrentAnimatorStateInfo(0).IsName("Skill3"))
+        {
+            stateMachine.ChangeState(stateMachine.BattleIdleState);
+        }
     }
 }

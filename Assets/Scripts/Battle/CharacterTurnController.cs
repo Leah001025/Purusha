@@ -36,11 +36,14 @@ public class CharacterTurnController : MonoBehaviour
     private GameObject skillObj;
     private BuffAndDebuff buffAndDebuff;
     private WaitForSeconds wait05 = new WaitForSeconds(0.5f);
-    private Dictionary<string,GameObject> OnBuff;
-    private CharacterController characterController;
+    private Dictionary<string, GameObject> OnBuff;
+    private CharacterActionController actionController;
+    private Player player;
 
     private void Start()
     {
+        player = GetComponent<Player>();
+        actionController = player.ActionController;
         skill4Gauge = 5;
         battleManager = BattleManager.Instance;
         onTurnPos = new Vector3(2, 0, -4.5f);
@@ -58,7 +61,7 @@ public class CharacterTurnController : MonoBehaviour
         }
         isCharacterTurn = false;
         characterBuffData = (CharacterData)characterData.CloneCharacter(characterData.status.iD);
-        buffAndDebuff = new BuffAndDebuff(characterData.status.iD,0,"Player");
+        buffAndDebuff = new BuffAndDebuff(characterData.status.iD, 0, "Player");
         OnBuff = new Dictionary<string, GameObject>();
         InitBuffData();
         battleManager.skill1 += Skill1;
@@ -352,13 +355,13 @@ public class CharacterTurnController : MonoBehaviour
         int skillNum = int.Parse(num);
         startPos = transform.localPosition;
         targetPos = battleManager.target.transform.localPosition + new Vector3(0, 0, -2);
-        //animator.SetTrigger(Animator.StringToHash("Move"));
+        actionController.BattleMove();
         isAttack = true;
         isStartPos = true;
         isTargetPos = false;
 
         yield return wait05;
-        //animator.SetTrigger(Animator.StringToHash("Skill" + num));
+        SkillAnim(skillNum);
         yield return new WaitForSeconds(1f);
         OnSkillEffect(characterData.skillData[skillNum]);
         yield return wait05;
@@ -367,7 +370,7 @@ public class CharacterTurnController : MonoBehaviour
         yield return wait05;
         battleManager.OnSkillPlayer(characterBuffData, skillNum);
         character.transform.localPosition = Vector3.zero;
-        //animator.SetTrigger(Animator.StringToHash("Jump"));
+        actionController.BattleJump();
         yield return new WaitForSeconds(0.2f);
         isStartPos = false;
         yield return wait05;
@@ -381,7 +384,7 @@ public class CharacterTurnController : MonoBehaviour
         isAttack = true;
         isTargetPos = true;
         isStartPos = true;
-        //animator.SetTrigger(Animator.StringToHash("Skill" + num));
+        SkillAnim(skillNum);
         OnSkillEffect(characterData.skillData[skillNum]);
         yield return new WaitForSeconds(time);
         Destroy(skillObj);
@@ -389,5 +392,23 @@ public class CharacterTurnController : MonoBehaviour
         battleManager.OnSkillPlayer(characterBuffData, skillNum);
         character.transform.localPosition = Vector3.zero;
         isAttack = false;
+    }
+    private void SkillAnim(int number)
+    {
+        switch (number)
+        {
+            case 1:
+                actionController.BattleSkill1();
+                break;
+            case 2:
+                actionController.BattleSkill2();
+                break;
+            case 3:
+                actionController.BattleSkill3();
+                break;
+            case 4:
+                actionController.BattleSkill4();
+                break;
+        }
     }
 }
