@@ -74,11 +74,11 @@ public class SaveData
         {
             GameManager.Instance.User.itemInventory.Add(item.id, item);
         }
-        if (stageClear != null)
+        if (stageClear.Count != 0)
         {
             foreach (StageInfo stage in stageClear)
             {
-                stageClear.Add(stage);
+                GameManager.Instance.User.stageClear.Push(stage);
             }
         }
         foreach (CharacterStatus character in statusData)
