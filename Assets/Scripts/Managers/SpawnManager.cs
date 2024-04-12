@@ -55,7 +55,7 @@ public class SpawnManager : MonoBehaviour
     }
     private void PlayerSpawm()
     {
-        player = Resources.Load("Prefabs/Player/WorldPlayer") as GameObject;
+        player = Resources.Load("Prefabs/Player/WorldPlayer2") as GameObject;
         var _obj = mapSpawnController.PlayerSpawn(player);
         for (int i = 1; 5 >= i; i++)
         {

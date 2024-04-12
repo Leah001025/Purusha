@@ -9,8 +9,17 @@ public class MapSpawnController : MonoBehaviour
     [SerializeField] private Transform monsterSpawnPoint1;
     [SerializeField] private Transform monsterSpawnPoint2;
     [SerializeField] private Transform monsterSpawnPoint3;
+    [SerializeField] private GameObject clearPortal;
 
     private int spawnCount;
+
+    private void FixedUpdate()
+    {
+        if(GameManager.Instance.wave3Clear)
+        {
+            clearPortal.SetActive(true);
+        }
+    }
     public GameObject PlayerSpawn(GameObject player)
     {
         var _player = Instantiate(player, playerSpawnPoint);
