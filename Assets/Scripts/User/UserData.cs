@@ -32,26 +32,22 @@ public class UserData
         cash = 100;
         saveData = new SaveData();
 
-        CharacterData breesha = new CharacterData(101);
-        CharacterData eve = new CharacterData(102);
-        CharacterData adam = new CharacterData(103);
-        CharacterData abel = new CharacterData(104);
-        CharacterData kain = new CharacterData(105);
+        AddCharacter(101);
+        AddCharacter(102);
+        AddCharacter(103);
+        AddCharacter(104);
+        AddCharacter(105);
 
-        characters.Add(breesha.status.iD, breesha);
-        characters.Add(eve.status.iD, eve);
-        characters.Add(adam.status.iD, adam);
-        characters.Add(abel.status.iD, abel);
-        characters.Add(kain.status.iD, kain);
-
-        AddTeam(breesha.status.iD);
-        AddTeam(eve.status.iD);
-        AddTeam(adam.status.iD);
-        AddTeam(abel.status.iD);
-        AddTeam(kain.status.iD);
+        AddTeam(101);
+        AddTeam(102);
+        AddTeam(103);
+        AddTeam(104);
+        AddTeam(105);
+        AddItem(10201, 100);
+        AddItem(10301, 100);
 
 
-        upgrades.Add(eve.status.iD, new UpgradeStatData());
+        //upgrades.Add(eve.status.iD, new UpgradeStatData());
 
         StageInfo stageInfo = new StageInfo();
         stageInfo.stageID = 1101;
@@ -91,6 +87,7 @@ public class UserData
         if (!itemInventory.ContainsKey(id))
         {
             itemInventory.Add(id, newItem);
+            itemInventory[id].quantity += (quantity-1);
         }
         else
         {

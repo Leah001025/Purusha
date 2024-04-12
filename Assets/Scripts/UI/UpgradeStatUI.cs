@@ -39,22 +39,23 @@ public class UpgradeStatUI : MonoBehaviour
         def.text = upgrades[curID].def.ToString("0");
         speed.text = (upgrades[curID].speed * 100).ToString("0");
         characterName.text = $"{characterDatas[curID].status.name} 전용장비 강화";
-        weaponQuantity.text = $"강화재료 {inventory[10201].quantity.ToString()}개";
-        armorQuantity.text = $"강화재료 {inventory[10301].quantity.ToString()}개";
+        weaponQuantity.text = $"강화재료 {(inventory.ContainsKey(10201)? inventory[10201].quantity.ToString():"0")}개";
+        armorQuantity.text = $"강화재료 {(inventory.ContainsKey(10301) ? inventory[10201].quantity.ToString() : "0")}개";
         message.text = "";
     }
     public void UpgradeStatus(int index)
     {
+        inventory = GameManager.Instance.User.itemInventory;
         if (!(inventory.ContainsKey(10201) || inventory.ContainsKey(10301)))
         {
             Debug.Log("강화재료가 부족합니다");
             return;
         }
-        if (index <3) { inventory[10201].UseWeaponUpgradeItem(10201); }
-        if (index >= 3) { inventory[10301].UseArmorUpgradeItem(10301); }
+        if (index <3&& inventory.ContainsKey(10201)) { inventory[10201].UseWeaponUpgradeItem(10201); }
+        if (index >= 3 && inventory.ContainsKey(10301)) { inventory[10301].UseArmorUpgradeItem(10301); }
         UIManager.Instance.itemInventoryUI.UpdateInventory();
-        weaponQuantity.text = $"강화재료 {inventory[10201].quantity.ToString()}개";
-        armorQuantity.text = $"강화재료 {inventory[10301].quantity.ToString()}개";
+        weaponQuantity.text = $"강화재료 {(inventory.ContainsKey(10201) ? inventory[10201].quantity.ToString() : "0")}개";
+        armorQuantity.text = $"강화재료 {(inventory.ContainsKey(10301) ? inventory[10301].quantity.ToString() : "0")}개";
         float random = Random.Range(0f, 1f);
         if (random > 0.5f)
         {

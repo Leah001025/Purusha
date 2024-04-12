@@ -59,6 +59,7 @@ public class CharacterData : ICloneable
 [System.Serializable]
 public class CharacterStatus
 {
+    public int teamNum;
     public int iD;
     public string name;
     public float health;

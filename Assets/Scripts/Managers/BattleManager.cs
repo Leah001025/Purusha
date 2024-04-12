@@ -229,7 +229,7 @@ public class BattleManager : MonoBehaviour
             {
                 GaugeUp();
                 GaugeChack();
-                while (attackOrder.Count > 0&&!isAttacking)//�� ���ð���
+                while (attackOrder.Count > 0 && !isAttacking)//�� ���ð���
                 {
                     isAttacking = true;
                     onTurnIndex = attackOrder.Peek();
@@ -260,8 +260,8 @@ public class BattleManager : MonoBehaviour
     private void GaugeChack()
     {
         foreach (KeyValuePair<int, UnitInfo> _unitData in lUnitInfo) //Gauge Chack
-        {            
-            if (_unitData.Value.unitGauge >= defaultGauge&& !attackOrder.Contains(_unitData.Key)) //���� Ű �ߺ���� ����
+        {
+            if (_unitData.Value.unitGauge >= defaultGauge && !attackOrder.Contains(_unitData.Key)) //���� Ű �ߺ���� ����
             {
                 attackOrder.Enqueue(_unitData.Key);
             }
@@ -278,7 +278,7 @@ public class BattleManager : MonoBehaviour
             case CharacterType.Enemy:
                 enemySkillControllers[index].TurnOn();
                 //EnemyAttack(lUnitInfo[index]);
-                
+
                 //AnimForSeconds(newAnimTime, beforeAnimTime);
                 //speedModifier = 1;
                 //isAttacking = false;
@@ -306,7 +306,8 @@ public class BattleManager : MonoBehaviour
         float _damage = AddDamage(characterData, skillNum);
         int buffID = characterData.skillData[skillNum].buffID;
         int buffID2 = characterData.skillData[skillNum].buffID2;
-        int targetIndex = int.Parse(target.name);        
+        int targetIndex = int.Parse(target.name);
+        int unitCount = lUnitInfo.Count;
         switch (characterData.skillData[skillNum].type)
         {
             case 0:
@@ -318,21 +319,35 @@ public class BattleManager : MonoBehaviour
                 DieCheck(lUnitInfo[targetIndex]);
                 break;
             case 1:
+                int count = 1;
                 foreach (EnemySkillController skillController in enemySkillControllers.Values)
                 {
                     skillController.SetBuffandDebuff(buffID);
                 }
-                foreach (UnitInfo _unitData in lUnitInfo.Values)
+                for (int i = 1; i <= lUnitInfo.Count; i++)
                 {
-                    if (_unitData.unitType == CharacterType.Enemy)
+                    targetIndex = int.Parse(target.name);
+                    if (lUnitInfo[count].unitType == CharacterType.Enemy)
                     {
-                        _unitData.unitData.Health -= _damage;
+                        lUnitInfo[count].unitData.Health -= _damage;
                         battleInfo.characterInfo[onTurnIndex].attackDamages += _damage;
-                        AddDamageUI(_damage, _unitData.unitObject.name);
-                        DieCheck(lUnitInfo[targetIndex]);
+                        AddDamageUI(_damage, lUnitInfo[count].unitObject.name);
+                        if (DieCheck(lUnitInfo[count])) i =unitCount-1-(enemyCreateCount - enemyUnitCount);
                     }
-
+                    if ((enemyUnitCount) == 0) return;
+                    count++;
                 }
+                //foreach (UnitInfo _unitData in lUnitInfo.Values)
+                //{
+                //    if (_unitData.unitType == CharacterType.Enemy)
+                //    {
+                //        _unitData.unitData.Health -= _damage;
+                //        battleInfo.characterInfo[onTurnIndex].attackDamages += _damage;
+                //        AddDamageUI(_damage, _unitData.unitObject.name);
+                //        DieCheck(lUnitInfo[targetIndex]);
+                //    }
+
+                //}
                 break;
             case 2:
                 turnControllers[onTurnIndex].SetBuffandDebuff(buffID);
@@ -343,7 +358,7 @@ public class BattleManager : MonoBehaviour
                 {
                     if (lUnitInfo.ContainsKey(i) && lUnitInfo[i].unitType == CharacterType.Player)
                     {
-                        if (lUnitInfo[i].characterData.status.health/lUnitInfo[i].characterData.status.maxhealth < temp)
+                        if (lUnitInfo[i].characterData.status.health / lUnitInfo[i].characterData.status.maxhealth < temp)
                         {
                             temp = lUnitInfo[i].characterData.status.health / lUnitInfo[i].characterData.status.maxhealth;
                             healIndex = i;
@@ -418,31 +433,31 @@ public class BattleManager : MonoBehaviour
             case 2:
                 enemySkillControllers[onTurnIndex].SetBuffandDebuff(buffID);
                 break;
-            //case 3:
-            //    break;
-            //case 4:
-            //    if (lUnitInfo[onTurnIndex].unitType == CharacterType.Player)
-            //    {
-            //        foreach (UnitInfo _unitData in lUnitInfo.Values)
-            //        {
-            //            if (_unitData.unitType == CharacterType.Player)
-            //            {
-            //                var status = _unitData.characterData.status;
-            //                float healthCoefficient = lUnitInfo[onTurnIndex].characterData.skillData[skillNum].healthCoefficient;
-            //                status.health = status.health + (status.maxhealth * healthCoefficient) >= status.maxhealth ?
-            //                    status.maxhealth : status.health + (status.maxhealth * healthCoefficient);
-            //                AddDamageUI(_damage, _unitData.unitObject.name);
-            //            }
+                //case 3:
+                //    break;
+                //case 4:
+                //    if (lUnitInfo[onTurnIndex].unitType == CharacterType.Player)
+                //    {
+                //        foreach (UnitInfo _unitData in lUnitInfo.Values)
+                //        {
+                //            if (_unitData.unitType == CharacterType.Player)
+                //            {
+                //                var status = _unitData.characterData.status;
+                //                float healthCoefficient = lUnitInfo[onTurnIndex].characterData.skillData[skillNum].healthCoefficient;
+                //                status.health = status.health + (status.maxhealth * healthCoefficient) >= status.maxhealth ?
+                //                    status.maxhealth : status.health + (status.maxhealth * healthCoefficient);
+                //                AddDamageUI(_damage, _unitData.unitObject.name);
+                //            }
 
-            //        }
-            //        foreach (CharacterTurnController turnController in turnControllers.Values)
-            //        {
-            //            turnController.SetBuffandDebuff(buffID);
-            //            if (buffID2 != 0) turnController.SetBuffandDebuff(buffID2);
-            //        }
-            //    }
+                //        }
+                //        foreach (CharacterTurnController turnController in turnControllers.Values)
+                //        {
+                //            turnController.SetBuffandDebuff(buffID);
+                //            if (buffID2 != 0) turnController.SetBuffandDebuff(buffID2);
+                //        }
+                //    }
 
-            //    break;
+                //    break;
         }
     }
     private float AddDamage(CharacterData characterData, int skillNum)
@@ -475,12 +490,12 @@ public class BattleManager : MonoBehaviour
         if (crirocalChance <= characterData.enemyData.CriticalChance)
         {
             damage = (characterData.enemyData.Atk * characterData.enemySkillData[skillNum].atkCoefficient)
-                * (100 / (100.0f + lUnitInfo[int.Parse(target.name)].unitData.Def)) * characterData.enemyData.CriticalDamage*10;
+                * (100 / (100.0f + lUnitInfo[int.Parse(target.name)].unitData.Def)) * characterData.enemyData.CriticalDamage * 10;
         }
         else
         {
             damage = (characterData.enemyData.Atk * characterData.enemySkillData[skillNum].atkCoefficient)
-                * (100 / (100.0f + lUnitInfo[int.Parse(target.name)].unitData.Def))*10;
+                * (100 / (100.0f + lUnitInfo[int.Parse(target.name)].unitData.Def)) * 10;
         }
         if (shield > damage)
         {
@@ -592,7 +607,7 @@ public class BattleManager : MonoBehaviour
     {
         skill4?.Invoke();
     }
-    private void DieCheck(UnitInfo unitInfo)
+    private bool DieCheck(UnitInfo unitInfo)
     {
         switch (unitInfo.unitType)
         {
@@ -600,18 +615,22 @@ public class BattleManager : MonoBehaviour
                 if (unitInfo.characterData.status.health <= 0)
                 {
                     playerUnitCount--;
+                    return true;
                 }
                 break;
             case CharacterType.Enemy:
                 if (unitInfo.unitData.Health <= 0)
                 {
-                    lUnitInfo[int.Parse(target.name)].actionController.Die();
-                    lUnitInfo.Remove(int.Parse(target.name));
+                    unitInfo.actionController.Die();
+                    lUnitInfo[int.Parse(unitInfo.unitObject.name)].actionController.Die();
+                    lUnitInfo.Remove(int.Parse(unitInfo.unitObject.name));
                     enemyUnitCount--;
                     TargetChange(CharacterType.Enemy);
+                    return true;
                 }
                 break;
         }
+        return false;
     }
     private GameEnd WaveEndChack()
     {

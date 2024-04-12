@@ -51,12 +51,13 @@ public class SaveData
             }
             skillData.Add(skillList);
         }
-        foreach (CharacterData team in teamData.Values)
+        foreach (KeyValuePair<int,CharacterData> team in teamData)
         {
-            teamStatusData.Add(team.status);
+            team.Value.status.teamNum = team.Key;
+            teamStatusData.Add(team.Value.status);
             CharacterSkillList skillList = new CharacterSkillList();
-            skillList.id = team.status.iD;
-            foreach (CharacterSkill skill in team.skillData.Values)
+            skillList.id = team.Value.status.iD;
+            foreach (CharacterSkill skill in team.Value.skillData.Values)
             {
                 skillList.skillList.Add(skill);
             }
@@ -76,10 +77,14 @@ public class SaveData
         }
         if (stageClear.Count != 0)
         {
-            foreach (StageInfo stage in stageClear)
+            for (int i = stageClear.Count - 1; i >= 0; i--)
             {
-                GameManager.Instance.User.stageClear.Push(stage);
+                GameManager.Instance.User.stageClear.Push(stageClear[i]);
             }
+            //foreach (StageInfo stage in stageClear)
+            //{
+            //    GameManager.Instance.User.stageClear.Push(stage);
+            //}
         }
         foreach (CharacterStatus character in statusData)
         {
@@ -113,7 +118,7 @@ public class SaveData
                     }
                 }
             }
-            GameManager.Instance.User.teamData.Add(characterTemp.status.iD, characterTemp);
+            GameManager.Instance.User.teamData.Add(characterTemp.status.teamNum, characterTemp);
         }
     }
     private void ReSetSaveData()
@@ -133,6 +138,12 @@ public class SaveData
         GameManager.Instance.User.teamData = new Dictionary<int, CharacterData>();
         GameManager.Instance.User.itemInventory = new Dictionary<int, Item>();
         GameManager.Instance.User.stageClear = new Stack<StageInfo>();
+        if (stageClear.Count == 0) 
+        {
+            StageInfo stageInfo = new StageInfo();
+            stageInfo.stageID = 1101;
+            stageClear.Add(stageInfo);      
+        }
     }
 }
 

@@ -25,7 +25,7 @@ public class IntroUI : MonoBehaviour
     public void GameStart()
     {
         SoundManager.Instance.ButtonAudio("BasicMenuO_1");
-        SceneLoadManager.Instance.LoadingChangeScene("Main");
+        StartCoroutine(LoadData());  
     }
 
     public void ExitGame()
@@ -63,5 +63,12 @@ public class IntroUI : MonoBehaviour
         startButton.color = new Color(1, 1, 1, 1);
         settingButton.color = new Color(1, 1, 1, 1);
         exitButton.color = new Color(1, 1, 1, 1);
+    }
+    private IEnumerator LoadData()
+    {
+        yield return new WaitForSeconds(0.2f);
+        GameManager.Instance.LoadDatas();
+        yield return new WaitForSeconds(0.2f);
+        SceneLoadManager.Instance.LoadingChangeScene("Main");
     }
 }

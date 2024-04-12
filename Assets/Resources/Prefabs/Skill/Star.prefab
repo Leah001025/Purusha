@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2323209031175222414}
   - component: {fileID: 7177232892342058872}
   - component: {fileID: 4012229795539064322}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Bubble
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4691,7 +4691,7 @@ GameObject:
   - component: {fileID: 3691155156151951390}
   - component: {fileID: 8761133631219807421}
   - component: {fileID: 118110153696400821}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Star
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9389,7 +9389,7 @@ GameObject:
   - component: {fileID: 922096913859152370}
   - component: {fileID: 38383296679724600}
   - component: {fileID: 8677857039174739609}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14087,7 +14087,7 @@ GameObject:
   - component: {fileID: 2334128311590229853}
   - component: {fileID: 2649209335756601260}
   - component: {fileID: 5973732443647421823}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Flash
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18783,7 +18783,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6845460454507087991}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Star
   m_TagString: Untagged
   m_Icon: {fileID: 0}

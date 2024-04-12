@@ -11,11 +11,5 @@ public class StartScene : BaseScene
     private void Start()
     {
         SoundManager.Instance.SceneAudioStart("StartScene");
-        StartCoroutine(LoadData());
-    }
-    private IEnumerator LoadData()
-    {
-        yield return new WaitForSeconds(1f);
-        GameManager.Instance.LoadDatas();
     }
 }

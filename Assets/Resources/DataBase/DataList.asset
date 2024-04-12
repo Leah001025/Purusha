@@ -293,11 +293,11 @@ MonoBehaviour:
     IconPath: UI/Icon/Skill_Breesha3
   - ID: 101041
     Name: "\uAD81\uADF9(\uB808\uBCA81)"
-    Description: "\uC218\uC2ED\uAE30\uC758 \uB4DC\uB860\uC744 \uC18C\uD658\uD558\uC5EC
-      \uC801 \uC804\uCCB4\uB97C \uACF5\uACA9 (20%\uD655\uB960 \uAE30\uC808)"
+    Description: "\uB4DC\uB860\uC744 \uC18C\uD658\uD558\uC5EC \uC801 \uC804\uCCB4\uB97C
+      \uACF5\uACA9"
     Type: 1
     Range: 1
-    BuffID: 205
+    BuffID: 0
     BuffID2: 0
     AtkCoefficient: 2.5
     DefCoefficient: 0
@@ -310,11 +310,11 @@ MonoBehaviour:
     IconPath: UI/Icon/Skill_Breesha4
   - ID: 101042
     Name: "\uAD81\uADF9(\uB808\uBCA82)"
-    Description: "\uC218\uC2ED\uAE30\uC758 \uB4DC\uB860\uC744 \uC18C\uD658\uD558\uC5EC
-      \uC801 \uC804\uCCB4\uB97C \uACF5\uACA9 (30%\uD655\uB960 \uAE30\uC808)"
+    Description: "\uB4DC\uB860\uC744 \uC18C\uD658\uD558\uC5EC \uC801 \uC804\uCCB4\uB97C
+      \uACF5\uACA9"
     Type: 1
     Range: 1
-    BuffID: 206
+    BuffID: 0
     BuffID2: 0
     AtkCoefficient: 3
     DefCoefficient: 0
