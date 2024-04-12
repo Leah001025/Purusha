@@ -46,36 +46,36 @@ public class PlayerBattleState : PlayerBaseState
     }
     private void OnPlayerBattleSkill4()
     {
-
+        stateMachine.ChangeState(stateMachine.BattleSkill4State);
     }
 
     private void OnPlayerBattleSkill3()
     {
-
+        stateMachine.ChangeState(stateMachine.BattleSkill3State);
     }
 
     private void OnPlayerBattleSkill2()
     {
-
+        stateMachine.ChangeState(stateMachine.BattleSkill2State);
     }
 
     private void OnPlayerBattleSkill1()
     {
-
+        stateMachine.ChangeState(stateMachine.BattleSkill1State);
     }
 
     private void OnPlayerBattleMove()
     {
-
+        stateMachine.ChangeState(stateMachine.BattleMoveState);
     }
 
     private void OnPlayerBattleJump()
     {
-
+        stateMachine.ChangeState(stateMachine.BattleJumpState);
     }
 
     private void OnPlayerBattleIdle()
     {
-
+        stateMachine.ChangeState(stateMachine.BattleIdleState);
     }
 }

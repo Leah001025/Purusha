@@ -31,10 +31,28 @@ public class UserData
         gold = 1000;
         cash = 100;
         saveData = new SaveData();
+
+        CharacterData breesha = new CharacterData(101);
         CharacterData eve = new CharacterData(102);
+        CharacterData adam = new CharacterData(103);
+        CharacterData abel = new CharacterData(104);
+        CharacterData kain = new CharacterData(105);
+
+        characters.Add(breesha.status.iD, breesha);
         characters.Add(eve.status.iD, eve);
-        upgrades.Add(eve.status.iD, new UpgradeStatData());
+        characters.Add(adam.status.iD, adam);
+        characters.Add(abel.status.iD, abel);
+        characters.Add(kain.status.iD, kain);
+
+        AddTeam(breesha.status.iD);
         AddTeam(eve.status.iD);
+        AddTeam(adam.status.iD);
+        AddTeam(abel.status.iD);
+        AddTeam(kain.status.iD);
+
+
+        upgrades.Add(eve.status.iD, new UpgradeStatData());
+
         StageInfo stageInfo = new StageInfo();
         stageInfo.stageID = 1101;
         stageClear.Push(stageInfo);
@@ -51,14 +69,14 @@ public class UserData
     //ÆÀ¿ø Ãß°¡
     public void AddTeam(int id)
     {
-        for (int i = 1;  i <=5; i++)
+        for (int i = 1; i <= 5; i++)
         {
-            if (!teamData.ContainsKey(i)) 
+            if (!teamData.ContainsKey(i))
             {
                 teamData.Add(i, characters[id]);
                 return;
             }
-        }        
+        }
     }
 
     //ÆÀ¿ø Á¦°Å
@@ -67,16 +85,16 @@ public class UserData
         teamData.Remove(index);
     }
 
-    public void AddItem(int id, int quantity=1)
+    public void AddItem(int id, int quantity = 1)
     {
         Item newItem = new Item(id);
-        if(!itemInventory.ContainsKey(id)) 
-        {            
+        if (!itemInventory.ContainsKey(id))
+        {
             itemInventory.Add(id, newItem);
         }
         else
         {
-            itemInventory[id].quantity+=quantity;
+            itemInventory[id].quantity += quantity;
         }
     }
     public void RemoveItem(int id)

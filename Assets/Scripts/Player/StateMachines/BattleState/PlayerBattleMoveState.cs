@@ -23,5 +23,9 @@ public class PlayerBattleMoveState : PlayerBattleState
     public override void Update()
     {
         base.Update();
+        if (stateMachine.Player.Animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1f && stateMachine.Player.Animator.GetCurrentAnimatorStateInfo(0).IsName("Move"))
+        {
+            stateMachine.ChangeState(stateMachine.BattleIdleState);
+        }
     }
 }
