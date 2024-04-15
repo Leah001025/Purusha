@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.AddressableAssets.HostingServices;
 using UnityEngine;
 
 public class SoundManager : SingleTon<SoundManager>
@@ -106,18 +107,18 @@ public class SoundManager : SingleTon<SoundManager>
         bgmAudioSource.volume = 0f;
         bgmAudioSource.Play();
     }
-    public void AttackAudio(string clip)
+    public void AttackAudio(int id, string num)
     {
         if (attackAudioSource.isPlaying)
         {
             attackAudioSource.Stop();
         }
-        if (_attackClips.ContainsKey(clip) == false)
+        if (_attackClips.ContainsKey(id + num) == false)
         {
-            var _clip = Resources.Load<AudioClip>($"Sound/Attack/{clip}");
-            _attackClips.Add(clip, _clip);
+            var _clip = Resources.Load<AudioClip>($"Sound/Attack/{id}/{num}");
+            _attackClips.Add(id + num, _clip);
         }
-        attackAudioSource.clip = _attackClips[clip];
+        attackAudioSource.clip = _attackClips[id + num];
         attackAudioSource.Play();
     }
     public void ButtonAudio(string clip)
