@@ -1213,6 +1213,60 @@ MonoBehaviour:
     _waveID_1: 110101
     _waveID_2: 110102
     _waveID_3: 110103
+  - _id: 1201
+    _openMapPath: Prefabs/Map/Chapter2/Chap2-1(new)
+    _stageName: stage1
+    _waveID_1: 110101
+    _waveID_2: 110102
+    _waveID_3: 110103
+  - _id: 1202
+    _openMapPath: Prefabs/Map/Chapter2/Chap2-2(new)
+    _stageName: stage2
+    _waveID_1: 110101
+    _waveID_2: 110102
+    _waveID_3: 110103
+  - _id: 1203
+    _openMapPath: Prefabs/Map/Chapter2/Chap2-3(new)
+    _stageName: stage3
+    _waveID_1: 110101
+    _waveID_2: 110102
+    _waveID_3: 110103
+  - _id: 1301
+    _openMapPath: Prefabs/Map/Chapter3/Chap3-1(new)
+    _stageName: stage1
+    _waveID_1: 110101
+    _waveID_2: 110102
+    _waveID_3: 110103
+  - _id: 1302
+    _openMapPath: Prefabs/Map/Chapter3/Chap3-2(new)
+    _stageName: stage2
+    _waveID_1: 110101
+    _waveID_2: 110102
+    _waveID_3: 110103
+  - _id: 1303
+    _openMapPath: Prefabs/Map/Chapter3/Chap3-3(new)
+    _stageName: stage3
+    _waveID_1: 110101
+    _waveID_2: 110102
+    _waveID_3: 110103
+  - _id: 1401
+    _openMapPath: Prefabs/Map/Chapter4/Chap4-1(new)
+    _stageName: stage1
+    _waveID_1: 110101
+    _waveID_2: 110102
+    _waveID_3: 110103
+  - _id: 1402
+    _openMapPath: Prefabs/Map/Chapter4/Chap4-2(new)
+    _stageName: stage2
+    _waveID_1: 110101
+    _waveID_2: 110102
+    _waveID_3: 110103
+  - _id: 1403
+    _openMapPath: Prefabs/Map/Chapter4/Chap4-3(new)
+    _stageName: stage3
+    _waveID_1: 110101
+    _waveID_2: 110102
+    _waveID_3: 110103
   LevelData:
   - _level: 1
     _exp: 0

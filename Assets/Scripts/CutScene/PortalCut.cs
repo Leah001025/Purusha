@@ -8,19 +8,23 @@ public class PortalCut : MonoBehaviour
 {
     private PlayableDirector playableDirector;
     public TimelineAsset[] timeline;
-    private bool isCutScenePlay;
+    private Dictionary<int, bool> isCutScenePlay;
 
     private void Start()
     {
         playableDirector = GetComponent<PlayableDirector>();
+        isCutScenePlay = GameManager.Instance.User.isCutScenePlay;
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "Player"&&!isCutScenePlay)
+        if(other.tag == "Player")
         {
-            isCutScenePlay = true;
-            playableDirector.Play(timeline[0]);
+            if (!isCutScenePlay.ContainsKey(GameManager.Instance.stageID))
+            {
+                isCutScenePlay.Add(GameManager.Instance.stageID, true);
+                playableDirector.Play(timeline[0]);
+            }
         }
     }
 }
