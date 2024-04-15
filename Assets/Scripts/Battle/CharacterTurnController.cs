@@ -364,6 +364,7 @@ public class CharacterTurnController : MonoBehaviour
         SkillAnim(skillNum);
         yield return new WaitForSeconds(1f);
         OnSkillEffect(characterData.skillData[skillNum]);
+        SoundManager.Instance.AttackAudio(characterData.status.iD, num);
         yield return wait05;
         yield return wait05;
         Destroy(skillObj);
@@ -386,6 +387,7 @@ public class CharacterTurnController : MonoBehaviour
         isStartPos = true;
         SkillAnim(skillNum);
         OnSkillEffect(characterData.skillData[skillNum]);
+        SoundManager.Instance.AttackAudio(characterData.status.iD, num);
         yield return new WaitForSeconds(time);
         Destroy(skillObj);
         yield return new WaitForSeconds(0.2f);
