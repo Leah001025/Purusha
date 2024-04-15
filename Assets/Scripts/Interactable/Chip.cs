@@ -13,6 +13,11 @@ public class Chip : MonoBehaviour, IInteractable
     private Image _image;
     private TextMeshProUGUI _text;
     private bool isAlreadyGet=false;
+    private void Awake()
+    {
+        float ran = Random.Range(0, 1f);
+        gameObject.SetActive(ran > 0.5f);
+    }
     public void Enter()
     {
         _itemBtn.SetActive(true);
@@ -75,7 +80,7 @@ public class Chip : MonoBehaviour, IInteractable
         _text = _itemUI.transform.GetChild(1).gameObject.GetComponent<TextMeshProUGUI>();
         _image.sprite = sprite;
         _text.text = $"{item.Name}(À»)¸¦ {quantity}°³ È¹µæ ÇÏ¿´½À´Ï´Ù.";
-        Destroy(gameObject);
+        gameObject.SetActive(false);
     }
 
 }
