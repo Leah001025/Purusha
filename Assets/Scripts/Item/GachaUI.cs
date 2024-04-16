@@ -24,13 +24,14 @@ public class GachaUI : MonoBehaviour
     }
     public void GetID(int index)
     {
+        SoundManager.Instance.ButtonAudio("BasicMenuC_1");
         curID = index;
         var res = Resources.Load<Sprite>($"UI/Image/{curID}");
         gachaImage.sprite = res;
         curName.text = DataManager.Instance.PlayerDB.GetData(curID).Name;
     }
     public void Gacha1()
-    {        
+    {
         if (!inventory.ContainsKey(10501)) return;
         results.Clear();
         gachaObj.SetActive(false);
@@ -43,6 +44,7 @@ public class GachaUI : MonoBehaviour
             obj.gameObject.SetActive(false);
             gachaObj.SetActive(true);
         });
+        SoundManager.Instance.ButtonAudio("Draw");
         Image icon = obj.transform.GetChild(2).GetChild(0).gameObject.GetComponent<Image>();
         if (results[0].id==10701) icon.sprite = Resources.Load<Sprite>($"UI/Icon/{results[0].value}");
         else icon.sprite = Resources.Load<Sprite>(results[0].spritePath);
@@ -65,6 +67,7 @@ public class GachaUI : MonoBehaviour
             obj.gameObject.SetActive(false);
             gachaObj.SetActive(true);
         });
+        SoundManager.Instance.ButtonAudio("Draw");
         for (int i = 0; i < 10; i++)
         {            
             results.Add(inventory[10501].UseGachaItem(10501, curID));
