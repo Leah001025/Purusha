@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class IntroScene : BaseScene
 {
+    public void Start()
+    {
+        SoundManager.Instance.BgmAudio("Intro");
+    }
     public void IntroSceneEnd()
     {
         GameManager.Instance.User.introScene = true;
