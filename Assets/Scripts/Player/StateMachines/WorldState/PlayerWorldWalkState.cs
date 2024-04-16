@@ -14,6 +14,7 @@ public class PlayerWorldWalkState : PlayerWorldState
         stateMachine.MovementSpeedModifier = groundData.WalkSpeedModifier;
         base.Enter();
         StartAnimation(stateMachine.Player.AnimationData.WorldWalkParameterHash);
+        SoundManager.Instance.EnvironmentAudio("Walk");
     }
 
     public override void Exit()

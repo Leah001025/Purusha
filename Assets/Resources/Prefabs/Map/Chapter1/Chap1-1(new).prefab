@@ -24596,16 +24596,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: ClearPortal
       objectReference: {fileID: 0}
-    - target: {fileID: 1808398666961481064, guid: a2202daace6dda04780fac5169e853a2,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3492920432259571530, guid: a2202daace6dda04780fac5169e853a2,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3969378130291252482, guid: a2202daace6dda04780fac5169e853a2,
         type: 3}
       propertyPath: m_LocalPosition.x

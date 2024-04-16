@@ -20,6 +20,7 @@ public class SoundManager : SingleTon<SoundManager>
 
     public GameObject Player;
     private bool isAudioIn;
+    private string environmentType;
 
     protected override void Awake()
     {
@@ -118,8 +119,35 @@ public class SoundManager : SingleTon<SoundManager>
             var _clip = Resources.Load<AudioClip>($"Sound/Attack/{id}/{num}");
             _attackClips.Add(id + num, _clip);
         }
-        attackAudioSource.clip = _attackClips[id + num];
+        environmentAudioSource.clip = _attackClips[id + num];
         attackAudioSource.Play();
+    }
+    public void EnvironmentAudio(string type)
+    {
+        CancelInvoke("EnvironmentPlay");
+        environmentType = type;
+        switch (type)
+        {
+            case "Idle":
+                break;
+            case "Walk":
+                InvokeRepeating("EnvironmentPlay", 0, 0.55f);
+                break;
+            case "Run":
+                InvokeRepeating("EnvironmentPlay", 0, 0.3f);
+                break;
+        }
+    }
+    public void EnvironmentPlay()
+    {
+        string foot = Random.Range(1, 5).ToString();
+        if (_environmentClips.ContainsKey(environmentType + foot) == false)
+        {
+            var _clip = Resources.Load<AudioClip>($"Sound/Environment/{environmentType}/{foot}");
+            _environmentClips.Add(environmentType + foot, _clip);
+        }
+        environmentAudioSource.clip = _environmentClips[environmentType + foot];
+        environmentAudioSource.Play();
     }
     public void ButtonAudio(string clip)
     {

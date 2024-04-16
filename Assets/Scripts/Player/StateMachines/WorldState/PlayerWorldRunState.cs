@@ -13,6 +13,7 @@ public class PlayerWorldRunState : PlayerWorldState
         stateMachine.MovementSpeedModifier = groundData.RunSpeedModifier;
         base.Enter();
         StartAnimation(stateMachine.Player.AnimationData.WorldRunParameterHash);
+        SoundManager.Instance.EnvironmentAudio("Run");
     }
 
     public override void Exit()
