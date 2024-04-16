@@ -738,6 +738,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Chap4-1(new)
       objectReference: {fileID: 0}
+    - target: {fileID: 3138442837686195479, guid: e6a931b869630064daa469c75e4f1948,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6037502569413399387, guid: e6a931b869630064daa469c75e4f1948,
         type: 3}
       propertyPath: m_SceneBindings.Array.data[0].value

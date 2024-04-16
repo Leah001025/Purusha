@@ -6,7 +6,7 @@ using System.IO;
 
 public static class Utility
 {
-    private readonly static string _dataPath = Application.dataPath + "/Data/";
+    private readonly static string _dataPath = Application.persistentDataPath + "/Data/";
 
     public static int GetHashWithString(string path)
     {

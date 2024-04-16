@@ -10034,6 +10034,16 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: 0.16543472
       objectReference: {fileID: 0}
+    - target: {fileID: 8868803760168052212, guid: a8639e43fe54ff8448853b0b2d70c3fd,
+        type: 3}
+      propertyPath: m_Intensity
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8868803760168052212, guid: a8639e43fe54ff8448853b0b2d70c3fd,
+        type: 3}
+      propertyPath: m_BounceIntensity
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8983328976454179184, guid: a8639e43fe54ff8448853b0b2d70c3fd,
         type: 3}
       propertyPath: m_LocalRotation.w
