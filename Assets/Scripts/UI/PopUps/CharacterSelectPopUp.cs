@@ -58,7 +58,7 @@ public class CharacterSeletPopUp : UIBase
             }
             if (userStageInfo.Peek().stageID == int.Parse(_obj.name))
             {
-                if (userStageInfo.Peek().wave3Clear == true) 
+                if (userStageInfo.Peek().wave3Clear == true)
                 {
                     img.color = Color.blue;
                 }
@@ -96,6 +96,13 @@ public class CharacterSeletPopUp : UIBase
         {
             if (userStageInfo.Peek().wave3Clear == true) return;
         }
-            SceneLoadManager.Instance.LoadingChangeScene("Dev_Main_Scene");
+        //nextStage외 다른 스테이지 도전 불가
+        if (GameManager.Instance.User.stageClear.Peek().stageID != gmStageID)
+        {
+            Debug.Log($"현재 선택 스테이지 : {gmStageID}");
+            Debug.Log($"입장 가능 스테이지 : {GameManager.Instance.User.stageClear.Peek().stageID}");
+            return;
+        }
+        SceneLoadManager.Instance.LoadingChangeScene("Dev_Main_Scene");
     }
 }

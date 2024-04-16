@@ -129,6 +129,15 @@ public class ClearUI : MonoBehaviour
                 GameManager.Instance.User.stageClear.Peek().wave3Clear = GameManager.Instance.wave3Clear;
             }
         }
+        //wave3 클리어시 waveInfo 초기화
+        if (GameManager.Instance.wave3Clear)
+        {
+            GameManager.Instance.ResetWaveInfo();
+            int nextStage = GameManager.Instance.User.NextStage();
+            StageInfo nextStageInfo = new StageInfo();
+            GameManager.Instance.User.stageClear.Push(nextStageInfo);
+            nextStageInfo.stageID = nextStage;
+        }
     }
     public void ContinueBtn()
     {

@@ -1247,7 +1247,7 @@ GameObject:
   - component: {fileID: 2913873911051082964}
   - component: {fileID: 3886744836933264449}
   - component: {fileID: 3522844759596060304}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Floor Tile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8652,7 +8652,7 @@ GameObject:
   - component: {fileID: 1999125784788342680}
   - component: {fileID: 7334006130784741411}
   - component: {fileID: 1455562046648810033}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: LP_Stair_Steps
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9608,7 +9608,7 @@ GameObject:
   - component: {fileID: 6578792432821923018}
   - component: {fileID: 252171814156300957}
   - component: {fileID: 8274046642618627513}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Floor Tile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15146,7 +15146,7 @@ GameObject:
   - component: {fileID: 6386467076330364265}
   - component: {fileID: 980173880871120171}
   - component: {fileID: 4705162324460161057}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Floor Tile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25707,7 +25707,7 @@ GameObject:
   - component: {fileID: 6769129563676431191}
   - component: {fileID: 2089853468451036239}
   - component: {fileID: 7508800532742039031}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Floor Tile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27923,7 +27923,7 @@ GameObject:
   - component: {fileID: 5594683711259875578}
   - component: {fileID: 3760421756874933421}
   - component: {fileID: 9159297301219640207}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Catwalk Long (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -61104,7 +61104,7 @@ GameObject:
   - component: {fileID: 3060381917766124840}
   - component: {fileID: 3292092952781542096}
   - component: {fileID: 4990787737120950596}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Catwalk Long (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -71255,7 +71255,7 @@ GameObject:
   - component: {fileID: 3418921883012393431}
   - component: {fileID: 5007958065860232576}
   - component: {fileID: 7057973641740002713}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Catwalk Long
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -71629,7 +71629,7 @@ GameObject:
   - component: {fileID: 1991216072382852744}
   - component: {fileID: 4419999021803463921}
   - component: {fileID: 4053383991053349677}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Tunnel Incline Floor002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -77540,7 +77540,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4885775919050023362}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Catwalk Stairs
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -78323,7 +78323,7 @@ GameObject:
   - component: {fileID: 445263509527314573}
   - component: {fileID: 1996970872425138139}
   - component: {fileID: 8958031484737691779}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Tunnel Incline Steps002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -85841,7 +85841,7 @@ GameObject:
   - component: {fileID: 8785571393237373062}
   - component: {fileID: 6714437249674217198}
   - component: {fileID: 35749989768776068}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Floor Tile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -85946,7 +85946,7 @@ GameObject:
   - component: {fileID: 4721779302987669025}
   - component: {fileID: 3861004739734445664}
   - component: {fileID: 5408036368101512506}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Floor Tile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -86780,7 +86780,7 @@ GameObject:
   - component: {fileID: 7664565472853314046}
   - component: {fileID: 7865247946053387661}
   - component: {fileID: 6677658886577850290}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: LP_Stairs_snaps
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94264,7 +94264,7 @@ GameObject:
   - component: {fileID: 5246771864166942398}
   - component: {fileID: 6541663718754805348}
   - component: {fileID: 9102898735587675625}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: LP_walkway_Stairs_snaps
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -96384,7 +96384,7 @@ GameObject:
   - component: {fileID: 4017490989358635998}
   - component: {fileID: 1909929511128546535}
   - component: {fileID: 6403232355763104264}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Tunnel Floor001
   m_TagString: Untagged
   m_Icon: {fileID: 0}

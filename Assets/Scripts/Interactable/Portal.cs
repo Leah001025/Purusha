@@ -24,25 +24,34 @@ public class Portal : MonoBehaviour, IInteractable
     }
     private void StageClear()
     {
-        stageInfo = new StageInfo();
+        //stageInfo = new StageInfo();
 
-        stageInfo.stageID = GameManager.Instance.stageID;
-        stageInfo.wave1Clear = GameManager.Instance.wave1Clear;
-        stageInfo.wave2Clear = GameManager.Instance.wave2Clear;
-        stageInfo.wave3Clear = GameManager.Instance.wave3Clear;
+        //stageInfo.stageID = GameManager.Instance.stageID;
+        //stageInfo.wave1Clear = GameManager.Instance.wave1Clear;
+        //stageInfo.wave2Clear = GameManager.Instance.wave2Clear;
+        //stageInfo.wave3Clear = GameManager.Instance.wave3Clear;
 
         if (GameManager.Instance.User.stageClear.Count != 0)
         {
-            if (stageInfo.stageID != GameManager.Instance.User.stageClear.Peek().stageID)
-            {
-                GameManager.Instance.User.stageClear.Push(stageInfo);
-            }
-            else
-            {
+            //if (stageInfo.stageID != GameManager.Instance.User.stageClear.Peek().stageID)
+            //{
+            //    GameManager.Instance.User.stageClear.Push(stageInfo);
+            //}
+            //else
+            //{
                 GameManager.Instance.User.stageClear.Peek().wave1Clear = GameManager.Instance.wave1Clear;
                 GameManager.Instance.User.stageClear.Peek().wave2Clear = GameManager.Instance.wave2Clear;
                 GameManager.Instance.User.stageClear.Peek().wave3Clear = GameManager.Instance.wave3Clear;
-            }
+            //}
+        }
+        //wave3 클리어시 waveInfo 초기화
+        if (GameManager.Instance.wave3Clear)
+        {
+            GameManager.Instance.ResetWaveInfo();
+            int nextStage = GameManager.Instance.User.NextStage();
+            StageInfo nextStageInfo = new StageInfo();
+            GameManager.Instance.User.stageClear.Push(nextStageInfo);
+            nextStageInfo.stageID = nextStage;
         }
     }
 }

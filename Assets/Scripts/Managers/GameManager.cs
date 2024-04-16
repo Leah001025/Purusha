@@ -22,7 +22,7 @@ public class GameManager : SingleTon<GameManager>
     public string userName = "Leah";
     protected override void Awake()
     {
-        base.Awake();      
+        base.Awake();
     }
     private void Start()
     {
@@ -66,5 +66,11 @@ public class GameManager : SingleTon<GameManager>
         User = Utility.LoadJsonFile<UserData>("UserData.json");
         User.saveData.GetData();
         Debug.Log("데이터 불러왔음");
+    }
+    public void ResetWaveInfo()
+    {
+        wave1Clear = false;
+        wave2Clear = false;
+        wave3Clear = false;
     }
 }

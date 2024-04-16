@@ -25,7 +25,7 @@ public class IntroUI : MonoBehaviour
     public void GameStart()
     {
         SoundManager.Instance.ButtonAudio("BasicMenuO_1");
-        StartCoroutine(LoadData());  
+        StartCoroutine(LoadData());
     }
 
     public void ExitGame()
@@ -69,6 +69,9 @@ public class IntroUI : MonoBehaviour
         yield return new WaitForSeconds(0.2f);
         GameManager.Instance.LoadDatas();
         yield return new WaitForSeconds(0.2f);
-        SceneLoadManager.Instance.LoadingChangeScene("Main");
+        if (GameManager.Instance.User.introScene)
+            SceneLoadManager.Instance.LoadingChangeScene("Main");
+        else
+            SceneLoadManager.Instance.LoadingChangeScene("IntroScene");
     }
 }

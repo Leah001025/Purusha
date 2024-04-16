@@ -7774,9 +7774,9 @@ PlayableDirector:
   m_InitialTime: 0
   m_SceneBindings:
   - key: {fileID: -1603801157523171378, guid: 3b6c6a709b0be9145aadbf2bc3d22ff9, type: 2}
-    value: {fileID: 2202139577959133617}
+    value: {fileID: 0}
   - key: {fileID: 4185645156259763208, guid: 3b6c6a709b0be9145aadbf2bc3d22ff9, type: 2}
-    value: {fileID: 4838113117736579441}
+    value: {fileID: 0}
   - key: {fileID: -7441507028154446766, guid: 3b6c6a709b0be9145aadbf2bc3d22ff9, type: 2}
     value: {fileID: 8328719672765720709}
   - key: {fileID: 546570570774373976, guid: 3b6c6a709b0be9145aadbf2bc3d22ff9, type: 2}
@@ -9253,7 +9253,6 @@ Transform:
   - {fileID: 7618990928715328461}
   - {fileID: 6019196913789035640}
   - {fileID: 8871417201049233697}
-  - {fileID: 1568452150548589323}
   - {fileID: 4041885874963163609}
   - {fileID: 8174091826530284952}
   - {fileID: 6245199443700703300}
@@ -14736,8 +14735,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5923769929976147569}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.023135142, y: -0.7401509, z: 0.025999568, w: 0.67153966}
-  m_LocalPosition: {x: 5.8181705, y: 1.3385476, z: 18.191965}
+  m_LocalRotation: {x: -0.00076773757, y: -0.99757355, z: 0.06924858, w: -0.007148206}
+  m_LocalPosition: {x: 9.620653, y: 1.5813756, z: 23.529694}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -24290,92 +24289,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -2210172805183242683, guid: 99040d3a576cb370ab116e8035240d86, type: 3}
---- !u!1001 &1319268365719047392
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 8658705225773656828}
-    m_Modifications:
-    - target: {fileID: -8679921383154817045, guid: 575dc26a6aca6fa4db165b1a9f387bba,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.74
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 575dc26a6aca6fa4db165b1a9f387bba,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.15
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 575dc26a6aca6fa4db165b1a9f387bba,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 15.71
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 575dc26a6aca6fa4db165b1a9f387bba,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.571131
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 575dc26a6aca6fa4db165b1a9f387bba,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 575dc26a6aca6fa4db165b1a9f387bba,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0.82085896
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 575dc26a6aca6fa4db165b1a9f387bba,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 575dc26a6aca6fa4db165b1a9f387bba,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 575dc26a6aca6fa4db165b1a9f387bba,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: -110.342
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 575dc26a6aca6fa4db165b1a9f387bba,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: 575dc26a6aca6fa4db165b1a9f387bba,
-        type: 3}
-      propertyPath: m_Name
-      value: Prisoner B Styperek@Zombie Idle
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 575dc26a6aca6fa4db165b1a9f387bba, type: 3}
---- !u!4 &1568452150548589323 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 575dc26a6aca6fa4db165b1a9f387bba,
-    type: 3}
-  m_PrefabInstance: {fileID: 1319268365719047392}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &2202139577959133617 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 575dc26a6aca6fa4db165b1a9f387bba,
-    type: 3}
-  m_PrefabInstance: {fileID: 1319268365719047392}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &4838113117736579441 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: 575dc26a6aca6fa4db165b1a9f387bba,
-    type: 3}
-  m_PrefabInstance: {fileID: 1319268365719047392}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4105268180240937819
 PrefabInstance:
   m_ObjectHideFlags: 0

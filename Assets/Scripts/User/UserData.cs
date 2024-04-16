@@ -33,19 +33,20 @@ public class UserData
         cash = 100;
         saveData = new SaveData();
 
-        AddCharacter(101);
+        //AddCharacter(101);
         AddCharacter(102);
-        AddCharacter(103);
-        AddCharacter(104);
-        AddCharacter(105);
+        //AddCharacter(103);
+        //AddCharacter(104);
+        //AddCharacter(105);
 
-        AddTeam(101);
+        //AddTeam(101);
         AddTeam(102);
-        AddTeam(103);
-        AddTeam(104);
-        AddTeam(105);
-        AddItem(10201, 100);
-        AddItem(10301, 100);
+        //AddTeam(103);
+        //AddTeam(104);
+        //AddTeam(105);
+        AddItem(10201, 10);
+        AddItem(10301, 10);
+        AddItem(10501, 10);
 
 
         //upgrades.Add(eve.status.iD, new UpgradeStatData());
@@ -106,6 +107,22 @@ public class UserData
         else
         {
             Debug.Log("인벤토리에 삭제할 아이템이 없습니다.");
+        }
+    }
+    public int NextStage()
+    {
+        int curID = stageClear.Peek().stageID;
+        int nextID;
+        string idstr = curID.ToString();
+        if (idstr.Substring(3) == "3")
+        {
+            nextID = curID + 100 - 2;
+            return nextID;
+        }
+        else
+        {
+            nextID = curID + 1;
+            return nextID;
         }
     }
 }

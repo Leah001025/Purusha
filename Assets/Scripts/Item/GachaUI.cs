@@ -48,6 +48,7 @@ public class GachaUI : MonoBehaviour
         else icon.sprite = Resources.Load<Sprite>(results[0].spritePath);
         TextMeshProUGUI quantity = obj.transform.GetChild(2).GetChild(1).gameObject.GetComponent<TextMeshProUGUI>();
         quantity.text = results[0].quantity.ToString("0");
+        if(UIManager.Instance.itemInventoryUI !=null)
         UIManager.Instance.itemInventoryUI.UpdateInventory();
         UIManager.Instance.CharacterUpdate();
     }

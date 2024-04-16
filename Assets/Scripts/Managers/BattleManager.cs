@@ -324,15 +324,15 @@ public class BattleManager : MonoBehaviour
                 {
                     skillController.SetBuffandDebuff(buffID);
                 }
-                for (int i = 1; i <= lUnitInfo.Count; i++)
+                for (int i = 1; i <= enemyCreateCount+playerCreateCount; i++)
                 {
                     targetIndex = int.Parse(target.name);
-                    if (lUnitInfo[count].unitType == CharacterType.Enemy)
+                    if (lUnitInfo.ContainsKey(count)&&lUnitInfo[count].unitType == CharacterType.Enemy)
                     {
                         lUnitInfo[count].unitData.Health -= _damage;
                         battleInfo.characterInfo[onTurnIndex].attackDamages += _damage;
                         AddDamageUI(_damage, lUnitInfo[count].unitObject.name);
-                        if (DieCheck(lUnitInfo[count])) i =unitCount-1-(enemyCreateCount - enemyUnitCount);
+                        //if (DieCheck(lUnitInfo[count])) i =unitCount-1-(enemyCreateCount - enemyUnitCount);
                     }
                     if ((enemyUnitCount) == 0) return;
                     count++;
