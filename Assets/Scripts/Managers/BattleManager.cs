@@ -333,7 +333,7 @@ public class BattleManager : MonoBehaviour
                         lUnitInfo[count].unitData.Health -= _damage;
                         battleInfo.characterInfo[onTurnIndex].attackDamages += _damage;
                         AddDamageUI(_damage, lUnitInfo[count].unitObject.name);
-                        //if (DieCheck(lUnitInfo[count])) i =unitCount-1-(enemyCreateCount - enemyUnitCount);
+                        DieCheck(lUnitInfo[count]);
                     }
                     if ((enemyUnitCount) == 0) return;
                     count++;
