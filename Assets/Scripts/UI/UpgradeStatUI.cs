@@ -46,9 +46,14 @@ public class UpgradeStatUI : MonoBehaviour
     public void UpgradeStatus(int index)
     {
         inventory = GameManager.Instance.User.itemInventory;
-        if (!(inventory.ContainsKey(10201) || inventory.ContainsKey(10301)))
+        if (!inventory.ContainsKey(10201) && index<=2)
         {
-            Debug.Log("강화재료가 부족합니다");
+            Debug.Log("무기 강화재료가 부족합니다");
+            return;
+        }
+        if (index>=3 && !inventory.ContainsKey(10301))
+        {
+            Debug.Log("방어구 강화재료가 부족합니다");
             return;
         }
         if (index <3&& inventory.ContainsKey(10201)) { inventory[10201].UseWeaponUpgradeItem(10201); }

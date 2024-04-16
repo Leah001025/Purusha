@@ -22,6 +22,8 @@ public static class Utility
     }
     public static void SaveToJsonFile<T>(T data, string path)
     {
+        var file = new System.IO.FileInfo(_dataPath);
+        file.Directory.Create();
         File.WriteAllText(_dataPath + path, JsonUtility.ToJson(data));
         Debug.Log($"Save file : {_dataPath + path}");
     }
