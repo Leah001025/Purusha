@@ -25,7 +25,7 @@ public class PortalCut : MonoBehaviour
                 playableDirector.Play(timeline[0]);
                 return;
             }
-            if (!isCutScenePlay.ContainsKey(GameManager.Instance.stageID))
+            else if (!isCutScenePlay.ContainsKey(GameManager.Instance.stageID))
             {
                 isCutScenePlay.Add(GameManager.Instance.stageID, true);
                 playableDirector.Play(timeline[0]);
