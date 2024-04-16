@@ -221,6 +221,7 @@ public class BattleManager : MonoBehaviour
     private IEnumerator AttackOrder()
     {
         attackOrder = new Queue<int>();
+        TargetChange(CharacterType.Enemy);
         yield return new WaitForSeconds(1f);
         while (gameState == GameEnd.Paly)
         {
@@ -394,6 +395,7 @@ public class BattleManager : MonoBehaviour
     {
         var status = unitInfo.characterData.status;
         float healthCoefficient = lUnitInfo[onTurnIndex].characterData.skillData[skillNum].healthCoefficient;
+        battleInfo.characterInfo[onTurnIndex].support += status.maxhealth * healthCoefficient;
         status.health = status.health + (status.maxhealth * healthCoefficient) >= status.maxhealth ?
             status.maxhealth : status.health + (status.maxhealth * healthCoefficient);
     }
@@ -408,6 +410,7 @@ public class BattleManager : MonoBehaviour
         {
             case 0:
                 lUnitInfo[targetIndex].characterData.status.health -= _damage;
+                battleInfo.characterInfo[targetIndex].receivedDamages += _damage;
                 turnControllers[targetIndex].SetBuffandDebuff(buffID);
                 //lUnitInfo[targetIndex].actionController.Hit();
                 //turnControllers[targetIndex].SetBuffandDebuff(buffID);
@@ -677,25 +680,32 @@ public class BattleManager : MonoBehaviour
                 if (enemyUnitCount == 0) break;
                 var enemycount = UnityEngine.Random.Range(playerCreateCount + 1, enemyCreateCount + playerCreateCount + 1);
                 bool isEnemy = true;
-                while (isEnemy)
+                if (target != null)
                 {
-                    foreach (int key in lUnitInfo.Keys)
+                    while (isEnemy)
                     {
-                        if (target.name == key.ToString() && enemycount == key)
+                        foreach (int key in lUnitInfo.Keys)
                         {
-                            OffTarget();
-                        }
-                        if (enemycount == key)
-                        {
-                            target = lUnitInfo[enemycount].unitObject;
-                            isEnemy = false;
-                            OnTarget();
-                        }
-                        else
-                        {
-                            enemycount = UnityEngine.Random.Range(playerCreateCount + 1, enemyCreateCount + playerCreateCount + 1);
+                            if (target.name == key.ToString() && enemycount == key)
+                            {
+                                OffTarget();
+                            }
+                            if (enemycount == key)
+                            {
+                                target = lUnitInfo[enemycount].unitObject;
+                                isEnemy = false;
+                                OnTarget();
+                            }
+                            else
+                            {
+                                enemycount = UnityEngine.Random.Range(playerCreateCount + 1, enemyCreateCount + playerCreateCount + 1);
+                            }
                         }
                     }
+                }
+                else
+                {
+                    target = lUnitInfo[enemycount].unitObject;
                 }
                 break;
         }

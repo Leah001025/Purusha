@@ -13,6 +13,7 @@ public class PlayerWorldIdleState : PlayerWorldState
         stateMachine.MovementSpeedModifier = 0f;
         base.Enter();
         StartAnimation(stateMachine.Player.AnimationData.WorldIdleParameterHash);
+        SoundManager.Instance.EnvironmentAudio("Idle");
     }
 
     public override void Exit()
