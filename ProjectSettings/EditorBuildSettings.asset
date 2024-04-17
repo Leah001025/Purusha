@@ -41,12 +41,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/DontDestroy.unity
     guid: 0629cfe7420c70a438bc6cc8911cc4be
-  - enabled: 1
-    path: Assets/Scenes/BattleTestScene.unity
-    guid: a6e5cf94af17fc643935ccef46c27b80
-  - enabled: 1
-    path: Assets/Scenes/BattleTestTestScene.unity
-    guid: eb64fef5fbafef54f92b0cdb6bb723f5
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: 74dc9097cba278c428eb9f7042d125d8,
       type: 2}

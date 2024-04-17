@@ -138,7 +138,7 @@ public class SaveData
         GameManager.Instance.User.teamData = new Dictionary<int, CharacterData>();
         GameManager.Instance.User.itemInventory = new Dictionary<int, Item>();
         GameManager.Instance.User.stageClear = new Stack<StageInfo>();
-        GameManager.Instance.User.isCutScenePlay = new Dictionary<int, bool>();
+        //GameManager.Instance.User.isCutScenePlay = new Dictionary<int, bool>();
         if (stageClear.Count == 0) 
         {
             StageInfo stageInfo = new StageInfo();

@@ -5798,7 +5798,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 
+  m_text: "\uBD80\uB300\uC7A5\uC774 \uD5C8\uB77D\uD574\uC8FC\uC9C0 \uC54A\uC73C\uBA74,
+    \uC800 \uD63C\uC790\uC11C\uB77C\uB3C4 \uAC08\uAC70\uC5D0\uC694."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e25c6dffca85b2b49bc654f4d6c3888b, type: 2}
   m_sharedMaterial: {fileID: -6808251517088078940, guid: e25c6dffca85b2b49bc654f4d6c3888b,
@@ -7058,7 +7059,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2737549732134316859
 Transform:
   m_ObjectHideFlags: 0
@@ -7312,7 +7313,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 
+  m_text: "\uC774\uBE0C"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e25c6dffca85b2b49bc654f4d6c3888b, type: 2}
   m_sharedMaterial: {fileID: -6808251517088078940, guid: e25c6dffca85b2b49bc654f4d6c3888b,
@@ -45024,6 +45025,7 @@ GameObject:
   - component: {fileID: 8450991550292620718}
   - component: {fileID: 7771041375473107545}
   - component: {fileID: 386544346682909833}
+  - component: {fileID: 1874565773313856977}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -45114,6 +45116,18 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &1874565773313856977
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5487363485070123550}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c610547333337524f9af248f530ef2de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5491382517433931509
 GameObject:
   m_ObjectHideFlags: 0
@@ -51239,7 +51253,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2133603244048808103
 Transform:
   m_ObjectHideFlags: 0
@@ -51274,7 +51288,12 @@ Animator:
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
-  m_WarningMessage: 
+  m_WarningMessage: "\nBinding warning: Some generic clip(s) animate transforms that
+    are already bound by a Humanoid avatar. These transforms can only be changed
+    by Humanoid clips.\n\tTransform 'index_03_l'\n\tTransform 'lowerarm_l'\n\tTransform
+    'root'\n\tTransform 'pinky_03_l'\n\tTransform 'neck_01'\n\tTransform 'pinky_03_r'\n\tTransform
+    'clavicle_l'\n\tTransform 'ring_02_l'\n\tTransform 'ball_l'\n\tTransform 'hand_l'\n\tand
+    more ..."
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
@@ -54568,6 +54587,7 @@ GameObject:
   - component: {fileID: 2980529239423112738}
   - component: {fileID: 1240070928877182303}
   - component: {fileID: 4768524538869593708}
+  - component: {fileID: 5564663714590661531}
   m_Layer: 6
   m_Name: Canvas
   m_TagString: Untagged
@@ -54658,6 +54678,18 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &5564663714590661531
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7384282880477601169}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c610547333337524f9af248f530ef2de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7398499944948788935
 GameObject:
   m_ObjectHideFlags: 0

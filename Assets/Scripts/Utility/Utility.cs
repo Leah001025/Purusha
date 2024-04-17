@@ -6,7 +6,7 @@ using System.IO;
 
 public static class Utility
 {
-    private readonly static string _dataPath = Application.dataPath + "/Data/";
+    private readonly static string _dataPath = Application.persistentDataPath + "/Data/";
 
     public static int GetHashWithString(string path)
     {
@@ -22,6 +22,8 @@ public static class Utility
     }
     public static void SaveToJsonFile<T>(T data, string path)
     {
+        var file = new System.IO.FileInfo(_dataPath);
+        file.Directory.Create();
         File.WriteAllText(_dataPath + path, JsonUtility.ToJson(data));
         Debug.Log($"Save file : {_dataPath + path}");
     }

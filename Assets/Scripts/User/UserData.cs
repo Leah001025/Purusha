@@ -19,7 +19,7 @@ public class UserData
     public Dictionary<int, CharacterData> characters = new();
     public Dictionary<int, CharacterData> teamData = new Dictionary<int, CharacterData>(5);
     public Dictionary<int, Item> itemInventory = new Dictionary<int, Item>();
-    public Dictionary<int, bool> isCutScenePlay = new Dictionary<int, bool>();
+    //public Dictionary<int, bool> isCutScenePlay = new Dictionary<int, bool>();
     //public List<ItemData> Inventory = new();
     //public ItemDataBase ItemData = DataManager.Instance.ItemDB; 아이템데이터 바로 사용금지
 
