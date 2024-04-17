@@ -535,7 +535,7 @@ public class BattleManager : MonoBehaviour
             }
             foreach (Compensations _data in waveDB.GetData(GameManager.Instance.waveID).Compensations)
             {
-                //GameManager.Instance.User.AddItem(_data._compensation, _data._compensationCount);
+                GameManager.Instance.User.AddItem(_data._compensation, _data._compensationCount);
             }
         }
         Debug.Log("gameEnd");
