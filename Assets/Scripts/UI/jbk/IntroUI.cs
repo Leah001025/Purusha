@@ -70,7 +70,7 @@ public class IntroUI : MonoBehaviour
         GameManager.Instance.LoadDatas();
         yield return new WaitForSeconds(0.2f);
         if (GameManager.Instance.User.introScene)
-            SceneLoadManager.Instance.LoadingChangeScene("Main");
+            SceneLoadManager.Instance.LoadingChangeScene("MainScene");
         else
             SceneLoadManager.Instance.LoadingChangeScene("IntroScene");
     }

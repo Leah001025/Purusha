@@ -157,7 +157,6 @@ public class BattleManager : MonoBehaviour
                 var Resource = Resources.Load<GameObject>(teamData[i].status.prefabPath);
                 unitInfo.unitType = CharacterType.Player;
                 unitInfo.unitObject = Instantiate(Resource, stageTrans);
-                unitInfo.unitObject.AddComponent<Player>();
                 unitInfo.actionController = unitInfo.unitObject.GetComponent<Player>().ActionController;
                 if (!turnControllers.ContainsKey(i))
                 {

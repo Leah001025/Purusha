@@ -105,7 +105,7 @@ public class ClearUI : MonoBehaviour
     public void MainMenuBtn()
     {
         StageClear();
-        SceneLoadManager.Instance.LoadingChangeScene("Main");
+        SceneLoadManager.Instance.LoadingChangeScene("MainScene");
     }
     private void StageClear()
     {
@@ -141,7 +141,7 @@ public class ClearUI : MonoBehaviour
     }
     public void ContinueBtn()
     {
-        SceneLoadManager.Instance.LoadingChangeScene("Dev_Main_Scene");
+        SceneLoadManager.Instance.LoadingChangeScene("OpenWorldScene");
     }
     public void BattleInfoBtn()
     {

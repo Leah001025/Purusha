@@ -82,7 +82,7 @@ public class PopupManager : MonoBehaviour
     }
     public void CloseBtn()
     {
-        SceneLoadManager.Instance.LoadingChangeScene("Main");
+        SceneLoadManager.Instance.LoadingChangeScene("MainScene");
     }
     public void OnClickShowItem()
     {

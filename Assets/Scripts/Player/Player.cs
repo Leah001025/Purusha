@@ -20,7 +20,7 @@ public class Player : MonoBehaviour
 
     private void Awake()
     {
-        Data = Resources.Load<PlayerSO>("DataBase/PlayerSO");
+        //Data = Resources.Load<PlayerSO>("DataBase/PlayerSO");
         AnimationData = new PlayerAnimationData();
         AnimationData.Initialize();
         ActionController = new CharacterActionController();

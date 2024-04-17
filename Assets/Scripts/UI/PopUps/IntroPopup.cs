@@ -9,7 +9,7 @@ public class IntroPopup : UIPopup
 
     private void Awake()
     {
-        _startbtn.onClick.AddListener(() => SceneLoadManager.Instance.LoadingChangeScene("Main"));
+        _startbtn.onClick.AddListener(() => SceneLoadManager.Instance.LoadingChangeScene("MainScene"));
         
     }
 }

@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[ExcelAsset (AssetPath = "Resources/DataBase")]
+[ExcelAsset (AssetPath = "DataBase")]
 public class DataList : ScriptableObject
 {
     public List<PlayerData> PlayerData;

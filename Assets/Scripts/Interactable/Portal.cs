@@ -20,7 +20,7 @@ public class Portal : MonoBehaviour, IInteractable
     public void Interaction()
     {
         StageClear();
-        SceneLoadManager.Instance.LoadingChangeScene("Main");
+        SceneLoadManager.Instance.LoadingChangeScene("MainScene");
     }
     private void StageClear()
     {

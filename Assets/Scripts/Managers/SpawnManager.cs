@@ -55,7 +55,7 @@ public class SpawnManager : MonoBehaviour
     }
     private void PlayerSpawm()
     {
-        player = Resources.Load("Prefabs/Player/WorldPlayer2") as GameObject;
+        player = Resources.Load("Prefabs/Player/WorldPlayer") as GameObject;
         var _obj = mapSpawnController.PlayerSpawn(player);
         for (int i = 1; 5 >= i; i++)
         {
@@ -65,6 +65,7 @@ public class SpawnManager : MonoBehaviour
                 var _playerObj = Instantiate(_playerRsc, _obj.transform.GetChild(0).transform);
                 SoundManager.Instance.Player = _playerObj;
                 _playerObj.GetComponent<CharacterTurnController>().enabled = false;
+                _playerObj.GetComponent<Player>().enabled = false;
                 break;
             }
         }

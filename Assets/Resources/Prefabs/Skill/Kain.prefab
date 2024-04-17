@@ -363,6 +363,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8194475785989251143}
   - component: {fileID: 7199451015550663228}
+  - component: {fileID: -1704848379204889331}
   m_Layer: 6
   m_Name: Kain
   m_TagString: Untagged
@@ -454,6 +455,34 @@ MonoBehaviour:
   shieldQuantity: 0
   skill4Gauge: 0
   character: {fileID: 5996125484908161445}
+--- !u!114 &-1704848379204889331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 641891501567016313}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bbb2a6094d04ca4684d76394f75c130, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <Data>k__BackingField: {fileID: 11400000, guid: 3a0af0c0f994a354fb15a8b8b6209b19,
+    type: 2}
+  <AnimationData>k__BackingField:
+    worldParameterName: '@World'
+    worldIdleParameterName: WorldIdle
+    worldWalkParameterName: WorldWalk
+    worldRunParameterName: WorldRun
+    worldAttackParameterName: WorldAttack
+    battleParameterName: '@Battle'
+    battleIdleParameterName: BattleIdle
+    battleJumpParameterName: BattleJump
+    battleMoveParameterName: BattleMove
+    battleSkill1ParameterName: BattleSkill1
+    battleSkill2ParameterName: BattleSkill2
+    battleSkill3ParameterName: BattleSkill3
+    battleSkill4ParameterName: BattleSkill4
 --- !u!1 &700327494052666867
 GameObject:
   m_ObjectHideFlags: 0
