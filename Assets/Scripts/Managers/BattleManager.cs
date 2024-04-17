@@ -70,6 +70,7 @@ public class BattleManager : MonoBehaviour
     public GameObject target;
     public Transform stageTrans;
     public Transform playerInfoTrans;
+    public Transform mapTrans;
     private Vector3[] playerSpawnPos = new Vector3[5];
     private Vector3[] enemySpawnPos = new Vector3[5];
 
@@ -119,6 +120,7 @@ public class BattleManager : MonoBehaviour
         lUnitInfo = new Dictionary<int, UnitInfo>();
         battleInfo = new BattleInfo();
         teamData = GameManager.Instance.User.teamData;
+        MapSpawn();
         SetSpawnPos();
         BattleStart(GameManager.Instance.waveID);
     }
@@ -133,6 +135,11 @@ public class BattleManager : MonoBehaviour
         {
             battleInfo.battleTime += Time.deltaTime;
         }
+    }
+    public void MapSpawn()
+    {
+        var Resource = Resources.Load(waveDB.GetData(GameManager.Instance.waveID).BattleMapPath) as GameObject;
+        Instantiate(Resource, mapTrans);
     }
     public void BattleStart(int StageID)
     {

@@ -1141,7 +1141,7 @@ MonoBehaviour:
     _spritePath: 
   WaveData:
   - _id: 110101
-    _battleMapPath: Prefabs/Map/Chapter1/BattleMap_1
+    _battleMapPath: Prefabs/Map/BattleMap/BattleMap_1
     _enemyID_1: 101001
     _enemyCount_1: 2
     _enemyID_2: 0
@@ -1159,7 +1159,7 @@ MonoBehaviour:
     _compensation_3: 0
     _compensationCount_3: 0
   - _id: 110102
-    _battleMapPath: Prefabs/Map/Chapter1/BattleMap_1
+    _battleMapPath: Prefabs/Map/BattleMap/BattleMap_1
     _enemyID_1: 101001
     _enemyCount_1: 3
     _enemyID_2: 0
@@ -1177,9 +1177,603 @@ MonoBehaviour:
     _compensation_3: 0
     _compensationCount_3: 0
   - _id: 110103
-    _battleMapPath: Prefabs/Map/Chapter1/BattleMap_1
+    _battleMapPath: Prefabs/Map/BattleMap/BattleMap_1
     _enemyID_1: 101001
     _enemyCount_1: 5
+    _enemyID_2: 0
+    _enemyCount_2: 0
+    _enemyID_3: 0
+    _enemyCount_3: 0
+    _enemyID_4: 0
+    _enemyCount_4: 0
+    _enemyID_5: 0
+    _enemyCount_5: 0
+    _compensation_1: 0
+    _compensationCount_1: 0
+    _compensation_2: 0
+    _compensationCount_2: 0
+    _compensation_3: 0
+    _compensationCount_3: 0
+  - _id: 110201
+    _battleMapPath: Prefabs/Map/BattleMap/BattleMap_1
+    _enemyID_1: 0
+    _enemyCount_1: 0
+    _enemyID_2: 0
+    _enemyCount_2: 0
+    _enemyID_3: 0
+    _enemyCount_3: 0
+    _enemyID_4: 0
+    _enemyCount_4: 0
+    _enemyID_5: 0
+    _enemyCount_5: 0
+    _compensation_1: 0
+    _compensationCount_1: 0
+    _compensation_2: 0
+    _compensationCount_2: 0
+    _compensation_3: 0
+    _compensationCount_3: 0
+  - _id: 110202
+    _battleMapPath: Prefabs/Map/BattleMap/BattleMap_1
+    _enemyID_1: 0
+    _enemyCount_1: 0
+    _enemyID_2: 0
+    _enemyCount_2: 0
+    _enemyID_3: 0
+    _enemyCount_3: 0
+    _enemyID_4: 0
+    _enemyCount_4: 0
+    _enemyID_5: 0
+    _enemyCount_5: 0
+    _compensation_1: 0
+    _compensationCount_1: 0
+    _compensation_2: 0
+    _compensationCount_2: 0
+    _compensation_3: 0
+    _compensationCount_3: 0
+  - _id: 110203
+    _battleMapPath: Prefabs/Map/BattleMap/BattleMap_1
+    _enemyID_1: 0
+    _enemyCount_1: 0
+    _enemyID_2: 0
+    _enemyCount_2: 0
+    _enemyID_3: 0
+    _enemyCount_3: 0
+    _enemyID_4: 0
+    _enemyCount_4: 0
+    _enemyID_5: 0
+    _enemyCount_5: 0
+    _compensation_1: 0
+    _compensationCount_1: 0
+    _compensation_2: 0
+    _compensationCount_2: 0
+    _compensation_3: 0
+    _compensationCount_3: 0
+  - _id: 110301
+    _battleMapPath: Prefabs/Map/BattleMap/BattleMap_1
+    _enemyID_1: 0
+    _enemyCount_1: 0
+    _enemyID_2: 0
+    _enemyCount_2: 0
+    _enemyID_3: 0
+    _enemyCount_3: 0
+    _enemyID_4: 0
+    _enemyCount_4: 0
+    _enemyID_5: 0
+    _enemyCount_5: 0
+    _compensation_1: 0
+    _compensationCount_1: 0
+    _compensation_2: 0
+    _compensationCount_2: 0
+    _compensation_3: 0
+    _compensationCount_3: 0
+  - _id: 110302
+    _battleMapPath: Prefabs/Map/BattleMap/BattleMap_1
+    _enemyID_1: 0
+    _enemyCount_1: 0
+    _enemyID_2: 0
+    _enemyCount_2: 0
+    _enemyID_3: 0
+    _enemyCount_3: 0
+    _enemyID_4: 0
+    _enemyCount_4: 0
+    _enemyID_5: 0
+    _enemyCount_5: 0
+    _compensation_1: 0
+    _compensationCount_1: 0
+    _compensation_2: 0
+    _compensationCount_2: 0
+    _compensation_3: 0
+    _compensationCount_3: 0
+  - _id: 110303
+    _battleMapPath: Prefabs/Map/BattleMap/BattleMap_1
+    _enemyID_1: 0
+    _enemyCount_1: 0
+    _enemyID_2: 0
+    _enemyCount_2: 0
+    _enemyID_3: 0
+    _enemyCount_3: 0
+    _enemyID_4: 0
+    _enemyCount_4: 0
+    _enemyID_5: 0
+    _enemyCount_5: 0
+    _compensation_1: 0
+    _compensationCount_1: 0
+    _compensation_2: 0
+    _compensationCount_2: 0
+    _compensation_3: 0
+    _compensationCount_3: 0
+  - _id: 120101
+    _battleMapPath: Prefabs/Map/BattleMap/BattleMap_1
+    _enemyID_1: 0
+    _enemyCount_1: 0
+    _enemyID_2: 0
+    _enemyCount_2: 0
+    _enemyID_3: 0
+    _enemyCount_3: 0
+    _enemyID_4: 0
+    _enemyCount_4: 0
+    _enemyID_5: 0
+    _enemyCount_5: 0
+    _compensation_1: 0
+    _compensationCount_1: 0
+    _compensation_2: 0
+    _compensationCount_2: 0
+    _compensation_3: 0
+    _compensationCount_3: 0
+  - _id: 120102
+    _battleMapPath: Prefabs/Map/BattleMap/BattleMap_1
+    _enemyID_1: 0
+    _enemyCount_1: 0
+    _enemyID_2: 0
+    _enemyCount_2: 0
+    _enemyID_3: 0
+    _enemyCount_3: 0
+    _enemyID_4: 0
+    _enemyCount_4: 0
+    _enemyID_5: 0
+    _enemyCount_5: 0
+    _compensation_1: 0
+    _compensationCount_1: 0
+    _compensation_2: 0
+    _compensationCount_2: 0
+    _compensation_3: 0
+    _compensationCount_3: 0
+  - _id: 120103
+    _battleMapPath: Prefabs/Map/BattleMap/BattleMap_1
+    _enemyID_1: 0
+    _enemyCount_1: 0
+    _enemyID_2: 0
+    _enemyCount_2: 0
+    _enemyID_3: 0
+    _enemyCount_3: 0
+    _enemyID_4: 0
+    _enemyCount_4: 0
+    _enemyID_5: 0
+    _enemyCount_5: 0
+    _compensation_1: 0
+    _compensationCount_1: 0
+    _compensation_2: 0
+    _compensationCount_2: 0
+    _compensation_3: 0
+    _compensationCount_3: 0
+  - _id: 120201
+    _battleMapPath: Prefabs/Map/BattleMap/BattleMap_1
+    _enemyID_1: 0
+    _enemyCount_1: 0
+    _enemyID_2: 0
+    _enemyCount_2: 0
+    _enemyID_3: 0
+    _enemyCount_3: 0
+    _enemyID_4: 0
+    _enemyCount_4: 0
+    _enemyID_5: 0
+    _enemyCount_5: 0
+    _compensation_1: 0
+    _compensationCount_1: 0
+    _compensation_2: 0
+    _compensationCount_2: 0
+    _compensation_3: 0
+    _compensationCount_3: 0
+  - _id: 120202
+    _battleMapPath: Prefabs/Map/BattleMap/BattleMap_1
+    _enemyID_1: 0
+    _enemyCount_1: 0
+    _enemyID_2: 0
+    _enemyCount_2: 0
+    _enemyID_3: 0
+    _enemyCount_3: 0
+    _enemyID_4: 0
+    _enemyCount_4: 0
+    _enemyID_5: 0
+    _enemyCount_5: 0
+    _compensation_1: 0
+    _compensationCount_1: 0
+    _compensation_2: 0
+    _compensationCount_2: 0
+    _compensation_3: 0
+    _compensationCount_3: 0
+  - _id: 120203
+    _battleMapPath: Prefabs/Map/BattleMap/BattleMap_1
+    _enemyID_1: 0
+    _enemyCount_1: 0
+    _enemyID_2: 0
+    _enemyCount_2: 0
+    _enemyID_3: 0
+    _enemyCount_3: 0
+    _enemyID_4: 0
+    _enemyCount_4: 0
+    _enemyID_5: 0
+    _enemyCount_5: 0
+    _compensation_1: 0
+    _compensationCount_1: 0
+    _compensation_2: 0
+    _compensationCount_2: 0
+    _compensation_3: 0
+    _compensationCount_3: 0
+  - _id: 120301
+    _battleMapPath: Prefabs/Map/BattleMap/BattleMap_1
+    _enemyID_1: 0
+    _enemyCount_1: 0
+    _enemyID_2: 0
+    _enemyCount_2: 0
+    _enemyID_3: 0
+    _enemyCount_3: 0
+    _enemyID_4: 0
+    _enemyCount_4: 0
+    _enemyID_5: 0
+    _enemyCount_5: 0
+    _compensation_1: 0
+    _compensationCount_1: 0
+    _compensation_2: 0
+    _compensationCount_2: 0
+    _compensation_3: 0
+    _compensationCount_3: 0
+  - _id: 120302
+    _battleMapPath: Prefabs/Map/BattleMap/BattleMap_1
+    _enemyID_1: 0
+    _enemyCount_1: 0
+    _enemyID_2: 0
+    _enemyCount_2: 0
+    _enemyID_3: 0
+    _enemyCount_3: 0
+    _enemyID_4: 0
+    _enemyCount_4: 0
+    _enemyID_5: 0
+    _enemyCount_5: 0
+    _compensation_1: 0
+    _compensationCount_1: 0
+    _compensation_2: 0
+    _compensationCount_2: 0
+    _compensation_3: 0
+    _compensationCount_3: 0
+  - _id: 120303
+    _battleMapPath: Prefabs/Map/BattleMap/BattleMap_1
+    _enemyID_1: 0
+    _enemyCount_1: 0
+    _enemyID_2: 0
+    _enemyCount_2: 0
+    _enemyID_3: 0
+    _enemyCount_3: 0
+    _enemyID_4: 0
+    _enemyCount_4: 0
+    _enemyID_5: 0
+    _enemyCount_5: 0
+    _compensation_1: 0
+    _compensationCount_1: 0
+    _compensation_2: 0
+    _compensationCount_2: 0
+    _compensation_3: 0
+    _compensationCount_3: 0
+  - _id: 130101
+    _battleMapPath: Prefabs/Map/BattleMap/BattleMap_2
+    _enemyID_1: 0
+    _enemyCount_1: 0
+    _enemyID_2: 0
+    _enemyCount_2: 0
+    _enemyID_3: 0
+    _enemyCount_3: 0
+    _enemyID_4: 0
+    _enemyCount_4: 0
+    _enemyID_5: 0
+    _enemyCount_5: 0
+    _compensation_1: 0
+    _compensationCount_1: 0
+    _compensation_2: 0
+    _compensationCount_2: 0
+    _compensation_3: 0
+    _compensationCount_3: 0
+  - _id: 130102
+    _battleMapPath: Prefabs/Map/BattleMap/BattleMap_2
+    _enemyID_1: 0
+    _enemyCount_1: 0
+    _enemyID_2: 0
+    _enemyCount_2: 0
+    _enemyID_3: 0
+    _enemyCount_3: 0
+    _enemyID_4: 0
+    _enemyCount_4: 0
+    _enemyID_5: 0
+    _enemyCount_5: 0
+    _compensation_1: 0
+    _compensationCount_1: 0
+    _compensation_2: 0
+    _compensationCount_2: 0
+    _compensation_3: 0
+    _compensationCount_3: 0
+  - _id: 130103
+    _battleMapPath: Prefabs/Map/BattleMap/BattleMap_2
+    _enemyID_1: 0
+    _enemyCount_1: 0
+    _enemyID_2: 0
+    _enemyCount_2: 0
+    _enemyID_3: 0
+    _enemyCount_3: 0
+    _enemyID_4: 0
+    _enemyCount_4: 0
+    _enemyID_5: 0
+    _enemyCount_5: 0
+    _compensation_1: 0
+    _compensationCount_1: 0
+    _compensation_2: 0
+    _compensationCount_2: 0
+    _compensation_3: 0
+    _compensationCount_3: 0
+  - _id: 130201
+    _battleMapPath: Prefabs/Map/BattleMap/BattleMap_2
+    _enemyID_1: 0
+    _enemyCount_1: 0
+    _enemyID_2: 0
+    _enemyCount_2: 0
+    _enemyID_3: 0
+    _enemyCount_3: 0
+    _enemyID_4: 0
+    _enemyCount_4: 0
+    _enemyID_5: 0
+    _enemyCount_5: 0
+    _compensation_1: 0
+    _compensationCount_1: 0
+    _compensation_2: 0
+    _compensationCount_2: 0
+    _compensation_3: 0
+    _compensationCount_3: 0
+  - _id: 130202
+    _battleMapPath: Prefabs/Map/BattleMap/BattleMap_2
+    _enemyID_1: 0
+    _enemyCount_1: 0
+    _enemyID_2: 0
+    _enemyCount_2: 0
+    _enemyID_3: 0
+    _enemyCount_3: 0
+    _enemyID_4: 0
+    _enemyCount_4: 0
+    _enemyID_5: 0
+    _enemyCount_5: 0
+    _compensation_1: 0
+    _compensationCount_1: 0
+    _compensation_2: 0
+    _compensationCount_2: 0
+    _compensation_3: 0
+    _compensationCount_3: 0
+  - _id: 130203
+    _battleMapPath: Prefabs/Map/BattleMap/BattleMap_2
+    _enemyID_1: 0
+    _enemyCount_1: 0
+    _enemyID_2: 0
+    _enemyCount_2: 0
+    _enemyID_3: 0
+    _enemyCount_3: 0
+    _enemyID_4: 0
+    _enemyCount_4: 0
+    _enemyID_5: 0
+    _enemyCount_5: 0
+    _compensation_1: 0
+    _compensationCount_1: 0
+    _compensation_2: 0
+    _compensationCount_2: 0
+    _compensation_3: 0
+    _compensationCount_3: 0
+  - _id: 130301
+    _battleMapPath: Prefabs/Map/BattleMap/BattleMap_2
+    _enemyID_1: 0
+    _enemyCount_1: 0
+    _enemyID_2: 0
+    _enemyCount_2: 0
+    _enemyID_3: 0
+    _enemyCount_3: 0
+    _enemyID_4: 0
+    _enemyCount_4: 0
+    _enemyID_5: 0
+    _enemyCount_5: 0
+    _compensation_1: 0
+    _compensationCount_1: 0
+    _compensation_2: 0
+    _compensationCount_2: 0
+    _compensation_3: 0
+    _compensationCount_3: 0
+  - _id: 130302
+    _battleMapPath: Prefabs/Map/BattleMap/BattleMap_2
+    _enemyID_1: 0
+    _enemyCount_1: 0
+    _enemyID_2: 0
+    _enemyCount_2: 0
+    _enemyID_3: 0
+    _enemyCount_3: 0
+    _enemyID_4: 0
+    _enemyCount_4: 0
+    _enemyID_5: 0
+    _enemyCount_5: 0
+    _compensation_1: 0
+    _compensationCount_1: 0
+    _compensation_2: 0
+    _compensationCount_2: 0
+    _compensation_3: 0
+    _compensationCount_3: 0
+  - _id: 130303
+    _battleMapPath: Prefabs/Map/BattleMap/BattleMap_2
+    _enemyID_1: 0
+    _enemyCount_1: 0
+    _enemyID_2: 0
+    _enemyCount_2: 0
+    _enemyID_3: 0
+    _enemyCount_3: 0
+    _enemyID_4: 0
+    _enemyCount_4: 0
+    _enemyID_5: 0
+    _enemyCount_5: 0
+    _compensation_1: 0
+    _compensationCount_1: 0
+    _compensation_2: 0
+    _compensationCount_2: 0
+    _compensation_3: 0
+    _compensationCount_3: 0
+  - _id: 140101
+    _battleMapPath: Prefabs/Map/BattleMap/BattleMap_3
+    _enemyID_1: 0
+    _enemyCount_1: 0
+    _enemyID_2: 0
+    _enemyCount_2: 0
+    _enemyID_3: 0
+    _enemyCount_3: 0
+    _enemyID_4: 0
+    _enemyCount_4: 0
+    _enemyID_5: 0
+    _enemyCount_5: 0
+    _compensation_1: 0
+    _compensationCount_1: 0
+    _compensation_2: 0
+    _compensationCount_2: 0
+    _compensation_3: 0
+    _compensationCount_3: 0
+  - _id: 140102
+    _battleMapPath: Prefabs/Map/BattleMap/BattleMap_3
+    _enemyID_1: 0
+    _enemyCount_1: 0
+    _enemyID_2: 0
+    _enemyCount_2: 0
+    _enemyID_3: 0
+    _enemyCount_3: 0
+    _enemyID_4: 0
+    _enemyCount_4: 0
+    _enemyID_5: 0
+    _enemyCount_5: 0
+    _compensation_1: 0
+    _compensationCount_1: 0
+    _compensation_2: 0
+    _compensationCount_2: 0
+    _compensation_3: 0
+    _compensationCount_3: 0
+  - _id: 140103
+    _battleMapPath: Prefabs/Map/BattleMap/BattleMap_3
+    _enemyID_1: 0
+    _enemyCount_1: 0
+    _enemyID_2: 0
+    _enemyCount_2: 0
+    _enemyID_3: 0
+    _enemyCount_3: 0
+    _enemyID_4: 0
+    _enemyCount_4: 0
+    _enemyID_5: 0
+    _enemyCount_5: 0
+    _compensation_1: 0
+    _compensationCount_1: 0
+    _compensation_2: 0
+    _compensationCount_2: 0
+    _compensation_3: 0
+    _compensationCount_3: 0
+  - _id: 140201
+    _battleMapPath: Prefabs/Map/BattleMap/BattleMap_3
+    _enemyID_1: 0
+    _enemyCount_1: 0
+    _enemyID_2: 0
+    _enemyCount_2: 0
+    _enemyID_3: 0
+    _enemyCount_3: 0
+    _enemyID_4: 0
+    _enemyCount_4: 0
+    _enemyID_5: 0
+    _enemyCount_5: 0
+    _compensation_1: 0
+    _compensationCount_1: 0
+    _compensation_2: 0
+    _compensationCount_2: 0
+    _compensation_3: 0
+    _compensationCount_3: 0
+  - _id: 140202
+    _battleMapPath: Prefabs/Map/BattleMap/BattleMap_3
+    _enemyID_1: 0
+    _enemyCount_1: 0
+    _enemyID_2: 0
+    _enemyCount_2: 0
+    _enemyID_3: 0
+    _enemyCount_3: 0
+    _enemyID_4: 0
+    _enemyCount_4: 0
+    _enemyID_5: 0
+    _enemyCount_5: 0
+    _compensation_1: 0
+    _compensationCount_1: 0
+    _compensation_2: 0
+    _compensationCount_2: 0
+    _compensation_3: 0
+    _compensationCount_3: 0
+  - _id: 140203
+    _battleMapPath: Prefabs/Map/BattleMap/BattleMap_3
+    _enemyID_1: 0
+    _enemyCount_1: 0
+    _enemyID_2: 0
+    _enemyCount_2: 0
+    _enemyID_3: 0
+    _enemyCount_3: 0
+    _enemyID_4: 0
+    _enemyCount_4: 0
+    _enemyID_5: 0
+    _enemyCount_5: 0
+    _compensation_1: 0
+    _compensationCount_1: 0
+    _compensation_2: 0
+    _compensationCount_2: 0
+    _compensation_3: 0
+    _compensationCount_3: 0
+  - _id: 140301
+    _battleMapPath: Prefabs/Map/BattleMap/BattleMap_3
+    _enemyID_1: 0
+    _enemyCount_1: 0
+    _enemyID_2: 0
+    _enemyCount_2: 0
+    _enemyID_3: 0
+    _enemyCount_3: 0
+    _enemyID_4: 0
+    _enemyCount_4: 0
+    _enemyID_5: 0
+    _enemyCount_5: 0
+    _compensation_1: 0
+    _compensationCount_1: 0
+    _compensation_2: 0
+    _compensationCount_2: 0
+    _compensation_3: 0
+    _compensationCount_3: 0
+  - _id: 140302
+    _battleMapPath: Prefabs/Map/BattleMap/BattleMap_3
+    _enemyID_1: 0
+    _enemyCount_1: 0
+    _enemyID_2: 0
+    _enemyCount_2: 0
+    _enemyID_3: 0
+    _enemyCount_3: 0
+    _enemyID_4: 0
+    _enemyCount_4: 0
+    _enemyID_5: 0
+    _enemyCount_5: 0
+    _compensation_1: 0
+    _compensationCount_1: 0
+    _compensation_2: 0
+    _compensationCount_2: 0
+    _compensation_3: 0
+    _compensationCount_3: 0
+  - _id: 140303
+    _battleMapPath: Prefabs/Map/BattleMap/BattleMap_3
+    _enemyID_1: 0
+    _enemyCount_1: 0
     _enemyID_2: 0
     _enemyCount_2: 0
     _enemyID_3: 0
@@ -1204,69 +1798,69 @@ MonoBehaviour:
   - _id: 1102
     _openMapPath: Prefabs/Map/Chapter1/Chap1-2
     _stageName: stage2
-    _waveID_1: 110101
-    _waveID_2: 110102
-    _waveID_3: 110103
+    _waveID_1: 110201
+    _waveID_2: 110202
+    _waveID_3: 110203
   - _id: 1103
     _openMapPath: Prefabs/Map/Chapter1/Chap1-3
     _stageName: stage3
-    _waveID_1: 110101
-    _waveID_2: 110102
-    _waveID_3: 110103
+    _waveID_1: 110301
+    _waveID_2: 110302
+    _waveID_3: 110303
   - _id: 1201
     _openMapPath: Prefabs/Map/Chapter2/Chap2-1
     _stageName: stage1
-    _waveID_1: 110101
-    _waveID_2: 110102
-    _waveID_3: 110103
+    _waveID_1: 120101
+    _waveID_2: 120102
+    _waveID_3: 120103
   - _id: 1202
     _openMapPath: Prefabs/Map/Chapter2/Chap2-2
     _stageName: stage2
-    _waveID_1: 110101
-    _waveID_2: 110102
-    _waveID_3: 110103
+    _waveID_1: 120201
+    _waveID_2: 120202
+    _waveID_3: 120203
   - _id: 1203
     _openMapPath: Prefabs/Map/Chapter2/Chap2-3
     _stageName: stage3
-    _waveID_1: 110101
-    _waveID_2: 110102
-    _waveID_3: 110103
+    _waveID_1: 120301
+    _waveID_2: 120302
+    _waveID_3: 120303
   - _id: 1301
     _openMapPath: Prefabs/Map/Chapter3/Chap3-1
     _stageName: stage1
-    _waveID_1: 110101
-    _waveID_2: 110102
-    _waveID_3: 110103
+    _waveID_1: 130101
+    _waveID_2: 130102
+    _waveID_3: 130103
   - _id: 1302
     _openMapPath: Prefabs/Map/Chapter3/Chap3-2
     _stageName: stage2
-    _waveID_1: 110101
-    _waveID_2: 110102
-    _waveID_3: 110103
+    _waveID_1: 130201
+    _waveID_2: 130202
+    _waveID_3: 130203
   - _id: 1303
     _openMapPath: Prefabs/Map/Chapter3/Chap3-3
     _stageName: stage3
-    _waveID_1: 110101
-    _waveID_2: 110102
-    _waveID_3: 110103
+    _waveID_1: 130301
+    _waveID_2: 130302
+    _waveID_3: 130303
   - _id: 1401
     _openMapPath: Prefabs/Map/Chapter4/Chap4-1
     _stageName: stage1
-    _waveID_1: 110101
-    _waveID_2: 110102
-    _waveID_3: 110103
+    _waveID_1: 140101
+    _waveID_2: 140102
+    _waveID_3: 140103
   - _id: 1402
     _openMapPath: Prefabs/Map/Chapter4/Chap4-2
     _stageName: stage2
-    _waveID_1: 110101
-    _waveID_2: 110102
-    _waveID_3: 110103
+    _waveID_1: 140201
+    _waveID_2: 140202
+    _waveID_3: 140203
   - _id: 1403
     _openMapPath: Prefabs/Map/Chapter4/Chap4-3
     _stageName: stage3
-    _waveID_1: 110101
-    _waveID_2: 110102
-    _waveID_3: 110103
+    _waveID_1: 140301
+    _waveID_2: 140302
+    _waveID_3: 140303
   LevelData:
   - _level: 1
     _exp: 0

@@ -72,7 +72,6 @@ public class PlayerConeRaycastDetection : MonoBehaviour
                 SpawnManager.Instance.battleCanvas.gameObject.SetActive(true);
                 Debug.Log("Wave : " + hit.collider.gameObject.transform.parent.name);
                 EnterBattle(hit);
-                //SceneManager.LoadScene("BattleScene__");  전투 씬으로 전환
                 return;
             }
         }
@@ -102,16 +101,7 @@ public class PlayerConeRaycastDetection : MonoBehaviour
     }
     private IEnumerator CameraControll()
     {
-        int stageid = GameManager.Instance.stageID;
         yield return new WaitForSeconds(1.5f);
-        if(stageid == 1101|| stageid ==1102||stageid==1103)
-        SceneLoadManager.Instance.ChangeScene("BattleScene__");
-        if (stageid == 1201 || stageid == 1202 || stageid == 1203)
-            SceneLoadManager.Instance.ChangeScene("BattleScene__");
-        if (stageid == 1301 || stageid == 1302 || stageid == 1303)
-            SceneLoadManager.Instance.ChangeScene("BattleScene2");
-        if (stageid == 1401 || stageid == 1402 || stageid == 1403)
-            SceneLoadManager.Instance.ChangeScene("BattleScene3");
+        SceneLoadManager.Instance.ChangeScene("BattleScene");
     }
-
 }
