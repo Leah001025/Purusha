@@ -4,16 +4,17 @@ using UnityEngine;
 using UnityEngine.Playables;
 using UnityEngine.Timeline;
 
-public class PortalCut : MonoBehaviour
+public class CutSceneController : MonoBehaviour
 {
     private PlayableDirector playableDirector;
     public TimelineAsset[] timeline;
-    private Dictionary<int, bool> isCutScenePlay;
+    //private Dictionary<int, bool> isCutScenePlay;
+    private bool isCutScenePlay =false;
 
     private void Start()
     {
         playableDirector = GetComponent<PlayableDirector>();
-        isCutScenePlay = GameManager.Instance.User.isCutScenePlay;
+        //isCutScenePlay = GameManager.Instance.User.isCutScenePlay;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -25,9 +26,10 @@ public class PortalCut : MonoBehaviour
                 playableDirector.Play(timeline[0]);
                 return;
             }
-            else if (!isCutScenePlay.ContainsKey(GameManager.Instance.stageID))
+            else if (!isCutScenePlay)
             {
-                isCutScenePlay.Add(GameManager.Instance.stageID, true);
+                isCutScenePlay = true;
+                //isCutScenePlay.Add(GameManager.Instance.stageID, true);
                 playableDirector.Play(timeline[0]);
             }
         }

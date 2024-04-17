@@ -543,11 +543,12 @@ public class BattleManager : MonoBehaviour
     }
     private void SetSpawnPos()
     {
-        playerSpawnPos[0] = new Vector3(0.5f, 0, -7f);
-        playerSpawnPos[1] = new Vector3(3.5f, 0, -7f);
-        playerSpawnPos[2] = new Vector3(-1, 0, -7f);
-        playerSpawnPos[3] = new Vector3(2, 0, -7f);
+        playerSpawnPos[0] = new Vector3(-1, 0, -7f);
+        playerSpawnPos[1] = new Vector3(0.5f, 0, -7f);
+        playerSpawnPos[2] = new Vector3(2, 0, -7f);
+        playerSpawnPos[3] = new Vector3(3.5f, 0, -7f);
         playerSpawnPos[4] = new Vector3(5, 0, -7f);
+
 
         enemySpawnPos[0] = new Vector3(0.5f, 0, 1.5f);
         enemySpawnPos[1] = new Vector3(3.5f, 0, 1.5f);

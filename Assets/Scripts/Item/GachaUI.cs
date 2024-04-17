@@ -10,6 +10,7 @@ public class GachaUI : MonoBehaviour
 {
     int curID = 102;
     public TextMeshProUGUI curName;
+    public TextMeshProUGUI itemQuantity;
     public Image gachaImage;
     public GameObject gachaObj;
     private Dictionary<int, CharacterData> characters;
@@ -19,6 +20,7 @@ public class GachaUI : MonoBehaviour
     {
         characters = GameManager.Instance.User.characters;
         inventory = GameManager.Instance.User.itemInventory;
+        itemQuantity.text = $"»Ì±â±Ç {(inventory.ContainsKey(10501) ? inventory[10501].quantity.ToString("0") : "0")}°³";
         var res = Resources.Load<Sprite>("UI/Image/102");
         gachaImage.sprite = res;
     }
@@ -51,6 +53,7 @@ public class GachaUI : MonoBehaviour
         if(UIManager.Instance.itemInventoryUI !=null)
         UIManager.Instance.itemInventoryUI.UpdateInventory();
         UIManager.Instance.CharacterUpdate();
+        itemQuantity.text = $"»Ì±â±Ç {(inventory.ContainsKey(10501) ? inventory[10501].quantity.ToString("0") : "0")}°³";
     }
     public void Gacha10()
     {
@@ -72,10 +75,11 @@ public class GachaUI : MonoBehaviour
             if (results[i].id == 10701) icon.sprite = Resources.Load<Sprite>($"UI/Icon/{results[i].value}");
             else icon.sprite = Resources.Load<Sprite>(results[i].spritePath);
             TextMeshProUGUI quantity = obj.transform.GetChild(2).GetChild(i).GetChild(1).gameObject.GetComponent<TextMeshProUGUI>();
-            quantity.text = results[i].quantity.ToString("0");
-            UIManager.Instance.itemInventoryUI.UpdateInventory();
-            UIManager.Instance.CharacterUpdate();
+            quantity.text = results[i].quantity.ToString("0");            
         }
+        UIManager.Instance.itemInventoryUI.UpdateInventory();
+        UIManager.Instance.CharacterUpdate();
+        itemQuantity.text = $"»Ì±â±Ç {(inventory.ContainsKey(10501) ? inventory[10501].quantity.ToString("0") : "0")}°³";
     }
 }
 
