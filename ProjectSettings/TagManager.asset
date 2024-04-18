@@ -12,6 +12,8 @@ TagManager:
   - Skill3
   - Skill4
   - Interactable
+  - Android
+  - SecurityTurret
   layers:
   - Default
   - TransparentFX

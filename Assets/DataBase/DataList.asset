@@ -1113,31 +1113,44 @@ MonoBehaviour:
     _breakGauge: 100
     _prefabPath: Prefabs/Monster/Drone
     _spritePath: 
+  - _id: 101002
+    _name: Android
+    _level: 3
+    _health: 350
+    _atk: 65
+    _def: 15
+    _criticalChance: 0.25
+    _criticalDamage: 1.5
+    _avoid: 5
+    _speed: 0.8
+    _breakGauge: 150
+    _prefabPath: Prefabs/Monster/Android
+    _spritePath: 
+  - _id: 101003
+    _name: SecurityTurret
+    _level: 5
+    _health: 250
+    _atk: 100
+    _def: 10
+    _criticalChance: 0.5
+    _criticalDamage: 1.5
+    _avoid: 5
+    _speed: 1.2
+    _breakGauge: 150
+    _prefabPath: Prefabs/Monster/SecurityTurret
+    _spritePath: 
   - _id: 201001
     _name: CodeNumber001
-    _level: 5
-    _health: 6000
-    _atk: 150
+    _level: 10
+    _health: 600
+    _atk: 100
     _def: 20
-    _criticalChance: 50
-    _criticalDamage: 150
-    _avoid: 20
-    _speed: 1.5
+    _criticalChance: 0.25
+    _criticalDamage: 1.5
+    _avoid: 5
+    _speed: 0.8
     _breakGauge: 300
     _prefabPath: Prefabs/Monster/CodeNumber001
-    _spritePath: 
-  - _id: 301001
-    _name: JaekyungMon
-    _level: 99
-    _health: 999999
-    _atk: 100
-    _def: 99999
-    _criticalChance: 100
-    _criticalDamage: 999
-    _avoid: 100
-    _speed: 999
-    _breakGauge: 999999
-    _prefabPath: 
     _spritePath: 
   WaveData:
   - _id: 110101
