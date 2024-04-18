@@ -33,7 +33,7 @@ public class TeamInfoUI : MonoBehaviour
         BattleManager.Instance.OnAddDamage += ChangeHealthBarAmount;
         characterHealth.text = characterCurHealth.ToString("0") + " / " + characterMaxHealth.ToString("0");
         hpBar.value = characterCurHealth/ characterMaxHealth;
-        skill4Gauge.value = 0;
+        skill4Gauge.value = 5f;
     }
     private void ChangeShieldBarAmount()
     {

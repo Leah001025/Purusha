@@ -48,6 +48,7 @@ public class UIManager : SingleTon<UIManager>
         var obj = Instantiate(prefab, parents);
         obj.name = popupName;
         obj.GetComponent<Canvas>().sortingOrder = popups.Count;
+        if (obj.name == "GachaPopUp") obj.GetComponent<Canvas>().sortingOrder = 10;
         return ShowPopup(obj, popupName);
     }
 
