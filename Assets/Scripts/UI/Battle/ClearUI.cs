@@ -136,6 +136,7 @@ public class ClearUI : MonoBehaviour
             int nextStage = GameManager.Instance.User.NextStage();
             StageInfo nextStageInfo = new StageInfo();
             GameManager.Instance.User.stageClear.Push(nextStageInfo);
+            GameManager.Instance.User.isCutScenePlay = false;
             nextStageInfo.stageID = nextStage;
         }
     }

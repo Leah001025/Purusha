@@ -59,6 +59,7 @@ public class ItemInventory : MonoBehaviour
             {
                 slot.itemID = containsKey[i];
                 icon.sprite = Resources.Load<Sprite>(items[containsKey[i]].spritePath);
+                icon.color = Color.white;
                 if (slot.itemID == 10101) icon.color = rareItem;
                 if (slot.itemID == 10102) icon.color = epicItem;
                 if (slot.itemID == 10103) icon.color = regendItem;

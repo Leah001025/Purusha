@@ -13,6 +13,7 @@ public class UserData
     public bool introScene;
     public bool tutorial1;
     public bool tutorial2;
+    public bool isCutScenePlay = false;
     public SaveData saveData;
     public Stack<StageInfo> stageClear = new Stack<StageInfo>();
     public Dictionary<int, UpgradeStatData> upgrades = new Dictionary<int, UpgradeStatData>();

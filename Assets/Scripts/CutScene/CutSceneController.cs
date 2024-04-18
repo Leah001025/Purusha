@@ -9,12 +9,10 @@ public class CutSceneController : MonoBehaviour
     private PlayableDirector playableDirector;
     public TimelineAsset[] timeline;
     //private Dictionary<int, bool> isCutScenePlay;
-    private bool isCutScenePlay =false;
 
     private void Start()
     {
         playableDirector = GetComponent<PlayableDirector>();
-        //isCutScenePlay = GameManager.Instance.User.isCutScenePlay;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -26,9 +24,9 @@ public class CutSceneController : MonoBehaviour
                 playableDirector.Play(timeline[0]);
                 return;
             }
-            else if (!isCutScenePlay)
+            else if (!GameManager.Instance.User.isCutScenePlay)
             {
-                isCutScenePlay = true;
+                GameManager.Instance.User.isCutScenePlay = true;
                 //isCutScenePlay.Add(GameManager.Instance.stageID, true);
                 playableDirector.Play(timeline[0]);
             }

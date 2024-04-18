@@ -21,7 +21,7 @@ public class GachaUI : MonoBehaviour
         characters = GameManager.Instance.User.characters;
         inventory = GameManager.Instance.User.itemInventory;
         itemQuantity.text = $"»Ì±â±Ç {(inventory.ContainsKey(10501) ? inventory[10501].quantity.ToString("0") : "0")}°³";
-        var res = Resources.Load<Sprite>("UI/Image/102");
+        var res = Resources.Load<Sprite>($"UI/Image/{curID}");
         gachaImage.sprite = res;
     }
     public void GetID(int index)
@@ -41,19 +41,19 @@ public class GachaUI : MonoBehaviour
         var obj = transform.GetChild(2).gameObject;
         obj.gameObject.SetActive(true);
         Button button = obj.transform.GetChild(0).gameObject.GetComponent<Button>();
-        button.onClick.AddListener(()=> 
+        button.onClick.AddListener(() =>
         {
             obj.gameObject.SetActive(false);
             gachaObj.SetActive(true);
         });
         SoundManager.Instance.ButtonAudio("Draw");
         Image icon = obj.transform.GetChild(2).GetChild(0).gameObject.GetComponent<Image>();
-        if (results[0].id==10701) icon.sprite = Resources.Load<Sprite>($"UI/Icon/{results[0].value}");
+        if (results[0].id == 10701) icon.sprite = Resources.Load<Sprite>($"UI/Icon/{results[0].value}");
         else icon.sprite = Resources.Load<Sprite>(results[0].spritePath);
         TextMeshProUGUI quantity = obj.transform.GetChild(2).GetChild(1).gameObject.GetComponent<TextMeshProUGUI>();
         quantity.text = results[0].quantity.ToString("0");
-        if(UIManager.Instance.itemInventoryUI !=null)
-        UIManager.Instance.itemInventoryUI.UpdateInventory();
+        if (UIManager.Instance.itemInventoryUI != null)
+            UIManager.Instance.itemInventoryUI.UpdateInventory();
         UIManager.Instance.CharacterUpdate();
         itemQuantity.text = $"»Ì±â±Ç {(inventory.ContainsKey(10501) ? inventory[10501].quantity.ToString("0") : "0")}°³";
     }
@@ -72,15 +72,16 @@ public class GachaUI : MonoBehaviour
         });
         SoundManager.Instance.ButtonAudio("Draw");
         for (int i = 0; i < 10; i++)
-        {            
+        {
             results.Add(inventory[10501].UseGachaItem(10501, curID));
             Image icon = obj.transform.GetChild(2).GetChild(i).GetChild(0).gameObject.GetComponent<Image>();
             if (results[i].id == 10701) icon.sprite = Resources.Load<Sprite>($"UI/Icon/{results[i].value}");
             else icon.sprite = Resources.Load<Sprite>(results[i].spritePath);
             TextMeshProUGUI quantity = obj.transform.GetChild(2).GetChild(i).GetChild(1).gameObject.GetComponent<TextMeshProUGUI>();
-            quantity.text = results[i].quantity.ToString("0");            
+            quantity.text = results[i].quantity.ToString("0");
         }
-        UIManager.Instance.itemInventoryUI.UpdateInventory();
+        if (UIManager.Instance.itemInventoryUI != null)
+            UIManager.Instance.itemInventoryUI.UpdateInventory();
         UIManager.Instance.CharacterUpdate();
         itemQuantity.text = $"»Ì±â±Ç {(inventory.ContainsKey(10501) ? inventory[10501].quantity.ToString("0") : "0")}°³";
     }
