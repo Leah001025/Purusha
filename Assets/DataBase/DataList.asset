@@ -943,6 +943,70 @@ MonoBehaviour:
     SkillGage: 0
     EffectPath: Prefabs/Skill/Drone/Skill2
     IconPath: 
+  - ID: 101002011
+    Name: "\uC77C\uBC18\uACF5\uACA9"
+    Description: "\uC801 1\uBA85 \uD0C0\uACA9"
+    Type: 0
+    Range: 0
+    BuffID: 0
+    BuffID2: 0
+    AtkCoefficient: 1
+    DefCoefficient: 0
+    HealthCoefficient: 0
+    CoolTime: 0
+    DebuffProbability: 0
+    Duration: 0
+    SkillGage: 0
+    EffectPath: Prefabs/Skill/Android/Skill1
+    IconPath: 
+  - ID: 101002021
+    Name: "\uD2B9\uC218"
+    Description: "\uC801 1\uBA85 \uD0C0\uACA9(\uACF5\uACA9\uB825\uAC10\uC18C)"
+    Type: 0
+    Range: 0
+    BuffID: 202
+    BuffID2: 0
+    AtkCoefficient: 1.3
+    DefCoefficient: 0
+    HealthCoefficient: 0
+    CoolTime: 2
+    DebuffProbability: 0.7
+    Duration: 1
+    SkillGage: 0
+    EffectPath: Prefabs/Skill/Android/Skill2
+    IconPath: 
+  - ID: 101003011
+    Name: "\uC77C\uBC18\uACF5\uACA9"
+    Description: "\uC801 1\uBA85 \uC0AC\uACA9"
+    Type: 0
+    Range: 1
+    BuffID: 0
+    BuffID2: 0
+    AtkCoefficient: 1
+    DefCoefficient: 0
+    HealthCoefficient: 0
+    CoolTime: 0
+    DebuffProbability: 0
+    Duration: 0
+    SkillGage: 0
+    EffectPath: Prefabs/Skill/SecurityTurret/Skill1
+    IconPath: 
+  - ID: 101003021
+    Name: "\uD2B9\uC218"
+    Description: "\uC801 \uC804\uCCB4 \uC0AC\uACA9"
+    Type: 1
+    Range: 1
+    BuffID: 0
+    BuffID2: 0
+    AtkCoefficient: 1.1
+    DefCoefficient: 0
+    HealthCoefficient: 0
+    CoolTime: 3
+    DebuffProbability: 0
+    Duration: 0
+    SkillGage: 0
+    EffectPath: Prefabs/Skill/SecurityTurret/Skill2
+    IconPath: 
   - ID: 201001011
     Name: "\uC77C\uBC18\uACF5\uACA9"
     Description: "\uC801 1\uBA85 \uC0AC\uACA9"
@@ -957,55 +1021,23 @@ MonoBehaviour:
     DebuffProbability: 0
     Duration: 0
     SkillGage: 0
-    EffectPath: 
+    EffectPath: Prefabs/Skill/CodeNumber001/Skill1
     IconPath: 
   - ID: 201001021
     Name: "\uD2B9\uC218"
     Description: "\uC801 \uC804\uCCB4 \uC0AC\uACA9(\uACF5\uACA9\uB825\uAC10\uC18C)"
-    Type: 0
+    Type: 1
     Range: 1
     BuffID: 202
     BuffID2: 0
-    AtkCoefficient: 0.8
+    AtkCoefficient: 1.2
     DefCoefficient: 0
     HealthCoefficient: 0
     CoolTime: 3
-    DebuffProbability: 0.5
+    DebuffProbability: 0.8
     Duration: 1
     SkillGage: 0
-    EffectPath: 
-    IconPath: 
-  - ID: 301001011
-    Name: "\uC77C\uBC18\uACF5\uACA9"
-    Description: 
-    Type: 0
-    Range: 0
-    BuffID: 0
-    BuffID2: 0
-    AtkCoefficient: 0
-    DefCoefficient: 0
-    HealthCoefficient: 0
-    CoolTime: 0
-    DebuffProbability: 0
-    Duration: 0
-    SkillGage: 0
-    EffectPath: 
-    IconPath: 
-  - ID: 301001021
-    Name: "\uD2B9\uC218"
-    Description: 
-    Type: 0
-    Range: 0
-    BuffID: 0
-    BuffID2: 0
-    AtkCoefficient: 0
-    DefCoefficient: 0
-    HealthCoefficient: 0
-    CoolTime: 0
-    DebuffProbability: 0
-    Duration: 0
-    SkillGage: 0
-    EffectPath: 
+    EffectPath: Prefabs/Skill/CodeNumber001/Skill2
     IconPath: 
   BuffData:
   - BuffID: 0
@@ -1117,37 +1149,37 @@ MonoBehaviour:
     _name: Android
     _level: 3
     _health: 350
-    _atk: 65
-    _def: 15
-    _criticalChance: 0.25
+    _atk: 80
+    _def: 20
+    _criticalChance: 0.2
     _criticalDamage: 1.5
-    _avoid: 5
+    _avoid: 20
     _speed: 0.8
-    _breakGauge: 150
+    _breakGauge: 200
     _prefabPath: Prefabs/Monster/Android
     _spritePath: 
   - _id: 101003
     _name: SecurityTurret
     _level: 5
-    _health: 250
+    _health: 500
     _atk: 100
-    _def: 10
+    _def: 5
     _criticalChance: 0.5
     _criticalDamage: 1.5
     _avoid: 5
     _speed: 1.2
-    _breakGauge: 150
+    _breakGauge: 300
     _prefabPath: Prefabs/Monster/SecurityTurret
     _spritePath: 
   - _id: 201001
     _name: CodeNumber001
     _level: 10
-    _health: 600
-    _atk: 100
-    _def: 20
-    _criticalChance: 0.25
-    _criticalDamage: 1.5
-    _avoid: 5
+    _health: 1100
+    _atk: 150
+    _def: 30
+    _criticalChance: 0.2
+    _criticalDamage: 2
+    _avoid: 25
     _speed: 0.8
     _breakGauge: 300
     _prefabPath: Prefabs/Monster/CodeNumber001
@@ -1191,10 +1223,10 @@ MonoBehaviour:
     _compensationCount_3: 0
   - _id: 110103
     _battleMapPath: Prefabs/Map/BattleMap/BattleMap_1
-    _enemyID_1: 101001
-    _enemyCount_1: 5
-    _enemyID_2: 0
-    _enemyCount_2: 0
+    _enemyID_1: 101002
+    _enemyCount_1: 1
+    _enemyID_2: 101001
+    _enemyCount_2: 2
     _enemyID_3: 0
     _enemyCount_3: 0
     _enemyID_4: 0
@@ -1209,10 +1241,10 @@ MonoBehaviour:
     _compensationCount_3: 0
   - _id: 110201
     _battleMapPath: Prefabs/Map/BattleMap/BattleMap_1
-    _enemyID_1: 101001
-    _enemyCount_1: 2
-    _enemyID_2: 0
-    _enemyCount_2: 0
+    _enemyID_1: 101002
+    _enemyCount_1: 1
+    _enemyID_2: 101001
+    _enemyCount_2: 2
     _enemyID_3: 0
     _enemyCount_3: 0
     _enemyID_4: 0
@@ -1227,8 +1259,8 @@ MonoBehaviour:
     _compensationCount_3: 0
   - _id: 110202
     _battleMapPath: Prefabs/Map/BattleMap/BattleMap_1
-    _enemyID_1: 101001
-    _enemyCount_1: 3
+    _enemyID_1: 101002
+    _enemyCount_1: 2
     _enemyID_2: 0
     _enemyCount_2: 0
     _enemyID_3: 0
@@ -1245,8 +1277,8 @@ MonoBehaviour:
     _compensationCount_3: 0
   - _id: 110203
     _battleMapPath: Prefabs/Map/BattleMap/BattleMap_1
-    _enemyID_1: 101001
-    _enemyCount_1: 5
+    _enemyID_1: 101002
+    _enemyCount_1: 3
     _enemyID_2: 0
     _enemyCount_2: 0
     _enemyID_3: 0

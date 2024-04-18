@@ -77,7 +77,7 @@ public class SpawnManager : MonoBehaviour
         foreach (StageWave stageWave in stageDB.GetData(stageID).StageWaves)
         {
             waveData = waveDB.GetData(stageWave._waveID);
-            var enemyID = waveData.Enemys[waveData.Enemys.Count - 1]._enemyID;
+            var enemyID = waveData.Enemys[0]._enemyID;
             var resources = Resources.Load(enemyDB.GetData(enemyID).PrefabPath) as GameObject;
             mapSpawnController.MonsterSpawn(resources, stageWave._waveID);
         }
