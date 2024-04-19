@@ -184,6 +184,7 @@ public class BattleManager : MonoBehaviour
         }
         playerUnitCount = playerCreateCount;
         WaveData = waveDB.GetData(StageID);
+        int enemyIndex = 0;
         for (int i = 0; WaveData.Enemys.Count > i; i++)
         {
             for (int j = 0; WaveData.Enemys[i]._enemyCount > j; j++)
@@ -196,7 +197,8 @@ public class BattleManager : MonoBehaviour
                 unitInfo.unitObject.AddComponent<EnemySkillController>();
 
                 unitInfo.actionController = unitInfo.unitObject.GetComponent<Enemy>().ActionController;
-                unitInfo.unitObject.transform.localPosition = enemySpawnPos[j];
+                unitInfo.unitObject.transform.localPosition = enemySpawnPos[enemyIndex];
+                enemyIndex++;
                 unitInfo.unitData = CreateEnemyData(unitInfo.unitObject.tag);
 
                 lUnitInfo.Add(lUnitInfo.Count + 1, unitInfo);
@@ -549,18 +551,18 @@ public class BattleManager : MonoBehaviour
     }
     private void SetSpawnPos()
     {
-        playerSpawnPos[0] = new Vector3(-1, 0, -7f);
+        playerSpawnPos[0] = new Vector3(2, 0, -7f);
         playerSpawnPos[1] = new Vector3(0.5f, 0, -7f);
-        playerSpawnPos[2] = new Vector3(2, 0, -7f);
-        playerSpawnPos[3] = new Vector3(3.5f, 0, -7f);
+        playerSpawnPos[2] = new Vector3(3.5f, 0, -7f);
+        playerSpawnPos[3] = new Vector3(-1, 0, -7f);
         playerSpawnPos[4] = new Vector3(5, 0, -7f);
 
 
-        enemySpawnPos[0] = new Vector3(0.5f, 0, 1.5f);
-        enemySpawnPos[1] = new Vector3(3.5f, 0, 1.5f);
-        enemySpawnPos[2] = new Vector3(-1, 0, 2.5f);
-        enemySpawnPos[3] = new Vector3(2, 0, 2.5f);
-        enemySpawnPos[4] = new Vector3(5, 0, 2.5f);
+        enemySpawnPos[0] = new Vector3(2, 0, 1f);
+        enemySpawnPos[1] = new Vector3(0, 0, 1f);
+        enemySpawnPos[2] = new Vector3(4, 0, 1f);
+        enemySpawnPos[3] = new Vector3(-2, 0, 1f);
+        enemySpawnPos[4] = new Vector3(6, 0, 1f);
     }
 
     public void SetTurnIndicator(int teamIndex, float curtime)

@@ -8,6 +8,8 @@ namespace Enums
     public enum EnemyID
     {
         Drone = 101001,
+        Android = 101002,
+        SecurityTurret = 101003,
         CodeNumber001 = 201001
     }
     public enum GameEnd
