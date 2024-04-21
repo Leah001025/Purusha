@@ -40,7 +40,7 @@ public class UpgradeStatUI : MonoBehaviour
         speed.text = (upgrades[curID].speed * 100).ToString("0");
         characterName.text = $"{characterDatas[curID].status.name} 전용장비 강화";
         weaponQuantity.text = $"강화재료 {(inventory.ContainsKey(10201)? inventory[10201].quantity.ToString():"0")}개";
-        armorQuantity.text = $"강화재료 {(inventory.ContainsKey(10301) ? inventory[10201].quantity.ToString() : "0")}개";
+        armorQuantity.text = $"강화재료 {(inventory.ContainsKey(10301) ? inventory[10301].quantity.ToString() : "0")}개";
         message.text = "";
     }
     public void UpgradeStatus(int index)
