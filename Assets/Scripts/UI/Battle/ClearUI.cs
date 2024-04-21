@@ -16,6 +16,7 @@ public class ClearUI : MonoBehaviour
 
     [Header("Image")]
     [SerializeField] private Image clearImage;
+    [SerializeField] private Image clearBG;
 
     [Header("Text")]
     [SerializeField] private TMP_Text clearText;
@@ -53,10 +54,12 @@ public class ClearUI : MonoBehaviour
             case GameEnd.success:
                 clearText.text = "Success";
                 clearImage.sprite = Resources.Load<Sprite>("UI/Icon/Success");
+                clearImage.sprite = Resources.Load<Sprite>("UI/Icon/SuccessBG");
                 break;
             case GameEnd.fail:
                 clearText.text = "Fail";
                 clearImage.sprite = Resources.Load<Sprite>("UI/Icon/Fail");
+                clearImage.sprite = Resources.Load<Sprite>("UI/Icon/FailBG");
                 break;
         }
     }
