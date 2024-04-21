@@ -14,6 +14,7 @@ public class PlayerStateMachine : StateMachine
     public PlayerBattleIdleState BattleIdleState { get; }
     public PlayerBattleJumpState BattleJumpState { get; }
     public PlayerBattleMoveState BattleMoveState { get; }
+    public PlayerBattleHitState BattleHitState { get; }
     public PlayerBattleSkill1State BattleSkill1State { get; }
     public PlayerBattleSkill2State BattleSkill2State { get; }
     public PlayerBattleSkill3State BattleSkill3State { get; }
@@ -38,6 +39,7 @@ public class PlayerStateMachine : StateMachine
         BattleIdleState = new PlayerBattleIdleState(this);
         BattleJumpState = new PlayerBattleJumpState(this);
         BattleMoveState = new PlayerBattleMoveState(this);
+        BattleHitState = new PlayerBattleHitState(this);
         BattleSkill1State = new PlayerBattleSkill1State(this);
         BattleSkill2State = new PlayerBattleSkill2State(this);
         BattleSkill3State = new PlayerBattleSkill3State(this);

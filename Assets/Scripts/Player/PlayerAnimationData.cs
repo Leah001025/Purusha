@@ -16,6 +16,7 @@ public class PlayerAnimationData
     [SerializeField] private string battleIdleParameterName = "BattleIdle";
     [SerializeField] private string battleJumpParameterName = "BattleJump";
     [SerializeField] private string battleMoveParameterName = "BattleMove";
+    [SerializeField] private string battleHitParameterName = "BattleHit";
     [SerializeField] private string battleSkill1ParameterName = "BattleSkill1";
     [SerializeField] private string battleSkill2ParameterName = "BattleSkill2";
     [SerializeField] private string battleSkill3ParameterName = "BattleSkill3";
@@ -31,6 +32,7 @@ public class PlayerAnimationData
     public int BattleIdleParameterHash { get; private set; }
     public int BattleJumpParameterHash { get; private set; }
     public int BattleMoveParameterHash { get; private set; }
+    public int BattleHitParameterHash { get; private set; }
     public int BattleSkill1ParameterHash { get; private set; }
     public int BattleSkill2ParameterHash { get; private set; }
     public int BattleSkill3ParameterHash { get; private set; }
@@ -48,6 +50,7 @@ public class PlayerAnimationData
         BattleIdleParameterHash = Animator.StringToHash(battleIdleParameterName);
         BattleJumpParameterHash = Animator.StringToHash(battleJumpParameterName);
         BattleMoveParameterHash = Animator.StringToHash(battleMoveParameterName);
+        BattleHitParameterHash = Animator.StringToHash(battleHitParameterName);
         BattleSkill1ParameterHash = Animator.StringToHash(battleSkill1ParameterName);
         BattleSkill2ParameterHash = Animator.StringToHash(battleSkill2ParameterName);
         BattleSkill3ParameterHash = Animator.StringToHash(battleSkill3ParameterName);

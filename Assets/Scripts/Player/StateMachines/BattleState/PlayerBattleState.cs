@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,6 +16,7 @@ public class PlayerBattleState : PlayerBaseState
         actionController.OnBattleIdle += OnPlayerBattleIdle;
         actionController.OnBattleJump += OnPlayerBattleJump;
         actionController.OnBattleMove += OnPlayerBattleMove;
+        actionController.OnBattleHit += OnPlayerBattleHit;
         actionController.OnBattleSkill1 += OnPlayerBattleSkill1;
         actionController.OnBattleSkill2 += OnPlayerBattleSkill2;
         actionController.OnBattleSkill3 += OnPlayerBattleSkill3;
@@ -25,13 +27,14 @@ public class PlayerBattleState : PlayerBaseState
     public override void Exit()
     {
         base.Exit();
-        actionController.OnBattleIdle += OnPlayerBattleIdle;
-        actionController.OnBattleJump += OnPlayerBattleJump;
-        actionController.OnBattleMove += OnPlayerBattleMove;
-        actionController.OnBattleSkill1 += OnPlayerBattleSkill1;
-        actionController.OnBattleSkill2 += OnPlayerBattleSkill2;
-        actionController.OnBattleSkill3 += OnPlayerBattleSkill3;
-        actionController.OnBattleSkill4 += OnPlayerBattleSkill4;
+        actionController.OnBattleIdle -= OnPlayerBattleIdle;
+        actionController.OnBattleJump -= OnPlayerBattleJump;
+        actionController.OnBattleMove -= OnPlayerBattleMove;
+        actionController.OnBattleHit -= OnPlayerBattleHit;
+        actionController.OnBattleSkill1 -= OnPlayerBattleSkill1;
+        actionController.OnBattleSkill2 -= OnPlayerBattleSkill2;
+        actionController.OnBattleSkill3 -= OnPlayerBattleSkill3;
+        actionController.OnBattleSkill4 -= OnPlayerBattleSkill4;
         StopAnimation(stateMachine.Player.AnimationData.BattleParameterHash);
     }
 
@@ -63,7 +66,10 @@ public class PlayerBattleState : PlayerBaseState
     {
         stateMachine.ChangeState(stateMachine.BattleSkill1State);
     }
-
+    private void OnPlayerBattleHit()
+    {
+        stateMachine.ChangeState(stateMachine.BattleHitState);
+    }
     private void OnPlayerBattleMove()
     {
         stateMachine.ChangeState(stateMachine.BattleMoveState);

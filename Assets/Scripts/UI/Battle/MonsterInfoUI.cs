@@ -14,15 +14,10 @@ public class MonsterInfoUI : MonoBehaviour
     {
         monsterName = gameObject.transform.parent.gameObject.transform.parent.gameObject.name;
         monsterMaxHealth = BattleManager.Instance.lUnitInfo[int.Parse(monsterName)].unitData.Health;
-        BattleManager.Instance.OnAddDamage += ChangeHealthBarAmount;
     }
-
-    private void ChangeHealthBarAmount(float damage, string name)
+    private void Update()
     {
-        if (monsterName == name)
-        {
-            float fillDamage = (BattleManager.Instance.lUnitInfo[int.Parse(monsterName)].unitData.Health) / monsterMaxHealth;
-            hpBar.fillAmount = fillDamage;
-        }
+        float fillDamage = (BattleManager.Instance.lUnitInfo[int.Parse(monsterName)].unitData.Health) / monsterMaxHealth;
+        hpBar.fillAmount = Mathf.Lerp(hpBar.fillAmount, fillDamage, Time.deltaTime * 20);
     }
 }

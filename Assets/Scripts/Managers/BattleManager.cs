@@ -58,6 +58,7 @@ public class BattleManager : MonoBehaviour
     private WaveDataBase waveDB;
     private WaveData WaveData;
 
+    private WaitForSeconds dieForSeconds;
     private WaitForSeconds gameForSeconds;
     public WaitForSeconds animForSeconds;
 
@@ -126,6 +127,7 @@ public class BattleManager : MonoBehaviour
     }
     private void Start()
     {
+        dieForSeconds = new WaitForSeconds(0.5f);
         UIManager.Instance.ShowPopup<TurnIndicatorUI>();
         cameraPos = new Vector3(5f, 2f, -6.2f);
     }
@@ -159,26 +161,29 @@ public class BattleManager : MonoBehaviour
         {
             if (teamData.ContainsKey(i))
             {
-                unitInfo = new UnitInfo();
-                unitInfo.unitID = teamData[i].status.iD;
-                var Resource = Resources.Load<GameObject>(teamData[i].status.prefabPath);
-                unitInfo.unitType = CharacterType.Player;
-                unitInfo.unitObject = Instantiate(Resource, stageTrans);
-                unitInfo.actionController = unitInfo.unitObject.GetComponent<Player>().ActionController;
-                if (!turnControllers.ContainsKey(i))
+                if (teamData[i].status.health > 0)
                 {
-                    turnControllers.Add(i, unitInfo.unitObject.GetComponent<CharacterTurnController>());
+                    unitInfo = new UnitInfo();
+                    unitInfo.unitID = teamData[i].status.iD;
+                    var Resource = Resources.Load<GameObject>(teamData[i].status.prefabPath);
+                    unitInfo.unitType = CharacterType.Player;
+                    unitInfo.unitObject = Instantiate(Resource, stageTrans);
+                    unitInfo.actionController = unitInfo.unitObject.GetComponent<Player>().ActionController;
+                    if (!turnControllers.ContainsKey(i))
+                    {
+                        turnControllers.Add(i, unitInfo.unitObject.GetComponent<CharacterTurnController>());
+                    }
+                    turnControllers[i].teamIndex = i;
+                    unitInfo.unitObject.transform.localPosition = playerSpawnPos[i - 1];
+                    unitInfo.characterData = CreateCharacterData(i);
+
+                    lUnitInfo.Add(i, unitInfo);
+                    UIManager.Instance.BattlePlayerPopup(i, playerInfoTrans);
+                    unitInfo.unitObject.name = lUnitInfo.Count.ToString();
+
+                    battleInfo.characterInfo.Add(i, CreateCharacterBattleInfo());
+                    playerCreateCount++;
                 }
-                turnControllers[i].teamIndex = i;
-                unitInfo.unitObject.transform.localPosition = playerSpawnPos[i - 1];
-                unitInfo.characterData = CreateCharacterData(i);
-
-                lUnitInfo.Add(i, unitInfo);
-                UIManager.Instance.BattlePlayerPopup(i, playerInfoTrans);
-                unitInfo.unitObject.name = lUnitInfo.Count.ToString();
-
-                battleInfo.characterInfo.Add(i, CreateCharacterBattleInfo());
-                playerCreateCount++;
             }
             else Debug.Log($"TeamData{i} : null");
         }
@@ -229,7 +234,6 @@ public class BattleManager : MonoBehaviour
     private IEnumerator AttackOrder()
     {
         attackOrder = new Queue<int>();
-        TargetChange(CharacterType.Enemy);
         yield return new WaitForSeconds(1f);
         while (gameState == GameEnd.Paly)
         {
@@ -281,6 +285,7 @@ public class BattleManager : MonoBehaviour
         switch (lUnitInfo[index].unitType)
         {
             case CharacterType.Player:
+                TargetChange(CharacterType.Enemy);
                 turnControllers[index].TurnOn();
                 var popup = UIManager.Instance.ShowPopup<SkillPopUp>();
                 break;
@@ -325,7 +330,7 @@ public class BattleManager : MonoBehaviour
                 lUnitInfo[targetIndex].actionController.BattleHit();
                 enemySkillControllers[targetIndex].SetBuffandDebuff(buffID);
                 AddDamageUI(_damage, target.name);
-                DieCheck(lUnitInfo[targetIndex]);
+                StartCoroutine(DieCheck(lUnitInfo[targetIndex]));
                 break;
             case 1:
                 int count = 1;
@@ -333,15 +338,16 @@ public class BattleManager : MonoBehaviour
                 {
                     skillController.SetBuffandDebuff(buffID);
                 }
-                for (int i = 1; i <= enemyCreateCount+playerCreateCount; i++)
+                for (int i = 1; i <= enemyCreateCount + playerCreateCount; i++)
                 {
                     targetIndex = int.Parse(target.name);
-                    if (lUnitInfo.ContainsKey(count)&&lUnitInfo[count].unitType == CharacterType.Enemy)
+                    if (lUnitInfo.ContainsKey(count) && lUnitInfo[count].unitType == CharacterType.Enemy)
                     {
                         lUnitInfo[count].unitData.Health -= _damage;
                         battleInfo.characterInfo[onTurnIndex].attackDamages += _damage;
+                        lUnitInfo[targetIndex].actionController.BattleHit();
                         AddDamageUI(_damage, lUnitInfo[count].unitObject.name);
-                        DieCheck(lUnitInfo[count]);
+                        StartCoroutine(DieCheck(lUnitInfo[targetIndex]));
                     }
                     if ((enemyUnitCount) == 0) return;
                     count++;
@@ -419,11 +425,12 @@ public class BattleManager : MonoBehaviour
             case 0:
                 lUnitInfo[targetIndex].characterData.status.health -= _damage;
                 battleInfo.characterInfo[targetIndex].receivedDamages += _damage;
+                lUnitInfo[targetIndex].actionController.BattleHit();
                 turnControllers[targetIndex].SetBuffandDebuff(buffID);
                 //lUnitInfo[targetIndex].actionController.Hit();
                 //turnControllers[targetIndex].SetBuffandDebuff(buffID);
                 AddDamageUI(_damage, target.name);
-                DieCheck(lUnitInfo[targetIndex]);
+                StartCoroutine(DieCheck(lUnitInfo[targetIndex]));
                 break;
             case 1:
                 foreach (CharacterTurnController turnController in turnControllers.Values)
@@ -435,8 +442,9 @@ public class BattleManager : MonoBehaviour
                     if (_unitData.unitType == CharacterType.Enemy)
                     {
                         _unitData.unitData.Health -= _damage;
+                        lUnitInfo[targetIndex].actionController.BattleHit();
                         AddDamageUI(_damage, _unitData.unitObject.name);
-                        DieCheck(lUnitInfo[targetIndex]);
+                        StartCoroutine(DieCheck(lUnitInfo[targetIndex]));
                     }
 
                 }
@@ -619,30 +627,31 @@ public class BattleManager : MonoBehaviour
     {
         skill4?.Invoke();
     }
-    private bool DieCheck(UnitInfo unitInfo)
+    private IEnumerator DieCheck(UnitInfo unitInfo)
     {
+        yield return dieForSeconds;
         switch (unitInfo.unitType)
         {
             case CharacterType.Player:
                 if (unitInfo.characterData.status.health <= 0)
                 {
+                    lUnitInfo[int.Parse(unitInfo.unitObject.name)].actionController.Die();
+                    lUnitInfo.Remove(int.Parse(unitInfo.unitObject.name));
                     playerUnitCount--;
-                    return true;
+                    TargetChange(CharacterType.Player);
                 }
                 break;
             case CharacterType.Enemy:
                 if (unitInfo.unitData.Health <= 0)
                 {
-                    unitInfo.actionController.Die();
                     lUnitInfo[int.Parse(unitInfo.unitObject.name)].actionController.Die();
                     lUnitInfo.Remove(int.Parse(unitInfo.unitObject.name));
                     enemyUnitCount--;
                     TargetChange(CharacterType.Enemy);
-                    return true;
                 }
                 break;
         }
-        return false;
+        yield break;
     }
     private GameEnd WaveEndChack()
     {
@@ -667,65 +676,67 @@ public class BattleManager : MonoBehaviour
         {
             case CharacterType.Player:
                 if (playerUnitCount == 0) break;
-                var usercount = UnityEngine.Random.Range(1, playerCreateCount + 1);
-                bool isPlayer = true;
-                while (isPlayer)
+                OffTarget();
+                int[] playerTarget = new int[playerUnitCount];
+                int usercount = 0;
+                foreach (KeyValuePair<int, UnitInfo> info in lUnitInfo)
                 {
-                    foreach (int key in lUnitInfo.Keys)
+                    if (info.Value.unitType == CharacterType.Player)
                     {
-                        if (usercount == key)
-                        {
-                            target = lUnitInfo[usercount].unitObject;
-                            isPlayer = false;
-                        }
-                        else
-                        {
-                            usercount = UnityEngine.Random.Range(1, playerCreateCount + 1);
-                        }
+                        playerTarget[usercount] = int.Parse(info.Value.unitObject.name);
+                        usercount++;
                     }
                 }
+                var playerRandom = UnityEngine.Random.Range(0, playerTarget.Length);
+                target = lUnitInfo[playerTarget[playerRandom]].unitObject;
                 break;
             case CharacterType.Enemy:
                 if (enemyUnitCount == 0) break;
-                var enemycount = UnityEngine.Random.Range(playerCreateCount + 1, enemyCreateCount + playerCreateCount + 1);
-                bool isEnemy = true;
-                if (target != null)
+                int[] enemyTarget = new int[enemyUnitCount];
+                int enemycount = 0;
+                foreach (KeyValuePair<int, UnitInfo> info in lUnitInfo)
                 {
-                    while (isEnemy)
+                    if (info.Value.unitType == CharacterType.Enemy)
                     {
-                        foreach (int key in lUnitInfo.Keys)
-                        {
-                            if (target.name == key.ToString() && enemycount == key)
-                            {
-                                OffTarget();
-                            }
-                            if (enemycount == key)
-                            {
-                                target = lUnitInfo[enemycount].unitObject;
-                                isEnemy = false;
-                                OnTarget();
-                            }
-                            else
-                            {
-                                enemycount = UnityEngine.Random.Range(playerCreateCount + 1, enemyCreateCount + playerCreateCount + 1);
-                            }
-                        }
+                        enemyTarget[enemycount] = int.Parse(info.Value.unitObject.name);
+                        enemycount++;
                     }
                 }
-                else
+                var enemyRandom = UnityEngine.Random.Range(0, enemyTarget.Length);
+                if (target != null)
                 {
-                    target = lUnitInfo[enemycount].unitObject;
+                    if (target.name != enemyTarget[enemyRandom].ToString())
+                    {
+                        OffTarget();
+                    }
+                }
+                if (target != lUnitInfo[enemyTarget[enemyRandom]].unitObject)
+                {
+                    target = lUnitInfo[enemyTarget[enemyRandom]].unitObject;
+                    OnTarget();
                 }
                 break;
         }
     }
     public void OffTarget()
     {
-        lUnitInfo[int.Parse(target.name)].actionController.TargetOff();
+        if (lUnitInfo.ContainsKey(int.Parse(target.name)))
+        {
+            if (lUnitInfo[int.Parse(target.name)].unitType == CharacterType.Enemy)
+            {
+                lUnitInfo[int.Parse(target.name)].actionController.TargetOff();
+            }
+        }
     }
     public void OnTarget()
     {
-        lUnitInfo[int.Parse(target.name)].actionController.TargetOn();
+        if (lUnitInfo.ContainsKey(int.Parse(target.name)))
+        {
+            if (lUnitInfo[int.Parse(target.name)].unitType == CharacterType.Enemy)
+            {
+                lUnitInfo[int.Parse(target.name)].actionController.TargetOn();
+            }
+        }
     }
     public WaitForSeconds GameForSeconds(float time)
     {

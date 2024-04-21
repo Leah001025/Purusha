@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -39,6 +40,7 @@ public class Player : MonoBehaviour
         {
             Animator = GetComponentInChildren<Animator>();
             stateMachine.ChangeState(stateMachine.BattleIdleState);
+            ActionController.OnDie += ThisDie;
         }
     }
     private void Start()
@@ -57,5 +59,9 @@ public class Player : MonoBehaviour
     {
         stateMachine.PhysicsUpdate();
     }
-
+    private void ThisDie()
+    {
+        ActionController.OnDie -= ThisDie;
+        Destroy(gameObject);
+    }
 }
