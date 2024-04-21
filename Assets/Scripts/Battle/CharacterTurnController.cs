@@ -74,8 +74,8 @@ public class CharacterTurnController : MonoBehaviour
     private void FixedUpdate()
     {
 
-        unitGauge = unitInfo.unitGauge;
-        battleManager.SetTurnIndicator(teamIndex, unitGauge);
+        //unitGauge = unitInfo.unitGauge;
+        //battleManager.SetTurnIndicator(teamIndex, unitGauge);
         if (!isTargetPos && isAttack)
         {
             MoveToTarget();
@@ -365,11 +365,11 @@ public class CharacterTurnController : MonoBehaviour
         yield return new WaitForSeconds(1f);
         OnSkillEffect(characterData.skillData[skillNum]);
         SoundManager.Instance.AttackAudio(characterData.status.iD, num);
+        battleManager.OnSkillPlayer(characterBuffData, skillNum);
         yield return wait05;
         yield return wait05;
         Destroy(skillObj);
         yield return wait05;
-        battleManager.OnSkillPlayer(characterBuffData, skillNum);
         character.transform.localPosition = Vector3.zero;
         actionController.BattleJump();
         yield return new WaitForSeconds(0.2f);
@@ -389,10 +389,10 @@ public class CharacterTurnController : MonoBehaviour
         OnSkillEffect(characterData.skillData[skillNum]);
         SoundManager.Instance.AttackAudio(characterData.status.iD, num);
         yield return new WaitForSeconds(time);
+        battleManager.OnSkillPlayer(characterBuffData, skillNum);
         Destroy(skillObj);
         yield return new WaitForSeconds(0.2f);
-        battleManager.OnSkillPlayer(characterBuffData, skillNum);
-        character.transform.localPosition = Vector3.zero;
+        //character.transform.localPosition = Vector3.zero;
         isAttack = false;
     }
     private void SkillAnim(int number)

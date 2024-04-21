@@ -54,7 +54,7 @@ public class TeamInfoUI : MonoBehaviour
         }
     }
 
-    private void ChangeHealthBarAmount(float damage, string name)
+    private void ChangeHealthBarAmount(float damage, string name,bool isCritical)
     {
         if (gameObject.name == name)
         {

@@ -42,9 +42,11 @@ public class LoadingSceneController : MonoBehaviour
             }
             if (_loadingBar.fillAmount >= 1f)
             {
+                //SceneLoadManager NowScene Update
+                SceneLoadManager.Instance.NowSceneName = _nextSceneName;
                 loadScene.allowSceneActivation = true;
             }
-        }
+        }        
         yield return null;
     }
 }

@@ -10,6 +10,7 @@ public class TeamFormation : MonoBehaviour
 {
     public GameObject CharacterList;
     public GameObject Team;
+    private Dictionary<int, CharacterData> updateCharacter = new Dictionary<int, CharacterData>();
     public Dictionary<string, string> characterPrefabMap = new Dictionary<string, string>();
 
     void Start()
@@ -23,17 +24,29 @@ public class TeamFormation : MonoBehaviour
         //ClickedCharacter(1);
         init();
     }
+    private void OnEnable()
+    {
+        UpdateCharacter();
+    }
 
     private void init()
     {
+        UpdateCharacter();
+        CurrentTeamSlot();
+    }
+    private void UpdateCharacter()
+    {
         foreach (var pair in GameManager.Instance.User.characters.Values)
         {
-            string prefabPath = "Prefabs/Inventory/" + pair.status.iD.ToString();
-            var _res = Resources.Load(prefabPath) as GameObject;
-            var _obj = Instantiate(_res, CharacterList.transform);
-            _obj.name = pair.status.iD.ToString();
+            if (!updateCharacter.ContainsKey(pair.status.iD))
+            {
+                string prefabPath = "Prefabs/Inventory/" + pair.status.iD.ToString();
+                var _res = Resources.Load(prefabPath) as GameObject;
+                var _obj = Instantiate(_res, CharacterList.transform);
+                _obj.name = pair.status.iD.ToString();
+                updateCharacter.Add(pair.status.iD, pair);
+            }
         }
-        CurrentTeamSlot();
     }
 
     public void CurrentTeamSlot()

@@ -53,6 +53,8 @@ MonoBehaviour:
     hitParameterName: Hit
     skill1ParameterName: Skill1
     skill2ParameterName: Skill2
+  monsterInfoPoint: {fileID: 0}
+  targetPoint: {fileID: 0}
 --- !u!1 &2890712399688291867
 GameObject:
   m_ObjectHideFlags: 0
