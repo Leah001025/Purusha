@@ -126,4 +126,12 @@ public class UserData
             return nextID;
         }
     }
+    public void UpdateTeamData()
+    {
+        for (int i = 1; i <= teamData.Count; i++) 
+        {
+            teamData[i] = characters[teamData[i].status.iD];
+        }
+
+    }
 }

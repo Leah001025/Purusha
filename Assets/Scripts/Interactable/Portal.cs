@@ -20,7 +20,7 @@ public class Portal : MonoBehaviour, IInteractable
     public void Interaction()
     {
         StageClear();
-        SceneLoadManager.Instance.LoadingChangeScene("MainScene");
+        SceneLoadManager.Instance.LoadingChangeScene("OpenWorldScene");
     }
     private void StageClear()
     {
@@ -49,10 +49,11 @@ public class Portal : MonoBehaviour, IInteractable
         {
             GameManager.Instance.ResetWaveInfo();
             int nextStage = GameManager.Instance.User.NextStage();
+            GameManager.Instance.stageID = nextStage;
             StageInfo nextStageInfo = new StageInfo();
+            nextStageInfo.stageID = nextStage;
             GameManager.Instance.User.stageClear.Push(nextStageInfo);
             GameManager.Instance.User.isCutScenePlay = false;
-            nextStageInfo.stageID = nextStage;
         }
     }
 }

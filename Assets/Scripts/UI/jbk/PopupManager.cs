@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using Unity.VisualScripting;
 
 public class PopupManager : MonoBehaviour
 {
@@ -48,7 +49,7 @@ public class PopupManager : MonoBehaviour
     {
         SoundManager.Instance.ButtonAudio("BasicMenuC_1");
         var seq = DOTween.Sequence();
-        seq.Play().OnComplete(() => {gameObject.SetActive(false);});
+        seq.Play().OnComplete(() => { gameObject.SetActive(false); });
     }
     public void ShowItem()
     {

@@ -77,8 +77,8 @@ public class EnemySkillController : MonoBehaviour
     private void FixedUpdate()
     {
 
-        unitGauge = BattleManager.Instance.lUnitInfo[teamIndex].unitGauge;
-        battleManager.SetTurnIndicator(teamIndex, unitGauge);
+        //unitGauge = BattleManager.Instance.lUnitInfo[teamIndex].unitGauge;
+        //battleManager.SetTurnIndicator(teamIndex, unitGauge);
         if (!isTargetPos && isAttack)
         {
             MoveToTarget();
