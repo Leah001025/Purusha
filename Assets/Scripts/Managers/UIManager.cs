@@ -13,6 +13,7 @@ public class UIManager : SingleTon<UIManager>
     public Dictionary<int, Inventory> charInventoryUI = new Dictionary<int, Inventory>();
     public PopupManager popupManager;
     public UpgradeStatUI upgradeStatUI;
+    public OpenWorldSceneUI openWorldSceneUI;
     public LevelUpUI levelUpUI;
     public ItemInventory itemInventoryUI;
     public SkillUI skillUI;

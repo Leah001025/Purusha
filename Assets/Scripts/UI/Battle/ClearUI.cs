@@ -49,6 +49,7 @@ public class ClearUI : MonoBehaviour
     }
     private void StageStage()
     {
+        GameManager.Instance.User.UpdateCharacterData();
         switch (BattleManager.Instance.gameState)
         {
             case GameEnd.success:

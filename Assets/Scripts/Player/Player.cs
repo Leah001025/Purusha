@@ -18,6 +18,7 @@ public class Player : MonoBehaviour
     public CharacterActionController ActionController { get; private set; }
 
     private PlayerStateMachine stateMachine;
+    public GameObject WorldMapAttackEffect;
 
     private void Awake()
     {
@@ -46,6 +47,7 @@ public class Player : MonoBehaviour
     private void Start()
     {
         Init();
+        EffectLoad();
         //Cursor.lockState = CursorLockMode.Locked;
     }
 
@@ -63,5 +65,21 @@ public class Player : MonoBehaviour
     {
         ActionController.OnDie -= ThisDie;
         Destroy(gameObject);
+    }
+    private void EffectLoad()
+    {
+        var res = ResourceManager.Instance.Load<GameObject>("UI/WorldMapUI/Attack");
+        WorldMapAttackEffect = Instantiate(res, transform.GetChild(0));
+        WorldMapAttackEffect.SetActive(false);
+    }
+    public void EffectPlay()
+    {
+        StartCoroutine(AttackEffect());
+    }
+    IEnumerator AttackEffect()
+    {
+        WorldMapAttackEffect.SetActive(true);
+        yield return new WaitForSeconds(0.5f);
+        WorldMapAttackEffect.SetActive(false);
     }
 }

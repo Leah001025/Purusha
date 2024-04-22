@@ -14,6 +14,7 @@ public class UIBase : MonoBehaviour
     public virtual void CloseUI()
     {
         SoundManager.Instance.ButtonAudio("BasicMenuC_1");
+        if(UIManager.Instance.openWorldSceneUI != null) { UIManager.Instance.openWorldSceneUI.UpdateData(); }
         gameObject.SetActive(false);
     }
 }
