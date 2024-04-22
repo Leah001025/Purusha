@@ -19,12 +19,12 @@ public class WaveData : DataBase<StageData>
     [SerializeField] private int _enemyID_5;
     [SerializeField] private int _enemyCount_5;
 
-    [SerializeField] private int _compensation_1;
-    [SerializeField] private int _compensationCount_1;
-    [SerializeField] private int _compensation_2;
-    [SerializeField] private int _compensationCount_2;
-    [SerializeField] private int _compensation_3;
-    [SerializeField] private int _compensationCount_3;
+    [SerializeField] public int _compensation_1;
+    [SerializeField] public int _compensationCount_1;
+    [SerializeField] public int _compensation_2;
+    [SerializeField] public int _compensationCount_2;
+    [SerializeField] public int _compensation_3;
+    [SerializeField] public int _compensationCount_3;
 
     public int ID => _id;
     public string BattleMapPath => _battleMapPath;

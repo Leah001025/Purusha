@@ -24,7 +24,7 @@ public class CharacterTurnController : MonoBehaviour
     public BuffData shield;
     public float unitGauge;
     public float shieldQuantity;
-    private int skill3CoolTime;
+    public int skill3CoolTime;
     public int skill4Gauge;
     private bool isCharacterTurn;
     private bool isTargetPos = false;
