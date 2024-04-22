@@ -9,7 +9,6 @@ public class IntroUI : MonoBehaviour
 {
     public Image backGround;
     public Image startButton;
-    public Image settingButton;
     public Image exitButton;
 
     private WaitForSeconds effectWaitFor;
@@ -48,7 +47,6 @@ public class IntroUI : MonoBehaviour
                 backGround.material.SetFloat("_Intensity", Random.Range(2, 10));
                 backGround.material.SetFloat("_ValueX", Random.Range(-0.5f, 0.5f));
                 startButton.color = new Color(0.5f, Random.Range(0, 0.2f), 1, Random.Range(0f, 1f));
-                settingButton.color = new Color(0.5f, Random.Range(0, 0.2f), 1, Random.Range(0f, 1f));
                 exitButton.color = new Color(0.5f, Random.Range(0, 0.2f), 1, Random.Range(0f, 1f));
                 effectTime -= 0.1f;
             }
@@ -61,7 +59,6 @@ public class IntroUI : MonoBehaviour
         backGround.material.SetFloat("_Intensity", 0);
         backGround.material.SetFloat("_ValueX", 0);
         startButton.color = new Color(1, 1, 1, 1);
-        settingButton.color = new Color(1, 1, 1, 1);
         exitButton.color = new Color(1, 1, 1, 1);
     }
     private IEnumerator LoadData()
