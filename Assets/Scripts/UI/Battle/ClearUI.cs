@@ -54,12 +54,12 @@ public class ClearUI : MonoBehaviour
             case GameEnd.success:
                 clearText.text = "Success";
                 clearImage.sprite = Resources.Load<Sprite>("UI/Icon/Success");
-                clearImage.sprite = Resources.Load<Sprite>("UI/Icon/SuccessBG");
+                clearBG.sprite = Resources.Load<Sprite>("UI/Icon/SuccessBG");
                 break;
             case GameEnd.fail:
                 clearText.text = "Fail";
                 clearImage.sprite = Resources.Load<Sprite>("UI/Icon/Fail");
-                clearImage.sprite = Resources.Load<Sprite>("UI/Icon/FailBG");
+                clearBG.sprite = Resources.Load<Sprite>("UI/Icon/FailBG");
                 break;
         }
     }
