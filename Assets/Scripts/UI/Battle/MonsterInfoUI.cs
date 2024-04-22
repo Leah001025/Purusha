@@ -12,7 +12,7 @@ public class MonsterInfoUI : MonoBehaviour
     [SerializeField] private TMP_Text InfoText;
     [SerializeField] private TMP_Text damageText;
     [SerializeField] private GameObject damageObj;
-    [SerializeField] private Animator damageAnimator;
+    //[SerializeField] private Animator damageAnimator;
     private string monsterName;
     private float monsterMaxHealth;
     private Color normalDam = new Color(1, 0.8f, 0);
@@ -26,7 +26,7 @@ public class MonsterInfoUI : MonoBehaviour
         monsterMaxHealth = BattleManager.Instance.lUnitInfo[int.Parse(monsterName)].unitData.Health;
         BattleManager.Instance.OnAddDamage += OnDamageUI;
         DOTween.Init();
-        damageAnimator = GetComponent<Animator>();
+        //damageAnimator = GetComponent<Animator>();
         monsterInfo = BattleManager.Instance.lUnitInfo[int.Parse(monsterName)];
         InfoText.text = $"Lv.{monsterInfo.unitData.Level} {monsterInfo.unitData.Name}";
     }
@@ -38,28 +38,31 @@ public class MonsterInfoUI : MonoBehaviour
 
     private void OnDamageUI(float damage, string name, bool isCritical)
     {
-        damageText.gameObject.SetActive(true);
-        damageText.text = damage.ToString("0");
-        var seq = DOTween.Sequence();
-        var seq2 = DOTween.Sequence();
-        if (isCritical)
+        if(name== monsterName)
         {
-            damageText.color = criDam;
-            damageText.fontSize = 0.35f;
-            seq.Append(damageText.transform.DOScale(1.6f, 0.2f));
-            seq2.Append(damageText.GetComponent<RectTransform>().DOAnchorPosY(0, 0.5f));
-            seq.Append(damageText.transform.DOScale(1f, 0.3f));
-        }
-        else
-        {
-            damageText.color = normalDam;
-            damageText.fontSize = 0.3f;
-            seq.Append(damageText.transform.DOScale(1.3f, 0.2f));
-            seq2.Append(damageText.GetComponent<RectTransform>().DOAnchorPosY(0, 0.5f));
-            seq.Append(damageText.transform.DOScale(1f, 0.3f));
-        }
-        seq.Play();
-        seq2.Play();
-        seq.Play().OnComplete(() => { damageText.gameObject.SetActive(false); });
+            damageText.gameObject.SetActive(true);
+            damageText.text = damage.ToString("0");
+            var seq = DOTween.Sequence();
+            var seq2 = DOTween.Sequence();
+            if (isCritical)
+            {
+                damageText.color = criDam;
+                damageText.fontSize = 0.35f;
+                seq.Append(damageText.transform.DOScale(1.6f, 0.2f));
+                seq2.Append(damageText.GetComponent<RectTransform>().DOAnchorPosY(0, 0.5f));
+                seq.Append(damageText.transform.DOScale(1f, 0.3f));
+            }
+            else
+            {
+                damageText.color = normalDam;
+                damageText.fontSize = 0.3f;
+                seq.Append(damageText.transform.DOScale(1.3f, 0.2f));
+                seq2.Append(damageText.GetComponent<RectTransform>().DOAnchorPosY(0, 0.5f));
+                seq.Append(damageText.transform.DOScale(1f, 0.3f));
+            }
+            seq.Play();
+            seq2.Play();
+            seq.Play().OnComplete(() => { damageText.gameObject.SetActive(false); });
+        }        
     }
 }
