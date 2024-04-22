@@ -91,13 +91,14 @@ public class BattleManager : MonoBehaviour
 
 
     public float speedModifier = 1;
+    private bool isCritical = false;
 
     [Header("TurnIndicator")]
-    public float turnIndicator1;
-    public float turnIndicator2;
-    public float turnIndicator3;
-    public float turnIndicator4;
-    public float turnIndicator5;
+    //public float turnIndicator1;
+    //public float turnIndicator2;
+    //public float turnIndicator3;
+    //public float turnIndicator4;
+    //public float turnIndicator5;
 
     [Header("Animation Time")]
     public float beforeAnimTime = 0;
@@ -112,7 +113,7 @@ public class BattleManager : MonoBehaviour
     public Action skill3;
     public Action skill4;
 
-    public event Action<float, string> OnAddDamage;
+    public event Action<float, string, bool> OnAddDamage;
 
     private void Awake()
     {
@@ -310,19 +311,20 @@ public class BattleManager : MonoBehaviour
     //}
     public void OnSkillPlayer(CharacterData characterData, int skillNum)
     {
-        float _damage = AddDamage(characterData, skillNum);
+        int targetIndex = int.Parse(target.name);
+        float _damage = 0;
         int buffID = characterData.skillData[skillNum].buffID;
         int buffID2 = characterData.skillData[skillNum].buffID2;
-        int targetIndex = int.Parse(target.name);
         int unitCount = lUnitInfo.Count;
         switch (characterData.skillData[skillNum].type)
         {
             case 0:
+                _damage = AddDamage(characterData, skillNum, targetIndex);
                 lUnitInfo[targetIndex].unitData.Health -= _damage;
                 battleInfo.characterInfo[onTurnIndex].attackDamages += _damage;
                 lUnitInfo[targetIndex].actionController.BattleHit();
                 enemySkillControllers[targetIndex].SetBuffandDebuff(buffID);
-                AddDamageUI(_damage, target.name);
+                AddDamageUI(_damage, target.name, isCritical);
                 StartCoroutine(DieCheck(lUnitInfo[targetIndex]));
                 break;
             case 1:
@@ -336,11 +338,12 @@ public class BattleManager : MonoBehaviour
                     targetIndex = int.Parse(target.name);
                     if (lUnitInfo.ContainsKey(count) && lUnitInfo[count].unitType == CharacterType.Enemy)
                     {
+                        _damage = AddDamage(characterData, skillNum, targetIndex);
                         lUnitInfo[count].unitData.Health -= _damage;
                         battleInfo.characterInfo[onTurnIndex].attackDamages += _damage;
-                        lUnitInfo[targetIndex].actionController.BattleHit();
-                        AddDamageUI(_damage, lUnitInfo[count].unitObject.name);
-                        StartCoroutine(DieCheck(lUnitInfo[targetIndex]));
+                        lUnitInfo[count].actionController.BattleHit();
+                        AddDamageUI(_damage, lUnitInfo[count].unitObject.name, isCritical);
+                        StartCoroutine(DieCheck(lUnitInfo[count]));
                     }
                     if ((enemyUnitCount) == 0) return;
                     count++;
@@ -374,7 +377,7 @@ public class BattleManager : MonoBehaviour
                     }
                 }
                 PlayerHeal(lUnitInfo[healIndex], skillNum);
-                AddDamageUI(_damage, healIndex.ToString());
+                AddDamageUI(_damage, healIndex.ToString(), isCritical);
                 break;
             case 4:
                 if (lUnitInfo[onTurnIndex].unitType == CharacterType.Player)
@@ -384,7 +387,7 @@ public class BattleManager : MonoBehaviour
                         if (_unitData.unitType == CharacterType.Player)
                         {
                             PlayerHeal(_unitData, skillNum);
-                            AddDamageUI(_damage, _unitData.unitObject.name);
+                            AddDamageUI(_damage, _unitData.unitObject.name, isCritical);
                         }
 
                     }
@@ -422,7 +425,7 @@ public class BattleManager : MonoBehaviour
                 turnControllers[targetIndex].SetBuffandDebuff(buffID);
                 //lUnitInfo[targetIndex].actionController.Hit();
                 //turnControllers[targetIndex].SetBuffandDebuff(buffID);
-                AddDamageUI(_damage, target.name);
+                AddDamageUI(_damage, target.name, isCritical);
                 StartCoroutine(DieCheck(lUnitInfo[targetIndex]));
                 break;
             case 1:
@@ -436,7 +439,7 @@ public class BattleManager : MonoBehaviour
                     {
                         _unitData.unitData.Health -= _damage;
                         lUnitInfo[targetIndex].actionController.BattleHit();
-                        AddDamageUI(_damage, _unitData.unitObject.name);
+                        AddDamageUI(_damage, _unitData.unitObject.name, isCritical);
                         StartCoroutine(DieCheck(lUnitInfo[targetIndex]));
                     }
 
@@ -472,7 +475,7 @@ public class BattleManager : MonoBehaviour
                 //    break;
         }
     }
-    private float AddDamage(CharacterData characterData, int skillNum)
+    private float AddDamage(CharacterData characterData, int skillNum, int targetIndex)
     {
         float damage = 0;
         float crirocalChance = UnityEngine.Random.Range(0, 1.0f);
@@ -481,14 +484,16 @@ public class BattleManager : MonoBehaviour
             damage = ((characterData.status.atk * characterData.skillData[skillNum].atkCoefficient) +
                 (characterData.status.def * characterData.skillData[skillNum].defCoefficient) +
                 (characterData.status.health * characterData.skillData[skillNum].healthCoefficient))
-                * (100 / (100.0f + lUnitInfo[int.Parse(target.name)].unitData.Def)) * characterData.status.criticalDamage;
+                * (100 / (100.0f + lUnitInfo[targetIndex].unitData.Def)) * characterData.status.criticalDamage;
+            isCritical = true;
         }
         else
         {
             damage = ((characterData.status.atk * characterData.skillData[skillNum].atkCoefficient) +
                 (characterData.status.def * characterData.skillData[skillNum].defCoefficient) +
                 (characterData.status.health * characterData.skillData[skillNum].healthCoefficient))
-                * (100 / (100.0f + lUnitInfo[int.Parse(target.name)].unitData.Def));
+                * (100 / (100.0f + lUnitInfo[targetIndex].unitData.Def));
+            isCritical = false;
         }
         return damage;
     }
@@ -503,11 +508,13 @@ public class BattleManager : MonoBehaviour
         {
             damage = (characterData.enemyData.Atk * characterData.enemySkillData[skillNum].atkCoefficient)
                 * (100 / (100.0f + lUnitInfo[int.Parse(target.name)].unitData.Def)) * characterData.enemyData.CriticalDamage * 10;
+            isCritical = true;
         }
         else
         {
             damage = (characterData.enemyData.Atk * characterData.enemySkillData[skillNum].atkCoefficient)
                 * (100 / (100.0f + lUnitInfo[int.Parse(target.name)].unitData.Def)) * 10;
+            isCritical = false;
         }
         if (shield > damage)
         {
@@ -566,44 +573,44 @@ public class BattleManager : MonoBehaviour
         enemySpawnPos[4] = new Vector3(6, 0, 1f);
     }
 
-    public void SetTurnIndicator(int teamIndex, float curtime)
-    {
-        switch (teamIndex)
-        {
-            case 1:
-                turnIndicator1 = curtime * 6;
-                break;
-            case 2:
-                turnIndicator2 = curtime * 6;
-                break;
-            case 3:
-                turnIndicator3 = curtime * 6;
-                break;
-            case 4:
-                turnIndicator4 = curtime * 6;
-                break;
-            case 5:
-                turnIndicator5 = curtime * 6;
-                break;
-        }
-    }
-    public float GetTurnIndicator(string teamIndex)
-    {
-        switch (teamIndex)
-        {
-            case "1":
-                return turnIndicator1;
-            case "2":
-                return turnIndicator2;
-            case "3":
-                return turnIndicator3;
-            case "4":
-                return turnIndicator4;
-            case "5":
-                return turnIndicator5;
-            default: return 0;
-        }
-    }
+    //public void SetTurnIndicator(int teamIndex, float curtime)
+    //{
+    //    switch (teamIndex)
+    //    {
+    //        case 1:
+    //            turnIndicator1 = curtime * 6;
+    //            break;
+    //        case 2:
+    //            turnIndicator2 = curtime * 6;
+    //            break;
+    //        case 3:
+    //            turnIndicator3 = curtime * 6;
+    //            break;
+    //        case 4:
+    //            turnIndicator4 = curtime * 6;
+    //            break;
+    //        case 5:
+    //            turnIndicator5 = curtime * 6;
+    //            break;
+    //    }
+    //}
+    //public float GetTurnIndicator(string teamIndex)
+    //{
+    //    switch (teamIndex)
+    //    {
+    //        case "1":
+    //            return turnIndicator1;
+    //        case "2":
+    //            return turnIndicator2;
+    //        case "3":
+    //            return turnIndicator3;
+    //        case "4":
+    //            return turnIndicator4;
+    //        case "5":
+    //            return turnIndicator5;
+    //        default: return 0;
+    //    }
+    //}
     public void CallSkill1Event()
     {
         skill1?.Invoke();
@@ -659,9 +666,9 @@ public class BattleManager : MonoBehaviour
         }
         return gameState;
     }
-    private void AddDamageUI(float damage, string name)
+    private void AddDamageUI(float damage, string name, bool isCritical)
     {
-        OnAddDamage?.Invoke(damage, name);
+        OnAddDamage?.Invoke(damage, name, isCritical);
     }
     public void TargetChange(CharacterType type)
     {

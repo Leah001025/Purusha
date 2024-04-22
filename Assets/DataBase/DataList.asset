@@ -101,7 +101,7 @@ MonoBehaviour:
     _criticalDamage: 1.5
     _avoid: 0.08
     _speed: 0.8
-    _prefabPath: Prefabs/Skill/Japheth
+    _prefabPath: Prefabs/Skill/Kana
     _spritePath: CharacterIcon/Kana
   ItemData:
   - _id: 10101
@@ -228,7 +228,7 @@ MonoBehaviour:
     IconPath: UI/Icon/Skill1
   - ID: 101021
     Name: "\uC274\uB4DC"
-    Description: "\uD50C\uB808\uC774\uC5B4 \uBC29\uC5B4\uB825\uB9CC\uD07C \uC274\uB4DC
+    Description: "\uD50C\uB808\uC774\uC5B4 \uBC29\uC5B4\uB825 \uBE44\uB840 \uC274\uB4DC
       \uC0DD\uC131"
     Type: 2
     Range: 1
@@ -250,7 +250,7 @@ MonoBehaviour:
     Range: 1
     BuffID: 0
     BuffID2: 0
-    AtkCoefficient: 1.4
+    AtkCoefficient: 0.7
     DefCoefficient: 0
     HealthCoefficient: 0
     CoolTime: 2
@@ -266,7 +266,7 @@ MonoBehaviour:
     Range: 1
     BuffID: 0
     BuffID2: 0
-    AtkCoefficient: 1.6
+    AtkCoefficient: 0.8
     DefCoefficient: 0
     HealthCoefficient: 0
     CoolTime: 2
@@ -282,7 +282,7 @@ MonoBehaviour:
     Range: 1
     BuffID: 0
     BuffID2: 0
-    AtkCoefficient: 1.8
+    AtkCoefficient: 0.9
     DefCoefficient: 0
     HealthCoefficient: 0
     CoolTime: 1
@@ -299,7 +299,7 @@ MonoBehaviour:
     Range: 1
     BuffID: 0
     BuffID2: 0
-    AtkCoefficient: 2.5
+    AtkCoefficient: 1.2
     DefCoefficient: 0
     HealthCoefficient: 0
     CoolTime: 0
@@ -316,7 +316,7 @@ MonoBehaviour:
     Range: 1
     BuffID: 0
     BuffID2: 0
-    AtkCoefficient: 3
+    AtkCoefficient: 1.4
     DefCoefficient: 0
     HealthCoefficient: 0
     CoolTime: 0
@@ -343,7 +343,7 @@ MonoBehaviour:
     IconPath: UI/Icon/Skill1
   - ID: 102021
     Name: "\uC274\uB4DC"
-    Description: "\uD50C\uB808\uC774\uC5B4 \uBC29\uC5B4\uB825\uB9CC\uD07C \uC274\uB4DC
+    Description: "\uD50C\uB808\uC774\uC5B4 \uBC29\uC5B4\uB825 \uBE44\uB840 \uC274\uB4DC
       \uC0DD\uC131"
     Type: 2
     Range: 1
@@ -461,7 +461,7 @@ MonoBehaviour:
     IconPath: UI/Icon/Skill1
   - ID: 103021
     Name: "\uC274\uB4DC"
-    Description: "\uD50C\uB808\uC774\uC5B4 \uBC29\uC5B4\uB825\uB9CC\uD07C \uC274\uB4DC
+    Description: "\uD50C\uB808\uC774\uC5B4 \uBC29\uC5B4\uB825 \uBE44\uB840 \uC274\uB4DC
       \uC0DD\uC131"
     Type: 2
     Range: 1
@@ -478,7 +478,7 @@ MonoBehaviour:
     IconPath: UI/Icon/Skill2
   - ID: 103031
     Name: "\uD2B9\uC218(\uB808\uBCA81)"
-    Description: "\uC804\uBC29 1\uC5F4\uC758 \uC801\uC5D0\uAC8C \uCC38\uACA9\uC744
+    Description: "\uC801 \uC804\uCCB4\uC5D0\uAC8C \uC801\uC5D0\uAC8C \uCC38\uACA9\uC744
       \uAC00\uD55C\uB2E4"
     Type: 1
     Range: 1
@@ -495,7 +495,7 @@ MonoBehaviour:
     IconPath: UI/Icon/Skill_Adam3
   - ID: 103032
     Name: "\uD2B9\uC218(\uB808\uBCA82)"
-    Description: "\uC804\uBC29 1\uC5F4\uC758 \uC801\uC5D0\uAC8C \uCC38\uACA9\uC744
+    Description: "\uC801 \uC804\uCCB4\uC5D0\uAC8C \uC801\uC5D0\uAC8C \uCC38\uACA9\uC744
       \uAC00\uD55C\uB2E4"
     Type: 1
     Range: 1
@@ -512,7 +512,7 @@ MonoBehaviour:
     IconPath: UI/Icon/Skill_Adam3
   - ID: 103033
     Name: "\uD2B9\uC218(\uB808\uBCA83)"
-    Description: "\uC804\uBC29 1\uC5F4\uC758 \uC801\uC5D0\uAC8C \uCC38\uACA9\uC744
+    Description: "\uC801 \uC804\uCCB4\uC5D0\uAC8C \uC801\uC5D0\uAC8C \uCC38\uACA9\uC744
       \uAC00\uD55C\uB2E4"
     Type: 1
     Range: 1
@@ -579,7 +579,7 @@ MonoBehaviour:
     IconPath: UI/Icon/Skill1
   - ID: 104021
     Name: "\uC274\uB4DC"
-    Description: "\uD50C\uB808\uC774\uC5B4 \uBC29\uC5B4\uB825\uB9CC\uD07C \uC274\uB4DC
+    Description: "\uD50C\uB808\uC774\uC5B4 \uBC29\uC5B4\uB825 \uBE44\uB840 \uC274\uB4DC
       \uC0DD\uC131"
     Type: 2
     Range: 1
@@ -695,7 +695,7 @@ MonoBehaviour:
     IconPath: UI/Icon/Skill1
   - ID: 105021
     Name: "\uC274\uB4DC"
-    Description: "\uD50C\uB808\uC774\uC5B4 \uBC29\uC5B4\uB825\uB9CC\uD07C \uC274\uB4DC
+    Description: "\uD50C\uB808\uC774\uC5B4 \uBC29\uC5B4\uB825 \uBE44\uB840 \uC274\uB4DC
       \uC0DD\uC131"
     Type: 2
     Range: 1
@@ -763,8 +763,8 @@ MonoBehaviour:
     IconPath: UI/Icon/Skill_Kain3
   - ID: 105041
     Name: "\uAD81\uADF9(\uB808\uBCA81)"
-    Description: "\uC57C\uBCB3\uC774 \uC783\uC740 \uCCB4\uB825\uC5D0 \uBE44\uB840\uD558\uC5EC
-      \uB300\uC0C1 1\uBA85 \uACF5\uACA9"
+    Description: "\uCCB4\uB825\uC5D0 \uBE44\uB840\uD558\uC5EC \uB300\uC0C1 1\uBA85
+      \uACF5\uACA9"
     Type: 0
     Range: 0
     BuffID: 0
@@ -780,8 +780,8 @@ MonoBehaviour:
     IconPath: UI/Icon/Skill_Kain4
   - ID: 105042
     Name: "\uAD81\uADF9(\uB808\uBCA82)"
-    Description: "\uC57C\uBCB3\uC774 \uC783\uC740 \uCCB4\uB825\uC5D0 \uBE44\uB840\uD558\uC5EC
-      \uB300\uC0C1 1\uBA85 \uACF5\uACA9"
+    Description: "\uCCB4\uB825\uC5D0 \uBE44\uB840\uD558\uC5EC \uB300\uC0C1 1\uBA85
+      \uACF5\uACA9"
     Type: 0
     Range: 0
     BuffID: 0
@@ -809,11 +809,11 @@ MonoBehaviour:
     DebuffProbability: 1
     Duration: 0
     SkillGage: 1
-    EffectPath: 
+    EffectPath: Prefabs/Skill/Kana/Skill1
     IconPath: UI/Icon/Skill1
   - ID: 106021
     Name: "\uC274\uB4DC"
-    Description: "\uD50C\uB808\uC774\uC5B4 \uBC29\uC5B4\uB825\uB9CC\uD07C \uC274\uB4DC
+    Description: "\uD50C\uB808\uC774\uC5B4 \uBC29\uC5B4\uB825 \uBE44\uB840 \uC274\uB4DC
       \uC0DD\uC131"
     Type: 2
     Range: 1
@@ -826,7 +826,7 @@ MonoBehaviour:
     DebuffProbability: 1
     Duration: 1
     SkillGage: 0
-    EffectPath: 
+    EffectPath: Prefabs/Skill/Kana/Skill2
     IconPath: UI/Icon/Skill2
   - ID: 106031
     Name: "\uD2B9\uC218(\uB808\uBCA81)"
@@ -843,8 +843,8 @@ MonoBehaviour:
     DebuffProbability: 1
     Duration: 0
     SkillGage: 2
-    EffectPath: 
-    IconPath: 
+    EffectPath: Prefabs/Skill/Kana/Skill3
+    IconPath: UI/Icon/Skill_Kana3
   - ID: 106032
     Name: "\uD2B9\uC218(\uB808\uBCA82)"
     Description: "\uB300\uC0C1 1\uBA85\uC5D0\uAC8C \uC5F0\uBC1C\uC0AC\uACA9 (\uCE58\uBA85\uD0C0
@@ -860,8 +860,8 @@ MonoBehaviour:
     DebuffProbability: 1
     Duration: 0
     SkillGage: 2
-    EffectPath: 
-    IconPath: 
+    EffectPath: Prefabs/Skill/Kana/Skill3
+    IconPath: UI/Icon/Skill_Kana3
   - ID: 106033
     Name: "\uD2B9\uC218(\uB808\uBCA83)"
     Description: "\uB300\uC0C1 1\uBA85\uC5D0\uAC8C \uC5F0\uBC1C\uC0AC\uACA9 (\uCE58\uBA85\uD0C0
@@ -877,8 +877,8 @@ MonoBehaviour:
     DebuffProbability: 1
     Duration: 0
     SkillGage: 2
-    EffectPath: 
-    IconPath: 
+    EffectPath: Prefabs/Skill/Kana/Skill3
+    IconPath: UI/Icon/Skill_Kana3
   - ID: 106041
     Name: "\uAD81\uADF9(\uB808\uBCA81)"
     Description: "\uD5E4\uB4DC\uC0F7 (\uCE58\uD655+15%/\uCE58\uD53C+25\uD37C)"
@@ -893,8 +893,8 @@ MonoBehaviour:
     DebuffProbability: 1
     Duration: 0
     SkillGage: -5
-    EffectPath: 
-    IconPath: 
+    EffectPath: Prefabs/Skill/Kana/Skill4
+    IconPath: UI/Icon/Skill_Kana4
   - ID: 106042
     Name: "\uAD81\uADF9(\uB808\uBCA82)"
     Description: "\uD5E4\uB4DC\uC0F7 (\uCE58\uD655+20%/\uCE58\uD53C+40\uD37C)"
@@ -909,8 +909,8 @@ MonoBehaviour:
     DebuffProbability: 1
     Duration: 0
     SkillGage: -5
-    EffectPath: 
-    IconPath: 
+    EffectPath: Prefabs/Skill/Kana/Skill4
+    IconPath: UI/Icon/Skill_Kana4
   - ID: 101001011
     Name: "\uC77C\uBC18\uACF5\uACA9"
     Description: "\uC801 1\uBA85 \uC0AC\uACA9"
@@ -2086,6 +2086,12 @@ MonoBehaviour:
     _waveID_1: 150301
     _waveID_2: 150302
     _waveID_3: 150303
+  - _id: 1601
+    _openMapPath: Prefabs/Map/Chapter6/Chap6-1
+    _stageName: stage1
+    _waveID_1: 160101
+    _waveID_2: 160102
+    _waveID_3: 160103
   LevelData:
   - _level: 1
     _exp: 0

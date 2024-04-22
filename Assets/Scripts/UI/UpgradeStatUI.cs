@@ -45,6 +45,7 @@ public class UpgradeStatUI : MonoBehaviour
     }
     public void UpgradeStatus(int index)
     {
+        if (upgrades[curID].totalPoint > 25) return; //강화 토탈 25포인트로 제한
         inventory = GameManager.Instance.User.itemInventory;
         if (!inventory.ContainsKey(10201) && index <= 2)
         {

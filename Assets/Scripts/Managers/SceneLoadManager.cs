@@ -49,7 +49,10 @@ public class SceneLoadManager : SingleTon<SceneLoadManager>
     public async void LoadingChangeScene(string SceneName)
     {
         NextSceneName = SceneName;
-        if (GameManager.Instance.User != null) GameManager.Instance.SaveDatas();
+        if (GameManager.Instance.User != null) 
+        {
+            GameManager.Instance.SaveDatas();
+        }       
         ChangeScene("LoadingScene");
     }
 

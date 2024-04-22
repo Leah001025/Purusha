@@ -102,7 +102,7 @@ public class UIManager : SingleTon<UIManager>
         {
             Debug.LogWarning("null");
         }
-        var obj = Instantiate(info, battlePlayerStatus[index].gameObject.transform.GetChild(3).gameObject.transform);
+        var obj = Instantiate(info, battlePlayerStatus[index].gameObject.transform.GetChild(4).gameObject.transform);
         return obj;
     }
     public GameObject EnemyBuffIcon(int index, string IconPath)

@@ -37,6 +37,7 @@ public class Item
         if (_items[id].type == "weaponPotion")
         {
             GameManager.Instance.User.RemoveItem(id);
+            GameManager.Instance.User.UpdateTeamData();
             return;
         }
         Debug.Log("무기강화 아이템이 아닙니다.");
@@ -47,6 +48,7 @@ public class Item
         if (_items[id].type == "ArmorPotion")
         {
             GameManager.Instance.User.RemoveItem(id);
+            GameManager.Instance.User.UpdateTeamData();
             return;
         }
         Debug.Log("방어구강화 아이템이 아닙니다.");
@@ -58,6 +60,7 @@ public class Item
         {
             character.status.health = Mathf.Min(character.status.health + _items[id].value,character.status.maxhealth);
             GameManager.Instance.User.RemoveItem(id);
+            GameManager.Instance.User.UpdateTeamData();
             return;
         }
         Debug.Log("회복 아이템이 아닙니다.");
@@ -71,6 +74,7 @@ public class Item
             GameManager.Instance.User.RemoveItem(id);
             if (character.status.exp >= DataManager.Instance.LevelDB.GetData(character.status.level + 1).Exp)
                 LevelUp(character);
+            GameManager.Instance.User.UpdateTeamData();
             return;
         }
         Debug.Log("경험치 아이템이 아니거나 만렙입니다.");
@@ -92,6 +96,7 @@ public class Item
                 character.skillData.Remove(4);
                 character.skillData.Add(4,skill4UP);
                 GameManager.Instance.User.RemoveItem(id);
+                GameManager.Instance.User.UpdateTeamData();
                 return;
             }
             if (level4 == 2)
@@ -101,6 +106,7 @@ public class Item
                 character.skillData.Remove(3);
                 character.skillData.Add(3, skill3UP);
                 GameManager.Instance.User.RemoveItem(id);
+                GameManager.Instance.User.UpdateTeamData();
                 return;
             }
             int random = UnityEngine.Random.Range(3, 5);
@@ -109,9 +115,10 @@ public class Item
             character.skillData.Remove(random);
             character.skillData.Add(random, skillUP);
             GameManager.Instance.User.RemoveItem(id);
+            GameManager.Instance.User.UpdateTeamData();
             return;
         }
-        Debug.Log("경험치 아이템이 아니거나 만렙입니다.");
+        Debug.Log("모든 스킬이 만렙입니다.");
     }
     public Item UseGachaItem(int id,int curId)
     {
