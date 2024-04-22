@@ -345,9 +345,9 @@ public class BattleManager : MonoBehaviour
                     {
                         lUnitInfo[count].unitData.Health -= _damage;
                         battleInfo.characterInfo[onTurnIndex].attackDamages += _damage;
-                        lUnitInfo[targetIndex].actionController.BattleHit();
+                        lUnitInfo[count].actionController.BattleHit();
                         AddDamageUI(_damage, lUnitInfo[count].unitObject.name);
-                        StartCoroutine(DieCheck(lUnitInfo[targetIndex]));
+                        StartCoroutine(DieCheck(lUnitInfo[count]));
                     }
                     if ((enemyUnitCount) == 0) return;
                     count++;
