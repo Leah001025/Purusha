@@ -14,13 +14,15 @@ public class CharacterSeletPopUp : UIBase
     private Stack<StageInfo> userStageInfo;
     private int gmStageID;
 
+    //[Header("Image")]
+    //[SerializeField] private Image clearImage;
+
     private int chapterNum;
 
     public void ShowChapterData(string chapterNumber)
     {
         SoundManager.Instance.ButtonAudio("BasicMenuO_1");
         ChapterData chapterData = DataManager.Instance.ChapterDB.GetData(int.Parse(chapterNumber));
-
 
         if (chapterData != null)
         {
@@ -49,6 +51,8 @@ public class CharacterSeletPopUp : UIBase
         {
             var _rsc = Resources.Load("Prefabs/Chapters/Stages") as GameObject;
             var _obj = Instantiate(_rsc, _stageInfo.transform);
+            var _text = _obj.GetComponentInChildren<TMP_Text>();
+            _text.text = $"{chapterNum.ToString().Substring(1, 1)} - {i}";
             _obj.name = $"{chapterNum}0{i}";
             Image img = _obj.GetComponent<Image>();
             //클리어 스테이지 파랑색
@@ -95,6 +99,7 @@ public class CharacterSeletPopUp : UIBase
         if (userStageInfo.Peek().stageID == gmStageID)
         {
             if (userStageInfo.Peek().wave3Clear == true) return;
+            // clearImage.sprite = Resources.Load<Sprite>("UI/Icon/ClearStamp");
         }
         //nextStage외 다른 스테이지 도전 불가
         if (GameManager.Instance.User.stageClear.Peek().stageID != gmStageID)
