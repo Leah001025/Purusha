@@ -157,35 +157,33 @@ public class BattleManager : MonoBehaviour
     }
     private void AddUnitInfo(int StageID)
     {
-        for (int i = 1; i <= teamData.Count; i++)
+        int Index = 1;
+        foreach (CharacterData chapterData in teamData.Values)
         {
-            if (teamData.ContainsKey(i))
+            if (chapterData.status.health > 0)
             {
-                if (teamData[i].status.health > 0)
+                unitInfo = new UnitInfo();
+                unitInfo.unitID = chapterData.status.iD;
+                var Resource = Resources.Load<GameObject>(chapterData.status.prefabPath);
+                unitInfo.unitType = CharacterType.Player;
+                unitInfo.unitObject = Instantiate(Resource, stageTrans);
+                unitInfo.actionController = unitInfo.unitObject.GetComponent<Player>().ActionController;
+                if (!turnControllers.ContainsKey(Index))
                 {
-                    unitInfo = new UnitInfo();
-                    unitInfo.unitID = teamData[i].status.iD;
-                    var Resource = Resources.Load<GameObject>(teamData[i].status.prefabPath);
-                    unitInfo.unitType = CharacterType.Player;
-                    unitInfo.unitObject = Instantiate(Resource, stageTrans);
-                    unitInfo.actionController = unitInfo.unitObject.GetComponent<Player>().ActionController;
-                    if (!turnControllers.ContainsKey(i))
-                    {
-                        turnControllers.Add(i, unitInfo.unitObject.GetComponent<CharacterTurnController>());
-                    }
-                    turnControllers[i].teamIndex = i;
-                    unitInfo.unitObject.transform.localPosition = playerSpawnPos[i - 1];
-                    unitInfo.characterData = CreateCharacterData(i);
-
-                    lUnitInfo.Add(i, unitInfo);
-                    UIManager.Instance.BattlePlayerPopup(i, playerInfoTrans);
-                    unitInfo.unitObject.name = lUnitInfo.Count.ToString();
-
-                    battleInfo.characterInfo.Add(i, CreateCharacterBattleInfo());
-                    playerCreateCount++;
+                    turnControllers.Add(Index, unitInfo.unitObject.GetComponent<CharacterTurnController>());
                 }
+                turnControllers[Index].teamIndex = Index;
+                unitInfo.unitObject.transform.localPosition = playerSpawnPos[Index - 1];
+                unitInfo.characterData = chapterData;
+
+                lUnitInfo.Add(Index, unitInfo);
+                UIManager.Instance.BattlePlayerPopup(Index, playerInfoTrans);
+                unitInfo.unitObject.name = lUnitInfo.Count.ToString();
+
+                battleInfo.characterInfo.Add(Index, CreateCharacterBattleInfo());
+                playerCreateCount++;
+                Index++;
             }
-            else Debug.Log($"TeamData{i} : null");
         }
         playerUnitCount = playerCreateCount;
         WaveData = waveDB.GetData(StageID);
@@ -220,11 +218,6 @@ public class BattleManager : MonoBehaviour
         int _id = (int)Enum.Parse(typeof(EnemyID), name);
         SEnemyData sEnemyData = new SEnemyData(DataManager.Instance.EnemyDB.GetData(_id));
         return sEnemyData;
-    }
-    private CharacterData CreateCharacterData(int index)
-    {
-        CharacterData CharacterData = GameManager.Instance.User.teamData[index];
-        return CharacterData;
     }
     private CharacterBattleInfo CreateCharacterBattleInfo()
     {
@@ -345,9 +338,9 @@ public class BattleManager : MonoBehaviour
                     {
                         lUnitInfo[count].unitData.Health -= _damage;
                         battleInfo.characterInfo[onTurnIndex].attackDamages += _damage;
-                        lUnitInfo[count].actionController.BattleHit();
+                        lUnitInfo[targetIndex].actionController.BattleHit();
                         AddDamageUI(_damage, lUnitInfo[count].unitObject.name);
-                        StartCoroutine(DieCheck(lUnitInfo[count]));
+                        StartCoroutine(DieCheck(lUnitInfo[targetIndex]));
                     }
                     if ((enemyUnitCount) == 0) return;
                     count++;

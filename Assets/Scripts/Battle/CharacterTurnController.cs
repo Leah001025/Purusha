@@ -48,9 +48,9 @@ public class CharacterTurnController : MonoBehaviour
         battleManager = BattleManager.Instance;
         onTurnPos = new Vector3(2, 0, -4.5f);
         offTurnPos = transform.localPosition;
-        if (GameManager.Instance.User.teamData.ContainsKey(teamIndex))
+        if (BattleManager.Instance.lUnitInfo.ContainsKey(teamIndex))
         {
-            characterData = GameManager.Instance.User.teamData[teamIndex];
+            characterData = BattleManager.Instance.lUnitInfo[teamIndex].characterData;
             foreach (UnitInfo _unitInfo in battleManager.lUnitInfo.Values)
             {
                 if (_unitInfo.unitID == characterData.status.iD)
