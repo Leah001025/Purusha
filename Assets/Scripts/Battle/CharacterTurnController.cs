@@ -26,7 +26,7 @@ public class CharacterTurnController : MonoBehaviour
     public BuffData provoke;
     public float unitGauge;
     public float shieldQuantity;
-    private int skill3CoolTime;
+    public int skill3CoolTime;
     public int skill4Gauge;
     private bool isCharacterTurn;
     private bool isTargetPos = false;
@@ -50,9 +50,9 @@ public class CharacterTurnController : MonoBehaviour
         battleManager = BattleManager.Instance;
         onTurnPos = new Vector3(2, 0, -4.5f);
         offTurnPos = transform.localPosition;
-        if (GameManager.Instance.User.teamData.ContainsKey(teamIndex))
+        if (BattleManager.Instance.lUnitInfo.ContainsKey(teamIndex))
         {
-            characterData = GameManager.Instance.User.teamData[teamIndex];
+            characterData = BattleManager.Instance.lUnitInfo[teamIndex].characterData;
             foreach (UnitInfo _unitInfo in battleManager.lUnitInfo.Values)
             {
                 if (_unitInfo.unitID == characterData.status.iD)
@@ -362,7 +362,6 @@ public class CharacterTurnController : MonoBehaviour
     IEnumerator WaitForSkillEffect(float time)
     {
         yield return new WaitForSeconds(time);
-        transform.localPosition = offTurnPos;
         //Camera.main.transform.SetLocalPositionAndRotation(battleManager.defalutCameraPos, Quaternion.Euler(20, 0, 0));
         battleManager.speedModifier = 1;
         battleManager.lUnitInfo[battleManager.onTurnIndex].unitGauge = 0;
@@ -389,12 +388,12 @@ public class CharacterTurnController : MonoBehaviour
         yield return wait05;
         Destroy(skillObj);
         yield return wait05;
-        character.transform.localPosition = Vector3.zero;
         actionController.BattleJump();
         yield return new WaitForSeconds(0.2f);
         isStartPos = false;
         yield return wait05;
-
+        isTargetPos = true;
+        transform.localPosition = offTurnPos;
         isAttack = false;
     }
     IEnumerator RangedSkillEffect(float time, string num)
@@ -412,6 +411,7 @@ public class CharacterTurnController : MonoBehaviour
         Destroy(skillObj);
         yield return new WaitForSeconds(0.2f);
         //character.transform.localPosition = Vector3.zero;
+        transform.localPosition = offTurnPos;
         isAttack = false;
     }
     private void SkillAnim(int number)

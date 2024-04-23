@@ -15,7 +15,7 @@ public class MapSpawnController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if(GameManager.Instance.wave3Clear)
+        if (GameManager.Instance.wave1Clear && GameManager.Instance.wave2Clear && GameManager.Instance.wave3Clear)
         {
             clearPortal.SetActive(true);
         }

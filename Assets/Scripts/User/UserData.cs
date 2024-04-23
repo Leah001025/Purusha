@@ -132,6 +132,13 @@ public class UserData
         {
             teamData[i] = characters[teamData[i].status.iD];
         }
+    }
+    public void UpdateCharacterData()
+    {
+        for (int i = 1; i <= teamData.Count; i++)
+        {
+            characters[teamData[i].status.iD] = teamData[i];
+        }
 
     }
 }

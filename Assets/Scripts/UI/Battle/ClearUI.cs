@@ -16,6 +16,7 @@ public class ClearUI : MonoBehaviour
 
     [Header("Image")]
     [SerializeField] private Image clearImage;
+    [SerializeField] private Image clearBG;
 
     [Header("Text")]
     [SerializeField] private TMP_Text clearText;
@@ -25,7 +26,7 @@ public class ClearUI : MonoBehaviour
 
     private StageDataBase stageDB;
     private WaveDataBase waveDB;
-
+    private GameManager gameManager;
     private StageInfo stageInfo;
 
     private void Awake()
@@ -48,15 +49,18 @@ public class ClearUI : MonoBehaviour
     }
     private void StageStage()
     {
+        GameManager.Instance.User.UpdateCharacterData();
         switch (BattleManager.Instance.gameState)
         {
             case GameEnd.success:
                 clearText.text = "Success";
                 clearImage.sprite = Resources.Load<Sprite>("UI/Icon/Success");
+                clearBG.sprite = Resources.Load<Sprite>("UI/Icon/SuccessBG");
                 break;
             case GameEnd.fail:
                 clearText.text = "Fail";
                 clearImage.sprite = Resources.Load<Sprite>("UI/Icon/Fail");
+                clearBG.sprite = Resources.Load<Sprite>("UI/Icon/FailBG");
                 break;
         }
     }
@@ -109,34 +113,34 @@ public class ClearUI : MonoBehaviour
     }
     private void StageClear()
     {
+        gameManager = GameManager.Instance;
         stageInfo = new StageInfo();
 
-        stageInfo.stageID = GameManager.Instance.stageID;
-        stageInfo.wave1Clear = GameManager.Instance.wave1Clear;
-        stageInfo.wave2Clear = GameManager.Instance.wave2Clear;
-        stageInfo.wave3Clear = GameManager.Instance.wave3Clear;
-
-        if (GameManager.Instance.User.stageClear.Count != 0)
+        stageInfo.stageID = gameManager.stageID;
+        stageInfo.wave1Clear = gameManager.wave1Clear;
+        stageInfo.wave2Clear = gameManager.wave2Clear;
+        stageInfo.wave3Clear = gameManager.wave3Clear;
+        if (gameManager.User.stageClear.Count != 0)
         {
-            if (stageInfo.stageID != GameManager.Instance.User.stageClear.Peek().stageID)
+            if (stageInfo.stageID != gameManager.User.stageClear.Peek().stageID)
             {
-                GameManager.Instance.User.stageClear.Push(stageInfo);
+                gameManager.User.stageClear.Push(stageInfo);
             }
             else
             {
-                GameManager.Instance.User.stageClear.Peek().wave1Clear = GameManager.Instance.wave1Clear;
-                GameManager.Instance.User.stageClear.Peek().wave2Clear = GameManager.Instance.wave2Clear;
-                GameManager.Instance.User.stageClear.Peek().wave3Clear = GameManager.Instance.wave3Clear;
+                gameManager.User.stageClear.Peek().wave1Clear = gameManager.wave1Clear;
+                gameManager.User.stageClear.Peek().wave2Clear = gameManager.wave2Clear;
+                gameManager.User.stageClear.Peek().wave3Clear = gameManager.wave3Clear;
             }
         }
         //wave3 클리어시 waveInfo 초기화
-        if (GameManager.Instance.wave3Clear)
+        if (gameManager.wave3Clear && gameManager.wave2Clear && gameManager.wave1Clear)
         {
-            GameManager.Instance.ResetWaveInfo();
-            int nextStage = GameManager.Instance.User.NextStage();
+            gameManager.ResetWaveInfo();
+            int nextStage = gameManager.User.NextStage();
             StageInfo nextStageInfo = new StageInfo();
-            GameManager.Instance.User.stageClear.Push(nextStageInfo);
-            GameManager.Instance.User.isCutScenePlay = false;
+            gameManager.User.stageClear.Push(nextStageInfo);
+            gameManager.User.isCutScenePlay = false;
             nextStageInfo.stageID = nextStage;
         }
     }

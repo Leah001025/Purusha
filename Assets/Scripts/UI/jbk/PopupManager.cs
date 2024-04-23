@@ -55,7 +55,7 @@ public class PopupManager : MonoBehaviour
     {
         SoundManager.Instance.ButtonAudio("BasicMenuO_1");
         var seq = DOTween.Sequence();
-        seq.Append(infoPanel.GetComponent<RectTransform>().DOAnchorPosX(352, 0.2f));
+        seq.Append(infoPanel.GetComponent<RectTransform>().DOAnchorPosX(-629, 0.2f));
         seq.Play();
     }
 
@@ -63,7 +63,7 @@ public class PopupManager : MonoBehaviour
     {
         SoundManager.Instance.ButtonAudio("BasicMenuC_1");
         var seq = DOTween.Sequence();
-        seq.Append(infoPanel.GetComponent<RectTransform>().DOAnchorPosX(973, 0.2f));
+        seq.Append(infoPanel.GetComponent<RectTransform>().DOAnchorPosX(0, 0.2f));
         seq.Play();
     }
     public void ShowSkill()

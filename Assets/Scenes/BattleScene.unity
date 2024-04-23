@@ -281,11 +281,6 @@ MonoBehaviour:
   skill3CoolTime: 0
   skill4Gauge: 0
   speedModifier: 1
-  turnIndicator1: 0
-  turnIndicator2: 0
-  turnIndicator3: 0
-  turnIndicator4: 0
-  turnIndicator5: 0
   beforeAnimTime: 0
   newAnimTime: 0
   defalutCameraPos: {x: 0, y: 0, z: 0}
