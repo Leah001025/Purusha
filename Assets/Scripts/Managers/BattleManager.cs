@@ -87,9 +87,9 @@ public class BattleManager : MonoBehaviour
     private int enemyCreateCount;
     private int enemyUnitCount;
     private int healIndex;
+    public int provokeIndex;
 
-
-    public float speedModifier = 1;
+    public float speedModifier = 2;
     private bool isCritical = false;
 
     [Header("TurnIndicator")]
@@ -326,8 +326,9 @@ public class BattleManager : MonoBehaviour
                 battleInfo.characterInfo[onTurnIndex].attackDamages += _damage;
                 lUnitInfo[targetIndex].actionController.BattleHit();
                 enemySkillControllers[targetIndex].SetBuffandDebuff(buffID);
-                AddDamageUI(_damage, target.name,isCritical);
-                StartCoroutine( DieCheck(lUnitInfo[targetIndex]));
+                if (buffID == 105031|| buffID == 105032 || buffID == 105033) provokeIndex = onTurnIndex;
+                AddDamageUI(_damage, target.name, isCritical);
+                StartCoroutine(DieCheck(lUnitInfo[targetIndex]));
                 break;
             case 1:
                 int count = 1;
@@ -485,6 +486,7 @@ public class BattleManager : MonoBehaviour
                 (characterData.status.health * characterData.skillData[skillNum].healthCoefficient))
                 * (100 / (100.0f + lUnitInfo[targetIndex].unitData.Def)) * characterData.status.criticalDamage;
             isCritical = true;
+            if(characterData.status.iD ==106 && skillNum ==3) { attackOrder.Enqueue(onTurnIndex); }
         }
         else
         {

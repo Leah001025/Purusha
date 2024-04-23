@@ -22,6 +22,8 @@ public class CharacterTurnController : MonoBehaviour
     public BuffData defDown;
     public BuffData buffID;
     public BuffData shield;
+    public BuffData stun;
+    public BuffData provoke;
     public float unitGauge;
     public float shieldQuantity;
     private int skill3CoolTime;
@@ -100,7 +102,7 @@ public class CharacterTurnController : MonoBehaviour
         {
             case 101://쉴드
                 buffAndDebuff.SetShield(buffID);
-                if (shield != null && buffAndDebuff.defDown != null)
+                if (shield != null && buffAndDebuff.shield != null)
                 {
                     shieldQuantity = shield.CharacterData;
                     shield.Duration = buffAndDebuff.shield.Duration;
@@ -117,7 +119,7 @@ public class CharacterTurnController : MonoBehaviour
                 break;
             case 102://공증
                 buffAndDebuff.SetAtkUp(buffID);
-                if (attackUp != null && buffAndDebuff.defDown != null) attackUp.Duration = buffAndDebuff.attackUp.Duration;
+                if (attackUp != null && buffAndDebuff.attackUp != null) attackUp.Duration = buffAndDebuff.attackUp.Duration;
                 if (attackUp == null && buffAndDebuff.attackUp != null)
                 {
                     attackUp = SetBuffData(buffAndDebuff.attackUp);
@@ -128,7 +130,7 @@ public class CharacterTurnController : MonoBehaviour
                 break;
             case 103://방증
                 buffAndDebuff.SetDefUp(buffID);
-                if (defUp != null && buffAndDebuff.defDown != null) defUp.Duration = buffAndDebuff.defUp.Duration;
+                if (defUp != null && buffAndDebuff.defUp != null) defUp.Duration = buffAndDebuff.defUp.Duration;
                 if (defUp == null && buffAndDebuff.defUp != null)
                 {
                     defUp = SetBuffData(buffAndDebuff.defUp);
@@ -140,7 +142,7 @@ public class CharacterTurnController : MonoBehaviour
             case 201:
             case 202://공감
                 buffAndDebuff.SetAtkUp(buffID);
-                if (attackDown != null && buffAndDebuff.defDown != null) attackDown.Duration = buffAndDebuff.attackDown.Duration;
+                if (attackDown != null && buffAndDebuff.attackDown != null) attackDown.Duration = buffAndDebuff.attackDown.Duration;
                 if (attackDown == null && buffAndDebuff.attackDown != null)
                 {
                     attackDown = SetBuffData(buffAndDebuff.attackDown);
@@ -163,16 +165,31 @@ public class CharacterTurnController : MonoBehaviour
                 break;
             case 205:
             case 206://스턴
-                buffAndDebuff.SetShield(buffID);
+                buffAndDebuff.SetStun(buffID);
+                if (stun != null && buffAndDebuff.stun != null) stun.Duration = buffAndDebuff.stun.Duration;
+                if (stun == null && buffAndDebuff.stun != null)
+                {
+                    stun = SetBuffData(buffAndDebuff.stun);
+                    var obj = UIManager.Instance.PlayerBuffIcon(teamIndex, stun.IconPath);
+                    OnBuff.Add("Stun", obj);
+                }
                 break;
             case 207:
             case 208:
             case 209://도발
-                buffAndDebuff.SetShield(buffID);
+                buffAndDebuff.SetProvoke(buffID);
+                if (provoke != null && buffAndDebuff.provoke != null) provoke.Duration = buffAndDebuff.provoke.Duration;
+                if (provoke == null && buffAndDebuff.provoke != null)
+                {
+                    provoke = SetBuffData(buffAndDebuff.provoke);
+                    var obj = UIManager.Instance.PlayerBuffIcon(teamIndex, provoke.IconPath);
+                    OnBuff.Add("Provoke", obj);
+                }
                 break;
         }
         //buffAndDebuff.SetBuffandDebuff(buffID);
     }
+
     private BuffData SetBuffData(BuffData buffData)
     {
         BuffData buff = new BuffData();
@@ -201,6 +218,8 @@ public class CharacterTurnController : MonoBehaviour
         BuffCheck(defUp, characterBuffData.status.def, characterData.status.def, "DefUp");
         BuffCheck(defDown, characterBuffData.status.def, characterData.status.def, "DefDown");
         BuffCheck(shield, shieldQuantity, 0, "Shield");
+        BuffCheck(stun, 0, 0, "Stun");
+        BuffCheck(provoke, 0, 0, "Provoke");
         CallChangeShieldGauge();
     }
     public void BuffCheck(BuffData buff, float buffStat, float oriStat, string buffName)

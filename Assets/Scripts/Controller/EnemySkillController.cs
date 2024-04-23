@@ -32,6 +32,8 @@ public class EnemySkillController : MonoBehaviour
     public BuffData defDown;
     public BuffData buffID;
     public BuffData shield;
+    public BuffData stun;
+    public BuffData provoke;
     public Vector3 targetPos;
     public Vector3 startPos;
     public Vector3 diffPos;
@@ -95,6 +97,12 @@ public class EnemySkillController : MonoBehaviour
         Camera.main.transform.SetLocalPositionAndRotation(battleManager.defalutCameraPos, Quaternion.Euler(15, 0, 0));
         skill2CoolTime--;
         battleManager.TargetChange(CharacterType.Player);
+        if(provoke!=null) battleManager.target = battleManager.lUnitInfo[battleManager.provokeIndex].unitObject;
+        if(stun!=null)
+        {
+            BuffDuration();
+            StartCoroutine(WaitForSkillEffect(0.5f));
+        }
         BuffDuration();
         if (skill2CoolTime <= 0)
         {
@@ -305,12 +313,26 @@ public class EnemySkillController : MonoBehaviour
                 break;
             case 205:
             case 206://스턴
-                buffAndDebuff.SetShield(buffID);
+                buffAndDebuff.SetStun(buffID);
+                if (stun != null && buffAndDebuff.stun != null) stun.Duration = buffAndDebuff.stun.Duration;
+                if (stun == null && buffAndDebuff.stun != null)
+                {
+                    stun = SetBuffData(buffAndDebuff.stun);
+                    var obj = UIManager.Instance.EnemyBuffIcon(teamIndex, stun.IconPath);
+                    OnBuff.Add("Stun", obj);
+                }
                 break;
             case 207:
             case 208:
             case 209://도발
-                buffAndDebuff.SetShield(buffID);
+                buffAndDebuff.SetProvoke(buffID);
+                if (provoke != null && buffAndDebuff.provoke != null) provoke.Duration = buffAndDebuff.provoke.Duration;
+                if (provoke == null && buffAndDebuff.provoke != null)
+                {
+                    provoke = SetBuffData(buffAndDebuff.provoke);
+                    var obj = UIManager.Instance.EnemyBuffIcon(teamIndex, provoke.IconPath);
+                    OnBuff.Add("Provoke", obj);
+                }
                 break;
         }
         //buffAndDebuff.SetBuffandDebuff(buffID);
@@ -322,6 +344,8 @@ public class EnemySkillController : MonoBehaviour
         BuffCheck(defUp, enemyCharacterBuffData.enemyData.Def , enemyCharacterData.enemyData.Def, "DefUp");
         BuffCheck(defDown, enemyCharacterBuffData.enemyData.Def, enemyCharacterData.enemyData.Def, "DefDown");
         BuffCheck(shield, shieldQuantity, 0, "Shield");
+        BuffCheck(stun, 0, 0, "Stun");
+        BuffCheck(provoke, 0, 0, "Provoke");
     }
     public void BuffCheck(BuffData buff, float buffStat, float oriStat, string buffName)
     {

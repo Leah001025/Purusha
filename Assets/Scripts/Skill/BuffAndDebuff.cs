@@ -15,13 +15,15 @@ public class BuffAndDebuff
     public BuffData defDown;
     public BuffData buffID;
     public BuffData shield;
+    public BuffData stun;
+    public BuffData provoke;
     public float probability;
     private string targetType;
 
-    public BuffAndDebuff(int playerId=0,int enemyId= 0, string type="Player")
+    public BuffAndDebuff(int playerId = 0, int enemyId = 0, string type = "Player")
     {
-        if(playerId != 0) characterBuffData = (CharacterData)GameManager.Instance.User.characters[playerId].CloneCharacter(playerId);
-        else if(enemyId != 0) enemyCharacterBuffData = new EnemyCharacterData(enemyId);
+        if (playerId != 0) characterBuffData = (CharacterData)GameManager.Instance.User.characters[playerId].CloneCharacter(playerId);
+        else if (enemyId != 0) enemyCharacterBuffData = new EnemyCharacterData(enemyId);
         buffData = (BuffDataBase)DataManager.Instance.BuffDB.Clone();
         targetType = type;
     }
@@ -72,7 +74,7 @@ public class BuffAndDebuff
                     shield.CharacterData = enemyCharacterBuffData.enemyData.Def * shield.Coefficient;
                     break;
             }
-            
+
         }
         else shield = null;
     }
@@ -147,5 +149,34 @@ public class BuffAndDebuff
             }
         }
         else defDown = null;
+    }
+    public bool SetStun(int buffId)
+    {
+        probability = Random.Range(0f, 1f);
+        stun = buffData.GetData(buffId);
+        if (probability <= buffData.GetData(buffId).DebuffProbability)
+        {
+            return true;
+        }
+        else
+        {
+            stun = null;
+            return false;
+        }
+
+    }
+    public bool SetProvoke(int buffId)
+    {
+        probability = Random.Range(0f, 1f);
+        provoke = buffData.GetData(buffId);
+        if (probability <= buffData.GetData(buffId).DebuffProbability)
+        {
+            return true;
+        }
+        else
+        {
+            provoke = null;
+            return false;
+        }
     }
 }
