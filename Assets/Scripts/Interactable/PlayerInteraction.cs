@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerInteraction : MonoBehaviour
 {
     private IInteractable _interactObject;
+    public GameObject attackPanel;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -13,10 +14,22 @@ public class PlayerInteraction : MonoBehaviour
             _interactObject = other.GetComponent<IInteractable>();
             _interactObject?.Enter();
         }
+        if (other.gameObject.layer == 7)
+        {
+            attackPanel.SetActive(true);
+        }
     }
+
     private void OnTriggerExit(Collider other)
     {
-        _interactObject?.Exit();
-        _interactObject = null;
+        if (other.CompareTag("Interactable"))
+        {
+            _interactObject?.Exit();
+            _interactObject = null;
+        }
+        if (other.gameObject.layer == 7)
+        {
+            attackPanel.SetActive(false);
+        }
     }
 }

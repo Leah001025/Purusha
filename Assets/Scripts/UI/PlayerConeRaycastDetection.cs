@@ -28,7 +28,7 @@ public class PlayerConeRaycastDetection : MonoBehaviour
         player = GetComponent<Player>();
         startPos = transform.position + (transform.up * 1f) + (transform.forward * 0.2f);
     }
-    void Update()
+    public void OnMouseButtonDown()
     {
         //detectionTimer += Time.deltaTime; // 경과 시간 누적
 
@@ -39,11 +39,10 @@ public class PlayerConeRaycastDetection : MonoBehaviour
         //}
         if (!isBattle)
         {
-            if (Input.GetMouseButtonDown(0))
-            {
-                player.ActionController.WorldAttack();
-                PerformConeRaycast();
-            }
+
+            player.ActionController.WorldAttack();
+            PerformConeRaycast();
+
         }
         if (isBattle)
         {
@@ -57,9 +56,9 @@ public class PlayerConeRaycastDetection : MonoBehaviour
 
         startPos = transform.position + (transform.up * 1.5f) + (transform.forward * 0.2f);
         RaycastHit[] hits = Physics.SphereCastAll(startPos, 1f, transform.forward, 1.5f, monsterLayer);
-        foreach(var hit in hits)
+        foreach (var hit in hits)
         {
-            if(hit.collider != null)
+            if (hit.collider != null)
             {
                 SpawnManager.Instance.battleCanvas.gameObject.SetActive(true);
                 Debug.Log("Wave : " + hit.collider.gameObject.transform.parent.name);
