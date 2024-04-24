@@ -150,15 +150,14 @@ public class ClearUI : MonoBehaviour
             gameManager.ResetWaveInfo();
             int nextStage = gameManager.User.NextStage();
             StageInfo nextStageInfo = new StageInfo();
+            nextStageInfo.stageID = nextStage;
             gameManager.User.stageClear.Push(nextStageInfo);
             gameManager.User.isCutScenePlay = false;
-            nextStageInfo.stageID = nextStage;
             GameManager.Instance.User.ResetCharacterHP();
         }
     }
     public void ContinueBtn()
     {
-        StageClear();
         SceneLoadManager.Instance.LoadingChangeScene("OpenWorldScene");
     }
     public void BattleInfoBtn()

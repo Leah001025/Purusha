@@ -167,8 +167,8 @@ public class EnemySkillController : MonoBehaviour
         OnSkillEffect(enemyCharacterData.enemySkillData[skillNum]);
         yield return time;
         Destroy(skillObj);
-        yield return new WaitForSeconds(0.2f);
         battleManager.OnSkillEnemy(enemyCharacterData, skillNum);
+        yield return wait05;
         transform.localPosition = startPos;
         isStartPos = false;
         isAttack = false;
