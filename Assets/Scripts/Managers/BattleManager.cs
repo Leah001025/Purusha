@@ -51,6 +51,7 @@ public class BattleManager : MonoBehaviour
     public Dictionary<int, CharacterTurnController> turnControllers = new Dictionary<int, CharacterTurnController>(5);
     public Dictionary<int, EnemySkillController> enemySkillControllers = new Dictionary<int, EnemySkillController>();
     private Dictionary<int, CharacterData> teamData;
+    private CharacterExclusiveSkill exclusiveSkill = new CharacterExclusiveSkill();
     private Queue<int> attackOrder;
     private UnitInfo unitInfo;
 
@@ -363,7 +364,7 @@ public class BattleManager : MonoBehaviour
                 //}
                 break;
             case 2:
-                turnControllers[onTurnIndex].SetBuffandDebuff(buffID);
+                exclusiveSkill.SkillUse(lUnitInfo[onTurnIndex].characterData.status.iD);
                 break;
             case 3:
                 float temp = 2;

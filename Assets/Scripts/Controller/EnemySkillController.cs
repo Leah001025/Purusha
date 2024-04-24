@@ -97,7 +97,8 @@ public class EnemySkillController : MonoBehaviour
         Camera.main.transform.SetLocalPositionAndRotation(battleManager.defalutCameraPos, Quaternion.Euler(15, 0, 0));
         skill2CoolTime--;
         battleManager.TargetChange(CharacterType.Player);
-        if(provoke!=null) battleManager.target = battleManager.lUnitInfo[battleManager.provokeIndex].unitObject;
+        if(provoke!=null&& battleManager.lUnitInfo.ContainsKey(battleManager.provokeIndex)) 
+            battleManager.target = battleManager.lUnitInfo[battleManager.provokeIndex].unitObject;
         if(stun!=null)
         {
             BuffDuration();
