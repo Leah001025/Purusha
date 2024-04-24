@@ -103,7 +103,7 @@ public class TeamFormation : MonoBehaviour
         {
             string prefabPath = "Prefabs/TeamFormation/" + characterID;
             var _res = Resources.Load(prefabPath) as GameObject;
-            var _obj = Instantiate(_res, Team.transform);            
+            var _obj = Instantiate(_res, Team.transform);
             if(index != 0)
             {
                 _obj.transform.SetSiblingIndex(index-1);
