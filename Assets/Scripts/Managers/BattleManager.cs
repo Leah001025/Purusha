@@ -285,6 +285,7 @@ public class BattleManager : MonoBehaviour
                 var popup = UIManager.Instance.ShowPopup<SkillPopUp>();
                 break;
             case CharacterType.Enemy:
+                TargetChange(CharacterType.Player);
                 enemySkillControllers[index].TurnOn();
                 //EnemyAttack(lUnitInfo[index]);
 

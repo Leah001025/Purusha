@@ -62,9 +62,9 @@ public class ClearUI : MonoBehaviour
                 clearImage.sprite = Resources.Load<Sprite>("UI/Icon/Fail");
                 clearBG.sprite = Resources.Load<Sprite>("UI/Icon/FailBG");
                 GameManager.Instance.User.ResetCharacterHP();
-                stageInfo.wave1Clear = false;
-                stageInfo.wave2Clear = false;
-                stageInfo.wave3Clear = false;
+                GameManager.Instance.wave1Clear = false;
+                GameManager.Instance.wave2Clear = false;
+                GameManager.Instance.wave3Clear = false;
                 break;
         }
     }
@@ -132,9 +132,8 @@ public class ClearUI : MonoBehaviour
             }
             else
             {
-                gameManager.User.stageClear.Peek().wave1Clear = gameManager.wave1Clear;
-                gameManager.User.stageClear.Peek().wave2Clear = gameManager.wave2Clear;
-                gameManager.User.stageClear.Peek().wave3Clear = gameManager.wave3Clear;
+                gameManager.User.stageClear.Pop();
+                gameManager.User.stageClear.Push(stageInfo);
             }
         }
         //wave3 클리어시 waveInfo 초기화
@@ -151,6 +150,7 @@ public class ClearUI : MonoBehaviour
     }
     public void ContinueBtn()
     {
+        StageClear();
         SceneLoadManager.Instance.LoadingChangeScene("OpenWorldScene");
     }
     public void BattleInfoBtn()
