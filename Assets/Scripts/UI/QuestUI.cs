@@ -72,13 +72,13 @@ public class QuestUI : MonoBehaviour
         wave1.text = $"Wave1 : {enermy1}";
         wave2.text = $"Wave2 : {enermy2}";
         wave3.text = $"Wave3 : {enermy3}";
-        if (wave1Data._compensation_1 != 0)
+        if (wave3Data._compensation_1 != 0)
             reward1.text = $"{item1} {wave3Data._compensationCount_1}°³";
         else reward1.text = "";
-        if (wave1Data._compensation_2 != 0)
+        if (wave3Data._compensation_2 != 0)
             reward2.text = $"{item2} {wave3Data._compensationCount_2}°³";
         else reward2.text = "";
-        if (wave1Data._compensation_3 != 0)
+        if (wave3Data._compensation_3 != 0)
             reward3.text = $"{item3} {wave3Data._compensationCount_3}°³";
         else reward3.text = "";
     }

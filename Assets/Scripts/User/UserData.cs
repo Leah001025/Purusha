@@ -36,14 +36,14 @@ public class UserData
 
         //AddCharacter(101);
         AddCharacter(102);
-        //AddCharacter(103);
-        //AddCharacter(104);
+        AddCharacter(103);
+        AddCharacter(104);
         //AddCharacter(105);
 
         //AddTeam(101);
         AddTeam(102);
-        //AddTeam(103);
-        //AddTeam(104);
+        AddTeam(103);
+        AddTeam(104);
         //AddTeam(105);
         AddItem(10201, 10);
         AddItem(10301, 10);
