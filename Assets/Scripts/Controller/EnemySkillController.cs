@@ -119,7 +119,7 @@ public class EnemySkillController : MonoBehaviour
         switch (enemyCharacterData.enemySkillData[1].range)
         {
             case 0:
-                StartCoroutine(MeleeSkillEffect("1"));
+                StartCoroutine(MeleeSkillEffect(battleManager.animForSeconds,"1"));
                 StartCoroutine(WaitForSkillEffect(3f));
                 break;
             case 1:
@@ -133,9 +133,9 @@ public class EnemySkillController : MonoBehaviour
         switch (enemyCharacterData.enemySkillData[2].range)
         {
             case 0:
-                StartCoroutine(MeleeSkillEffect("2"));
+                StartCoroutine(MeleeSkillEffect(battleManager.animForSeconds,"2"));
                 skill2CoolTime = enemyCharacterData.enemySkillData[2].coolTime;
-                StartCoroutine(WaitForSkillEffect(2f));
+                StartCoroutine(WaitForSkillEffect(3f));
                 break;
             case 1:
                 StartCoroutine(RangedSkillEffect(battleManager.animForSeconds, "2"));
@@ -152,32 +152,35 @@ public class EnemySkillController : MonoBehaviour
         battleManager.lUnitInfo[battleManager.onTurnIndex].unitGauge = 0;
         battleManager.isAttacking = false;
     }
-    IEnumerator MeleeSkillEffect(string num)
+    IEnumerator MeleeSkillEffect(WaitForSeconds time, string num)
     {
-        //int skillNum = int.Parse(num);
-        //startPos = transform.localPosition;
-        //targetPos = battleManager.target.transform.localPosition + new Vector3(0, 0, -2);
-        //animator.SetTrigger(Animator.StringToHash("Move"));
-        //isAttack = true;
-        //isStartPos = true;
-        //isTargetPos = false;
-
+        int skillNum = int.Parse(num);
+        startPos = transform.localPosition;
+        targetPos = battleManager.target.transform.localPosition + new Vector3(0, 0, 2);
+        battleManager.lUnitInfo[battleManager.onTurnIndex].actionController.BattleMove();
+        isAttack = true;
+        isStartPos = true;
+        isTargetPos = false;
+        if (num == "1")
+        { 
+            battleManager.lUnitInfo[battleManager.onTurnIndex].actionController.BattleSkill1();
+            yield return wait05;
+            battleManager.AnimForSeconds(battleManager.newAnimTime, battleManager.beforeAnimTime);
+        }
+        else
+        {
+            battleManager.lUnitInfo[battleManager.onTurnIndex].actionController.BattleSkill2();
+            yield return wait05;
+            battleManager.AnimForSeconds(battleManager.newAnimTime, battleManager.beforeAnimTime);
+        }
+        OnSkillEffect(enemyCharacterData.enemySkillData[skillNum]);
+        yield return time;
+        Destroy(skillObj);
+        battleManager.OnSkillEnemy(enemyCharacterData, skillNum);
         yield return wait05;
-        //animator.SetTrigger(Animator.StringToHash("Skill" + num));
-        //yield return new WaitForSeconds(1f);
-        //OnSkillEffect(characterData.skillData[skillNum]);
-        //yield return wait05;
-        //yield return wait05;
-        //Destroy(skillObj);
-        //yield return wait05;
-        //battleManager.OnSkillPlayer(characterData, skillNum);
-        //character.transform.localPosition = Vector3.zero;
-        //animator.SetTrigger(Animator.StringToHash("Jump"));
-        //yield return new WaitForSeconds(0.2f);
-        //isStartPos = false;
-        //yield return wait05;
-
-        //isAttack = false;
+        transform.localPosition = startPos;
+        isStartPos = false;
+        isAttack = false;
     }
     IEnumerator RangedSkillEffect(WaitForSeconds time, string num)
     {

@@ -17,7 +17,7 @@ public class UIManager : SingleTon<UIManager>
     public LevelUpUI levelUpUI;
     public ItemInventory itemInventoryUI;
     public SkillUI skillUI;
-    public int curTargetID=101;
+    public int curTargetID = 101;
 
     // 팝업 불러오기
     public UIBase ShowPopup(string popupname, Transform parents = null)
@@ -61,42 +61,54 @@ public class UIManager : SingleTon<UIManager>
         obj.SetActive(true);
         return popup;
     }
-    public void BattleShowPopup(GameObject monster)
+    public void BattleShowPopup(GameObject monster, int id)
     {
-        var info = Resources.Load("Prefabs/Battle/MonsterInfo") as GameObject;
-        if (!info)
+        if (id != 30)
         {
-            Debug.LogWarning("Failed to MonsterInfo");
+            var info = Resources.Load("Prefabs/Battle/MonsterInfo") as GameObject;
+            if (!info)
+            {
+                Debug.LogWarning("Failed to MonsterInfo");
+            }
+            var obj = Instantiate(info, monster.transform.GetChild(1).gameObject.transform);
+            int index = int.Parse(obj.transform.parent.parent.name);
+            if (!battlePlayerStatus.ContainsKey(index))
+            {
+                battleEnemyStatus.Add(index, obj);
+            }
+            var target = Resources.Load("Prefabs/Battle/Target") as GameObject;
+            if (!target)
+            {
+                Debug.LogWarning("Failed to Target");
+            }
+            Instantiate(target, monster.transform.GetChild(2).gameObject.transform);
         }
-        var obj = Instantiate(info, monster.transform.GetChild(1).gameObject.transform);
-        int index = int.Parse(obj.transform.parent.parent.name);
-        if (!battlePlayerStatus.ContainsKey(index))
+        else
         {
-            battleEnemyStatus.Add(index, obj);
+            var info = Resources.Load("Prefabs/Battle/BossInfo") as GameObject;
+            if (!info)
+            {
+                Debug.LogWarning("Failed to BossInfo");
+            }
+            Instantiate(info);
         }
-        var target = Resources.Load("Prefabs/Battle/Target") as GameObject;
-        if (!info)
-        {
-            Debug.LogWarning("Failed to Target");
-        }
-        Instantiate(target, monster.transform.GetChild(2).gameObject.transform);
     }
     public void BattlePlayerPopup(int index, Transform statusUI)
     {
         var info = Resources.Load("UI/StatusInfo/Character") as GameObject;
-        if (info==null)
+        if (info == null)
         {
             Debug.LogWarning("null");
         }
         var obj = Instantiate(info, statusUI);
         obj.name = index.ToString();
-        if(!battlePlayerStatus.ContainsKey(index))
+        if (!battlePlayerStatus.ContainsKey(index))
         {
             battlePlayerStatus.Add(index, obj);
         }
-        
+
     }
-    public GameObject PlayerBuffIcon(int index,string IconPath)
+    public GameObject PlayerBuffIcon(int index, string IconPath)
     {
         var info = Resources.Load(IconPath) as GameObject;
         if (!info)

@@ -14,6 +14,7 @@ TagManager:
   - Interactable
   - Android
   - SecurityTurret
+  - UpdatedDrone
   layers:
   - Default
   - TransparentFX

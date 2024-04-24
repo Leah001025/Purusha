@@ -36,14 +36,14 @@ public class UserData
 
         //AddCharacter(101);
         AddCharacter(102);
-        //AddCharacter(103);
-        //AddCharacter(104);
+        AddCharacter(103);
+        AddCharacter(104);
         //AddCharacter(105);
 
         //AddTeam(101);
         AddTeam(102);
-        //AddTeam(103);
-        //AddTeam(104);
+        AddTeam(103);
+        AddTeam(104);
         //AddTeam(105);
         AddItem(10201, 10);
         AddItem(10301, 10);
@@ -73,6 +73,7 @@ public class UserData
             if (!teamData.ContainsKey(i))
             {
                 teamData.Add(i, characters[id]);
+                Debug.Log(teamData[i]);
                 return;
             }
         }
@@ -140,5 +141,16 @@ public class UserData
             characters[teamData[i].status.iD] = teamData[i];
         }
 
+    }
+    public void ResetCharacterHP()
+    {
+        foreach (CharacterData characterData in characters.Values)
+        {
+            characterData.status.health = characterData.status.maxhealth;
+        }
+        foreach (CharacterData characterData in teamData.Values)
+        {
+            characterData.status.health = characterData.status.maxhealth;
+        }
     }
 }

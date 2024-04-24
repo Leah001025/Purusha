@@ -30364,7 +30364,7 @@ GameObject:
   - component: {fileID: 2768248534317649930}
   - component: {fileID: 3193622397178802249}
   - component: {fileID: 2473321377711254384}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Name
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30995,7 +30995,7 @@ GameObject:
   - component: {fileID: 6963829119817064264}
   - component: {fileID: 1059629365273172793}
   - component: {fileID: 7288138805408081298}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -32312,7 +32312,7 @@ PlayableDirector:
   m_Enabled: 1
   serializedVersion: 3
   m_PlayableAsset: {fileID: 11400000, guid: b49ee136cdee40b44b6ca81082cb5a79, type: 2}
-  m_InitialState: 1
+  m_InitialState: 0
   m_WrapMode: 2
   m_DirectorUpdateMode: 1
   m_InitialTime: 0
@@ -35741,8 +35741,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5080867796463793799}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.052600786, y: -0.93815595, z: 0.16060089, w: 0.30216545}
-  m_LocalPosition: {x: -11.261, y: 0.082155764, z: -22.551617}
+  m_LocalRotation: {x: -0.08813409, y: -0.8973071, z: 0.21163411, w: -0.37720475}
+  m_LocalPosition: {x: -12.557098, y: 0.24246722, z: -21.176702}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -35787,7 +35787,7 @@ Camera:
   m_Depth: 1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 439
+    m_Bits: 407
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -37451,7 +37451,7 @@ GameObject:
   - component: {fileID: 7531713682512518632}
   - component: {fileID: 7774940152328348998}
   - component: {fileID: 5872916415025834328}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38627,7 +38627,7 @@ GameObject:
   - component: {fileID: 1654384869810594713}
   - component: {fileID: 7948296767061786815}
   - component: {fileID: 47215248414989858}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: TextPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}

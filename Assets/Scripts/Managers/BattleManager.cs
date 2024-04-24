@@ -209,7 +209,7 @@ public class BattleManager : MonoBehaviour
 
                 lUnitInfo.Add(lUnitInfo.Count + 1, unitInfo);
                 unitInfo.unitObject.name = lUnitInfo.Count.ToString();
-                UIManager.Instance.BattleShowPopup(unitInfo.unitObject);
+                UIManager.Instance.BattleShowPopup(unitInfo.unitObject, int.Parse(unitInfo.unitID.ToString().Substring(0,1)));
                 enemySkillControllers.Add(lUnitInfo.Count, unitInfo.unitObject.GetComponent<EnemySkillController>());
                 enemyCreateCount++;
             }
@@ -286,6 +286,7 @@ public class BattleManager : MonoBehaviour
                 var popup = UIManager.Instance.ShowPopup<SkillPopUp>();
                 break;
             case CharacterType.Enemy:
+                TargetChange(CharacterType.Player);
                 enemySkillControllers[index].TurnOn();
                 //EnemyAttack(lUnitInfo[index]);
 
@@ -640,6 +641,7 @@ public class BattleManager : MonoBehaviour
                 if (unitInfo.characterData.status.health <= 0)
                 {
                     lUnitInfo[int.Parse(unitInfo.unitObject.name)].actionController.Die();
+                    turnControllers.Remove(int.Parse(unitInfo.unitObject.name));
                     lUnitInfo.Remove(int.Parse(unitInfo.unitObject.name));
                     playerUnitCount--;
                     TargetChange(CharacterType.Player);

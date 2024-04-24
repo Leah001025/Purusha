@@ -11,6 +11,7 @@ public class ClearUI : MonoBehaviour
     [Header("GameObject")]
     [SerializeField] private GameObject characterInfo;
     [SerializeField] private GameObject itemInfo;
+    [SerializeField] private GameObject itemContent;
     [SerializeField] private GameObject characterBattleInfo;
     [SerializeField] private GameObject battleInfoContent;
 
@@ -26,6 +27,7 @@ public class ClearUI : MonoBehaviour
 
     private StageDataBase stageDB;
     private WaveDataBase waveDB;
+    private ItemDataBase itemDB;
     private GameManager gameManager;
     private StageInfo stageInfo;
 
@@ -33,11 +35,12 @@ public class ClearUI : MonoBehaviour
     {
         stageDB = DataManager.Instance.StageDB;
         waveDB = DataManager.Instance.WaveDB;
+        itemDB = DataManager.Instance.ItemDB;
     }
 
     private void Start()
     {
-        StageStage();
+        StageState();
         StageEnd();
         TeamInfo();
         BattleInfo();
@@ -47,7 +50,7 @@ public class ClearUI : MonoBehaviour
     {
 
     }
-    private void StageStage()
+    private void StageState()
     {
         GameManager.Instance.User.UpdateCharacterData();
         switch (BattleManager.Instance.gameState)
@@ -61,6 +64,10 @@ public class ClearUI : MonoBehaviour
                 clearText.text = "Fail";
                 clearImage.sprite = Resources.Load<Sprite>("UI/Icon/Fail");
                 clearBG.sprite = Resources.Load<Sprite>("UI/Icon/FailBG");
+                GameManager.Instance.User.ResetCharacterHP();
+                GameManager.Instance.wave1Clear = false;
+                GameManager.Instance.wave2Clear = false;
+                GameManager.Instance.wave3Clear = false;
                 break;
         }
     }
@@ -78,6 +85,7 @@ public class ClearUI : MonoBehaviour
         {
             var _sprite = Resources.Load<Sprite>(_characterData.status.spritePath);
             characterInfo.transform.GetChild(slotIndex).GetComponent<Image>().sprite = _sprite;
+            characterInfo.transform.GetChild(slotIndex).GetComponent<Image>().color = Color.white;
             slotIndex++;
         }
     }
@@ -93,16 +101,20 @@ public class ClearUI : MonoBehaviour
     private void ItemInfo()
     {
         characterBattleInfo.SetActive(false);
+        int index = 1;
         if (BattleManager.Instance.gameState == GameEnd.success)
         {
             foreach (Compensations _compensations in waveDB.GetData(GameManager.Instance.waveID).Compensations)
             {
                 var _resources = Resources.Load("Prefabs/Battle/ItemSlot") as GameObject;
-                var _obj = Instantiate(_resources, itemInfo.transform);
-
+                var _obj = Instantiate(_resources, itemContent.transform);
+                _obj.name = index.ToString();
+                ItemSlotUI itemSlot = _obj.GetComponent<ItemSlotUI>();
+                itemSlot.ItemName(itemDB.GetData(_compensations._compensation).Name); ;
                 var _resourcesSprite = Resources.Load<Sprite>(DataManager.Instance.ItemDB.GetData(_compensations._compensation).SpritePath);
                 _obj.GetComponent<Image>().sprite = _resourcesSprite;
                 _obj.transform.GetChild(0).GetComponent<TMP_Text>().text = _compensations._compensationCount.ToString();
+                index++;
             }
         }
     }
@@ -128,9 +140,8 @@ public class ClearUI : MonoBehaviour
             }
             else
             {
-                gameManager.User.stageClear.Peek().wave1Clear = gameManager.wave1Clear;
-                gameManager.User.stageClear.Peek().wave2Clear = gameManager.wave2Clear;
-                gameManager.User.stageClear.Peek().wave3Clear = gameManager.wave3Clear;
+                gameManager.User.stageClear.Pop();
+                gameManager.User.stageClear.Push(stageInfo);
             }
         }
         //wave3 클리어시 waveInfo 초기화
@@ -139,9 +150,10 @@ public class ClearUI : MonoBehaviour
             gameManager.ResetWaveInfo();
             int nextStage = gameManager.User.NextStage();
             StageInfo nextStageInfo = new StageInfo();
+            nextStageInfo.stageID = nextStage;
             gameManager.User.stageClear.Push(nextStageInfo);
             gameManager.User.isCutScenePlay = false;
-            nextStageInfo.stageID = nextStage;
+            GameManager.Instance.User.ResetCharacterHP();
         }
     }
     public void ContinueBtn()

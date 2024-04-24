@@ -48,6 +48,7 @@ public class Portal : MonoBehaviour, IInteractable
             nextStageInfo.stageID = nextStage;
             GameManager.Instance.User.stageClear.Push(nextStageInfo);
             GameManager.Instance.User.isCutScenePlay = false;
+            GameManager.Instance.User.ResetCharacterHP();
         }
     }
 }
