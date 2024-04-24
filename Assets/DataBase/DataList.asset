@@ -1039,6 +1039,38 @@ MonoBehaviour:
     SkillGage: 0
     EffectPath: Prefabs/Skill/CodeNumber001/Skill2
     IconPath: 
+  - ID: 301001011
+    Name: "\uC77C\uBC18\uACF5\uACA9"
+    Description: "\uC801 \uC804\uCCB4 \uC0AC\uACA9"
+    Type: 1
+    Range: 1
+    BuffID: 0
+    BuffID2: 0
+    AtkCoefficient: 1
+    DefCoefficient: 0
+    HealthCoefficient: 0
+    CoolTime: 0
+    DebuffProbability: 0
+    Duration: 0
+    SkillGage: 0
+    EffectPath: Prefabs/Skill/UpdatedDrone/Skill1
+    IconPath: 
+  - ID: 301001021
+    Name: "\uD2B9\uC218"
+    Description: "\uC801 1\uBA85 \uC0AC\uACA9(\uACF5\uACA9\uB825\uAC10\uC18C)"
+    Type: 0
+    Range: 1
+    BuffID: 202
+    BuffID2: 0
+    AtkCoefficient: 1.2
+    DefCoefficient: 0
+    HealthCoefficient: 0
+    CoolTime: 3
+    DebuffProbability: 0.8
+    Duration: 1
+    SkillGage: 0
+    EffectPath: Prefabs/Skill/UpdatedDrone/Skill2
+    IconPath: 
   BuffData:
   - BuffID: 0
     Name: 
@@ -1183,6 +1215,19 @@ MonoBehaviour:
     _speed: 0.8
     _breakGauge: 300
     _prefabPath: Prefabs/Monster/CodeNumber001
+    _spritePath: 
+  - _id: 301001
+    _name: UpdatedDrone
+    _level: 20
+    _health: 3500
+    _atk: 200
+    _def: 50
+    _criticalChance: 0.22
+    _criticalDamage: 2
+    _avoid: 10
+    _speed: 0.5
+    _breakGauge: 400
+    _prefabPath: Prefabs/Monster/UpdatedDrone
     _spritePath: 
   WaveData:
   - _id: 110101

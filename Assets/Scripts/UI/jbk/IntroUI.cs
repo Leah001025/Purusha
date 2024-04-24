@@ -10,6 +10,9 @@ public class IntroUI : MonoBehaviour
     public Image backGround;
     public Image startButton;
     public Image exitButton;
+    public Image gameBytton;
+
+    public GameObject gameInfo;
 
     private WaitForSeconds effectWaitFor;
     private WaitForSeconds startWaitFor;
@@ -36,6 +39,14 @@ public class IntroUI : MonoBehaviour
                         Application.Quit();
 #endif
     }
+    public void GameInfo() 
+    {
+        gameInfo.SetActive(true);
+    }
+    public void EndInfo()
+    {
+        gameInfo.SetActive(false);
+    }
     IEnumerator StartSceneEffect()
     {
         while (true)
@@ -48,6 +59,7 @@ public class IntroUI : MonoBehaviour
                 backGround.material.SetFloat("_ValueX", Random.Range(-0.5f, 0.5f));
                 startButton.color = new Color(0.5f, Random.Range(0, 0.2f), 1, Random.Range(0f, 1f));
                 exitButton.color = new Color(0.5f, Random.Range(0, 0.2f), 1, Random.Range(0f, 1f));
+                gameBytton.color = new Color(0.5f, Random.Range(0, 0.2f), 1, Random.Range(0f, 1f));
                 effectTime -= 0.1f;
             }
             ResetStart();
@@ -60,6 +72,7 @@ public class IntroUI : MonoBehaviour
         backGround.material.SetFloat("_ValueX", 0);
         startButton.color = new Color(1, 1, 1, 1);
         exitButton.color = new Color(1, 1, 1, 1);
+        gameBytton.color = new Color(1, 1, 1, 1);
     }
     private IEnumerator LoadData()
     {

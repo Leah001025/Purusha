@@ -37,7 +37,7 @@ public class ClearUI : MonoBehaviour
 
     private void Start()
     {
-        StageStage();
+        StageState();
         StageEnd();
         TeamInfo();
         BattleInfo();
@@ -47,7 +47,7 @@ public class ClearUI : MonoBehaviour
     {
 
     }
-    private void StageStage()
+    private void StageState()
     {
         switch (BattleManager.Instance.gameState)
         {
@@ -60,6 +60,10 @@ public class ClearUI : MonoBehaviour
                 clearText.text = "Fail";
                 clearImage.sprite = Resources.Load<Sprite>("UI/Icon/Fail");
                 clearBG.sprite = Resources.Load<Sprite>("UI/Icon/FailBG");
+                GameManager.Instance.User.ResetCharacterHP();
+                stageInfo.wave1Clear = false;
+                stageInfo.wave2Clear = false;
+                stageInfo.wave3Clear = false;
                 break;
         }
     }
@@ -141,6 +145,7 @@ public class ClearUI : MonoBehaviour
             GameManager.Instance.User.stageClear.Push(nextStageInfo);
             GameManager.Instance.User.isCutScenePlay = false;
             nextStageInfo.stageID = nextStage;
+            GameManager.Instance.User.ResetCharacterHP();
         }
     }
     public void ContinueBtn()

@@ -134,4 +134,15 @@ public class UserData
         }
 
     }
+    public void ResetCharacterHP()
+    {
+        foreach (CharacterData characterData in characters.Values)
+        {
+            characterData.status.health = characterData.status.maxhealth;
+        }
+        foreach (CharacterData characterData in teamData.Values)
+        {
+            characterData.status.health = characterData.status.maxhealth;
+        }
+    }
 }

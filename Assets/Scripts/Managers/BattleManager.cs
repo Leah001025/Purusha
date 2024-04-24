@@ -207,7 +207,7 @@ public class BattleManager : MonoBehaviour
 
                 lUnitInfo.Add(lUnitInfo.Count + 1, unitInfo);
                 unitInfo.unitObject.name = lUnitInfo.Count.ToString();
-                UIManager.Instance.BattleShowPopup(unitInfo.unitObject);
+                UIManager.Instance.BattleShowPopup(unitInfo.unitObject, int.Parse(unitInfo.unitID.ToString().Substring(0,1)));
                 enemySkillControllers.Add(lUnitInfo.Count, unitInfo.unitObject.GetComponent<EnemySkillController>());
                 enemyCreateCount++;
             }
