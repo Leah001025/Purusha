@@ -417,9 +417,8 @@ GameObject:
   - component: {fileID: 1290530888787669300}
   - component: {fileID: 6661061523416936000}
   - component: {fileID: 4354955428973358155}
-  - component: {fileID: 5113448570190054161}
   m_Layer: 5
-  m_Name: Canvas (2)
+  m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -508,24 +507,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &5113448570190054161
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2232149444783187863}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6a36a7a3e763a274ca30bc99911a24f3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  contentTrans: {fileID: 0}
-  offPanel: {fileID: 0}
-  onPanelBtn: {fileID: 0}
-  offPanelBtn: {fileID: 0}
-  continueBtn: {fileID: 0}
-  mainBtn: {fileID: 0}
 --- !u!1 &2306836348470663376
 GameObject:
   m_ObjectHideFlags: 0
@@ -768,8 +749,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5151624822996925876}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.074759305, y: -0.65001327, z: -0.06449333, w: 0.7534816}
-  m_LocalPosition: {x: 28.51, y: 1.0729132, z: -20.669035}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.5, z: -5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
