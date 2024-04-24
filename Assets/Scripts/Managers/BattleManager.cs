@@ -638,6 +638,7 @@ public class BattleManager : MonoBehaviour
                 if (unitInfo.characterData.status.health <= 0)
                 {
                     lUnitInfo[int.Parse(unitInfo.unitObject.name)].actionController.Die();
+                    turnControllers.Remove(int.Parse(unitInfo.unitObject.name));
                     lUnitInfo.Remove(int.Parse(unitInfo.unitObject.name));
                     playerUnitCount--;
                     TargetChange(CharacterType.Player);
