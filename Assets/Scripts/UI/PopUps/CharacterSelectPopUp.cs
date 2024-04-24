@@ -99,6 +99,7 @@ public class CharacterSeletPopUp : UIBase
         if (userStageInfo.Peek().stageID == gmStageID)
         {
             if (userStageInfo.Peek().wave3Clear == true) return;
+            // clearImage.sprite = Resources.Load<Sprite>("UI/Icon/ClearStamp");
         }
         //nextStage외 다른 스테이지 도전 불가
         if (GameManager.Instance.User.stageClear.Peek().stageID != gmStageID)
