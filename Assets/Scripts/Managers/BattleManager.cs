@@ -201,12 +201,13 @@ public class BattleManager : MonoBehaviour
                 unitInfo.unitType = CharacterType.Enemy;
                 unitInfo.unitObject = Instantiate(_Resources, stageTrans);
                 unitInfo.unitObject.AddComponent<EnemySkillController>();
-
+                BoxCollider collider = unitInfo.unitObject.GetComponent<BoxCollider>();
+                collider.enabled = false;
                 unitInfo.actionController = unitInfo.unitObject.GetComponent<Enemy>().ActionController;
                 unitInfo.unitObject.transform.localPosition = enemySpawnPos[enemyIndex];
                 enemyIndex++;
                 unitInfo.unitData = CreateEnemyData(unitInfo.unitObject.tag);
-
+                
                 lUnitInfo.Add(lUnitInfo.Count + 1, unitInfo);
                 unitInfo.unitObject.name = lUnitInfo.Count.ToString();
                 UIManager.Instance.BattleShowPopup(unitInfo.unitObject, unitInfo.unitID.ToString());
@@ -342,7 +343,7 @@ public class BattleManager : MonoBehaviour
                     targetIndex = int.Parse(target.name);
                     if (lUnitInfo.ContainsKey(count) && lUnitInfo[count].unitType == CharacterType.Enemy)
                     {
-                        _damage = AddDamage(characterData, skillNum, targetIndex);
+                        _damage = AddDamage(characterData, skillNum, count);
                         lUnitInfo[count].unitData.Health -= _damage;
                         battleInfo.characterInfo[onTurnIndex].attackDamages += _damage;
                         lUnitInfo[count].actionController.BattleHit();
@@ -415,7 +416,7 @@ public class BattleManager : MonoBehaviour
     }
     public void OnSkillEnemy(EnemyCharacterData characterData, int skillNum)
     {
-        float _damage = AddDamagePlayer(characterData, skillNum);
+        float _damage = 0; 
         int buffID = characterData.enemySkillData[skillNum].buffID;
         int buffID2 = characterData.enemySkillData[skillNum].buffID2;
         int targetIndex = int.Parse(target.name);
@@ -423,6 +424,7 @@ public class BattleManager : MonoBehaviour
         switch (characterData.enemySkillData[skillNum].type)
         {
             case 0:
+                _damage = AddDamagePlayer(characterData, skillNum, targetIndex);
                 lUnitInfo[targetIndex].characterData.status.health -= _damage;
                 battleInfo.characterInfo[targetIndex].receivedDamages += _damage;
                 lUnitInfo[targetIndex].actionController.BattleHit();
@@ -433,20 +435,36 @@ public class BattleManager : MonoBehaviour
                 StartCoroutine(DieCheck(lUnitInfo[targetIndex]));
                 break;
             case 1:
+                int count = 1;
                 foreach (CharacterTurnController turnController in turnControllers.Values)
                 {
                     turnController.SetBuffandDebuff(buffID);
                 }
-                foreach (UnitInfo _unitData in lUnitInfo.Values)
+                for (int i = 1; i <= enemyCreateCount + playerCreateCount; i++)
                 {
-                    if (_unitData.unitType == CharacterType.Player)
+                    targetIndex = int.Parse(target.name);
+                    if (lUnitInfo.ContainsKey(count) && lUnitInfo[count].unitType == CharacterType.Enemy)
                     {
-                        _unitData.characterData.status.health -= _damage;
-                        _unitData.actionController.BattleHit();
-                        AddDamageUI(_damage, _unitData.unitObject.name, isCritical);
-                        StartCoroutine(DieCheck(_unitData));
+                        _damage = AddDamagePlayer(characterData, skillNum, count);
+                        lUnitInfo[count].unitData.Health -= _damage;
+                        battleInfo.characterInfo[onTurnIndex].attackDamages += _damage;
+                        lUnitInfo[count].actionController.BattleHit();
+                        AddDamageUI(_damage, lUnitInfo[count].unitObject.name, isCritical);
+                        StartCoroutine(DieCheck(lUnitInfo[count]));
                     }
+                    if ((enemyUnitCount) == 0) return;
+                    count++;
                 }
+                //foreach (UnitInfo _unitData in lUnitInfo.Values)
+                //{
+                //    if (_unitData.unitType == CharacterType.Player)
+                //    {
+                //        _unitData.characterData.status.health -= _damage;
+                //        _unitData.actionController.BattleHit();
+                //        AddDamageUI(_damage, _unitData.unitObject.name, isCritical);
+                //        StartCoroutine(DieCheck(_unitData));
+                //    }
+                //}
                 break;
             case 2:
                 enemySkillControllers[onTurnIndex].SetBuffandDebuff(buffID);
@@ -487,7 +505,7 @@ public class BattleManager : MonoBehaviour
             damage = ((characterData.status.atk * characterData.skillData[skillNum].atkCoefficient) +
                 (characterData.status.def * characterData.skillData[skillNum].defCoefficient) +
                 (characterData.status.health * characterData.skillData[skillNum].healthCoefficient))
-                * (100 / (100.0f + lUnitInfo[targetIndex].unitData.Def)) * characterData.status.criticalDamage;
+                * (100 / (100.0f + enemySkillControllers[targetIndex].enemyCharacterBuffData.enemyData.Def)) * characterData.status.criticalDamage;
             isCritical = true;
             if(characterData.status.iD ==106 && skillNum ==3) { attackOrder.Enqueue(onTurnIndex); }
         }
@@ -496,28 +514,28 @@ public class BattleManager : MonoBehaviour
             damage = ((characterData.status.atk * characterData.skillData[skillNum].atkCoefficient) +
                 (characterData.status.def * characterData.skillData[skillNum].defCoefficient) +
                 (characterData.status.health * characterData.skillData[skillNum].healthCoefficient))
-                * (100 / (100.0f + lUnitInfo[targetIndex].unitData.Def));
+                * (100 / (100.0f + enemySkillControllers[targetIndex].enemyCharacterBuffData.enemyData.Def));
             isCritical = false;
         }
         return damage;
     }
-    private float AddDamagePlayer(EnemyCharacterData characterData, int skillNum)
+    private float AddDamagePlayer(EnemyCharacterData characterData, int skillNum, int targetIndex)
     {
         float damage;
-        CharacterTurnController skillController = turnControllers[int.Parse(target.name)];
+        CharacterTurnController skillController = turnControllers[targetIndex]; 
         float shield = skillController.shieldQuantity;
         float totalDamage = 0;
         float crirocalChance = UnityEngine.Random.Range(0, 1.0f);
         if (crirocalChance <= characterData.enemyData.CriticalChance)
         {
             damage = (characterData.enemyData.Atk * characterData.enemySkillData[skillNum].atkCoefficient)
-                * (100 / (100.0f + lUnitInfo[int.Parse(target.name)].unitData.Def)) * characterData.enemyData.CriticalDamage * 10;
+                * (100 / (100.0f + skillController.characterBuffData.status.def)) * characterData.enemyData.CriticalDamage * 10;
             isCritical = true;
         }
         else
         {
             damage = (characterData.enemyData.Atk * characterData.enemySkillData[skillNum].atkCoefficient)
-                * (100 / (100.0f + lUnitInfo[int.Parse(target.name)].unitData.Def)) * 10;
+                * (100 / (100.0f + skillController.characterBuffData.status.def)) * 10;
             isCritical = false;
         }
         if (shield > damage)

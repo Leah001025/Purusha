@@ -75,21 +75,6 @@ MonoBehaviour:
     _spritePath: CharacterIcon/Abel
   - _id: 105
     _name: "\uB77C\uC778"
-    _maxHealth: 2000
-    _health: 2000
-    _level: 1
-    _exp: 0
-    _equipLevel: 1
-    _atk: 110
-    _def: 30
-    _criticalChance: 0.5
-    _criticalDamage: 1.5
-    _avoid: 0.15
-    _speed: 1.2
-    _prefabPath: Prefabs/Skill/Kain
-    _spritePath: CharacterIcon/Kain
-  - _id: 106
-    _name: "\uCE74\uB098"
     _maxHealth: 4000
     _health: 4000
     _level: 1
@@ -101,6 +86,21 @@ MonoBehaviour:
     _criticalDamage: 1.5
     _avoid: 0.08
     _speed: 0.8
+    _prefabPath: Prefabs/Skill/Kain
+    _spritePath: CharacterIcon/Kain
+  - _id: 106
+    _name: "\uCE74\uB098"
+    _maxHealth: 2000
+    _health: 2000
+    _level: 1
+    _exp: 0
+    _equipLevel: 1
+    _atk: 110
+    _def: 30
+    _criticalChance: 0.5
+    _criticalDamage: 1.5
+    _avoid: 0.15
+    _speed: 1.2
     _prefabPath: Prefabs/Skill/Kana
     _spritePath: CharacterIcon/Kana
   ItemData:

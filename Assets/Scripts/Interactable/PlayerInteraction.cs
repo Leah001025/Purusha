@@ -14,7 +14,7 @@ public class PlayerInteraction : MonoBehaviour
             _interactObject = other.GetComponent<IInteractable>();
             _interactObject?.Enter();
         }
-        if (other.gameObject.layer == 7)
+        if (other.gameObject.layer == 8)
         {
             attackPanel.SetActive(true);
         }
@@ -27,7 +27,7 @@ public class PlayerInteraction : MonoBehaviour
             _interactObject?.Exit();
             _interactObject = null;
         }
-        if (other.gameObject.layer == 7)
+        if (other.gameObject.layer == 8)
         {
             attackPanel.SetActive(false);
         }

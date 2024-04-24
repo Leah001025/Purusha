@@ -104,6 +104,7 @@ public class EnemySkillController : MonoBehaviour
         {
             BuffDuration();
             StartCoroutine(WaitForSkillEffect(0.5f));
+            return;
         }
         BuffDuration();
         if (skill2CoolTime <= 0)
@@ -177,7 +178,7 @@ public class EnemySkillController : MonoBehaviour
         OnSkillEffect(enemyCharacterData.enemySkillData[skillNum]);
         yield return time;
         Destroy(skillObj);
-        battleManager.OnSkillEnemy(enemyCharacterData, skillNum);
+        battleManager.OnSkillEnemy(enemyCharacterBuffData, skillNum);
         yield return wait05;
         transform.localPosition = startPos;
         isStartPos = false;
@@ -206,7 +207,7 @@ public class EnemySkillController : MonoBehaviour
         yield return time;
         Destroy(skillObj);
         yield return new WaitForSeconds(0.2f);
-        battleManager.OnSkillEnemy(enemyCharacterData, skillNum);
+        battleManager.OnSkillEnemy(enemyCharacterBuffData, skillNum);
         isAttack = false;
     }
     private void OnSkillEffect(CharacterSkill skill)
@@ -250,6 +251,8 @@ public class EnemySkillController : MonoBehaviour
         defDown = null;
         buffID = null;
         shield = null;
+        stun = null;
+        provoke = null;
     }
     public void SetBuffandDebuff(int buffID)
     {
@@ -257,7 +260,7 @@ public class EnemySkillController : MonoBehaviour
         {
             case 101://쉴드
                 buffAndDebuff.SetShield(buffID);
-                if (shield != null && buffAndDebuff.defDown != null)
+                if (shield != null && buffAndDebuff.shield != null)
                 {
                     shieldQuantity = shield.CharacterData;
                     shield.Duration = buffAndDebuff.shield.Duration;
@@ -272,7 +275,7 @@ public class EnemySkillController : MonoBehaviour
                 break;
             case 102://공증
                 buffAndDebuff.SetAtkUp(buffID);
-                if (attackUp != null && buffAndDebuff.defDown != null) attackUp.Duration = buffAndDebuff.attackUp.Duration;
+                if (attackUp != null && buffAndDebuff.attackUp != null) attackUp.Duration = buffAndDebuff.attackUp.Duration;
                 if (attackUp == null && buffAndDebuff.attackUp != null)
                 {
                     attackUp = SetBuffData(buffAndDebuff.attackUp);
@@ -283,7 +286,7 @@ public class EnemySkillController : MonoBehaviour
                 break;
             case 103://방증
                 buffAndDebuff.SetDefUp(buffID);
-                if (defUp != null && buffAndDebuff.defDown != null) defUp.Duration = buffAndDebuff.defUp.Duration;
+                if (defUp != null && buffAndDebuff.defUp != null) defUp.Duration = buffAndDebuff.defUp.Duration;
                 if (defUp == null && buffAndDebuff.defUp != null)
                 {
                     defUp = SetBuffData(buffAndDebuff.defUp);
@@ -295,7 +298,7 @@ public class EnemySkillController : MonoBehaviour
             case 201:
             case 202://공감
                 buffAndDebuff.SetAtkDown(buffID);
-                if (attackDown != null && buffAndDebuff.defDown != null) attackDown.Duration = buffAndDebuff.attackDown.Duration;
+                if (attackDown != null && buffAndDebuff.attackDown != null) attackDown.Duration = buffAndDebuff.attackDown.Duration;
                 if (attackDown == null && buffAndDebuff.attackDown != null)
                 {
                     attackDown = SetBuffData(buffAndDebuff.attackDown);
@@ -366,7 +369,13 @@ public class EnemySkillController : MonoBehaviour
                     Destroy(OnBuff[buffName].gameObject);
                     OnBuff.Remove(buffName);
                 }
-                buff = null;
+                if (buff.BuffID == 101) shield = null;
+                if (buff.BuffID == 102) attackUp = null;
+                if (buff.BuffID == 103) defUp = null;
+                if (buff.BuffID == 201 || buff.BuffID == 202) attackDown = null;
+                if (buff.BuffID == 203 || buff.BuffID == 204) defDown = null;
+                if (buff.BuffID == 205 || buff.BuffID == 206) stun = null;
+                if (buff.BuffID == 207 || buff.BuffID == 208 || buff.BuffID == 209) provoke = null;
             }
         }
     }    

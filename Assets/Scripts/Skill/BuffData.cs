@@ -14,5 +14,7 @@ public class BuffData
     public int Duration;
     public float DebuffProbability;
     public string IconPath;
+
 }
+
 

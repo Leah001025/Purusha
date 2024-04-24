@@ -28,6 +28,14 @@ public class PlayerConeRaycastDetection : MonoBehaviour
         player = GetComponent<Player>();
         startPos = transform.position + (transform.up * 1f) + (transform.forward * 0.2f);
     }
+    private void FixedUpdate()
+    {
+        if (isBattle)
+        {
+            Camera.main.transform.position = Vector3.Lerp(Camera.main.transform.position, targetPos, 2f * Time.deltaTime);
+            battleEffect.color = Color.Lerp(battleEffect.color, new Color(1, 1, 1, 1), 2f * Time.deltaTime);
+        }
+    }
     public void OnMouseButtonDown()
     {
         //detectionTimer += Time.deltaTime; // 경과 시간 누적
@@ -44,11 +52,7 @@ public class PlayerConeRaycastDetection : MonoBehaviour
             PerformConeRaycast();
 
         }
-        if (isBattle)
-        {
-            Camera.main.transform.position = Vector3.Lerp(Camera.main.transform.position, targetPos, 2f * Time.deltaTime);
-            battleEffect.color = Color.Lerp(battleEffect.color, new Color(1, 1, 1, 1), 2f * Time.deltaTime);
-        }
+
     }
 
     void PerformConeRaycast()

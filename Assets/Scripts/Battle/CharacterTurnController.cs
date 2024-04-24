@@ -8,7 +8,7 @@ public class CharacterTurnController : MonoBehaviour
 {
     public int teamIndex;
     CharacterData characterData;
-    CharacterData characterBuffData;
+    public CharacterData characterBuffData;
     BattleManager battleManager;
     UnitInfo unitInfo;
     public Vector3 targetPos;
@@ -210,6 +210,8 @@ public class CharacterTurnController : MonoBehaviour
         defDown = null;
         buffID = null;
         shield = null;
+        stun = null;
+        provoke = null;
     }
     private void BuffDuration()
     {
@@ -236,7 +238,13 @@ public class CharacterTurnController : MonoBehaviour
                     Destroy(OnBuff[buffName].gameObject);
                     OnBuff.Remove(buffName);
                 }
-                buff = null;
+                if (buff.BuffID == 101) shield = null;
+                if (buff.BuffID == 102) attackUp = null;
+                if (buff.BuffID == 103) defUp = null;
+                if (buff.BuffID == 201|| buff.BuffID == 202) attackDown = null;
+                if (buff.BuffID == 203|| buff.BuffID == 204) defDown = null;
+                if (buff.BuffID == 205 || buff.BuffID == 206) stun = null;
+                if (buff.BuffID == 207 || buff.BuffID == 208 || buff.BuffID == 209) provoke = null;
             }
         }
     }

@@ -41,8 +41,8 @@ GameObject:
   m_Component:
   - component: {fileID: 5151617906339493715}
   - component: {fileID: 8773649899450857826}
-  - component: {fileID: 377135835158178338}
-  m_Layer: 7
+  - component: {fileID: 3386973085689223760}
+  m_Layer: 8
   m_Name: SecurityTurret
   m_TagString: SecurityTurret
   m_Icon: {fileID: 0}
@@ -87,7 +87,7 @@ MonoBehaviour:
     skill2ParameterName: Skill2
   monsterInfoPoint: {fileID: 2669823920222208057}
   targetPoint: {fileID: 8208426649846401216}
---- !u!65 &377135835158178338
+--- !u!65 &3386973085689223760
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -107,7 +107,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 2, y: 2, z: 2}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!1 &8208426649846401216
 GameObject:
   m_ObjectHideFlags: 0
