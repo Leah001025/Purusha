@@ -209,7 +209,7 @@ public class BattleManager : MonoBehaviour
 
                 lUnitInfo.Add(lUnitInfo.Count + 1, unitInfo);
                 unitInfo.unitObject.name = lUnitInfo.Count.ToString();
-                UIManager.Instance.BattleShowPopup(unitInfo.unitObject, int.Parse(unitInfo.unitID.ToString().Substring(0,1)));
+                UIManager.Instance.BattleShowPopup(unitInfo.unitObject, unitInfo.unitID.ToString());
                 enemySkillControllers.Add(lUnitInfo.Count, unitInfo.unitObject.GetComponent<EnemySkillController>());
                 enemyCreateCount++;
             }
@@ -439,14 +439,13 @@ public class BattleManager : MonoBehaviour
                 }
                 foreach (UnitInfo _unitData in lUnitInfo.Values)
                 {
-                    if (_unitData.unitType == CharacterType.Enemy)
+                    if (_unitData.unitType == CharacterType.Player)
                     {
-                        _unitData.unitData.Health -= _damage;
-                        lUnitInfo[targetIndex].actionController.BattleHit();
+                        _unitData.characterData.status.health -= _damage;
+                        _unitData.actionController.BattleHit();
                         AddDamageUI(_damage, _unitData.unitObject.name, isCritical);
-                        StartCoroutine(DieCheck(lUnitInfo[targetIndex]));
+                        StartCoroutine(DieCheck(_unitData));
                     }
-
                 }
                 break;
             case 2:

@@ -61,9 +61,10 @@ public class UIManager : SingleTon<UIManager>
         obj.SetActive(true);
         return popup;
     }
-    public void BattleShowPopup(GameObject monster, int id)
+    public void BattleShowPopup(GameObject monster, string id)
     {
-        if (id != 30)
+        id = id.Substring(0, 1);
+        if (id != "3")
         {
             var info = Resources.Load("Prefabs/Battle/MonsterInfo") as GameObject;
             if (!info)
@@ -85,12 +86,30 @@ public class UIManager : SingleTon<UIManager>
         }
         else
         {
+            int index = 0;
             var info = Resources.Load("Prefabs/Battle/BossInfo") as GameObject;
             if (!info)
             {
                 Debug.LogWarning("Failed to BossInfo");
             }
-            Instantiate(info);
+            var obj = Instantiate(info);
+            foreach (KeyValuePair<int, UnitInfo> uniotInfo in BattleManager.Instance.lUnitInfo)
+            {
+                if (uniotInfo.Value.unitType == Enums.CharacterType.Enemy)
+                {
+                    index = uniotInfo.Key;
+                }
+            }
+            if (!battlePlayerStatus.ContainsKey(index))
+            {
+                battleEnemyStatus.Add(index, obj);
+            }
+            var target = Resources.Load("Prefabs/Battle/Target") as GameObject;
+            if (!target)
+            {
+                Debug.LogWarning("Failed to Target");
+            }
+            Instantiate(target, monster.transform.GetChild(1).gameObject.transform);
         }
     }
     public void BattlePlayerPopup(int index, Transform statusUI)
