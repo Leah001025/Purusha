@@ -1046,7 +1046,7 @@ MonoBehaviour:
     Range: 1
     BuffID: 0
     BuffID2: 0
-    AtkCoefficient: 1
+    AtkCoefficient: 0.2
     DefCoefficient: 0
     HealthCoefficient: 0
     CoolTime: 0
@@ -1062,12 +1062,12 @@ MonoBehaviour:
     Range: 1
     BuffID: 202
     BuffID2: 0
-    AtkCoefficient: 1.2
+    AtkCoefficient: 1
     DefCoefficient: 0
     HealthCoefficient: 0
     CoolTime: 3
-    DebuffProbability: 0.8
-    Duration: 1
+    DebuffProbability: 1
+    Duration: 2
     SkillGage: 0
     EffectPath: Prefabs/Skill/UpdatedDrone/Skill2
     IconPath: 
@@ -1340,10 +1340,10 @@ MonoBehaviour:
     _compensationCount_3: 7
   - _id: 110301
     _battleMapPath: Prefabs/Map/BattleMap/BattleMap_1
-    _enemyID_1: 101001
-    _enemyCount_1: 2
-    _enemyID_2: 0
-    _enemyCount_2: 0
+    _enemyID_1: 101002
+    _enemyCount_1: 1
+    _enemyID_2: 101001
+    _enemyCount_2: 2
     _enemyID_3: 0
     _enemyCount_3: 0
     _enemyID_4: 0
@@ -1359,7 +1359,7 @@ MonoBehaviour:
   - _id: 110302
     _battleMapPath: Prefabs/Map/BattleMap/BattleMap_1
     _enemyID_1: 101001
-    _enemyCount_1: 3
+    _enemyCount_1: 4
     _enemyID_2: 0
     _enemyCount_2: 0
     _enemyID_3: 0
@@ -1376,8 +1376,8 @@ MonoBehaviour:
     _compensationCount_3: 0
   - _id: 110303
     _battleMapPath: Prefabs/Map/BattleMap/BattleMap_1
-    _enemyID_1: 101001
-    _enemyCount_1: 5
+    _enemyID_1: 301001
+    _enemyCount_1: 1
     _enemyID_2: 0
     _enemyCount_2: 0
     _enemyID_3: 0

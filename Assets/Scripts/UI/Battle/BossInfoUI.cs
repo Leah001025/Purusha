@@ -28,6 +28,7 @@ public class BossInfoUI : MonoBehaviour
                 monsterName = info.Key.ToString();
                 monsterMaxHealth = info.Value.unitData.Health;
                 monsterHealth = info.Value.unitData.Health;
+                monsterMinHealth = monsterMaxHealth;
             }
         }
         animator = GetComponent<Animator>();
@@ -41,16 +42,18 @@ public class BossInfoUI : MonoBehaviour
     {
         float fillDamage = (BattleManager.Instance.lUnitInfo[int.Parse(monsterName)].unitData.Health) / monsterMaxHealth;
         hpBar.fillAmount = Mathf.Lerp(hpBar.fillAmount, fillDamage, Time.deltaTime * 20);
-        if (BattleManager.Instance.lUnitInfo[int.Parse(monsterName)].unitData.Health > monsterMinHealth)
+        if (BattleManager.Instance.lUnitInfo[int.Parse(monsterName)].unitData.Health < monsterMinHealth)
         {
-            monsterHealth -= Time.deltaTime * 10f;
+            monsterHealth -= Time.deltaTime * 1000f;
         }
         monsterMinHealth = Mathf.Clamp(monsterHealth, BattleManager.Instance.lUnitInfo[int.Parse(monsterName)].unitData.Health, monsterMaxHealth);
-        hpText.text = $"{monsterMaxHealth} / {monsterMinHealth}";
+        int MinHealth = Mathf.FloorToInt(monsterMinHealth);
+        hpText.text = string.Format("{0} / {1}", monsterMaxHealth,MinHealth);
         monsterHealth = monsterMinHealth;
     }
     IEnumerator Warning()
     {
+        SoundManager.Instance.EffentAudio("warning");
         yield return new WaitForSeconds(2f);
         eventObj.SetActive(false);
     }

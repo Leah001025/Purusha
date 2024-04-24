@@ -61,6 +61,7 @@ public class EnemySkillController : MonoBehaviour
         enemyCharacterBuffData = new EnemyCharacterData(enemyData.ID);
         buffAndDebuff = new BuffAndDebuff(0, enemyData.ID, "Enemy");
         OnBuff = new Dictionary<string, GameObject>();
+        skill2CoolTime = enemyCharacterData.enemySkillData[2].coolTime;
         InitBuffData();
     }
     public void Init()
