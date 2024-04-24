@@ -73,6 +73,7 @@ public class UserData
             if (!teamData.ContainsKey(i))
             {
                 teamData.Add(i, characters[id]);
+                Debug.Log(teamData[i]);
                 return;
             }
         }

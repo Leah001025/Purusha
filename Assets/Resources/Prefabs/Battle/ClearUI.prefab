@@ -1294,7 +1294,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.98823535, g: 0.03137255, b: 0.3529412, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.5019608}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2426,6 +2426,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterInfo: {fileID: 2937974475679842349}
   itemInfo: {fileID: 8380856046389630298}
+  itemContent: {fileID: 2733160010054055046}
   characterBattleInfo: {fileID: 7603341887946939169}
   battleInfoContent: {fileID: 335626923929195009}
   clearImage: {fileID: 8898460659349716740}
@@ -2659,7 +2660,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &7527134646079048310
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2970,7 +2971,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1699528238756868891
 RectTransform:
   m_ObjectHideFlags: 0

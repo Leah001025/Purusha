@@ -13,8 +13,8 @@ public class DamageInfoUI : MonoBehaviour
     private void Start()
     {
         CharacterName.text = GameManager.Instance.User.teamData[int.Parse(gameObject.name)].status.name;
-        AttackDamage.text = BattleManager.Instance.battleInfo.characterInfo[int.Parse(gameObject.name)].attackDamages.ToString();
-        ReceivedDamage.text = BattleManager.Instance.battleInfo.characterInfo[int.Parse(gameObject.name)].receivedDamages.ToString();
-        Support.text = BattleManager.Instance.battleInfo.characterInfo[int.Parse(gameObject.name)].support.ToString();
+        AttackDamage.text = BattleManager.Instance.battleInfo.characterInfo[int.Parse(gameObject.name)].attackDamages.ToString("N2");
+        ReceivedDamage.text = BattleManager.Instance.battleInfo.characterInfo[int.Parse(gameObject.name)].receivedDamages.ToString("N2");
+        Support.text = BattleManager.Instance.battleInfo.characterInfo[int.Parse(gameObject.name)].support.ToString("N2");
     }
 }
