@@ -34,7 +34,10 @@ public class BreeshaSkill : MonoBehaviour
         _hitEffect2.SetActive(false);
         _muzzleEffect1.SetActive(false);
         _muzzleEffect2.SetActive(false);
-        targetPos = BattleManager.Instance.target.transform.position+new Vector3(0,1,0);
+        if(BattleManager.Instance != null)
+        {
+            targetPos = BattleManager.Instance.target.transform.position + new Vector3(0, 1, 0);
+        }
         _maxLength = 20f;
         switch (gameObject.tag)
         {

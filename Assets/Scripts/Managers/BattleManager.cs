@@ -58,6 +58,7 @@ public class BattleManager : MonoBehaviour
     private WaveDataBase waveDB;
     private WaveData WaveData;
 
+    private WaitForSeconds dieForSeconds;
     private WaitForSeconds gameForSeconds;
     public WaitForSeconds animForSeconds;
 
@@ -70,6 +71,7 @@ public class BattleManager : MonoBehaviour
     public GameObject target;
     public Transform stageTrans;
     public Transform playerInfoTrans;
+    public Transform mapTrans;
     private Vector3[] playerSpawnPos = new Vector3[5];
     private Vector3[] enemySpawnPos = new Vector3[5];
 
@@ -78,6 +80,7 @@ public class BattleManager : MonoBehaviour
     public bool isAttacking = false;
     public int skill3CoolTime;
     public int skill4Gauge;
+    public bool skillReady;
 
     private float defaultGauge = 100.0f;
     private float defaultUpGauge = 1.0f;
@@ -89,13 +92,14 @@ public class BattleManager : MonoBehaviour
 
 
     public float speedModifier = 1;
+    private bool isCritical = false;
 
     [Header("TurnIndicator")]
-    public float turnIndicator1;
-    public float turnIndicator2;
-    public float turnIndicator3;
-    public float turnIndicator4;
-    public float turnIndicator5;
+    //public float turnIndicator1;
+    //public float turnIndicator2;
+    //public float turnIndicator3;
+    //public float turnIndicator4;
+    //public float turnIndicator5;
 
     [Header("Animation Time")]
     public float beforeAnimTime = 0;
@@ -110,7 +114,7 @@ public class BattleManager : MonoBehaviour
     public Action skill3;
     public Action skill4;
 
-    public event Action<float, string> OnAddDamage;
+    public event Action<float, string, bool> OnAddDamage;
 
     private void Awake()
     {
@@ -119,11 +123,13 @@ public class BattleManager : MonoBehaviour
         lUnitInfo = new Dictionary<int, UnitInfo>();
         battleInfo = new BattleInfo();
         teamData = GameManager.Instance.User.teamData;
+        MapSpawn();
         SetSpawnPos();
         BattleStart(GameManager.Instance.waveID);
     }
     private void Start()
     {
+        dieForSeconds = new WaitForSeconds(0.5f);
         UIManager.Instance.ShowPopup<TurnIndicatorUI>();
         cameraPos = new Vector3(5f, 2f, -6.2f);
     }
@@ -133,6 +139,11 @@ public class BattleManager : MonoBehaviour
         {
             battleInfo.battleTime += Time.deltaTime;
         }
+    }
+    public void MapSpawn()
+    {
+        var Resource = Resources.Load(waveDB.GetData(GameManager.Instance.waveID).BattleMapPath) as GameObject;
+        Instantiate(Resource, mapTrans);
     }
     public void BattleStart(int StageID)
     {
@@ -148,35 +159,37 @@ public class BattleManager : MonoBehaviour
     }
     private void AddUnitInfo(int StageID)
     {
-        for (int i = 1; i <= teamData.Count; i++)
+        int Index = 1;
+        foreach (CharacterData chapterData in teamData.Values)
         {
-            if (teamData.ContainsKey(i))
+            if (chapterData.status.health > 0)
             {
                 unitInfo = new UnitInfo();
-                unitInfo.unitID = teamData[i].status.iD;
-                var Resource = Resources.Load<GameObject>(teamData[i].status.prefabPath);
+                unitInfo.unitID = chapterData.status.iD;
+                var Resource = Resources.Load<GameObject>(chapterData.status.prefabPath);
                 unitInfo.unitType = CharacterType.Player;
                 unitInfo.unitObject = Instantiate(Resource, stageTrans);
-                if (!turnControllers.ContainsKey(i))
+                unitInfo.actionController = unitInfo.unitObject.GetComponent<Player>().ActionController;
+                if (!turnControllers.ContainsKey(Index))
                 {
-                    turnControllers.Add(i, unitInfo.unitObject.GetComponent<CharacterTurnController>());
+                    turnControllers.Add(Index, unitInfo.unitObject.GetComponent<CharacterTurnController>());
                 }
-                turnControllers[i].teamIndex = i;
-                unitInfo.unitObject.transform.localPosition = playerSpawnPos[i - 1];
-                unitInfo.characterData = CreateCharacterData(i);
+                turnControllers[Index].teamIndex = Index;
+                unitInfo.unitObject.transform.localPosition = playerSpawnPos[Index - 1];
+                unitInfo.characterData = chapterData;
 
-                lUnitInfo.Add(i, unitInfo);
-                UIManager.Instance.BattlePlayerPopup(i, playerInfoTrans);
+                lUnitInfo.Add(Index, unitInfo);
+                UIManager.Instance.BattlePlayerPopup(Index, playerInfoTrans);
                 unitInfo.unitObject.name = lUnitInfo.Count.ToString();
 
-
-                battleInfo.characterInfo.Add(i, CreateCharacterBattleInfo());
+                battleInfo.characterInfo.Add(Index, CreateCharacterBattleInfo());
                 playerCreateCount++;
+                Index++;
             }
-            else Debug.Log($"TeamData{i} : null");
         }
         playerUnitCount = playerCreateCount;
         WaveData = waveDB.GetData(StageID);
+        int enemyIndex = 0;
         for (int i = 0; WaveData.Enemys.Count > i; i++)
         {
             for (int j = 0; WaveData.Enemys[i]._enemyCount > j; j++)
@@ -188,13 +201,14 @@ public class BattleManager : MonoBehaviour
                 unitInfo.unitObject = Instantiate(_Resources, stageTrans);
                 unitInfo.unitObject.AddComponent<EnemySkillController>();
 
-                unitInfo.actionController = unitInfo.unitObject.GetComponent<Enemy>().actionController;
-                unitInfo.unitObject.transform.localPosition = enemySpawnPos[j];
+                unitInfo.actionController = unitInfo.unitObject.GetComponent<Enemy>().ActionController;
+                unitInfo.unitObject.transform.localPosition = enemySpawnPos[enemyIndex];
+                enemyIndex++;
                 unitInfo.unitData = CreateEnemyData(unitInfo.unitObject.tag);
 
                 lUnitInfo.Add(lUnitInfo.Count + 1, unitInfo);
                 unitInfo.unitObject.name = lUnitInfo.Count.ToString();
-                UIManager.Instance.BattleShowPopup(unitInfo.unitObject);
+                UIManager.Instance.BattleShowPopup(unitInfo.unitObject, int.Parse(unitInfo.unitID.ToString().Substring(0,1)));
                 enemySkillControllers.Add(lUnitInfo.Count, unitInfo.unitObject.GetComponent<EnemySkillController>());
                 enemyCreateCount++;
             }
@@ -206,11 +220,6 @@ public class BattleManager : MonoBehaviour
         int _id = (int)Enum.Parse(typeof(EnemyID), name);
         SEnemyData sEnemyData = new SEnemyData(DataManager.Instance.EnemyDB.GetData(_id));
         return sEnemyData;
-    }
-    private CharacterData CreateCharacterData(int index)
-    {
-        CharacterData CharacterData = GameManager.Instance.User.teamData[index];
-        return CharacterData;
     }
     private CharacterBattleInfo CreateCharacterBattleInfo()
     {
@@ -228,7 +237,7 @@ public class BattleManager : MonoBehaviour
             {
                 GaugeUp();
                 GaugeChack();
-                while (attackOrder.Count > 0&&!isAttacking)//�� ���ð���
+                while (attackOrder.Count > 0 && !isAttacking)//�� ���ð���
                 {
                     isAttacking = true;
                     onTurnIndex = attackOrder.Peek();
@@ -259,8 +268,8 @@ public class BattleManager : MonoBehaviour
     private void GaugeChack()
     {
         foreach (KeyValuePair<int, UnitInfo> _unitData in lUnitInfo) //Gauge Chack
-        {            
-            if (_unitData.Value.unitGauge >= defaultGauge&& !attackOrder.Contains(_unitData.Key)) //���� Ű �ߺ���� ����
+        {
+            if (_unitData.Value.unitGauge >= defaultGauge && !attackOrder.Contains(_unitData.Key)) //���� Ű �ߺ���� ����
             {
                 attackOrder.Enqueue(_unitData.Key);
             }
@@ -271,13 +280,14 @@ public class BattleManager : MonoBehaviour
         switch (lUnitInfo[index].unitType)
         {
             case CharacterType.Player:
+                TargetChange(CharacterType.Enemy);
                 turnControllers[index].TurnOn();
                 var popup = UIManager.Instance.ShowPopup<SkillPopUp>();
                 break;
             case CharacterType.Enemy:
                 enemySkillControllers[index].TurnOn();
                 //EnemyAttack(lUnitInfo[index]);
-                
+
                 //AnimForSeconds(newAnimTime, beforeAnimTime);
                 //speedModifier = 1;
                 //isAttacking = false;
@@ -302,47 +312,65 @@ public class BattleManager : MonoBehaviour
     //}
     public void OnSkillPlayer(CharacterData characterData, int skillNum)
     {
-        float _damage = AddDamage(characterData, skillNum);
+        int targetIndex = int.Parse(target.name);
+        float _damage = 0;
         int buffID = characterData.skillData[skillNum].buffID;
         int buffID2 = characterData.skillData[skillNum].buffID2;
-        int targetIndex = int.Parse(target.name);        
+        int unitCount = lUnitInfo.Count;
         switch (characterData.skillData[skillNum].type)
         {
             case 0:
+                _damage = AddDamage(characterData, skillNum, targetIndex);
                 lUnitInfo[targetIndex].unitData.Health -= _damage;
                 battleInfo.characterInfo[onTurnIndex].attackDamages += _damage;
-                lUnitInfo[targetIndex].actionController.Hit();
+                lUnitInfo[targetIndex].actionController.BattleHit();
                 enemySkillControllers[targetIndex].SetBuffandDebuff(buffID);
-                AddDamageUI(_damage, target.name);
-                DieCheck(lUnitInfo[targetIndex]);
+                AddDamageUI(_damage, target.name, isCritical);
+                StartCoroutine(DieCheck(lUnitInfo[targetIndex]));
                 break;
             case 1:
+                int count = 1;
                 foreach (EnemySkillController skillController in enemySkillControllers.Values)
                 {
                     skillController.SetBuffandDebuff(buffID);
                 }
-                foreach (UnitInfo _unitData in lUnitInfo.Values)
+                for (int i = 1; i <= enemyCreateCount + playerCreateCount; i++)
                 {
-                    if (_unitData.unitType == CharacterType.Enemy)
+                    targetIndex = int.Parse(target.name);
+                    if (lUnitInfo.ContainsKey(count) && lUnitInfo[count].unitType == CharacterType.Enemy)
                     {
-                        _unitData.unitData.Health -= _damage;
+                        _damage = AddDamage(characterData, skillNum, targetIndex);
+                        lUnitInfo[count].unitData.Health -= _damage;
                         battleInfo.characterInfo[onTurnIndex].attackDamages += _damage;
-                        AddDamageUI(_damage, _unitData.unitObject.name);
-                        DieCheck(lUnitInfo[targetIndex]);
+                        lUnitInfo[count].actionController.BattleHit();
+                        AddDamageUI(_damage, lUnitInfo[count].unitObject.name, isCritical);
+                        StartCoroutine(DieCheck(lUnitInfo[count]));
                     }
-
+                    if ((enemyUnitCount) == 0) return;
+                    count++;
                 }
+                //foreach (UnitInfo _unitData in lUnitInfo.Values)
+                //{
+                //    if (_unitData.unitType == CharacterType.Enemy)
+                //    {
+                //        _unitData.unitData.Health -= _damage;
+                //        battleInfo.characterInfo[onTurnIndex].attackDamages += _damage;
+                //        AddDamageUI(_damage, _unitData.unitObject.name);
+                //        DieCheck(lUnitInfo[targetIndex]);
+                //    }
+
+                //}
                 break;
             case 2:
                 turnControllers[onTurnIndex].SetBuffandDebuff(buffID);
                 break;
             case 3:
-                float temp = 0;
+                float temp = 2;
                 for (int i = 1; i <= lUnitInfo.Count; i++)
                 {
                     if (lUnitInfo.ContainsKey(i) && lUnitInfo[i].unitType == CharacterType.Player)
                     {
-                        if (lUnitInfo[i].characterData.status.health/lUnitInfo[i].characterData.status.maxhealth < temp)
+                        if (lUnitInfo[i].characterData.status.health / lUnitInfo[i].characterData.status.maxhealth < temp)
                         {
                             temp = lUnitInfo[i].characterData.status.health / lUnitInfo[i].characterData.status.maxhealth;
                             healIndex = i;
@@ -350,6 +378,7 @@ public class BattleManager : MonoBehaviour
                     }
                 }
                 PlayerHeal(lUnitInfo[healIndex], skillNum);
+                AddDamageUI(_damage, healIndex.ToString(), isCritical);
                 break;
             case 4:
                 if (lUnitInfo[onTurnIndex].unitType == CharacterType.Player)
@@ -359,7 +388,7 @@ public class BattleManager : MonoBehaviour
                         if (_unitData.unitType == CharacterType.Player)
                         {
                             PlayerHeal(_unitData, skillNum);
-                            AddDamageUI(_damage, _unitData.unitObject.name);
+                            AddDamageUI(_damage, _unitData.unitObject.name, isCritical);
                         }
 
                     }
@@ -377,6 +406,7 @@ public class BattleManager : MonoBehaviour
     {
         var status = unitInfo.characterData.status;
         float healthCoefficient = lUnitInfo[onTurnIndex].characterData.skillData[skillNum].healthCoefficient;
+        battleInfo.characterInfo[onTurnIndex].support += status.maxhealth * healthCoefficient;
         status.health = status.health + (status.maxhealth * healthCoefficient) >= status.maxhealth ?
             status.maxhealth : status.health + (status.maxhealth * healthCoefficient);
     }
@@ -391,11 +421,13 @@ public class BattleManager : MonoBehaviour
         {
             case 0:
                 lUnitInfo[targetIndex].characterData.status.health -= _damage;
+                battleInfo.characterInfo[targetIndex].receivedDamages += _damage;
+                lUnitInfo[targetIndex].actionController.BattleHit();
                 turnControllers[targetIndex].SetBuffandDebuff(buffID);
                 //lUnitInfo[targetIndex].actionController.Hit();
                 //turnControllers[targetIndex].SetBuffandDebuff(buffID);
-                AddDamageUI(_damage, target.name);
-                DieCheck(lUnitInfo[targetIndex]);
+                AddDamageUI(_damage, target.name, isCritical);
+                StartCoroutine(DieCheck(lUnitInfo[targetIndex]));
                 break;
             case 1:
                 foreach (CharacterTurnController turnController in turnControllers.Values)
@@ -407,8 +439,9 @@ public class BattleManager : MonoBehaviour
                     if (_unitData.unitType == CharacterType.Enemy)
                     {
                         _unitData.unitData.Health -= _damage;
-                        AddDamageUI(_damage, _unitData.unitObject.name);
-                        DieCheck(lUnitInfo[targetIndex]);
+                        lUnitInfo[targetIndex].actionController.BattleHit();
+                        AddDamageUI(_damage, _unitData.unitObject.name, isCritical);
+                        StartCoroutine(DieCheck(lUnitInfo[targetIndex]));
                     }
 
                 }
@@ -416,34 +449,34 @@ public class BattleManager : MonoBehaviour
             case 2:
                 enemySkillControllers[onTurnIndex].SetBuffandDebuff(buffID);
                 break;
-            //case 3:
-            //    break;
-            //case 4:
-            //    if (lUnitInfo[onTurnIndex].unitType == CharacterType.Player)
-            //    {
-            //        foreach (UnitInfo _unitData in lUnitInfo.Values)
-            //        {
-            //            if (_unitData.unitType == CharacterType.Player)
-            //            {
-            //                var status = _unitData.characterData.status;
-            //                float healthCoefficient = lUnitInfo[onTurnIndex].characterData.skillData[skillNum].healthCoefficient;
-            //                status.health = status.health + (status.maxhealth * healthCoefficient) >= status.maxhealth ?
-            //                    status.maxhealth : status.health + (status.maxhealth * healthCoefficient);
-            //                AddDamageUI(_damage, _unitData.unitObject.name);
-            //            }
+                //case 3:
+                //    break;
+                //case 4:
+                //    if (lUnitInfo[onTurnIndex].unitType == CharacterType.Player)
+                //    {
+                //        foreach (UnitInfo _unitData in lUnitInfo.Values)
+                //        {
+                //            if (_unitData.unitType == CharacterType.Player)
+                //            {
+                //                var status = _unitData.characterData.status;
+                //                float healthCoefficient = lUnitInfo[onTurnIndex].characterData.skillData[skillNum].healthCoefficient;
+                //                status.health = status.health + (status.maxhealth * healthCoefficient) >= status.maxhealth ?
+                //                    status.maxhealth : status.health + (status.maxhealth * healthCoefficient);
+                //                AddDamageUI(_damage, _unitData.unitObject.name);
+                //            }
 
-            //        }
-            //        foreach (CharacterTurnController turnController in turnControllers.Values)
-            //        {
-            //            turnController.SetBuffandDebuff(buffID);
-            //            if (buffID2 != 0) turnController.SetBuffandDebuff(buffID2);
-            //        }
-            //    }
+                //        }
+                //        foreach (CharacterTurnController turnController in turnControllers.Values)
+                //        {
+                //            turnController.SetBuffandDebuff(buffID);
+                //            if (buffID2 != 0) turnController.SetBuffandDebuff(buffID2);
+                //        }
+                //    }
 
-            //    break;
+                //    break;
         }
     }
-    private float AddDamage(CharacterData characterData, int skillNum)
+    private float AddDamage(CharacterData characterData, int skillNum, int targetIndex)
     {
         float damage = 0;
         float crirocalChance = UnityEngine.Random.Range(0, 1.0f);
@@ -452,14 +485,16 @@ public class BattleManager : MonoBehaviour
             damage = ((characterData.status.atk * characterData.skillData[skillNum].atkCoefficient) +
                 (characterData.status.def * characterData.skillData[skillNum].defCoefficient) +
                 (characterData.status.health * characterData.skillData[skillNum].healthCoefficient))
-                * (100 / (100.0f + lUnitInfo[int.Parse(target.name)].unitData.Def)) * characterData.status.criticalDamage;
+                * (100 / (100.0f + lUnitInfo[targetIndex].unitData.Def)) * characterData.status.criticalDamage;
+            isCritical = true;
         }
         else
         {
             damage = ((characterData.status.atk * characterData.skillData[skillNum].atkCoefficient) +
                 (characterData.status.def * characterData.skillData[skillNum].defCoefficient) +
                 (characterData.status.health * characterData.skillData[skillNum].healthCoefficient))
-                * (100 / (100.0f + lUnitInfo[int.Parse(target.name)].unitData.Def));
+                * (100 / (100.0f + lUnitInfo[targetIndex].unitData.Def));
+            isCritical = false;
         }
         return damage;
     }
@@ -473,12 +508,14 @@ public class BattleManager : MonoBehaviour
         if (crirocalChance <= characterData.enemyData.CriticalChance)
         {
             damage = (characterData.enemyData.Atk * characterData.enemySkillData[skillNum].atkCoefficient)
-                * (100 / (100.0f + lUnitInfo[int.Parse(target.name)].unitData.Def)) * characterData.enemyData.CriticalDamage*10;
+                * (100 / (100.0f + lUnitInfo[int.Parse(target.name)].unitData.Def)) * characterData.enemyData.CriticalDamage * 10;
+            isCritical = true;
         }
         else
         {
             damage = (characterData.enemyData.Atk * characterData.enemySkillData[skillNum].atkCoefficient)
-                * (100 / (100.0f + lUnitInfo[int.Parse(target.name)].unitData.Def))*10;
+                * (100 / (100.0f + lUnitInfo[int.Parse(target.name)].unitData.Def)) * 10;
+            isCritical = false;
         }
         if (shield > damage)
         {
@@ -489,12 +526,12 @@ public class BattleManager : MonoBehaviour
         else
         {
             totalDamage = damage - shield;
-            skillController.BuffCheck(skillController.shield, skillController.shieldQuantity, 0, "Shield");
+            skillController.RemoveShield();
             skillController.CallChangeShieldGauge();
         }
         return totalDamage;
     }
-    private void GameResultUI(GameEnd gameState)
+    private void GameResult(GameEnd gameState)
     {
         string waveID = GameManager.Instance.waveID.ToString();
         Debug.Log(waveID.Substring(waveID.Length - 1, 1));
@@ -515,7 +552,7 @@ public class BattleManager : MonoBehaviour
             }
             foreach (Compensations _data in waveDB.GetData(GameManager.Instance.waveID).Compensations)
             {
-                //GameManager.Instance.User.AddItem(_data._compensation, _data._compensationCount);
+                GameManager.Instance.User.AddItem(_data._compensation, _data._compensationCount);
             }
         }
         Debug.Log("gameEnd");
@@ -523,57 +560,58 @@ public class BattleManager : MonoBehaviour
     }
     private void SetSpawnPos()
     {
-        playerSpawnPos[0] = new Vector3(0.5f, 0, -7f);
-        playerSpawnPos[1] = new Vector3(3.5f, 0, -7f);
-        playerSpawnPos[2] = new Vector3(-1, 0, -7f);
-        playerSpawnPos[3] = new Vector3(2, 0, -7f);
+        playerSpawnPos[0] = new Vector3(2, 0, -7f);
+        playerSpawnPos[1] = new Vector3(0.5f, 0, -7f);
+        playerSpawnPos[2] = new Vector3(3.5f, 0, -7f);
+        playerSpawnPos[3] = new Vector3(-1, 0, -7f);
         playerSpawnPos[4] = new Vector3(5, 0, -7f);
 
-        enemySpawnPos[0] = new Vector3(0.5f, 0, 1.5f);
-        enemySpawnPos[1] = new Vector3(3.5f, 0, 1.5f);
-        enemySpawnPos[2] = new Vector3(-1, 0, 2.5f);
-        enemySpawnPos[3] = new Vector3(2, 0, 2.5f);
-        enemySpawnPos[4] = new Vector3(5, 0, 2.5f);
+
+        enemySpawnPos[0] = new Vector3(2, 0, 1f);
+        enemySpawnPos[1] = new Vector3(0, 0, 1f);
+        enemySpawnPos[2] = new Vector3(4, 0, 1f);
+        enemySpawnPos[3] = new Vector3(-2, 0, 1f);
+        enemySpawnPos[4] = new Vector3(6, 0, 1f);
     }
 
-    public void SetTurnIndicator(int teamIndex, float curtime)
-    {
-        switch (teamIndex)
-        {
-            case 1:
-                turnIndicator1 = curtime * 6;
-                break;
-            case 2:
-                turnIndicator2 = curtime * 6;
-                break;
-            case 3:
-                turnIndicator3 = curtime * 6;
-                break;
-            case 4:
-                turnIndicator4 = curtime * 6;
-                break;
-            case 5:
-                turnIndicator5 = curtime * 6;
-                break;
-        }
-    }
-    public float GetTurnIndicator(string teamIndex)
-    {
-        switch (teamIndex)
-        {
-            case "1":
-                return turnIndicator1;
-            case "2":
-                return turnIndicator2;
-            case "3":
-                return turnIndicator3;
-            case "4":
-                return turnIndicator4;
-            case "5":
-                return turnIndicator5;
-            default: return 0;
-        }
-    }
+    //public void SetTurnIndicator(int teamIndex, float curtime)
+    //{
+    //    switch (teamIndex)
+    //    {
+    //        case 1:
+    //            turnIndicator1 = curtime * 6;
+    //            break;
+    //        case 2:
+    //            turnIndicator2 = curtime * 6;
+    //            break;
+    //        case 3:
+    //            turnIndicator3 = curtime * 6;
+    //            break;
+    //        case 4:
+    //            turnIndicator4 = curtime * 6;
+    //            break;
+    //        case 5:
+    //            turnIndicator5 = curtime * 6;
+    //            break;
+    //    }
+    //}
+    //public float GetTurnIndicator(string teamIndex)
+    //{
+    //    switch (teamIndex)
+    //    {
+    //        case "1":
+    //            return turnIndicator1;
+    //        case "2":
+    //            return turnIndicator2;
+    //        case "3":
+    //            return turnIndicator3;
+    //        case "4":
+    //            return turnIndicator4;
+    //        case "5":
+    //            return turnIndicator5;
+    //        default: return 0;
+    //    }
+    //}
     public void CallSkill1Event()
     {
         skill1?.Invoke();
@@ -590,26 +628,31 @@ public class BattleManager : MonoBehaviour
     {
         skill4?.Invoke();
     }
-    private void DieCheck(UnitInfo unitInfo)
+    private IEnumerator DieCheck(UnitInfo unitInfo)
     {
+        yield return dieForSeconds;
         switch (unitInfo.unitType)
         {
             case CharacterType.Player:
                 if (unitInfo.characterData.status.health <= 0)
                 {
+                    lUnitInfo[int.Parse(unitInfo.unitObject.name)].actionController.Die();
+                    lUnitInfo.Remove(int.Parse(unitInfo.unitObject.name));
                     playerUnitCount--;
+                    TargetChange(CharacterType.Player);
                 }
                 break;
             case CharacterType.Enemy:
                 if (unitInfo.unitData.Health <= 0)
                 {
-                    lUnitInfo[int.Parse(target.name)].actionController.Die();
-                    lUnitInfo.Remove(int.Parse(target.name));
+                    lUnitInfo[int.Parse(unitInfo.unitObject.name)].actionController.Die();
+                    lUnitInfo.Remove(int.Parse(unitInfo.unitObject.name));
                     enemyUnitCount--;
                     TargetChange(CharacterType.Enemy);
                 }
                 break;
         }
+        yield break;
     }
     private GameEnd WaveEndChack()
     {
@@ -624,9 +667,9 @@ public class BattleManager : MonoBehaviour
         }
         return gameState;
     }
-    private void AddDamageUI(float damage, string name)
+    private void AddDamageUI(float damage, string name, bool isCritical)
     {
-        OnAddDamage?.Invoke(damage, name);
+        OnAddDamage?.Invoke(damage, name, isCritical);
     }
     public void TargetChange(CharacterType type)
     {
@@ -634,58 +677,67 @@ public class BattleManager : MonoBehaviour
         {
             case CharacterType.Player:
                 if (playerUnitCount == 0) break;
-                var usercount = UnityEngine.Random.Range(1, playerCreateCount + 1);
-                bool isPlayer = true;
-                while (isPlayer)
+                OffTarget();
+                int[] playerTarget = new int[playerUnitCount];
+                int usercount = 0;
+                foreach (KeyValuePair<int, UnitInfo> info in lUnitInfo)
                 {
-                    foreach (int key in lUnitInfo.Keys)
+                    if (info.Value.unitType == CharacterType.Player)
                     {
-                        if (usercount == key)
-                        {
-                            target = lUnitInfo[usercount].unitObject;
-                            isPlayer = false;
-                        }
-                        else
-                        {
-                            usercount = UnityEngine.Random.Range(1, playerCreateCount + 1);
-                        }
+                        playerTarget[usercount] = int.Parse(info.Value.unitObject.name);
+                        usercount++;
                     }
                 }
+                var playerRandom = UnityEngine.Random.Range(0, playerTarget.Length);
+                target = lUnitInfo[playerTarget[playerRandom]].unitObject;
                 break;
             case CharacterType.Enemy:
                 if (enemyUnitCount == 0) break;
-                var enemycount = UnityEngine.Random.Range(playerCreateCount + 1, enemyCreateCount + playerCreateCount + 1);
-                bool isEnemy = true;
-                while (isEnemy)
+                int[] enemyTarget = new int[enemyUnitCount];
+                int enemycount = 0;
+                foreach (KeyValuePair<int, UnitInfo> info in lUnitInfo)
                 {
-                    foreach (int key in lUnitInfo.Keys)
+                    if (info.Value.unitType == CharacterType.Enemy)
                     {
-                        if (target.name == key.ToString() && enemycount == key)
-                        {
-                            OffTarget();
-                        }
-                        if (enemycount == key)
-                        {
-                            target = lUnitInfo[enemycount].unitObject;
-                            isEnemy = false;
-                            OnTarget();
-                        }
-                        else
-                        {
-                            enemycount = UnityEngine.Random.Range(playerCreateCount + 1, enemyCreateCount + playerCreateCount + 1);
-                        }
+                        enemyTarget[enemycount] = int.Parse(info.Value.unitObject.name);
+                        enemycount++;
                     }
+                }
+                var enemyRandom = UnityEngine.Random.Range(0, enemyTarget.Length);
+                if (target != null)
+                {
+                    if (target.name != enemyTarget[enemyRandom].ToString())
+                    {
+                        OffTarget();
+                    }
+                }
+                if (target != lUnitInfo[enemyTarget[enemyRandom]].unitObject)
+                {
+                    target = lUnitInfo[enemyTarget[enemyRandom]].unitObject;
+                    OnTarget();
                 }
                 break;
         }
     }
     public void OffTarget()
     {
-        lUnitInfo[int.Parse(target.name)].actionController.TargetOff();
+        if (lUnitInfo.ContainsKey(int.Parse(target.name)))
+        {
+            if (lUnitInfo[int.Parse(target.name)].unitType == CharacterType.Enemy)
+            {
+                lUnitInfo[int.Parse(target.name)].actionController.TargetOff();
+            }
+        }
     }
     public void OnTarget()
     {
-        lUnitInfo[int.Parse(target.name)].actionController.TargetOn();
+        if (lUnitInfo.ContainsKey(int.Parse(target.name)))
+        {
+            if (lUnitInfo[int.Parse(target.name)].unitType == CharacterType.Enemy)
+            {
+                lUnitInfo[int.Parse(target.name)].actionController.TargetOn();
+            }
+        }
     }
     public WaitForSeconds GameForSeconds(float time)
     {

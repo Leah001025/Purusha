@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Assertions;
 
@@ -13,6 +14,8 @@ public class DataManager : SingleTon<DataManager>
     private EnemyDataBase _enemyDB;
     private WaveDataBase _WaveDB;
     private StageDataBase _stageDB;
+    private LevelDataBase _levelDB;
+    private ChapterDataBase _chapterDB;
 
     public DataList dataList;
     protected override void Awake()
@@ -27,6 +30,8 @@ public class DataManager : SingleTon<DataManager>
     public StageDataBase StageDB { get { return _stageDB ??= new(); } }
     public WaveDataBase WaveDB { get { return _WaveDB ??= new(); } }
     public BuffDataBase BuffDB { get { return _buffDB ??= new(); } }
+    public LevelDataBase LevelDB {  get { return _levelDB ??= new(); } }
+    public ChapterDataBase ChapterDB { get { return _chapterDB ??= new(); } }
 }
 public class PlayerDataBase : DataBase<PlayerData>
 {
@@ -94,6 +99,17 @@ public class WaveDataBase : DataBase<WaveData>
         }
     }
 }
+public class LevelDataBase : DataBase<LevelData>
+{
+    public LevelDataBase()
+    {
+        var resources = DataManager.Instance.dataList.LevelData;
+        foreach (var data in resources)
+        {
+            _data.Add(data.Level, data);
+        }
+    }
+}
 
 public class BuffDataBase : DataBase<BuffData>,ICloneable
 {
@@ -111,5 +127,17 @@ public class BuffDataBase : DataBase<BuffData>,ICloneable
         BuffDataBase buffData = new BuffDataBase();
         buffData._data = _data;
         return buffData;
+    }
+}
+
+public class ChapterDataBase : DataBase<ChapterData>
+{
+    public ChapterDataBase()
+    {
+        var resources = DataManager.Instance.dataList.ChapterData;
+        foreach (var data in resources)
+        {
+            _data.Add(data.ChapterID, data);
+        }
     }
 }

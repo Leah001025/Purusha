@@ -19,7 +19,6 @@ public class SceneLoadManager : SingleTon<SceneLoadManager>
     public async void ChangeScene(string SceneName, Action callback = null, LoadSceneMode loadSceneMode = LoadSceneMode.Single)
     {
         var op = SceneManager.LoadSceneAsync(SceneName, loadSceneMode);
-
         while (!op.isDone)
         {
             await Task.Yield();
@@ -49,7 +48,11 @@ public class SceneLoadManager : SingleTon<SceneLoadManager>
         //LoadingChangeScene("SceneName"); 이리 적어주시면 되요!
     public async void LoadingChangeScene(string SceneName)
     {
-         NextSceneName = SceneName;
+        NextSceneName = SceneName;
+        if (GameManager.Instance.User != null) 
+        {
+            GameManager.Instance.SaveDatas();
+        }       
         ChangeScene("LoadingScene");
     }
 

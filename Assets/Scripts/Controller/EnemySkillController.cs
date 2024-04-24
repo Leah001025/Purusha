@@ -77,8 +77,8 @@ public class EnemySkillController : MonoBehaviour
     private void FixedUpdate()
     {
 
-        unitGauge = BattleManager.Instance.lUnitInfo[teamIndex].unitGauge;
-        battleManager.SetTurnIndicator(teamIndex, unitGauge);
+        //unitGauge = BattleManager.Instance.lUnitInfo[teamIndex].unitGauge;
+        //battleManager.SetTurnIndicator(teamIndex, unitGauge);
         if (!isTargetPos && isAttack)
         {
             MoveToTarget();
@@ -179,13 +179,13 @@ public class EnemySkillController : MonoBehaviour
         isStartPos = true;
         if (num == "1")
         {
-            battleManager.lUnitInfo[battleManager.onTurnIndex].actionController.Skill1();
+            battleManager.lUnitInfo[battleManager.onTurnIndex].actionController.BattleSkill1();
             yield return wait05;
             battleManager.AnimForSeconds(battleManager.newAnimTime, battleManager.beforeAnimTime);
         }
         else
         {
-            battleManager.lUnitInfo[battleManager.onTurnIndex].actionController.Skill2();
+            battleManager.lUnitInfo[battleManager.onTurnIndex].actionController.BattleSkill2();
             yield return wait05;
             battleManager.AnimForSeconds(battleManager.newAnimTime, battleManager.beforeAnimTime);
         }

@@ -31,9 +31,9 @@ public class TeamInfoUI : MonoBehaviour
         turnController.changeSkill4Gauge += ChangeSkill4BarAmount;
         turnController.changeShieldGauge += ChangeShieldBarAmount;
         BattleManager.Instance.OnAddDamage += ChangeHealthBarAmount;
-        characterHealth.text = characterCurHealth.ToString() + " / " + characterMaxHealth.ToString();
+        characterHealth.text = characterCurHealth.ToString("0") + " / " + characterMaxHealth.ToString("0");
         hpBar.value = characterCurHealth/ characterMaxHealth;
-        skill4Gauge.value = 0;
+        skill4Gauge.value = 5f;
     }
     private void ChangeShieldBarAmount()
     {
@@ -54,7 +54,7 @@ public class TeamInfoUI : MonoBehaviour
         }
     }
 
-    private void ChangeHealthBarAmount(float damage, string name)
+    private void ChangeHealthBarAmount(float damage, string name,bool isCritical)
     {
         if (gameObject.name == name)
         {

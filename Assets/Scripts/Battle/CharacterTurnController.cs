@@ -6,7 +6,6 @@ using UnityEngine;
 
 public class CharacterTurnController : MonoBehaviour
 {
-    public Animator animator;
     public int teamIndex;
     CharacterData characterData;
     CharacterData characterBuffData;
@@ -25,7 +24,7 @@ public class CharacterTurnController : MonoBehaviour
     public BuffData shield;
     public float unitGauge;
     public float shieldQuantity;
-    private int skill3CoolTime;
+    public int skill3CoolTime;
     public int skill4Gauge;
     private bool isCharacterTurn;
     private bool isTargetPos = false;
@@ -37,17 +36,21 @@ public class CharacterTurnController : MonoBehaviour
     private GameObject skillObj;
     private BuffAndDebuff buffAndDebuff;
     private WaitForSeconds wait05 = new WaitForSeconds(0.5f);
-    private Dictionary<string,GameObject> OnBuff;
+    private Dictionary<string, GameObject> OnBuff;
+    private CharacterActionController actionController;
+    private Player player;
 
     private void Start()
     {
+        player = GetComponent<Player>();
+        actionController = player.ActionController;
         skill4Gauge = 5;
         battleManager = BattleManager.Instance;
         onTurnPos = new Vector3(2, 0, -4.5f);
         offTurnPos = transform.localPosition;
-        if (GameManager.Instance.User.teamData.ContainsKey(teamIndex))
+        if (BattleManager.Instance.lUnitInfo.ContainsKey(teamIndex))
         {
-            characterData = GameManager.Instance.User.teamData[teamIndex];
+            characterData = BattleManager.Instance.lUnitInfo[teamIndex].characterData;
             foreach (UnitInfo _unitInfo in battleManager.lUnitInfo.Values)
             {
                 if (_unitInfo.unitID == characterData.status.iD)
@@ -58,7 +61,7 @@ public class CharacterTurnController : MonoBehaviour
         }
         isCharacterTurn = false;
         characterBuffData = (CharacterData)characterData.CloneCharacter(characterData.status.iD);
-        buffAndDebuff = new BuffAndDebuff(characterData.status.iD,0,"Player");
+        buffAndDebuff = new BuffAndDebuff(characterData.status.iD, 0, "Player");
         OnBuff = new Dictionary<string, GameObject>();
         InitBuffData();
         battleManager.skill1 += Skill1;
@@ -71,8 +74,8 @@ public class CharacterTurnController : MonoBehaviour
     private void FixedUpdate()
     {
 
-        unitGauge = unitInfo.unitGauge;
-        battleManager.SetTurnIndicator(teamIndex, unitGauge);
+        //unitGauge = unitInfo.unitGauge;
+        //battleManager.SetTurnIndicator(teamIndex, unitGauge);
         if (!isTargetPos && isAttack)
         {
             MoveToTarget();
@@ -218,6 +221,16 @@ public class CharacterTurnController : MonoBehaviour
             }
         }
     }
+    public void RemoveShield()
+    {
+        shieldQuantity = 0;
+        if (OnBuff.ContainsKey("Shield"))
+        {
+            Destroy(OnBuff["Shield"].gameObject);
+            OnBuff.Remove("Shield");
+        }
+        shield = null;
+    }
     public void TurnOn()
     {
         isCharacterTurn = true;
@@ -330,7 +343,6 @@ public class CharacterTurnController : MonoBehaviour
     IEnumerator WaitForSkillEffect(float time)
     {
         yield return new WaitForSeconds(time);
-        transform.localPosition = offTurnPos;
         //Camera.main.transform.SetLocalPositionAndRotation(battleManager.defalutCameraPos, Quaternion.Euler(20, 0, 0));
         battleManager.speedModifier = 1;
         battleManager.lUnitInfo[battleManager.onTurnIndex].unitGauge = 0;
@@ -342,26 +354,27 @@ public class CharacterTurnController : MonoBehaviour
         int skillNum = int.Parse(num);
         startPos = transform.localPosition;
         targetPos = battleManager.target.transform.localPosition + new Vector3(0, 0, -2);
-        animator.SetTrigger(Animator.StringToHash("Move"));
+        actionController.BattleMove();
         isAttack = true;
         isStartPos = true;
         isTargetPos = false;
 
         yield return wait05;
-        animator.SetTrigger(Animator.StringToHash("Skill" + num));
+        SkillAnim(skillNum);
         yield return new WaitForSeconds(1f);
         OnSkillEffect(characterData.skillData[skillNum]);
+        SoundManager.Instance.AttackAudio(characterData.status.iD, num);
+        battleManager.OnSkillPlayer(characterBuffData, skillNum);
         yield return wait05;
         yield return wait05;
         Destroy(skillObj);
         yield return wait05;
-        battleManager.OnSkillPlayer(characterBuffData, skillNum);
-        character.transform.localPosition = Vector3.zero;
-        animator.SetTrigger(Animator.StringToHash("Jump"));
+        actionController.BattleJump();
         yield return new WaitForSeconds(0.2f);
         isStartPos = false;
         yield return wait05;
-
+        isTargetPos = true;
+        transform.localPosition = offTurnPos;
         isAttack = false;
     }
     IEnumerator RangedSkillEffect(float time, string num)
@@ -371,13 +384,33 @@ public class CharacterTurnController : MonoBehaviour
         isAttack = true;
         isTargetPos = true;
         isStartPos = true;
-        animator.SetTrigger(Animator.StringToHash("Skill" + num));
+        SkillAnim(skillNum);
         OnSkillEffect(characterData.skillData[skillNum]);
+        SoundManager.Instance.AttackAudio(characterData.status.iD, num);
         yield return new WaitForSeconds(time);
+        battleManager.OnSkillPlayer(characterBuffData, skillNum);
         Destroy(skillObj);
         yield return new WaitForSeconds(0.2f);
-        battleManager.OnSkillPlayer(characterBuffData, skillNum);
-        character.transform.localPosition = Vector3.zero;
+        //character.transform.localPosition = Vector3.zero;
+        transform.localPosition = offTurnPos;
         isAttack = false;
+    }
+    private void SkillAnim(int number)
+    {
+        switch (number)
+        {
+            case 1:
+                actionController.BattleSkill1();
+                break;
+            case 2:
+                actionController.BattleSkill2();
+                break;
+            case 3:
+                actionController.BattleSkill3();
+                break;
+            case 4:
+                actionController.BattleSkill4();
+                break;
+        }
     }
 }

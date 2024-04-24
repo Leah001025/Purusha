@@ -17,10 +17,10 @@ public class Main_Canvas : MonoBehaviour
 
     private void SettingButtons()
     {
-        _storyBtn.onClick.AddListener(() => SceneLoadManager.Instance.LoadingChangeScene("Dev_Main_Scene"));
-        _gachaBtn.onClick.AddListener(() => SceneLoadManager.Instance.LoadingChangeScene("InventoryScene")); //ui 오브젝트 아래 오브젝트에 생기도록 
+        _storyBtn.onClick.AddListener(() => UIManager.Instance.ShowPopup<ChapterSelectPopUp>());
+        _gachaBtn.onClick.AddListener(() => UIManager.Instance.ShowPopup<GachaPopUp>());//ui 오브젝트 아래 오브젝트에 생기도록 
         _departmentBtn.onClick.AddListener(() => UIManager.Instance.ShowPopup<DepartmentPopUp>());
-        _intelligenceBtn.onClick.AddListener(() => UIManager.Instance.ShowPopup<IntelligencePopUp>());
+        //_intelligenceBtn.onClick.AddListener(() => UIManager.Instance.ShowPopup<CharacterSelectPopUp>());
         _upgradeBtn.onClick.AddListener(() => UIManager.Instance.ShowPopup<UpgradeTreePopUp>());
     }
 }

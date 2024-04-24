@@ -20,7 +20,7 @@ public class BuffAndDebuff
 
     public BuffAndDebuff(int playerId=0,int enemyId= 0, string type="Player")
     {
-        if(playerId != 0) characterBuffData = (CharacterData)GameManager.Instance.User.characterDatas[playerId].CloneCharacter(playerId);
+        if(playerId != 0) characterBuffData = (CharacterData)GameManager.Instance.User.characters[playerId].CloneCharacter(playerId);
         else if(enemyId != 0) enemyCharacterBuffData = new EnemyCharacterData(enemyId);
         buffData = (BuffDataBase)DataManager.Instance.BuffDB.Clone();
         targetType = type;

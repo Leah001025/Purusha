@@ -18,6 +18,8 @@ public class SpawnManager : MonoBehaviour
     public static SpawnManager Instance { get { if (instance == null) return null; return instance; } }
 
     [SerializeField] private Transform mapSpawnPoint;
+    public Canvas battleCanvas;
+    public Image effectImage;
 
     private int stageID;
     private StageDataBase stageDB;
@@ -30,10 +32,7 @@ public class SpawnManager : MonoBehaviour
     private PlayerConeRaycastDetection raycastDetection;
 
     private GameObject player;
-
-    public CinemachineVirtualCamera virtualCamera;
-    public CinemachineBrain brainCamera;
-    public Image effectImage;
+    private string mapName;
 
     private void Awake()
     {
@@ -44,27 +43,41 @@ public class SpawnManager : MonoBehaviour
         enemyDB = DataManager.Instance.EnemyDB;
 
         var resources = Resources.Load(stageDB.GetData(stageID).OpenMapPath) as GameObject;
+        mapName = resources.name;
         var _map = Instantiate(resources, mapSpawnPoint);
         mapSpawnController = _map.GetComponent<MapSpawnController>();
-
-        player = Resources.Load("Prefabs/Player/PlayerAndCamera") as GameObject;
     }
     private void Start()
     {
+        SoundManager.Instance.BgmAudio(mapName);
         MonsterSpawn();
-
+        PlayerSpawm();
+    }
+    private void PlayerSpawm()
+    {
+        player = Resources.Load("Prefabs/Player/WorldPlayer") as GameObject;
         var _obj = mapSpawnController.PlayerSpawn(player);
-        //virtualCamera.Follow = _obj.transform;
-        //raycastDetection = _obj.GetComponent<PlayerConeRaycastDetection>();
-        //raycastDetection.battleEffect = effectImage;
-        //raycastDetection.cinemachineBrain = brainCamera;
+        for (int i = 1; 5 >= i; i++)
+        {
+            if (GameManager.Instance.User.teamData.ContainsKey(i))
+            {
+                var _playerRsc = Resources.Load(GameManager.Instance.User.teamData[i].status.prefabPath) as GameObject;
+                var _playerObj = Instantiate(_playerRsc, _obj.transform.GetChild(0).transform);
+                SoundManager.Instance.Player = _playerObj;
+                _playerObj.GetComponent<CharacterTurnController>().enabled = false;
+                _playerObj.GetComponent<Player>().enabled = false;
+                break;
+            }
+        }
+        raycastDetection = _obj.GetComponentInChildren<PlayerConeRaycastDetection>();
+        raycastDetection.battleEffect = effectImage;
     }
     private void MonsterSpawn()
     {
         foreach (StageWave stageWave in stageDB.GetData(stageID).StageWaves)
         {
             waveData = waveDB.GetData(stageWave._waveID);
-            var enemyID = waveData.Enemys[waveData.Enemys.Count - 1]._enemyID;
+            var enemyID = waveData.Enemys[0]._enemyID;
             var resources = Resources.Load(enemyDB.GetData(enemyID).PrefabPath) as GameObject;
             mapSpawnController.MonsterSpawn(resources, stageWave._waveID);
         }

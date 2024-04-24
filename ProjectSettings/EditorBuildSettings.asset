@@ -6,41 +6,32 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/IntroScene.unity
-    guid: 78eec73a7432d074abde8cd72abc53d3
-  - enabled: 1
-    path: Assets/Scenes/LoadingScene.unity
-    guid: fc8af8a6e7df4844ba94978ba8c69aff
-  - enabled: 1
-    path: Assets/Scenes/Main.unity
-    guid: 867996bbc5e8b9445b7fd22f7bc506b7
-  - enabled: 1
-    path: Assets/Scenes/Dev_Main_Scene.unity
-    guid: a55deded4a3793f4b92fbbf80e50d700
-  - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 99c9720ab356a0642a771bea13969a05
-  - enabled: 1
-    path: Assets/Scenes/OpenWorldPlayerScene.unity
-    guid: 418998c9ec229024dbf1ea5113b32fa0
-  - enabled: 1
-    path: Assets/Scenes/BattleScene__.unity
-    guid: 1f7b814209473b44ca36df23aebb7e42
-  - enabled: 1
-    path: Assets/Scenes/TRPGPlayerScene.unity
-    guid: bf9a48f6aa925a745aff97d60d506c89
+    path: Assets/Scenes/StartScene.unity
+    guid: 87d077babea4ec149a93147c859cd3a7
   - enabled: 1
     path: Assets/Scenes/DontDestroy.unity
     guid: 0629cfe7420c70a438bc6cc8911cc4be
   - enabled: 1
-    path: Assets/Scenes/BattleTestScene.unity
-    guid: a6e5cf94af17fc643935ccef46c27b80
+    path: Assets/Scenes/LoadingScene.unity
+    guid: fc8af8a6e7df4844ba94978ba8c69aff
   - enabled: 1
-    path: Assets/Scenes/BattleTestTestScene.unity
-    guid: eb64fef5fbafef54f92b0cdb6bb723f5
+    path: Assets/Scenes/IntroScene.unity
+    guid: 78eec73a7432d074abde8cd72abc53d3
   - enabled: 1
-    path: Assets/Scenes/InventoryScene.unity
-    guid: c6a792eb260c31b4ba023fb36dfabafd
+    path: Assets/Scenes/MainScene.unity
+    guid: 867996bbc5e8b9445b7fd22f7bc506b7
+  - enabled: 1
+    path: Assets/Scenes/OpenWorldScene.unity
+    guid: a55deded4a3793f4b92fbbf80e50d700
+  - enabled: 1
+    path: Assets/Scenes/BattleScene.unity
+    guid: 1f7b814209473b44ca36df23aebb7e42
+  - enabled: 1
+    path: Assets/Scenes/BattleScene2.unity
+    guid: 209786efd28adc24dabb7dbb679bfbe3
+  - enabled: 1
+    path: Assets/Scenes/BattleScene3.unity
+    guid: 142086164a948764393d48d1e9fedcf9
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: 74dc9097cba278c428eb9f7042d125d8,
       type: 2}

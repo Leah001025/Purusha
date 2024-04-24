@@ -3,12 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.TextCore.Text;
 
 public class TeamFormation : MonoBehaviour
 {
     public GameObject CharacterList;
     public GameObject Team;
+    private Dictionary<int, CharacterData> updateCharacter = new Dictionary<int, CharacterData>();
     public Dictionary<string, string> characterPrefabMap = new Dictionary<string, string>();
 
     void Start()
@@ -22,29 +24,45 @@ public class TeamFormation : MonoBehaviour
         //ClickedCharacter(1);
         init();
     }
+    private void OnEnable()
+    {
+        UpdateCharacter();
+    }
 
     private void init()
     {
-        foreach (var pair in GameManager.Instance.User.characterDatas.Values)
-        {
-            string prefabPath = "Prefabs/Inventory/" + pair.status.iD.ToString();
-            var _res = Resources.Load(prefabPath) as GameObject;
-            var _obj = Instantiate(_res, CharacterList.transform);
-            _obj.name = pair.status.iD.ToString();
-        }
+        UpdateCharacter();
         CurrentTeamSlot();
+    }
+    private void UpdateCharacter()
+    {
+        foreach (var pair in GameManager.Instance.User.characters.Values)
+        {
+            if (!updateCharacter.ContainsKey(pair.status.iD))
+            {
+                string prefabPath = "Prefabs/Inventory/" + pair.status.iD.ToString();
+                var _res = Resources.Load(prefabPath) as GameObject;
+                var _obj = Instantiate(_res, CharacterList.transform);
+                _obj.name = pair.status.iD.ToString();
+                updateCharacter.Add(pair.status.iD, pair);
+            }
+        }
     }
 
     public void CurrentTeamSlot()
     {
         if (GameManager.Instance.User.teamData.Count > 0)
         {
-            for(int key = 1; GameManager.Instance.User.teamData.Count >= key; key++)
+            for(int key = 1; 5 >= key; key++)
             {
-                string prefabPath = "Prefabs/TeamFormation/" + GameManager.Instance.User.teamData[key].status.iD;
-                var _res = Resources.Load(prefabPath) as GameObject;
-                var _obj = Instantiate(_res, Team.transform);
-                _obj.name = GameManager.Instance.User.teamData[key].status.iD.ToString();
+                if (GameManager.Instance.User.teamData.ContainsKey(key))
+                {
+                    string prefabPath = "Prefabs/TeamFormation/" + GameManager.Instance.User.teamData[key].status.iD;
+                    var _res = Resources.Load(prefabPath) as GameObject;
+                    var _obj = Instantiate(_res, Team.transform);
+                    _obj.transform.SetSiblingIndex(key-1);
+                    _obj.name = GameManager.Instance.User.teamData[key].status.iD.ToString();
+                }
             }
         }
     }
@@ -66,14 +84,30 @@ public class TeamFormation : MonoBehaviour
         }
         return false;
     }
-
+    private int GetTeamIndex()
+    {
+        for (int i = 1; i <= 5; i++)
+        {
+            if (!GameManager.Instance.User.teamData.ContainsKey(i))
+            {
+                return i;
+            }
+        }
+        return 0;
+    }
     public void OnPointerClick(string characterID)
     {
+        int index = GetTeamIndex();
+        Debug.Log("ÆÀÀÎµ¦½º" + index);
         if (Team.transform.childCount < 5 && AddCharacterToTeam(int.Parse(characterID)))
         {
             string prefabPath = "Prefabs/TeamFormation/" + characterID;
             var _res = Resources.Load(prefabPath) as GameObject;
             var _obj = Instantiate(_res, Team.transform);
+            if(index != 0)
+            {
+                _obj.transform.SetSiblingIndex(index-1);
+            }
             _obj.name = characterID;
         }
         Debug.Log(GameManager.Instance.User.teamData.Count);

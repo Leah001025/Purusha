@@ -2,8 +2,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static Cinemachine.DocumentationSortingAttribute;
 
+[System.Serializable]
 public class CharacterData : ICloneable
 {
     public CharacterStatus status;
@@ -56,14 +56,16 @@ public class CharacterData : ICloneable
         return Clone();
     }
 }
+[System.Serializable]
 public class CharacterStatus
 {
+    public int teamNum;
     public int iD;
     public string name;
     public float health;
     public float maxhealth;
     public int level;
-    public int exp;
+    public float exp;
     public int equipLevel;
     public float atk;
     public float def;
@@ -94,6 +96,7 @@ public class CharacterStatus
         spritePath = data.SpritePath;
     }
 }
+[System.Serializable]
 public class CharacterSkill
 {
     public int iD;

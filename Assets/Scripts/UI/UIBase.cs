@@ -8,11 +8,13 @@ public class UIBase : MonoBehaviour
     [SerializeField] protected Button closeButton;
     private void Awake()
     {
-        CloseUI();
+        closeButton.onClick.AddListener(CloseUI);
     }
 
     public virtual void CloseUI()
     {
-        closeButton.onClick.AddListener(() => gameObject.SetActive(false));
+        SoundManager.Instance.ButtonAudio("BasicMenuC_1");
+        if(UIManager.Instance.openWorldSceneUI != null) { UIManager.Instance.openWorldSceneUI.UpdateData(); }
+        gameObject.SetActive(false);
     }
 }

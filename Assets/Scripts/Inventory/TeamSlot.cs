@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.TextCore.Text;
 
 public class TeamSlot : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class TeamSlot : MonoBehaviour
 
     public void RemoveTeamSlot()
     {
+        SoundManager.Instance.ButtonAudio("CharacterDown");
         teamFormation.OffPointerClick(gameObject.name);
         Destroy(gameObject);
     }
