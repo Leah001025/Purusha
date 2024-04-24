@@ -1242,12 +1242,12 @@ MonoBehaviour:
     _enemyCount_4: 0
     _enemyID_5: 0
     _enemyCount_5: 0
-    _compensation_1: 10401
+    _compensation_1: 10501
     _compensationCount_1: 1
-    _compensation_2: 10101
-    _compensationCount_2: 3
-    _compensation_3: 0
-    _compensationCount_3: 0
+    _compensation_2: 10401
+    _compensationCount_2: 1
+    _compensation_3: 10101
+    _compensationCount_3: 3
   - _id: 110102
     _battleMapPath: Prefabs/Map/BattleMap/BattleMap_1
     _enemyID_1: 101001
@@ -1260,10 +1260,10 @@ MonoBehaviour:
     _enemyCount_4: 0
     _enemyID_5: 0
     _enemyCount_5: 0
-    _compensation_1: 0
-    _compensationCount_1: 0
-    _compensation_2: 0
-    _compensationCount_2: 0
+    _compensation_1: 10501
+    _compensationCount_1: 1
+    _compensation_2: 10201
+    _compensationCount_2: 1
     _compensation_3: 0
     _compensationCount_3: 0
   - _id: 110103
@@ -1278,12 +1278,12 @@ MonoBehaviour:
     _enemyCount_4: 0
     _enemyID_5: 0
     _enemyCount_5: 0
-    _compensation_1: 0
-    _compensationCount_1: 0
-    _compensation_2: 0
-    _compensationCount_2: 0
-    _compensation_3: 0
-    _compensationCount_3: 0
+    _compensation_1: 10501
+    _compensationCount_1: 2
+    _compensation_2: 10401
+    _compensationCount_2: 2
+    _compensation_3: 10101
+    _compensationCount_3: 5
   - _id: 110201
     _battleMapPath: Prefabs/Map/BattleMap/BattleMap_1
     _enemyID_1: 101002
@@ -1296,10 +1296,10 @@ MonoBehaviour:
     _enemyCount_4: 0
     _enemyID_5: 0
     _enemyCount_5: 0
-    _compensation_1: 0
-    _compensationCount_1: 0
-    _compensation_2: 0
-    _compensationCount_2: 0
+    _compensation_1: 10501
+    _compensationCount_1: 1
+    _compensation_2: 10301
+    _compensationCount_2: 1
     _compensation_3: 0
     _compensationCount_3: 0
   - _id: 110202
@@ -1314,8 +1314,8 @@ MonoBehaviour:
     _enemyCount_4: 0
     _enemyID_5: 0
     _enemyCount_5: 0
-    _compensation_1: 0
-    _compensationCount_1: 0
+    _compensation_1: 10501
+    _compensationCount_1: 1
     _compensation_2: 0
     _compensationCount_2: 0
     _compensation_3: 0
@@ -1332,12 +1332,12 @@ MonoBehaviour:
     _enemyCount_4: 0
     _enemyID_5: 0
     _enemyCount_5: 0
-    _compensation_1: 0
-    _compensationCount_1: 0
-    _compensation_2: 0
-    _compensationCount_2: 0
-    _compensation_3: 0
-    _compensationCount_3: 0
+    _compensation_1: 10501
+    _compensationCount_1: 3
+    _compensation_2: 10401
+    _compensationCount_2: 2
+    _compensation_3: 10101
+    _compensationCount_3: 7
   - _id: 110301
     _battleMapPath: Prefabs/Map/BattleMap/BattleMap_1
     _enemyID_1: 101001
@@ -1350,8 +1350,8 @@ MonoBehaviour:
     _enemyCount_4: 0
     _enemyID_5: 0
     _enemyCount_5: 0
-    _compensation_1: 0
-    _compensationCount_1: 0
+    _compensation_1: 10501
+    _compensationCount_1: 1
     _compensation_2: 0
     _compensationCount_2: 0
     _compensation_3: 0
@@ -1368,10 +1368,10 @@ MonoBehaviour:
     _enemyCount_4: 0
     _enemyID_5: 0
     _enemyCount_5: 0
-    _compensation_1: 0
-    _compensationCount_1: 0
-    _compensation_2: 0
-    _compensationCount_2: 0
+    _compensation_1: 10501
+    _compensationCount_1: 1
+    _compensation_2: 10301
+    _compensationCount_2: 2
     _compensation_3: 0
     _compensationCount_3: 0
   - _id: 110303
@@ -1386,12 +1386,12 @@ MonoBehaviour:
     _enemyCount_4: 0
     _enemyID_5: 0
     _enemyCount_5: 0
-    _compensation_1: 0
-    _compensationCount_1: 0
-    _compensation_2: 0
-    _compensationCount_2: 0
-    _compensation_3: 0
-    _compensationCount_3: 0
+    _compensation_1: 10501
+    _compensationCount_1: 5
+    _compensation_2: 10401
+    _compensationCount_2: 2
+    _compensation_3: 10101
+    _compensationCount_3: 10
   - _id: 120101
     _battleMapPath: Prefabs/Map/BattleMap/BattleMap_1
     _enemyID_1: 101001
@@ -1404,10 +1404,10 @@ MonoBehaviour:
     _enemyCount_4: 0
     _enemyID_5: 0
     _enemyCount_5: 0
-    _compensation_1: 0
-    _compensationCount_1: 0
-    _compensation_2: 0
-    _compensationCount_2: 0
+    _compensation_1: 10501
+    _compensationCount_1: 2
+    _compensation_2: 10201
+    _compensationCount_2: 2
     _compensation_3: 0
     _compensationCount_3: 0
   - _id: 120102
@@ -1422,8 +1422,8 @@ MonoBehaviour:
     _enemyCount_4: 0
     _enemyID_5: 0
     _enemyCount_5: 0
-    _compensation_1: 0
-    _compensationCount_1: 0
+    _compensation_1: 10501
+    _compensationCount_1: 2
     _compensation_2: 0
     _compensationCount_2: 0
     _compensation_3: 0
@@ -1440,12 +1440,12 @@ MonoBehaviour:
     _enemyCount_4: 0
     _enemyID_5: 0
     _enemyCount_5: 0
-    _compensation_1: 0
-    _compensationCount_1: 0
-    _compensation_2: 0
-    _compensationCount_2: 0
-    _compensation_3: 0
-    _compensationCount_3: 0
+    _compensation_1: 10501
+    _compensationCount_1: 5
+    _compensation_2: 10401
+    _compensationCount_2: 2
+    _compensation_3: 10102
+    _compensationCount_3: 5
   - _id: 120201
     _battleMapPath: Prefabs/Map/BattleMap/BattleMap_1
     _enemyID_1: 101001
@@ -1458,10 +1458,10 @@ MonoBehaviour:
     _enemyCount_4: 0
     _enemyID_5: 0
     _enemyCount_5: 0
-    _compensation_1: 0
-    _compensationCount_1: 0
-    _compensation_2: 0
-    _compensationCount_2: 0
+    _compensation_1: 10501
+    _compensationCount_1: 2
+    _compensation_2: 10301
+    _compensationCount_2: 3
     _compensation_3: 0
     _compensationCount_3: 0
   - _id: 120202
@@ -1476,8 +1476,8 @@ MonoBehaviour:
     _enemyCount_4: 0
     _enemyID_5: 0
     _enemyCount_5: 0
-    _compensation_1: 0
-    _compensationCount_1: 0
+    _compensation_1: 10501
+    _compensationCount_1: 2
     _compensation_2: 0
     _compensationCount_2: 0
     _compensation_3: 0
@@ -1494,12 +1494,12 @@ MonoBehaviour:
     _enemyCount_4: 0
     _enemyID_5: 0
     _enemyCount_5: 0
-    _compensation_1: 0
-    _compensationCount_1: 0
-    _compensation_2: 0
-    _compensationCount_2: 0
-    _compensation_3: 0
-    _compensationCount_3: 0
+    _compensation_1: 10501
+    _compensationCount_1: 5
+    _compensation_2: 10402
+    _compensationCount_2: 1
+    _compensation_3: 10102
+    _compensationCount_3: 5
   - _id: 120301
     _battleMapPath: Prefabs/Map/BattleMap/BattleMap_1
     _enemyID_1: 101001
@@ -1512,8 +1512,8 @@ MonoBehaviour:
     _enemyCount_4: 0
     _enemyID_5: 0
     _enemyCount_5: 0
-    _compensation_1: 0
-    _compensationCount_1: 0
+    _compensation_1: 10501
+    _compensationCount_1: 2
     _compensation_2: 0
     _compensationCount_2: 0
     _compensation_3: 0
@@ -1530,8 +1530,8 @@ MonoBehaviour:
     _enemyCount_4: 0
     _enemyID_5: 0
     _enemyCount_5: 0
-    _compensation_1: 0
-    _compensationCount_1: 0
+    _compensation_1: 10501
+    _compensationCount_1: 2
     _compensation_2: 0
     _compensationCount_2: 0
     _compensation_3: 0
@@ -1548,12 +1548,12 @@ MonoBehaviour:
     _enemyCount_4: 0
     _enemyID_5: 0
     _enemyCount_5: 0
-    _compensation_1: 0
-    _compensationCount_1: 0
-    _compensation_2: 0
-    _compensationCount_2: 0
-    _compensation_3: 0
-    _compensationCount_3: 0
+    _compensation_1: 10501
+    _compensationCount_1: 5
+    _compensation_2: 10402
+    _compensationCount_2: 1
+    _compensation_3: 10102
+    _compensationCount_3: 5
   - _id: 130101
     _battleMapPath: Prefabs/Map/BattleMap/BattleMap_2
     _enemyID_1: 101001
@@ -1566,10 +1566,10 @@ MonoBehaviour:
     _enemyCount_4: 0
     _enemyID_5: 0
     _enemyCount_5: 0
-    _compensation_1: 0
-    _compensationCount_1: 0
-    _compensation_2: 0
-    _compensationCount_2: 0
+    _compensation_1: 10501
+    _compensationCount_1: 3
+    _compensation_2: 10201
+    _compensationCount_2: 3
     _compensation_3: 0
     _compensationCount_3: 0
   - _id: 130102
@@ -1584,10 +1584,10 @@ MonoBehaviour:
     _enemyCount_4: 0
     _enemyID_5: 0
     _enemyCount_5: 0
-    _compensation_1: 0
-    _compensationCount_1: 0
-    _compensation_2: 0
-    _compensationCount_2: 0
+    _compensation_1: 10501
+    _compensationCount_1: 3
+    _compensation_2: 10301
+    _compensationCount_2: 2
     _compensation_3: 0
     _compensationCount_3: 0
   - _id: 130103
@@ -1602,12 +1602,12 @@ MonoBehaviour:
     _enemyCount_4: 0
     _enemyID_5: 0
     _enemyCount_5: 0
-    _compensation_1: 0
-    _compensationCount_1: 0
-    _compensation_2: 0
-    _compensationCount_2: 0
-    _compensation_3: 0
-    _compensationCount_3: 0
+    _compensation_1: 10501
+    _compensationCount_1: 5
+    _compensation_2: 10402
+    _compensationCount_2: 2
+    _compensation_3: 10102
+    _compensationCount_3: 5
   - _id: 130201
     _battleMapPath: Prefabs/Map/BattleMap/BattleMap_2
     _enemyID_1: 101001
@@ -1620,8 +1620,8 @@ MonoBehaviour:
     _enemyCount_4: 0
     _enemyID_5: 0
     _enemyCount_5: 0
-    _compensation_1: 0
-    _compensationCount_1: 0
+    _compensation_1: 10501
+    _compensationCount_1: 3
     _compensation_2: 0
     _compensationCount_2: 0
     _compensation_3: 0
@@ -1638,10 +1638,10 @@ MonoBehaviour:
     _enemyCount_4: 0
     _enemyID_5: 0
     _enemyCount_5: 0
-    _compensation_1: 0
-    _compensationCount_1: 0
-    _compensation_2: 0
-    _compensationCount_2: 0
+    _compensation_1: 10501
+    _compensationCount_1: 3
+    _compensation_2: 10301
+    _compensationCount_2: 2
     _compensation_3: 0
     _compensationCount_3: 0
   - _id: 130203
@@ -1656,12 +1656,12 @@ MonoBehaviour:
     _enemyCount_4: 0
     _enemyID_5: 0
     _enemyCount_5: 0
-    _compensation_1: 0
-    _compensationCount_1: 0
-    _compensation_2: 0
-    _compensationCount_2: 0
-    _compensation_3: 0
-    _compensationCount_3: 0
+    _compensation_1: 10501
+    _compensationCount_1: 5
+    _compensation_2: 10402
+    _compensationCount_2: 2
+    _compensation_3: 10103
+    _compensationCount_3: 4
   - _id: 130301
     _battleMapPath: Prefabs/Map/BattleMap/BattleMap_2
     _enemyID_1: 101001
@@ -1674,10 +1674,10 @@ MonoBehaviour:
     _enemyCount_4: 0
     _enemyID_5: 0
     _enemyCount_5: 0
-    _compensation_1: 0
-    _compensationCount_1: 0
-    _compensation_2: 0
-    _compensationCount_2: 0
+    _compensation_1: 10501
+    _compensationCount_1: 3
+    _compensation_2: 10201
+    _compensationCount_2: 4
     _compensation_3: 0
     _compensationCount_3: 0
   - _id: 130302
@@ -1692,10 +1692,10 @@ MonoBehaviour:
     _enemyCount_4: 0
     _enemyID_5: 0
     _enemyCount_5: 0
-    _compensation_1: 0
-    _compensationCount_1: 0
-    _compensation_2: 0
-    _compensationCount_2: 0
+    _compensation_1: 10501
+    _compensationCount_1: 3
+    _compensation_2: 10301
+    _compensationCount_2: 1
     _compensation_3: 0
     _compensationCount_3: 0
   - _id: 130303
@@ -1710,12 +1710,12 @@ MonoBehaviour:
     _enemyCount_4: 0
     _enemyID_5: 0
     _enemyCount_5: 0
-    _compensation_1: 0
-    _compensationCount_1: 0
-    _compensation_2: 0
-    _compensationCount_2: 0
-    _compensation_3: 0
-    _compensationCount_3: 0
+    _compensation_1: 10501
+    _compensationCount_1: 5
+    _compensation_2: 10402
+    _compensationCount_2: 2
+    _compensation_3: 10103
+    _compensationCount_3: 4
   - _id: 140101
     _battleMapPath: Prefabs/Map/BattleMap/BattleMap_3
     _enemyID_1: 101001
@@ -1728,8 +1728,8 @@ MonoBehaviour:
     _enemyCount_4: 0
     _enemyID_5: 0
     _enemyCount_5: 0
-    _compensation_1: 0
-    _compensationCount_1: 0
+    _compensation_1: 10501
+    _compensationCount_1: 5
     _compensation_2: 0
     _compensationCount_2: 0
     _compensation_3: 0
@@ -1746,8 +1746,8 @@ MonoBehaviour:
     _enemyCount_4: 0
     _enemyID_5: 0
     _enemyCount_5: 0
-    _compensation_1: 0
-    _compensationCount_1: 0
+    _compensation_1: 10501
+    _compensationCount_1: 5
     _compensation_2: 0
     _compensationCount_2: 0
     _compensation_3: 0
@@ -1764,12 +1764,12 @@ MonoBehaviour:
     _enemyCount_4: 0
     _enemyID_5: 0
     _enemyCount_5: 0
-    _compensation_1: 0
-    _compensationCount_1: 0
-    _compensation_2: 0
-    _compensationCount_2: 0
-    _compensation_3: 0
-    _compensationCount_3: 0
+    _compensation_1: 10501
+    _compensationCount_1: 7
+    _compensation_2: 10402
+    _compensationCount_2: 3
+    _compensation_3: 10103
+    _compensationCount_3: 4
   - _id: 140201
     _battleMapPath: Prefabs/Map/BattleMap/BattleMap_3
     _enemyID_1: 101001
@@ -1782,8 +1782,8 @@ MonoBehaviour:
     _enemyCount_4: 0
     _enemyID_5: 0
     _enemyCount_5: 0
-    _compensation_1: 0
-    _compensationCount_1: 0
+    _compensation_1: 10501
+    _compensationCount_1: 5
     _compensation_2: 0
     _compensationCount_2: 0
     _compensation_3: 0
@@ -1800,10 +1800,10 @@ MonoBehaviour:
     _enemyCount_4: 0
     _enemyID_5: 0
     _enemyCount_5: 0
-    _compensation_1: 0
-    _compensationCount_1: 0
-    _compensation_2: 0
-    _compensationCount_2: 0
+    _compensation_1: 10501
+    _compensationCount_1: 5
+    _compensation_2: 10301
+    _compensationCount_2: 1
     _compensation_3: 0
     _compensationCount_3: 0
   - _id: 140203
@@ -1818,12 +1818,12 @@ MonoBehaviour:
     _enemyCount_4: 0
     _enemyID_5: 0
     _enemyCount_5: 0
-    _compensation_1: 0
-    _compensationCount_1: 0
-    _compensation_2: 0
-    _compensationCount_2: 0
-    _compensation_3: 0
-    _compensationCount_3: 0
+    _compensation_1: 10501
+    _compensationCount_1: 7
+    _compensation_2: 10402
+    _compensationCount_2: 3
+    _compensation_3: 10103
+    _compensationCount_3: 4
   - _id: 140301
     _battleMapPath: Prefabs/Map/BattleMap/BattleMap_3
     _enemyID_1: 101001
@@ -1836,10 +1836,10 @@ MonoBehaviour:
     _enemyCount_4: 0
     _enemyID_5: 0
     _enemyCount_5: 0
-    _compensation_1: 0
-    _compensationCount_1: 0
-    _compensation_2: 0
-    _compensationCount_2: 0
+    _compensation_1: 10501
+    _compensationCount_1: 5
+    _compensation_2: 10201
+    _compensationCount_2: 5
     _compensation_3: 0
     _compensationCount_3: 0
   - _id: 140302
@@ -1854,8 +1854,8 @@ MonoBehaviour:
     _enemyCount_4: 0
     _enemyID_5: 0
     _enemyCount_5: 0
-    _compensation_1: 0
-    _compensationCount_1: 0
+    _compensation_1: 10501
+    _compensationCount_1: 5
     _compensation_2: 0
     _compensationCount_2: 0
     _compensation_3: 0
@@ -1872,12 +1872,12 @@ MonoBehaviour:
     _enemyCount_4: 0
     _enemyID_5: 0
     _enemyCount_5: 0
-    _compensation_1: 0
-    _compensationCount_1: 0
-    _compensation_2: 0
-    _compensationCount_2: 0
-    _compensation_3: 0
-    _compensationCount_3: 0
+    _compensation_1: 10501
+    _compensationCount_1: 7
+    _compensation_2: 10402
+    _compensationCount_2: 3
+    _compensation_3: 10103
+    _compensationCount_3: 5
   - _id: 150101
     _battleMapPath: Prefabs/Map/BattleMap/BattleMap_3
     _enemyID_1: 101001
@@ -1890,8 +1890,8 @@ MonoBehaviour:
     _enemyCount_4: 0
     _enemyID_5: 0
     _enemyCount_5: 0
-    _compensation_1: 0
-    _compensationCount_1: 0
+    _compensation_1: 10501
+    _compensationCount_1: 5
     _compensation_2: 0
     _compensationCount_2: 0
     _compensation_3: 0
@@ -1908,10 +1908,10 @@ MonoBehaviour:
     _enemyCount_4: 0
     _enemyID_5: 0
     _enemyCount_5: 0
-    _compensation_1: 0
-    _compensationCount_1: 0
-    _compensation_2: 0
-    _compensationCount_2: 0
+    _compensation_1: 10501
+    _compensationCount_1: 5
+    _compensation_2: 10301
+    _compensationCount_2: 1
     _compensation_3: 0
     _compensationCount_3: 0
   - _id: 150103
@@ -1926,12 +1926,12 @@ MonoBehaviour:
     _enemyCount_4: 0
     _enemyID_5: 0
     _enemyCount_5: 0
-    _compensation_1: 0
-    _compensationCount_1: 0
-    _compensation_2: 0
-    _compensationCount_2: 0
-    _compensation_3: 0
-    _compensationCount_3: 0
+    _compensation_1: 10501
+    _compensationCount_1: 10
+    _compensation_2: 10402
+    _compensationCount_2: 4
+    _compensation_3: 10103
+    _compensationCount_3: 7
   - _id: 150201
     _battleMapPath: Prefabs/Map/BattleMap/BattleMap_3
     _enemyID_1: 101001
@@ -1944,10 +1944,10 @@ MonoBehaviour:
     _enemyCount_4: 0
     _enemyID_5: 0
     _enemyCount_5: 0
-    _compensation_1: 0
-    _compensationCount_1: 0
-    _compensation_2: 0
-    _compensationCount_2: 0
+    _compensation_1: 10501
+    _compensationCount_1: 5
+    _compensation_2: 10201
+    _compensationCount_2: 6
     _compensation_3: 0
     _compensationCount_3: 0
   - _id: 150202
@@ -1962,8 +1962,8 @@ MonoBehaviour:
     _enemyCount_4: 0
     _enemyID_5: 0
     _enemyCount_5: 0
-    _compensation_1: 0
-    _compensationCount_1: 0
+    _compensation_1: 10501
+    _compensationCount_1: 5
     _compensation_2: 0
     _compensationCount_2: 0
     _compensation_3: 0
@@ -1980,12 +1980,12 @@ MonoBehaviour:
     _enemyCount_4: 0
     _enemyID_5: 0
     _enemyCount_5: 0
-    _compensation_1: 0
-    _compensationCount_1: 0
-    _compensation_2: 0
-    _compensationCount_2: 0
-    _compensation_3: 0
-    _compensationCount_3: 0
+    _compensation_1: 10501
+    _compensationCount_1: 10
+    _compensation_2: 10402
+    _compensationCount_2: 4
+    _compensation_3: 10103
+    _compensationCount_3: 7
   - _id: 150301
     _battleMapPath: Prefabs/Map/BattleMap/BattleMap_3
     _enemyID_1: 101001
@@ -1998,10 +1998,10 @@ MonoBehaviour:
     _enemyCount_4: 0
     _enemyID_5: 0
     _enemyCount_5: 0
-    _compensation_1: 0
-    _compensationCount_1: 0
-    _compensation_2: 0
-    _compensationCount_2: 0
+    _compensation_1: 10501
+    _compensationCount_1: 5
+    _compensation_2: 10301
+    _compensationCount_2: 1
     _compensation_3: 0
     _compensationCount_3: 0
   - _id: 150302
@@ -2016,10 +2016,10 @@ MonoBehaviour:
     _enemyCount_4: 0
     _enemyID_5: 0
     _enemyCount_5: 0
-    _compensation_1: 0
-    _compensationCount_1: 0
-    _compensation_2: 0
-    _compensationCount_2: 0
+    _compensation_1: 10501
+    _compensationCount_1: 5
+    _compensation_2: 10201
+    _compensationCount_2: 10
     _compensation_3: 0
     _compensationCount_3: 0
   - _id: 150303
@@ -2034,12 +2034,12 @@ MonoBehaviour:
     _enemyCount_4: 0
     _enemyID_5: 0
     _enemyCount_5: 0
-    _compensation_1: 0
-    _compensationCount_1: 0
-    _compensation_2: 0
-    _compensationCount_2: 0
-    _compensation_3: 0
-    _compensationCount_3: 0
+    _compensation_1: 10501
+    _compensationCount_1: 10
+    _compensation_2: 10402
+    _compensationCount_2: 4
+    _compensation_3: 10103
+    _compensationCount_3: 7
   StageData:
   - _id: 1101
     _openMapPath: Prefabs/Map/Chapter1/Chap1-1
