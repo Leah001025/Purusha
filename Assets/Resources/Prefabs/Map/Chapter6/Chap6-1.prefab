@@ -47360,10 +47360,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4939864467829583541}
   - component: {fileID: 4712799420919368627}
-  - component: {fileID: 4490832211465047715}
   - component: {fileID: 3318829238346339002}
   - component: {fileID: 1623903283806991242}
-  - component: {fileID: 1512410731868843051}
   m_Layer: 0
   m_Name: MCamera
   m_TagString: Untagged
@@ -47437,14 +47435,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!81 &4490832211465047715
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5733825780139766479}
-  m_Enabled: 1
 --- !u!114 &3318829238346339002
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -47523,24 +47513,6 @@ MonoBehaviour:
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &1512410731868843051
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5733825780139766479}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3419279d6f64de04fb0adf1b55d4500d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  v_CameraTarget: {fileID: 4939864467829583541}
-  vCamera: {fileID: 0}
-  playerTransform: {fileID: 0}
-  VirtualCamera: {fileID: 0}
-  InputProvider: {fileID: 0}
-  isVirtualCameraOn: 0
 --- !u!1 &5743257585953862121
 GameObject:
   m_ObjectHideFlags: 0
@@ -55044,7 +55016,7 @@ PlayableDirector:
   m_Enabled: 1
   serializedVersion: 3
   m_PlayableAsset: {fileID: 11400000, guid: 0de1701a96b48ce469de30f5d3ec0f7a, type: 2}
-  m_InitialState: 1
+  m_InitialState: 0
   m_WrapMode: 2
   m_DirectorUpdateMode: 1
   m_InitialTime: 0

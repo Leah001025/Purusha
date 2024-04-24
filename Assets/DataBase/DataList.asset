@@ -2137,6 +2137,18 @@ MonoBehaviour:
     _waveID_1: 160101
     _waveID_2: 160102
     _waveID_3: 160103
+  - _id: 1602
+    _openMapPath: Prefabs/Map/Chapter7/Chap7-1
+    _stageName: stage2
+    _waveID_1: 160201
+    _waveID_2: 160202
+    _waveID_3: 160203
+  - _id: 1603
+    _openMapPath: Prefabs/Map/Chapter7/Chap7-3
+    _stageName: stage3
+    _waveID_1: 160301
+    _waveID_2: 160302
+    _waveID_3: 160303
   LevelData:
   - _level: 1
     _exp: 0
