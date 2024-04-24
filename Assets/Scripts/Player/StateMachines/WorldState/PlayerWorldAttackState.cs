@@ -12,6 +12,7 @@ public class PlayerWorldAttackState : PlayerWorldState
     {
         base.Enter();
         StartAnimation(stateMachine.Player.AnimationData.WorldAttackParameterHash);
+        stateMachine.Player.EffectPlay();
     }
 
     public override void Exit()

@@ -830,8 +830,7 @@ MonoBehaviour:
     IconPath: UI/Icon/Skill2
   - ID: 106031
     Name: "\uD2B9\uC218(\uB808\uBCA81)"
-    Description: "\uB300\uC0C1 1\uBA85\uC5D0\uAC8C \uC5F0\uBC1C\uC0AC\uACA9 (\uCE58\uBA85\uD0C0
-      \uC2DC \uD134\uD68D\uB4DD 1\uD68C)"
+    Description: "\uB300\uC0C1 1\uBA85\uC5D0\uAC8C \uC5F0\uBC1C\uC0AC\uACA9"
     Type: 0
     Range: 1
     BuffID: 0
@@ -847,8 +846,7 @@ MonoBehaviour:
     IconPath: UI/Icon/Skill_Kana3
   - ID: 106032
     Name: "\uD2B9\uC218(\uB808\uBCA82)"
-    Description: "\uB300\uC0C1 1\uBA85\uC5D0\uAC8C \uC5F0\uBC1C\uC0AC\uACA9 (\uCE58\uBA85\uD0C0
-      \uC2DC \uD134\uD68D\uB4DD 1\uD68C)"
+    Description: "\uB300\uC0C1 1\uBA85\uC5D0\uAC8C \uC5F0\uBC1C\uC0AC\uACA9"
     Type: 0
     Range: 1
     BuffID: 0
@@ -864,8 +862,7 @@ MonoBehaviour:
     IconPath: UI/Icon/Skill_Kana3
   - ID: 106033
     Name: "\uD2B9\uC218(\uB808\uBCA83)"
-    Description: "\uB300\uC0C1 1\uBA85\uC5D0\uAC8C \uC5F0\uBC1C\uC0AC\uACA9 (\uCE58\uBA85\uD0C0
-      \uC2DC \uD134\uD68D\uB4DD 1\uD68C)"
+    Description: "\uB300\uC0C1 1\uBA85\uC5D0\uAC8C \uC5F0\uBC1C\uC0AC\uACA9"
     Type: 0
     Range: 1
     BuffID: 0
@@ -1260,10 +1257,10 @@ MonoBehaviour:
     _enemyCount_4: 0
     _enemyID_5: 0
     _enemyCount_5: 0
-    _compensation_1: 0
-    _compensationCount_1: 0
-    _compensation_2: 0
-    _compensationCount_2: 0
+    _compensation_1: 10401
+    _compensationCount_1: 1
+    _compensation_2: 10101
+    _compensationCount_2: 3
     _compensation_3: 0
     _compensationCount_3: 0
   - _id: 110103
@@ -1278,10 +1275,10 @@ MonoBehaviour:
     _enemyCount_4: 0
     _enemyID_5: 0
     _enemyCount_5: 0
-    _compensation_1: 0
-    _compensationCount_1: 0
-    _compensation_2: 0
-    _compensationCount_2: 0
+    _compensation_1: 10401
+    _compensationCount_1: 2
+    _compensation_2: 10101
+    _compensationCount_2: 5
     _compensation_3: 0
     _compensationCount_3: 0
   - _id: 110201
@@ -1296,10 +1293,10 @@ MonoBehaviour:
     _enemyCount_4: 0
     _enemyID_5: 0
     _enemyCount_5: 0
-    _compensation_1: 0
-    _compensationCount_1: 0
-    _compensation_2: 0
-    _compensationCount_2: 0
+    _compensation_1: 10401
+    _compensationCount_1: 1
+    _compensation_2: 10101
+    _compensationCount_2: 3
     _compensation_3: 0
     _compensationCount_3: 0
   - _id: 110202
@@ -1314,10 +1311,10 @@ MonoBehaviour:
     _enemyCount_4: 0
     _enemyID_5: 0
     _enemyCount_5: 0
-    _compensation_1: 0
-    _compensationCount_1: 0
-    _compensation_2: 0
-    _compensationCount_2: 0
+    _compensation_1: 10401
+    _compensationCount_1: 1
+    _compensation_2: 10101
+    _compensationCount_2: 3
     _compensation_3: 0
     _compensationCount_3: 0
   - _id: 110203
@@ -1332,10 +1329,10 @@ MonoBehaviour:
     _enemyCount_4: 0
     _enemyID_5: 0
     _enemyCount_5: 0
-    _compensation_1: 0
-    _compensationCount_1: 0
-    _compensation_2: 0
-    _compensationCount_2: 0
+    _compensation_1: 10401
+    _compensationCount_1: 2
+    _compensation_2: 10101
+    _compensationCount_2: 5
     _compensation_3: 0
     _compensationCount_3: 0
   - _id: 110301
@@ -1350,10 +1347,10 @@ MonoBehaviour:
     _enemyCount_4: 0
     _enemyID_5: 0
     _enemyCount_5: 0
-    _compensation_1: 0
-    _compensationCount_1: 0
-    _compensation_2: 0
-    _compensationCount_2: 0
+    _compensation_1: 10401
+    _compensationCount_1: 1
+    _compensation_2: 10101
+    _compensationCount_2: 3
     _compensation_3: 0
     _compensationCount_3: 0
   - _id: 110302
@@ -1368,10 +1365,10 @@ MonoBehaviour:
     _enemyCount_4: 0
     _enemyID_5: 0
     _enemyCount_5: 0
-    _compensation_1: 0
-    _compensationCount_1: 0
-    _compensation_2: 0
-    _compensationCount_2: 0
+    _compensation_1: 10401
+    _compensationCount_1: 1
+    _compensation_2: 10101
+    _compensationCount_2: 3
     _compensation_3: 0
     _compensationCount_3: 0
   - _id: 110303
@@ -1386,10 +1383,10 @@ MonoBehaviour:
     _enemyCount_4: 0
     _enemyID_5: 0
     _enemyCount_5: 0
-    _compensation_1: 0
-    _compensationCount_1: 0
-    _compensation_2: 0
-    _compensationCount_2: 0
+    _compensation_1: 10401
+    _compensationCount_1: 2
+    _compensation_2: 10101
+    _compensationCount_2: 5
     _compensation_3: 0
     _compensationCount_3: 0
   - _id: 120101
@@ -1404,10 +1401,10 @@ MonoBehaviour:
     _enemyCount_4: 0
     _enemyID_5: 0
     _enemyCount_5: 0
-    _compensation_1: 0
-    _compensationCount_1: 0
-    _compensation_2: 0
-    _compensationCount_2: 0
+    _compensation_1: 10401
+    _compensationCount_1: 1
+    _compensation_2: 10101
+    _compensationCount_2: 3
     _compensation_3: 0
     _compensationCount_3: 0
   - _id: 120102
@@ -1422,10 +1419,10 @@ MonoBehaviour:
     _enemyCount_4: 0
     _enemyID_5: 0
     _enemyCount_5: 0
-    _compensation_1: 0
-    _compensationCount_1: 0
-    _compensation_2: 0
-    _compensationCount_2: 0
+    _compensation_1: 10401
+    _compensationCount_1: 1
+    _compensation_2: 10101
+    _compensationCount_2: 3
     _compensation_3: 0
     _compensationCount_3: 0
   - _id: 120103
@@ -1440,10 +1437,10 @@ MonoBehaviour:
     _enemyCount_4: 0
     _enemyID_5: 0
     _enemyCount_5: 0
-    _compensation_1: 0
-    _compensationCount_1: 0
-    _compensation_2: 0
-    _compensationCount_2: 0
+    _compensation_1: 10401
+    _compensationCount_1: 2
+    _compensation_2: 10101
+    _compensationCount_2: 5
     _compensation_3: 0
     _compensationCount_3: 0
   - _id: 120201

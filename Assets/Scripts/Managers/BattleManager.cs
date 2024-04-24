@@ -80,6 +80,7 @@ public class BattleManager : MonoBehaviour
     public bool isAttacking = false;
     public int skill3CoolTime;
     public int skill4Gauge;
+    public bool skillReady;
 
     private float defaultGauge = 100.0f;
     private float defaultUpGauge = 1.0f;

@@ -7,6 +7,10 @@ public class Portal : MonoBehaviour, IInteractable
 {
     [SerializeField] private GameObject _clearBtn;
     private StageInfo stageInfo;
+    private bool wave1Clear;
+    private bool wave2Clear;
+    private bool wave3Clear;
+
     public void Enter()
     {
         _clearBtn.SetActive(true);
@@ -24,28 +28,18 @@ public class Portal : MonoBehaviour, IInteractable
     }
     private void StageClear()
     {
-        //stageInfo = new StageInfo();
-
-        //stageInfo.stageID = GameManager.Instance.stageID;
-        //stageInfo.wave1Clear = GameManager.Instance.wave1Clear;
-        //stageInfo.wave2Clear = GameManager.Instance.wave2Clear;
-        //stageInfo.wave3Clear = GameManager.Instance.wave3Clear;
+        wave1Clear = GameManager.Instance.wave1Clear;
+        wave2Clear = GameManager.Instance.wave2Clear;
+        wave3Clear = GameManager.Instance.wave3Clear;
 
         if (GameManager.Instance.User.stageClear.Count != 0)
         {
-            //if (stageInfo.stageID != GameManager.Instance.User.stageClear.Peek().stageID)
-            //{
-            //    GameManager.Instance.User.stageClear.Push(stageInfo);
-            //}
-            //else
-            //{
-                GameManager.Instance.User.stageClear.Peek().wave1Clear = GameManager.Instance.wave1Clear;
-                GameManager.Instance.User.stageClear.Peek().wave2Clear = GameManager.Instance.wave2Clear;
-                GameManager.Instance.User.stageClear.Peek().wave3Clear = GameManager.Instance.wave3Clear;
-            //}
+            GameManager.Instance.User.stageClear.Peek().wave1Clear = wave1Clear;
+            GameManager.Instance.User.stageClear.Peek().wave2Clear = wave2Clear;
+            GameManager.Instance.User.stageClear.Peek().wave3Clear = wave3Clear;
         }
         //wave3 클리어시 waveInfo 초기화
-        if (GameManager.Instance.wave3Clear)
+        if (wave1Clear && wave2Clear && wave3Clear)
         {
             GameManager.Instance.ResetWaveInfo();
             int nextStage = GameManager.Instance.User.NextStage();
