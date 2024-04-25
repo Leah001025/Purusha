@@ -1227,13 +1227,13 @@ MonoBehaviour:
   - _id: 110101
     _battleMapPath: Prefabs/Map/BattleMap/BattleMap_1
     _enemyID_1: 101001
-    _enemyCount_1: 1
-    _enemyID_2: 101002
-    _enemyCount_2: 1
-    _enemyID_3: 101003
-    _enemyCount_3: 1
-    _enemyID_4: 201001
-    _enemyCount_4: 1
+    _enemyCount_1: 2
+    _enemyID_2: 0
+    _enemyCount_2: 0
+    _enemyID_3: 0
+    _enemyCount_3: 0
+    _enemyID_4: 0
+    _enemyCount_4: 0
     _enemyID_5: 0
     _enemyCount_5: 0
     _compensation_1: 10501
