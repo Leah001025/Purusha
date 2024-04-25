@@ -174,9 +174,10 @@ public class Item
     private void LevelUp(CharacterData character)
     {
         character.status.level++;
-        character.status.atk+=10;
-        character.status.health += 200;
-        character.status.maxhealth += 200;
-        character.status.def+=5;
+        float levelPoint = 0.5f * character.status.level;
+        character.status.atk+=10 * levelPoint;
+        character.status.health += 200 * levelPoint;
+        character.status.maxhealth += 200 * levelPoint;
+        character.status.def+=5 * levelPoint;
     }
 }

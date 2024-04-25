@@ -61,7 +61,7 @@ public class TurnIndicator : MonoBehaviour
                 RemoveCharacter(i);
             }
             else
-                unitGauges[i].text = lUnitInfo[i].unitGauge.ToString("0");
+                unitGauges[i].text = lUnitInfo[i].unitGauge>=100?"100": lUnitInfo[i].unitGauge.ToString("0");
         }
     }
     private void SortTeam()

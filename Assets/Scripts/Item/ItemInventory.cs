@@ -91,30 +91,30 @@ public class ItemInventory : MonoBehaviour
         switch (itemType)
         {
             case "hpPotion":
-                if (PopupManager.Instance.isstatusOn)
+                if (UIManager.Instance.inventoryMainUI.isstatusOn)
                 {
                     GameManager.Instance.User.itemInventory[enabledID].UseHealingItem(enabledID, characters[targetID]);
                     UIManager.Instance.charInventoryUI[targetID].ShowCharacterData();
                     UpdateInventory();
                 }
-                else PopupManager.Instance.OnStatusPanel();
+                else UIManager.Instance.inventoryMainUI.OnStatusPanel();
                 break;
             case "expPotion":
-                if (PopupManager.Instance.isLevelUp)
+                if (UIManager.Instance.inventoryMainUI.isLevelUp)
                 {
                     GameManager.Instance.User.itemInventory[enabledID].UseExpItem(enabledID, characters[targetID]);
                     UIManager.Instance.charInventoryUI[targetID].ShowCharacterData();
                     UpdateInventory();
                 }
-                else PopupManager.Instance.OnClicklevelUp();
+                else UIManager.Instance.inventoryMainUI.OnClicklevelUp();
                 break;
             case "weaponPotion":
             case "ArmorPotion":
-                if (PopupManager.Instance.isUpgradeOn)
+                if (UIManager.Instance.inventoryMainUI.isUpgradeOn)
                 {
                     UpdateInventory();
                 }
-                else PopupManager.Instance.OnClickUpgrade();
+                else UIManager.Instance.inventoryMainUI.OnClickUpgrade();
                 break;
             case "etc":
                 UIManager.Instance.ShowPopup<GachaPopUp>();

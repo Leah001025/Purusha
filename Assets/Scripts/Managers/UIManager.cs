@@ -17,6 +17,7 @@ public class UIManager : SingleTon<UIManager>
     public LevelUpUI levelUpUI;
     public ItemInventory itemInventoryUI;
     public SkillUI skillUI;
+    public InventoryMainUI inventoryMainUI;
     public int curTargetID = 101;
 
     // 팝업 불러오기
