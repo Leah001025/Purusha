@@ -1496,10 +1496,10 @@ MonoBehaviour:
     _compensationCount_3: 5
   - _id: 120301
     _battleMapPath: Prefabs/Map/BattleMap/BattleMap_1
-    _enemyID_1: 101001
-    _enemyCount_1: 2
-    _enemyID_2: 0
-    _enemyCount_2: 0
+    _enemyID_1: 101003
+    _enemyCount_1: 1
+    _enemyID_2: 101001
+    _enemyCount_2: 2
     _enemyID_3: 0
     _enemyCount_3: 0
     _enemyID_4: 0
@@ -1514,10 +1514,10 @@ MonoBehaviour:
     _compensationCount_3: 0
   - _id: 120302
     _battleMapPath: Prefabs/Map/BattleMap/BattleMap_1
-    _enemyID_1: 101001
-    _enemyCount_1: 3
-    _enemyID_2: 0
-    _enemyCount_2: 0
+    _enemyID_1: 201001
+    _enemyCount_1: 1
+    _enemyID_2: 101003
+    _enemyCount_2: 2
     _enemyID_3: 0
     _enemyCount_3: 0
     _enemyID_4: 0
@@ -1532,10 +1532,10 @@ MonoBehaviour:
     _compensationCount_3: 0
   - _id: 120303
     _battleMapPath: Prefabs/Map/BattleMap/BattleMap_1
-    _enemyID_1: 101001
-    _enemyCount_1: 5
-    _enemyID_2: 0
-    _enemyCount_2: 0
+    _enemyID_1: 201001
+    _enemyCount_1: 1
+    _enemyID_2: 101003
+    _enemyCount_2: 2
     _enemyID_3: 0
     _enemyCount_3: 0
     _enemyID_4: 0

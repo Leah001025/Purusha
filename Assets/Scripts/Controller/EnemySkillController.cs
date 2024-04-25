@@ -98,12 +98,17 @@ public class EnemySkillController : MonoBehaviour
         Camera.main.transform.SetLocalPositionAndRotation(battleManager.defalutCameraPos, Quaternion.Euler(15, 0, 0));
         skill2CoolTime--;
         battleManager.TargetChange(CharacterType.Player);
-        if(provoke!=null&& battleManager.lUnitInfo.ContainsKey(battleManager.provokeIndex)) 
+        if (provoke != null && battleManager.lUnitInfo.ContainsKey(battleManager.provokeIndex)) 
+        {
             battleManager.target = battleManager.lUnitInfo[battleManager.provokeIndex].unitObject;
+            BuffDuration();
+            Skill1();
+            return;
+        }             
         if(stun!=null)
         {
             BuffDuration();
-            StartCoroutine(WaitForSkillEffect(0.5f));
+            StunEffect();
             return;
         }
         BuffDuration();
@@ -121,12 +126,14 @@ public class EnemySkillController : MonoBehaviour
         switch (enemyCharacterData.enemySkillData[1].range)
         {
             case 0:
-                StartCoroutine(MeleeSkillEffect(battleManager.animForSeconds,"1"));
-                StartCoroutine(WaitForSkillEffect(3f));
+                StartCoroutine(WaitForSkillEffect(MeleeSkillEffect(battleManager.animForSeconds, "1")));
+                //StartCoroutine(MeleeSkillEffect(battleManager.animForSeconds,"1"));
+                //StartCoroutine(WaitForSkillEffect(3f));
                 break;
             case 1:
-                StartCoroutine(RangedSkillEffect(battleManager.animForSeconds, "1"));
-                StartCoroutine(WaitForSkillEffect(3.5f));
+                StartCoroutine(WaitForSkillEffect(RangedSkillEffect(battleManager.animForSeconds, "1")));
+                //StartCoroutine(RangedSkillEffect(battleManager.animForSeconds, "1"));
+                //StartCoroutine(WaitForSkillEffect(3.5f));
                 break;
         }
     }
@@ -135,20 +142,28 @@ public class EnemySkillController : MonoBehaviour
         switch (enemyCharacterData.enemySkillData[2].range)
         {
             case 0:
-                StartCoroutine(MeleeSkillEffect(battleManager.animForSeconds,"2"));
+                StartCoroutine(WaitForSkillEffect(MeleeSkillEffect(battleManager.animForSeconds, "2")));
                 skill2CoolTime = enemyCharacterData.enemySkillData[2].coolTime;
-                StartCoroutine(WaitForSkillEffect(3f));
                 break;
             case 1:
-                StartCoroutine(RangedSkillEffect(battleManager.animForSeconds, "2"));
+                StartCoroutine(WaitForSkillEffect(RangedSkillEffect(battleManager.animForSeconds, "2")));
                 skill2CoolTime = enemyCharacterData.enemySkillData[2].coolTime;
-                StartCoroutine(WaitForSkillEffect(3.5f));
                 break;
+                //case 0:
+                //    StartCoroutine(MeleeSkillEffect(battleManager.animForSeconds,"2"));
+                //    skill2CoolTime = enemyCharacterData.enemySkillData[2].coolTime;
+                //    StartCoroutine(WaitForSkillEffect(3f));
+                //    break;
+                //case 1:
+                //    StartCoroutine(RangedSkillEffect(battleManager.animForSeconds, "2"));
+                //    skill2CoolTime = enemyCharacterData.enemySkillData[2].coolTime;
+                //    StartCoroutine(WaitForSkillEffect(3.5f));
+                //    break;
         }
     }
-    IEnumerator WaitForSkillEffect(float time)
+    IEnumerator WaitForSkillEffect(IEnumerator coroutine)
     {
-        yield return new WaitForSeconds(time);
+        yield return StartCoroutine(coroutine);
         battleManager.TargetChange(CharacterType.Enemy);
         battleManager.speedModifier = 1;
         battleManager.lUnitInfo[battleManager.onTurnIndex].unitGauge = 0;
@@ -209,6 +224,13 @@ public class EnemySkillController : MonoBehaviour
         yield return new WaitForSeconds(0.2f);
         battleManager.OnSkillEnemy(enemyCharacterBuffData, skillNum);
         isAttack = false;
+    }
+    private void StunEffect()
+    {
+        battleManager.TargetChange(CharacterType.Enemy);
+        battleManager.speedModifier = 1;
+        battleManager.lUnitInfo[battleManager.onTurnIndex].unitGauge = 0;
+        battleManager.isAttacking = false;
     }
     private void OnSkillEffect(CharacterSkill skill)
     {

@@ -443,13 +443,13 @@ public class BattleManager : MonoBehaviour
                 for (int i = 1; i <= enemyCreateCount + playerCreateCount; i++)
                 {
                     targetIndex = int.Parse(target.name);
-                    if (lUnitInfo.ContainsKey(count) && lUnitInfo[count].unitType == CharacterType.Enemy)
+                    if (lUnitInfo.ContainsKey(count) && lUnitInfo[count].unitType == CharacterType.Player)
                     {
                         _damage = AddDamagePlayer(characterData, skillNum, count);
-                        lUnitInfo[count].unitData.Health -= _damage;
-                        battleInfo.characterInfo[onTurnIndex].attackDamages += _damage;
+                        lUnitInfo[count].characterData.status.health -= _damage;
+                        battleInfo.characterInfo[count].receivedDamages += _damage;
                         lUnitInfo[count].actionController.BattleHit();
-                        AddDamageUI(_damage, lUnitInfo[count].unitObject.name, isCritical);
+                        AddDamageUI(_damage, count.ToString(), isCritical);
                         StartCoroutine(DieCheck(lUnitInfo[count]));
                     }
                     if ((enemyUnitCount) == 0) return;
