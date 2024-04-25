@@ -21,7 +21,7 @@ public class BossInfoUI : MonoBehaviour
     private UnitInfo bossData;
     private void Start()
     {
-        foreach (KeyValuePair<int,UnitInfo> info in BattleManager.Instance.lUnitInfo)
+        foreach (KeyValuePair<int, UnitInfo> info in BattleManager.Instance.lUnitInfo)
         {
             if (info.Value.unitType == Enums.CharacterType.Enemy)
             {
@@ -40,16 +40,19 @@ public class BossInfoUI : MonoBehaviour
     }
     private void Update()
     {
-        float fillDamage = (BattleManager.Instance.lUnitInfo[int.Parse(monsterName)].unitData.Health) / monsterMaxHealth;
-        hpBar.fillAmount = Mathf.Lerp(hpBar.fillAmount, fillDamage, Time.deltaTime * 20);
-        if (BattleManager.Instance.lUnitInfo[int.Parse(monsterName)].unitData.Health < monsterMinHealth)
+        if (BattleManager.Instance.lUnitInfo.ContainsKey(int.Parse(monsterName)))
         {
-            monsterHealth -= Time.deltaTime * 1000f;
+            float fillDamage = (BattleManager.Instance.lUnitInfo[int.Parse(monsterName)].unitData.Health) / monsterMaxHealth;
+            hpBar.fillAmount = Mathf.Lerp(hpBar.fillAmount, fillDamage, Time.deltaTime * 20);
+            if (BattleManager.Instance.lUnitInfo[int.Parse(monsterName)].unitData.Health < monsterMinHealth)
+            {
+                monsterHealth -= Time.deltaTime * 1000f;
+            }
+            monsterMinHealth = Mathf.Clamp(monsterHealth, BattleManager.Instance.lUnitInfo[int.Parse(monsterName)].unitData.Health, monsterMaxHealth);
+            int MinHealth = Mathf.FloorToInt(monsterMinHealth);
+            hpText.text = string.Format("{0} / {1}", monsterMaxHealth, MinHealth);
+            monsterHealth = monsterMinHealth;
         }
-        monsterMinHealth = Mathf.Clamp(monsterHealth, BattleManager.Instance.lUnitInfo[int.Parse(monsterName)].unitData.Health, monsterMaxHealth);
-        int MinHealth = Mathf.FloorToInt(monsterMinHealth);
-        hpText.text = string.Format("{0} / {1}", monsterMaxHealth,MinHealth);
-        monsterHealth = monsterMinHealth;
     }
     IEnumerator Warning()
     {

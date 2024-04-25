@@ -46,7 +46,8 @@ public class EnemyBaseState : IState
         if (stateMachine.Enemy.Animator.GetCurrentAnimatorStateInfo(0).IsName("Idle") == false &&
             stateMachine.Enemy.Animator.GetCurrentAnimatorStateInfo(0).IsName("Sikll1") == false &&
             stateMachine.Enemy.Animator.GetCurrentAnimatorStateInfo(0).IsName("Sikll2") == false &&
-            stateMachine.Enemy.Animator.GetCurrentAnimatorStateInfo(0).IsName("Hit") == false)
+            stateMachine.Enemy.Animator.GetCurrentAnimatorStateInfo(0).IsName("Hit") == false &&
+            stateMachine.Enemy.Animator.GetCurrentAnimatorStateInfo(0).IsName("Run") == false)
         {
             OnEnemyIdle();
         }

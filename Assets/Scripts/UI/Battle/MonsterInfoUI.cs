@@ -9,26 +9,36 @@ using TMPro;
 public class MonsterInfoUI : MonoBehaviour
 {
     [SerializeField] private UnityEngine.UI.Image hpBar;
-    [SerializeField] private TMP_Text InfoText;
+    [SerializeField] private TMP_Text lvText;
+    [SerializeField] private TMP_Text nameText;
     [SerializeField] private TMP_Text damageText;
     [SerializeField] private GameObject damageObj;
     //[SerializeField] private Animator damageAnimator;
     private string monsterName;
     private float monsterMaxHealth;
+    private string monsterID;
     private Color normalDam = new Color(1, 0.8f, 0);
     private Color criDam = new Color(1, 0.1f, 0);
     private UnitInfo monsterInfo;
 
     private void Start()
     {
-
         monsterName = gameObject.transform.parent.gameObject.transform.parent.gameObject.name;
         monsterMaxHealth = BattleManager.Instance.lUnitInfo[int.Parse(monsterName)].unitData.Health;
+        monsterID = BattleManager.Instance.lUnitInfo[int.Parse(monsterName)].unitData.ID.ToString();
         BattleManager.Instance.OnAddDamage += OnDamageUI;
         DOTween.Init();
         //damageAnimator = GetComponent<Animator>();
         monsterInfo = BattleManager.Instance.lUnitInfo[int.Parse(monsterName)];
-        InfoText.text = $"Lv.{monsterInfo.unitData.Level} {monsterInfo.unitData.Name}";
+        lvText.text = $"Lv.{monsterInfo.unitData.Level}";
+        nameText.text = $"{monsterInfo.unitData.Name}";
+        if (monsterID.Substring(0,1) == "2")
+        {
+            UnityEngine.Color color;
+            ColorUtility.TryParseHtmlString("#FA023E", out color);
+            lvText.color = color;
+            nameText.color = color;
+        }
     }
     private void Update()
     {

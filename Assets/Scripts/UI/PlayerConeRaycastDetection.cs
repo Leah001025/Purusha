@@ -48,7 +48,7 @@ public class PlayerConeRaycastDetection : MonoBehaviour
         if (isBattle)
         {
             Camera.main.transform.position = Vector3.Lerp(Camera.main.transform.position, targetPos, 2f * Time.deltaTime);
-            battleEffect.color = Color.Lerp(battleEffect.color, new Color(1, 1, 1, 1), 2f * Time.deltaTime);
+            battleEffect.color = Color.Lerp(battleEffect.color, new Color(1, 1, 1, 1), 3f * Time.deltaTime);
         }
     }
 
@@ -114,6 +114,7 @@ public class PlayerConeRaycastDetection : MonoBehaviour
     }
     private IEnumerator CameraControll()
     {
+        SoundManager.Instance.EffentAudio("BattleStart");
         yield return new WaitForSeconds(1.5f);
         SceneLoadManager.Instance.ChangeScene("BattleScene");
     }

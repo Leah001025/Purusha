@@ -98,7 +98,7 @@ Material:
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
-    - _Intensity: 7
+    - _Intensity: 6
     - _Metallic: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.005
@@ -110,7 +110,7 @@ Material:
     - _SrcBlend: 1
     - _SrcBlendAlpha: 1
     - _Surface: 0
-    - _ValueX: 0.4088838
+    - _ValueX: -0.432253
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
