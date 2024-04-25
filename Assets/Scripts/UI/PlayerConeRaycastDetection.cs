@@ -117,6 +117,7 @@ public class PlayerConeRaycastDetection : MonoBehaviour
     }
     private IEnumerator CameraControll()
     {
+        SoundManager.Instance.EffentAudio("BattleStart");
         yield return new WaitForSeconds(1.5f);
         SceneLoadManager.Instance.ChangeScene("BattleScene");
     }

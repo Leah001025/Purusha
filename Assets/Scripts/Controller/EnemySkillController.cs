@@ -53,7 +53,6 @@ public class EnemySkillController : MonoBehaviour
     private int teamIndex;
     BattleManager battleManager;
     private WaitForSeconds wait05 = new WaitForSeconds(0.5f);
-
     private void Start()
     {
         battleManager = BattleManager.Instance;
@@ -126,12 +125,12 @@ public class EnemySkillController : MonoBehaviour
         switch (enemyCharacterData.enemySkillData[1].range)
         {
             case 0:
-                StartCoroutine(WaitForSkillEffect(MeleeSkillEffect(battleManager.animForSeconds, "1")));
+                StartCoroutine(WaitForSkillEffect(MeleeSkillEffect("1")));
                 //StartCoroutine(MeleeSkillEffect(battleManager.animForSeconds,"1"));
                 //StartCoroutine(WaitForSkillEffect(3f));
                 break;
             case 1:
-                StartCoroutine(WaitForSkillEffect(RangedSkillEffect(battleManager.animForSeconds, "1")));
+                StartCoroutine(WaitForSkillEffect(RangedSkillEffect("1")));
                 //StartCoroutine(RangedSkillEffect(battleManager.animForSeconds, "1"));
                 //StartCoroutine(WaitForSkillEffect(3.5f));
                 break;
@@ -142,11 +141,11 @@ public class EnemySkillController : MonoBehaviour
         switch (enemyCharacterData.enemySkillData[2].range)
         {
             case 0:
-                StartCoroutine(WaitForSkillEffect(MeleeSkillEffect(battleManager.animForSeconds, "2")));
+                StartCoroutine(WaitForSkillEffect(MeleeSkillEffect("2")));
                 skill2CoolTime = enemyCharacterData.enemySkillData[2].coolTime;
                 break;
             case 1:
-                StartCoroutine(WaitForSkillEffect(RangedSkillEffect(battleManager.animForSeconds, "2")));
+                StartCoroutine(WaitForSkillEffect(RangedSkillEffect("2")));
                 skill2CoolTime = enemyCharacterData.enemySkillData[2].coolTime;
                 break;
                 //case 0:
@@ -161,7 +160,7 @@ public class EnemySkillController : MonoBehaviour
                 //    break;
         }
     }
-    IEnumerator WaitForSkillEffect(IEnumerator coroutine)
+  IEnumerator WaitForSkillEffect(IEnumerator coroutine)
     {
         yield return StartCoroutine(coroutine);
         battleManager.TargetChange(CharacterType.Enemy);
@@ -169,57 +168,58 @@ public class EnemySkillController : MonoBehaviour
         battleManager.lUnitInfo[battleManager.onTurnIndex].unitGauge = 0;
         battleManager.isAttacking = false;
     }
-    IEnumerator MeleeSkillEffect(WaitForSeconds time, string num)
+    IEnumerator MeleeSkillEffect(string num)
     {
         int skillNum = int.Parse(num);
         startPos = transform.localPosition;
         targetPos = battleManager.target.transform.localPosition + new Vector3(0, 0, 2);
-        battleManager.lUnitInfo[battleManager.onTurnIndex].actionController.BattleMove();
+        battleManager.lUnitInfo[battleManager.onTurnIndex].actionController.WorldRun();
         isAttack = true;
         isStartPos = true;
         isTargetPos = false;
+        yield return wait05;
+        battleManager.lUnitInfo[battleManager.onTurnIndex].actionController.WorldIdle();
+        yield return wait05;
+        SoundManager.Instance.AttackAudio(enemyCharacterData.enemyData.ID, num);
         if (num == "1")
-        { 
+        {
             battleManager.lUnitInfo[battleManager.onTurnIndex].actionController.BattleSkill1();
-            yield return wait05;
             battleManager.AnimForSeconds(battleManager.newAnimTime, battleManager.beforeAnimTime);
         }
         else
         {
             battleManager.lUnitInfo[battleManager.onTurnIndex].actionController.BattleSkill2();
-            yield return wait05;
             battleManager.AnimForSeconds(battleManager.newAnimTime, battleManager.beforeAnimTime);
         }
         OnSkillEffect(enemyCharacterData.enemySkillData[skillNum]);
-        yield return time;
-        Destroy(skillObj);
         battleManager.OnSkillEnemy(enemyCharacterBuffData, skillNum);
+        yield return battleManager.animForSeconds;
         yield return wait05;
+        Destroy(skillObj);
         transform.localPosition = startPos;
         isStartPos = false;
         isAttack = false;
     }
-    IEnumerator RangedSkillEffect(WaitForSeconds time, string num)
+    IEnumerator RangedSkillEffect(string num)
     {
         int skillNum = int.Parse(num);
         targetPos = battleManager.target.transform.localPosition + new Vector3(0, 0, -1);
         isAttack = true;
         isTargetPos = true;
         isStartPos = true;
+        SoundManager.Instance.AttackAudio(enemyCharacterData.enemyData.ID, num);
         if (num == "1")
         {
             battleManager.lUnitInfo[battleManager.onTurnIndex].actionController.BattleSkill1();
-            yield return wait05;
             battleManager.AnimForSeconds(battleManager.newAnimTime, battleManager.beforeAnimTime);
         }
         else
         {
             battleManager.lUnitInfo[battleManager.onTurnIndex].actionController.BattleSkill2();
-            yield return wait05;
             battleManager.AnimForSeconds(battleManager.newAnimTime, battleManager.beforeAnimTime);
         }
         OnSkillEffect(enemyCharacterData.enemySkillData[skillNum]);
-        yield return time;
+        yield return battleManager.animForSeconds;
         Destroy(skillObj);
         yield return new WaitForSeconds(0.2f);
         battleManager.OnSkillEnemy(enemyCharacterBuffData, skillNum);
@@ -371,7 +371,7 @@ public class EnemySkillController : MonoBehaviour
     {
         BuffCheck(attackUp, enemyCharacterBuffData.enemyData.Atk, enemyCharacterData.enemyData.Atk, "AttackUp");
         BuffCheck(attackDown, enemyCharacterBuffData.enemyData.Atk, enemyCharacterData.enemyData.Atk, "AttackDown");
-        BuffCheck(defUp, enemyCharacterBuffData.enemyData.Def , enemyCharacterData.enemyData.Def, "DefUp");
+        BuffCheck(defUp, enemyCharacterBuffData.enemyData.Def, enemyCharacterData.enemyData.Def, "DefUp");
         BuffCheck(defDown, enemyCharacterBuffData.enemyData.Def, enemyCharacterData.enemyData.Def, "DefDown");
         BuffCheck(shield, shieldQuantity, 0, "Shield");
         BuffCheck(stun, 0, 0, "Stun");
@@ -400,5 +400,5 @@ public class EnemySkillController : MonoBehaviour
                 if (buff.BuffID == 207 || buff.BuffID == 208 || buff.BuffID == 209) provoke = null;
             }
         }
-    }    
+    }
 }
