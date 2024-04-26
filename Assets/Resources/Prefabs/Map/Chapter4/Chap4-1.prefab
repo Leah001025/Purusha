@@ -4825,7 +4825,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &4205433082772112537
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9771,7 +9771,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4278248191
-  m_fontColor: {r: 1, g: 0.8874892, b: 0, a: 1}
+  m_fontColor: {r: 1, g: 1, b: 1, a: 0}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -50893,7 +50893,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColor: {r: 1, g: 1, b: 1, a: 0}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -52666,6 +52666,8 @@ PlayableDirector:
     value: {fileID: 1623632096457441792}
   - key: {fileID: 901746077505783750, guid: f744e3b71ad75eb439afcb0ee678db71, type: 2}
     value: {fileID: 1613548068807215350}
+  - key: {fileID: -6166759858870728627, guid: f744e3b71ad75eb439afcb0ee678db71, type: 2}
+    value: {fileID: 913669148792955890}
   m_ExposedReferences:
     m_References:
     - e9c89c1c839d6004fb2a394a15605ef0: {fileID: 7503542457338438812}
