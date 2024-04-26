@@ -108,6 +108,8 @@ public class CharacterSeletPopUp : UIBase
             Debug.Log($"입장 가능 스테이지 : {GameManager.Instance.User.stageClear.Peek().stageID}");
             return;
         }
+        if(GameManager.Instance.stageID == 1701) SceneLoadManager.Instance.LoadingChangeScene("EndingScene");
+        else
         SceneLoadManager.Instance.LoadingChangeScene("OpenWorldScene");
     }
 }

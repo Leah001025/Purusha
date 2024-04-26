@@ -121,7 +121,10 @@ public class ClearUI : MonoBehaviour
     public void MainMenuBtn()
     {
         StageClear();
-        SceneLoadManager.Instance.LoadingChangeScene("MainScene");
+        if (GameManager.Instance.User.stageClear.Peek().stageID == 1701) 
+            SceneLoadManager.Instance.LoadingChangeScene("EndingScene");
+        else
+            SceneLoadManager.Instance.LoadingChangeScene("MainScene");
     }
     private void StageClear()
     {

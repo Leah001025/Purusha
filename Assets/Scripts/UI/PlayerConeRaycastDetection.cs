@@ -109,6 +109,7 @@ public class PlayerConeRaycastDetection : MonoBehaviour
     {
 
         isBattle = true;
+        battleEffect.gameObject.SetActive(true);
         targetPos = hit.collider.transform.position;
         cinemachineBrain.enabled = false;
         GameManager.Instance.waveID = int.Parse(hit.collider.gameObject.transform.parent.name);
