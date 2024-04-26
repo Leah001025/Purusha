@@ -5,7 +5,6 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering.PostProcessing;
 using UnityEngine.UI;
-using static UnityEditor.Progress;
 
 public class OpenWorldSceneUI : MonoBehaviour
 {

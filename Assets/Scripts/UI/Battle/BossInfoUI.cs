@@ -49,8 +49,9 @@ public class BossInfoUI : MonoBehaviour
                 monsterHealth -= Time.deltaTime * 1000f;
             }
             monsterMinHealth = Mathf.Clamp(monsterHealth, BattleManager.Instance.lUnitInfo[int.Parse(monsterName)].unitData.Health, monsterMaxHealth);
+            monsterMinHealth = Mathf.Clamp(monsterMinHealth, 0, monsterMaxHealth);
             int MinHealth = Mathf.FloorToInt(monsterMinHealth);
-            hpText.text = string.Format("{0} / {1}", monsterMaxHealth, MinHealth);
+            hpText.text = string.Format("{0} / {1}", MinHealth, monsterMaxHealth);
             monsterHealth = monsterMinHealth;
         }
     }

@@ -3,7 +3,6 @@ using Structs;
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.PackageManager;
 using UnityEngine;
 using UnityEngine.TextCore.Text;
 
@@ -113,40 +112,44 @@ public class EnemySkillController : MonoBehaviour
         BuffDuration();
         if (skill2CoolTime <= 0)
         {
-            Skill2();
+            StartCoroutine(Skill2());
         }
         else
         {
-            Skill1();
+            StartCoroutine(Skill1());
         }
     }
-    private void Skill1()
+    private IEnumerator Skill1()
     {
         switch (enemyCharacterData.enemySkillData[1].range)
         {
             case 0:
-                StartCoroutine(WaitForSkillEffect(MeleeSkillEffect("1")));
+                yield return StartCoroutine(MeleeSkillEffect("1"));
                 //StartCoroutine(MeleeSkillEffect(battleManager.animForSeconds,"1"));
                 //StartCoroutine(WaitForSkillEffect(3f));
+                WaitForSkillEffect();
                 break;
             case 1:
-                StartCoroutine(WaitForSkillEffect(RangedSkillEffect("1")));
+                yield return StartCoroutine(RangedSkillEffect("1"));
                 //StartCoroutine(RangedSkillEffect(battleManager.animForSeconds, "1"));
                 //StartCoroutine(WaitForSkillEffect(3.5f));
+                WaitForSkillEffect();
                 break;
         }
     }
-    private void Skill2()
+    private IEnumerator Skill2()
     {
         switch (enemyCharacterData.enemySkillData[2].range)
         {
             case 0:
-                StartCoroutine(WaitForSkillEffect(MeleeSkillEffect("2")));
+                yield return StartCoroutine(MeleeSkillEffect("2"));
                 skill2CoolTime = enemyCharacterData.enemySkillData[2].coolTime;
+                WaitForSkillEffect();
                 break;
             case 1:
-                StartCoroutine(WaitForSkillEffect(RangedSkillEffect("2")));
+                yield return StartCoroutine(RangedSkillEffect("2"));
                 skill2CoolTime = enemyCharacterData.enemySkillData[2].coolTime;
+                WaitForSkillEffect();
                 break;
                 //case 0:
                 //    StartCoroutine(MeleeSkillEffect(battleManager.animForSeconds,"2"));
@@ -160,9 +163,8 @@ public class EnemySkillController : MonoBehaviour
                 //    break;
         }
     }
-  IEnumerator WaitForSkillEffect(IEnumerator coroutine)
+  private void WaitForSkillEffect()
     {
-        yield return StartCoroutine(coroutine);
         battleManager.TargetChange(CharacterType.Enemy);
         battleManager.speedModifier = 1;
         battleManager.lUnitInfo[battleManager.onTurnIndex].unitGauge = 0;
@@ -199,6 +201,7 @@ public class EnemySkillController : MonoBehaviour
         transform.localPosition = startPos;
         isStartPos = false;
         isAttack = false;
+        yield break;
     }
     IEnumerator RangedSkillEffect(string num)
     {
@@ -224,6 +227,7 @@ public class EnemySkillController : MonoBehaviour
         yield return new WaitForSeconds(0.2f);
         battleManager.OnSkillEnemy(enemyCharacterBuffData, skillNum);
         isAttack = false;
+        yield break;
     }
     private void StunEffect()
     {
