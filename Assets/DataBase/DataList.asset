@@ -1111,14 +1111,14 @@ MonoBehaviour:
   - BuffID: 203
     Name: "\uBC29\uC5B4\uB825\uAC10\uC18C(\uB2E8\uC77C)"
     CharacterData: 0
-    Coefficient: -0.5
+    Coefficient: -0.7
     Duration: 2
     DebuffProbability: 0.7
     IconPath: UI/BuffandDebuff/203
   - BuffID: 204
     Name: "\uBC29\uC5B4\uB825\uAC10\uC18C(\uC804\uCCB4)"
     CharacterData: 0
-    Coefficient: -0.5
+    Coefficient: -0.7
     Duration: 2
     DebuffProbability: 0.5
     IconPath: UI/BuffandDebuff/203
@@ -1171,9 +1171,74 @@ MonoBehaviour:
     _breakGauge: 100
     _prefabPath: Prefabs/Monster/Drone
     _spritePath: 
+  - _id: 102001
+    _name: Drone
+    _level: 2
+    _health: 300
+    _atk: 60
+    _def: 15
+    _criticalChance: 0.1
+    _criticalDamage: 1.5
+    _avoid: 10
+    _speed: 1
+    _breakGauge: 100
+    _prefabPath: Prefabs/Monster/Drone
+    _spritePath: 
+  - _id: 103001
+    _name: Drone
+    _level: 3
+    _health: 400
+    _atk: 70
+    _def: 20
+    _criticalChance: 0.1
+    _criticalDamage: 1.5
+    _avoid: 10
+    _speed: 1.1
+    _breakGauge: 100
+    _prefabPath: Prefabs/Monster/Drone
+    _spritePath: 
+  - _id: 104001
+    _name: Drone
+    _level: 4
+    _health: 500
+    _atk: 80
+    _def: 25
+    _criticalChance: 0.1
+    _criticalDamage: 1.5
+    _avoid: 10
+    _speed: 1.1
+    _breakGauge: 100
+    _prefabPath: Prefabs/Monster/Drone
+    _spritePath: 
+  - _id: 105001
+    _name: Drone
+    _level: 5
+    _health: 600
+    _atk: 90
+    _def: 30
+    _criticalChance: 0.1
+    _criticalDamage: 1.5
+    _avoid: 10
+    _speed: 1.2
+    _breakGauge: 100
+    _prefabPath: Prefabs/Monster/Drone
+    _spritePath: 
+  - _id: 106001
+    _name: Drone
+    _level: 6
+    _health: 700
+    _atk: 100
+    _def: 35
+    _criticalChance: 0.1
+    _criticalDamage: 1.5
+    _avoid: 10
+    _speed: 1.2
+    _breakGauge: 100
+    _prefabPath: Prefabs/Monster/Drone
+    _spritePath: 
   - _id: 101002
     _name: Android
-    _level: 3
+    _level: 2
     _health: 350
     _atk: 80
     _def: 20
@@ -1184,9 +1249,74 @@ MonoBehaviour:
     _breakGauge: 200
     _prefabPath: Prefabs/Monster/Android
     _spritePath: 
+  - _id: 102002
+    _name: Android
+    _level: 3
+    _health: 500
+    _atk: 85
+    _def: 25
+    _criticalChance: 0.2
+    _criticalDamage: 1.5
+    _avoid: 20
+    _speed: 0.8
+    _breakGauge: 200
+    _prefabPath: Prefabs/Monster/Android
+    _spritePath: 
+  - _id: 103002
+    _name: Android
+    _level: 5
+    _health: 900
+    _atk: 100
+    _def: 35
+    _criticalChance: 0.2
+    _criticalDamage: 1.5
+    _avoid: 20
+    _speed: 0.9
+    _breakGauge: 200
+    _prefabPath: Prefabs/Monster/Android
+    _spritePath: 
+  - _id: 104002
+    _name: Android
+    _level: 5
+    _health: 900
+    _atk: 100
+    _def: 35
+    _criticalChance: 0.2
+    _criticalDamage: 1.5
+    _avoid: 20
+    _speed: 0.9
+    _breakGauge: 200
+    _prefabPath: Prefabs/Monster/Android
+    _spritePath: 
+  - _id: 105002
+    _name: Android
+    _level: 7
+    _health: 1100
+    _atk: 110
+    _def: 45
+    _criticalChance: 0.2
+    _criticalDamage: 1.5
+    _avoid: 20
+    _speed: 1
+    _breakGauge: 200
+    _prefabPath: Prefabs/Monster/Android
+    _spritePath: 
+  - _id: 106002
+    _name: Android
+    _level: 8
+    _health: 1300
+    _atk: 150
+    _def: 60
+    _criticalChance: 0.2
+    _criticalDamage: 1.5
+    _avoid: 20
+    _speed: 1
+    _breakGauge: 200
+    _prefabPath: Prefabs/Monster/Android
+    _spritePath: 
   - _id: 101003
     _name: SecurityTurret
-    _level: 5
+    _level: 3
     _health: 500
     _atk: 100
     _def: 5
@@ -1197,9 +1327,74 @@ MonoBehaviour:
     _breakGauge: 300
     _prefabPath: Prefabs/Monster/SecurityTurret
     _spritePath: 
+  - _id: 102003
+    _name: SecurityTurret
+    _level: 5
+    _health: 550
+    _atk: 105
+    _def: 5
+    _criticalChance: 0.5
+    _criticalDamage: 1.5
+    _avoid: 5
+    _speed: 1.2
+    _breakGauge: 300
+    _prefabPath: Prefabs/Monster/SecurityTurret
+    _spritePath: 
+  - _id: 103003
+    _name: SecurityTurret
+    _level: 7
+    _health: 600
+    _atk: 110
+    _def: 5
+    _criticalChance: 0.5
+    _criticalDamage: 1.5
+    _avoid: 5
+    _speed: 1.2
+    _breakGauge: 300
+    _prefabPath: Prefabs/Monster/SecurityTurret
+    _spritePath: 
+  - _id: 104003
+    _name: SecurityTurret
+    _level: 7
+    _health: 600
+    _atk: 110
+    _def: 5
+    _criticalChance: 0.5
+    _criticalDamage: 1.5
+    _avoid: 5
+    _speed: 1.2
+    _breakGauge: 300
+    _prefabPath: Prefabs/Monster/SecurityTurret
+    _spritePath: 
+  - _id: 105003
+    _name: SecurityTurret
+    _level: 8
+    _health: 700
+    _atk: 115
+    _def: 5
+    _criticalChance: 0.5
+    _criticalDamage: 1.5
+    _avoid: 5
+    _speed: 1.2
+    _breakGauge: 300
+    _prefabPath: Prefabs/Monster/SecurityTurret
+    _spritePath: 
+  - _id: 106003
+    _name: SecurityTurret
+    _level: 9
+    _health: 800
+    _atk: 120
+    _def: 5
+    _criticalChance: 0.5
+    _criticalDamage: 1.5
+    _avoid: 5
+    _speed: 1.2
+    _breakGauge: 300
+    _prefabPath: Prefabs/Monster/SecurityTurret
+    _spritePath: 
   - _id: 201001
     _name: CodeNumber001
-    _level: 10
+    _level: 4
     _health: 1100
     _atk: 150
     _def: 30
@@ -1210,16 +1405,146 @@ MonoBehaviour:
     _breakGauge: 300
     _prefabPath: Prefabs/Monster/CodeNumber001
     _spritePath: 
+  - _id: 202001
+    _name: CodeNumber001
+    _level: 7
+    _health: 700
+    _atk: 150
+    _def: 30
+    _criticalChance: 0.2
+    _criticalDamage: 2
+    _avoid: 25
+    _speed: 0.8
+    _breakGauge: 300
+    _prefabPath: Prefabs/Monster/CodeNumber001
+    _spritePath: 
+  - _id: 203001
+    _name: CodeNumber001
+    _level: 10
+    _health: 1100
+    _atk: 180
+    _def: 50
+    _criticalChance: 0.2
+    _criticalDamage: 2
+    _avoid: 25
+    _speed: 0.9
+    _breakGauge: 300
+    _prefabPath: Prefabs/Monster/CodeNumber001
+    _spritePath: 
+  - _id: 204001
+    _name: CodeNumber001
+    _level: 13
+    _health: 1400
+    _atk: 200
+    _def: 60
+    _criticalChance: 0.2
+    _criticalDamage: 2
+    _avoid: 25
+    _speed: 1
+    _breakGauge: 300
+    _prefabPath: Prefabs/Monster/CodeNumber001
+    _spritePath: 
+  - _id: 205001
+    _name: CodeNumber001
+    _level: 16
+    _health: 1700
+    _atk: 240
+    _def: 70
+    _criticalChance: 0.2
+    _criticalDamage: 2
+    _avoid: 25
+    _speed: 1.1
+    _breakGauge: 300
+    _prefabPath: Prefabs/Monster/CodeNumber001
+    _spritePath: 
+  - _id: 206001
+    _name: CodeNumber001
+    _level: 20
+    _health: 2000
+    _atk: 280
+    _def: 70
+    _criticalChance: 0.2
+    _criticalDamage: 2
+    _avoid: 25
+    _speed: 1.2
+    _breakGauge: 300
+    _prefabPath: Prefabs/Monster/CodeNumber001
+    _spritePath: 
   - _id: 301001
     _name: UpdatedDrone
-    _level: 20
-    _health: 3500
+    _level: 5
+    _health: 3000
     _atk: 200
     _def: 50
     _criticalChance: 0.22
     _criticalDamage: 2
     _avoid: 10
     _speed: 0.5
+    _breakGauge: 400
+    _prefabPath: Prefabs/Monster/UpdatedDrone
+    _spritePath: 
+  - _id: 302001
+    _name: UpdatedDrone
+    _level: 10
+    _health: 2000
+    _atk: 150
+    _def: 200
+    _criticalChance: 0.22
+    _criticalDamage: 2
+    _avoid: 10
+    _speed: 1
+    _breakGauge: 400
+    _prefabPath: Prefabs/Monster/UpdatedDrone
+    _spritePath: 
+  - _id: 303001
+    _name: UpdatedDrone
+    _level: 15
+    _health: 2000
+    _atk: 300
+    _def: 70
+    _criticalChance: 0.22
+    _criticalDamage: 2
+    _avoid: 10
+    _speed: 1.1
+    _breakGauge: 400
+    _prefabPath: Prefabs/Monster/UpdatedDrone
+    _spritePath: 
+  - _id: 304001
+    _name: UpdatedDrone
+    _level: 20
+    _health: 3000
+    _atk: 250
+    _def: 300
+    _criticalChance: 0.22
+    _criticalDamage: 2
+    _avoid: 10
+    _speed: 1
+    _breakGauge: 400
+    _prefabPath: Prefabs/Monster/UpdatedDrone
+    _spritePath: 
+  - _id: 305001
+    _name: UpdatedDrone
+    _level: 25
+    _health: 3000
+    _atk: 350
+    _def: 100
+    _criticalChance: 0.22
+    _criticalDamage: 2
+    _avoid: 10
+    _speed: 1.2
+    _breakGauge: 400
+    _prefabPath: Prefabs/Monster/UpdatedDrone
+    _spritePath: 
+  - _id: 306001
+    _name: UpdatedDrone
+    _level: 30
+    _health: 4000
+    _atk: 400
+    _def: 300
+    _criticalChance: 0.22
+    _criticalDamage: 2
+    _avoid: 10
+    _speed: 1.2
     _breakGauge: 400
     _prefabPath: Prefabs/Monster/UpdatedDrone
     _spritePath: 
@@ -1244,10 +1569,10 @@ MonoBehaviour:
     _compensationCount_3: 3
   - _id: 110102
     _battleMapPath: Prefabs/Map/BattleMap/BattleMap_1
-    _enemyID_1: 101001
-    _enemyCount_1: 3
-    _enemyID_2: 0
-    _enemyCount_2: 0
+    _enemyID_1: 101002
+    _enemyCount_1: 1
+    _enemyID_2: 101001
+    _enemyCount_2: 2
     _enemyID_3: 0
     _enemyCount_3: 0
     _enemyID_4: 0
@@ -2017,6 +2342,168 @@ MonoBehaviour:
     _compensation_3: 0
     _compensationCount_3: 0
   - _id: 150303
+    _battleMapPath: Prefabs/Map/BattleMap/BattleMap_3
+    _enemyID_1: 101001
+    _enemyCount_1: 5
+    _enemyID_2: 0
+    _enemyCount_2: 0
+    _enemyID_3: 0
+    _enemyCount_3: 0
+    _enemyID_4: 0
+    _enemyCount_4: 0
+    _enemyID_5: 0
+    _enemyCount_5: 0
+    _compensation_1: 10501
+    _compensationCount_1: 10
+    _compensation_2: 10402
+    _compensationCount_2: 4
+    _compensation_3: 10103
+    _compensationCount_3: 7
+  - _id: 160101
+    _battleMapPath: Prefabs/Map/BattleMap/BattleMap_3
+    _enemyID_1: 101001
+    _enemyCount_1: 2
+    _enemyID_2: 0
+    _enemyCount_2: 0
+    _enemyID_3: 0
+    _enemyCount_3: 0
+    _enemyID_4: 0
+    _enemyCount_4: 0
+    _enemyID_5: 0
+    _enemyCount_5: 0
+    _compensation_1: 10501
+    _compensationCount_1: 5
+    _compensation_2: 10604
+    _compensationCount_2: 2
+    _compensation_3: 0
+    _compensationCount_3: 0
+  - _id: 160102
+    _battleMapPath: Prefabs/Map/BattleMap/BattleMap_3
+    _enemyID_1: 101001
+    _enemyCount_1: 3
+    _enemyID_2: 0
+    _enemyCount_2: 0
+    _enemyID_3: 0
+    _enemyCount_3: 0
+    _enemyID_4: 0
+    _enemyCount_4: 0
+    _enemyID_5: 0
+    _enemyCount_5: 0
+    _compensation_1: 10501
+    _compensationCount_1: 5
+    _compensation_2: 10301
+    _compensationCount_2: 1
+    _compensation_3: 0
+    _compensationCount_3: 0
+  - _id: 160103
+    _battleMapPath: Prefabs/Map/BattleMap/BattleMap_3
+    _enemyID_1: 101001
+    _enemyCount_1: 5
+    _enemyID_2: 0
+    _enemyCount_2: 0
+    _enemyID_3: 0
+    _enemyCount_3: 0
+    _enemyID_4: 0
+    _enemyCount_4: 0
+    _enemyID_5: 0
+    _enemyCount_5: 0
+    _compensation_1: 10501
+    _compensationCount_1: 10
+    _compensation_2: 10402
+    _compensationCount_2: 4
+    _compensation_3: 10103
+    _compensationCount_3: 7
+  - _id: 160201
+    _battleMapPath: Prefabs/Map/BattleMap/BattleMap_3
+    _enemyID_1: 101001
+    _enemyCount_1: 2
+    _enemyID_2: 0
+    _enemyCount_2: 0
+    _enemyID_3: 0
+    _enemyCount_3: 0
+    _enemyID_4: 0
+    _enemyCount_4: 0
+    _enemyID_5: 0
+    _enemyCount_5: 0
+    _compensation_1: 10501
+    _compensationCount_1: 5
+    _compensation_2: 10201
+    _compensationCount_2: 6
+    _compensation_3: 0
+    _compensationCount_3: 0
+  - _id: 160202
+    _battleMapPath: Prefabs/Map/BattleMap/BattleMap_3
+    _enemyID_1: 101001
+    _enemyCount_1: 3
+    _enemyID_2: 0
+    _enemyCount_2: 0
+    _enemyID_3: 0
+    _enemyCount_3: 0
+    _enemyID_4: 0
+    _enemyCount_4: 0
+    _enemyID_5: 0
+    _enemyCount_5: 0
+    _compensation_1: 10501
+    _compensationCount_1: 5
+    _compensation_2: 10606
+    _compensationCount_2: 2
+    _compensation_3: 10605
+    _compensationCount_3: 2
+  - _id: 160203
+    _battleMapPath: Prefabs/Map/BattleMap/BattleMap_3
+    _enemyID_1: 101001
+    _enemyCount_1: 5
+    _enemyID_2: 0
+    _enemyCount_2: 0
+    _enemyID_3: 0
+    _enemyCount_3: 0
+    _enemyID_4: 0
+    _enemyCount_4: 0
+    _enemyID_5: 0
+    _enemyCount_5: 0
+    _compensation_1: 10501
+    _compensationCount_1: 10
+    _compensation_2: 10402
+    _compensationCount_2: 4
+    _compensation_3: 10103
+    _compensationCount_3: 7
+  - _id: 160301
+    _battleMapPath: Prefabs/Map/BattleMap/BattleMap_3
+    _enemyID_1: 101001
+    _enemyCount_1: 2
+    _enemyID_2: 0
+    _enemyCount_2: 0
+    _enemyID_3: 0
+    _enemyCount_3: 0
+    _enemyID_4: 0
+    _enemyCount_4: 0
+    _enemyID_5: 0
+    _enemyCount_5: 0
+    _compensation_1: 10501
+    _compensationCount_1: 5
+    _compensation_2: 10301
+    _compensationCount_2: 1
+    _compensation_3: 0
+    _compensationCount_3: 0
+  - _id: 160302
+    _battleMapPath: Prefabs/Map/BattleMap/BattleMap_3
+    _enemyID_1: 101001
+    _enemyCount_1: 3
+    _enemyID_2: 0
+    _enemyCount_2: 0
+    _enemyID_3: 0
+    _enemyCount_3: 0
+    _enemyID_4: 0
+    _enemyCount_4: 0
+    _enemyID_5: 0
+    _enemyCount_5: 0
+    _compensation_1: 10501
+    _compensationCount_1: 5
+    _compensation_2: 10201
+    _compensationCount_2: 10
+    _compensation_3: 0
+    _compensationCount_3: 0
+  - _id: 160303
     _battleMapPath: Prefabs/Map/BattleMap/BattleMap_3
     _enemyID_1: 101001
     _enemyCount_1: 5
