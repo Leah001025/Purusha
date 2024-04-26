@@ -22,5 +22,10 @@ public class EnemySkill1State : EnemyBaseState
     public override void Update()
     {
         base.Update();
+        base.Update();
+        if (stateMachine.Enemy.Animator.GetCurrentAnimatorStateInfo(0).IsName("Sikll1") == false)
+        {
+            stateMachine.ChangeState(stateMachine.IdleState);
+        }
     }
 }
