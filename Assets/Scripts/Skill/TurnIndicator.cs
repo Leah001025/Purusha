@@ -37,7 +37,12 @@ public class TurnIndicator : MonoBehaviour
             Image portrait = obj.transform.GetChild(0).gameObject.GetComponent<Image>();
             TextMeshProUGUI gauge = obj.transform.GetChild(2).gameObject.GetComponent<TextMeshProUGUI>();
             unitGauges.Add(i, gauge);
+            if (lUnitInfo[i].unitType == Enums.CharacterType.Player)
             portrait.sprite = Resources.Load<Sprite>("UI/Icon/Portrait_" + lUnitInfo[i].unitID.ToString());
+            else
+            {
+                portrait.sprite = Resources.Load<Sprite>(lUnitInfo[i].unitData.SpritePath);
+            }
             gauge.text = lUnitInfo[i].unitGauge.ToString("0");
             characters.Add(i, obj);
             outLines.Add(i, outline);
