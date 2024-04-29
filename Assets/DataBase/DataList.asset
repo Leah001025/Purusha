@@ -1835,35 +1835,35 @@ MonoBehaviour:
     IconPath: 
   - ID: 306001011
     Name: "\uC77C\uBC18\uACF5\uACA9"
-    Description: "\uC801 \uC804\uCCB4 \uC0AC\uACA9"
+    Description: "\uC801 \uC804\uCCB4 \uC0AC\uACA9(\uACF5\uACA9\uB825,\uBC29\uC5B4\uB825\uAC10\uC18C)"
     Type: 1
     Range: 1
-    BuffID: 0
-    BuffID2: 0
-    AtkCoefficient: 0.6
+    BuffID: 202
+    BuffID2: 204
+    AtkCoefficient: 0.5
     DefCoefficient: 0
     HealthCoefficient: 0
     CoolTime: 0
-    DebuffProbability: 0
-    Duration: 0
+    DebuffProbability: 1
+    Duration: 2
     SkillGage: 0
-    EffectPath: Prefabs/Skill/UpdatedDrone/Skill1
+    EffectPath: Prefabs/Skill/Destiny/Skill1
     IconPath: 
   - ID: 306001021
     Name: "\uD2B9\uC218"
-    Description: "\uC801 1\uBA85 \uC0AC\uACA9(\uACF5\uACA9\uB825\uAC10\uC18C)"
+    Description: "\uC801 1\uBA85 \uD0C0\uACA9(\uBC29\uC5B4\uB825\uAC10\uC18C)"
     Type: 0
-    Range: 1
-    BuffID: 202
+    Range: 0
+    BuffID: 203
     BuffID2: 0
-    AtkCoefficient: 1.2
+    AtkCoefficient: 1.5
     DefCoefficient: 0
     HealthCoefficient: 0
     CoolTime: 3
     DebuffProbability: 1
     Duration: 2
     SkillGage: 0
-    EffectPath: Prefabs/Skill/UpdatedDrone/Skill2
+    EffectPath: Prefabs/Skill/Destiny/Skill2
     IconPath: 
   BuffData:
   - BuffID: 0
@@ -2336,7 +2336,7 @@ MonoBehaviour:
     _prefabPath: Prefabs/Monster/KillerRobot
     _spritePath: UI/Icon/KillerRobot
   - _id: 306001
-    _name: UpdatedDrone
+    _name: Destiny
     _level: 30
     _health: 4000
     _atk: 400
@@ -2346,8 +2346,8 @@ MonoBehaviour:
     _avoid: 10
     _speed: 1.2
     _breakGauge: 400
-    _prefabPath: Prefabs/Monster/UpdatedDrone
-    _spritePath: UI/Icon/UpdatedDrone
+    _prefabPath: Prefabs/Monster/Destiny
+    _spritePath: UI/Icon/Destiny
   WaveData:
   - _id: 110101
     _battleMapPath: Prefabs/Map/BattleMap/BattleMap_1
