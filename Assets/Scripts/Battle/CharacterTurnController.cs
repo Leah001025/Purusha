@@ -141,7 +141,7 @@ public class CharacterTurnController : MonoBehaviour
                 break;
             case 201:
             case 202://°ø°¨
-                buffAndDebuff.SetAtkUp(buffID);
+                buffAndDebuff.SetAtkDown(buffID);
                 if (attackDown != null && buffAndDebuff.attackDown != null) attackDown.Duration = buffAndDebuff.attackDown.Duration;
                 if (attackDown == null && buffAndDebuff.attackDown != null)
                 {

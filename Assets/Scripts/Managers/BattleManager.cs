@@ -406,10 +406,13 @@ public class BattleManager : MonoBehaviour
                         }
 
                     }
-                    foreach (CharacterTurnController turnController in turnControllers.Values)
+                    foreach (KeyValuePair<int, CharacterTurnController> turnController in turnControllers)
                     {
-                        turnController.SetBuffandDebuff(buffID);
-                        if (buffID2 != 0) turnController.SetBuffandDebuff(buffID2);
+                        if(lUnitInfo.ContainsKey(turnController.Key))
+                        {
+                        turnController.Value.SetBuffandDebuff(buffID);
+                        if (buffID2 != 0) turnController.Value.SetBuffandDebuff(buffID2);
+                        }
                     }
                 }
 
@@ -456,6 +459,7 @@ public class BattleManager : MonoBehaviour
                     if (lUnitInfo.ContainsKey(count) && lUnitInfo[count].unitType == CharacterType.Player)
                     {
                         turnControllers[count].SetBuffandDebuff(buffID);
+                        turnControllers[count].SetBuffandDebuff(buffID2);
                         _damage = AddDamagePlayer(characterData, skillNum, count);
                         lUnitInfo[count].characterData.status.health -= _damage;
                         battleInfo.characterInfo[count].receivedDamages += _damage;
