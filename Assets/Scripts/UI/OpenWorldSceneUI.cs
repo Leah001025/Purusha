@@ -49,15 +49,12 @@ public class OpenWorldSceneUI : MonoBehaviour
     public void UpdateData()
     {
         teamData = GameManager.Instance.User.teamData;
-        foreach (KeyValuePair<int, GameObject> obj in uiObject)
+        uiObject.Clear();
+        int childCountNum = contentTrans.childCount;
+        for (int i = 0; i < childCountNum; i++)
         {
-            TextMeshProUGUI lvText = obj.Value.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
-            Image image = obj.Value.transform.GetChild(2).GetComponent<Image>();
-            Slider hpSlider = obj.Value.transform.GetChild(4).GetComponent<Slider>();
-            TextMeshProUGUI hpText = obj.Value.transform.GetChild(4).GetChild(3).GetComponent<TextMeshProUGUI>();
-            lvText.text = "Lv." + teamData[obj.Key].status.level.ToString("0");
-            hpText.text = teamData[obj.Key].status.health.ToString("0");
-            hpSlider.value = teamData[obj.Key].status.health / teamData[obj.Key].status.maxhealth;
+            Destroy(contentTrans.GetChild(i).gameObject);
         }
+        Init();
     }
 }
