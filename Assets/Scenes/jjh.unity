@@ -341,6 +341,53 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 97706079490141115, guid: a14f0ab7b4862a643871dcccbddbd434,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 95ee19788d136144aad98f56a184e497,
+        type: 3}
+    - target: {fileID: 2893162483383012757, guid: a14f0ab7b4862a643871dcccbddbd434,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: c6d57e4f443c55c4c9f005dd10d3cd46,
+        type: 3}
+    - target: {fileID: 2893162483383012757, guid: a14f0ab7b4862a643871dcccbddbd434,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4724191774095138524, guid: a14f0ab7b4862a643871dcccbddbd434,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -350
+      objectReference: {fileID: 0}
+    - target: {fileID: 4724191774095138524, guid: a14f0ab7b4862a643871dcccbddbd434,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 5842283087976016144, guid: a14f0ab7b4862a643871dcccbddbd434,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 520.0013
+      objectReference: {fileID: 0}
+    - target: {fileID: 5842283087976016144, guid: a14f0ab7b4862a643871dcccbddbd434,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 128
+      objectReference: {fileID: 0}
+    - target: {fileID: 5842283087976016144, guid: a14f0ab7b4862a643871dcccbddbd434,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.000032425
+      objectReference: {fileID: 0}
+    - target: {fileID: 5842283087976016144, guid: a14f0ab7b4862a643871dcccbddbd434,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 18.2
+      objectReference: {fileID: 0}
     - target: {fileID: 7190799247571198969, guid: a14f0ab7b4862a643871dcccbddbd434,
         type: 3}
       propertyPath: m_Pivot.x
@@ -444,7 +491,7 @@ PrefabInstance:
     - target: {fileID: 7471597598554698526, guid: a14f0ab7b4862a643871dcccbddbd434,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8814745396772545805, guid: a14f0ab7b4862a643871dcccbddbd434,
         type: 3}
