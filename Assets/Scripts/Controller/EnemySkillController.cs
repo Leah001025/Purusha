@@ -100,7 +100,7 @@ public class EnemySkillController : MonoBehaviour
         {
             battleManager.target = battleManager.lUnitInfo[battleManager.provokeIndex].unitObject;
             BuffDuration();
-            Skill1();
+            StartCoroutine(Skill1());
             return;
         }             
         if(stun!=null)
@@ -388,18 +388,37 @@ public class EnemySkillController : MonoBehaviour
             buff.Duration--;
             if (buff.Duration <= 0)
             {
-                buffStat = oriStat;
                 //characterBuffData.status.atk = characterData.status.atk;
                 if (OnBuff.ContainsKey(buffName))
                 {
                     Destroy(OnBuff[buffName].gameObject);
                     OnBuff.Remove(buffName);
                 }
-                if (buff.BuffID == 101) shield = null;
-                if (buff.BuffID == 102) attackUp = null;
-                if (buff.BuffID == 103) defUp = null;
-                if (buff.BuffID == 201 || buff.BuffID == 202) attackDown = null;
-                if (buff.BuffID == 203 || buff.BuffID == 204) defDown = null;
+                if (buff.BuffID == 101)
+                {
+                    shieldQuantity = oriStat;
+                    shield = null;
+                }
+                if (buff.BuffID == 102)
+                {
+                    enemyCharacterBuffData.enemyData.Atk = oriStat;
+                    attackUp = null;
+                }
+                if (buff.BuffID == 103)
+                {
+                    enemyCharacterBuffData.enemyData.Def = oriStat;
+                    defUp = null;
+                }
+                if (buff.BuffID == 201 || buff.BuffID == 202)
+                {
+                    enemyCharacterBuffData.enemyData.Atk = oriStat;
+                    attackDown = null;
+                }
+                if (buff.BuffID == 203 || buff.BuffID == 204)
+                {
+                    enemyCharacterBuffData.enemyData.Def = oriStat;
+                    defDown = null;
+                }
                 if (buff.BuffID == 205 || buff.BuffID == 206) stun = null;
                 if (buff.BuffID == 207 || buff.BuffID == 208 || buff.BuffID == 209) provoke = null;
             }

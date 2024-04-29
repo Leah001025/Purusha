@@ -37,28 +37,37 @@ public class CharacterExclusiveSkill
     private void Breesha()
     {
         characterSkillController = BattleManager.Instance.turnControllers;
-        foreach (CharacterTurnController turnController in characterSkillController.Values)
+        foreach (KeyValuePair < int,CharacterTurnController> turnController in characterSkillController)
         {
-            turnController.SetBuffandDebuff(102);
-            if (102 != 0) turnController.SetBuffandDebuff(102);
+            if (BattleManager.Instance.lUnitInfo.ContainsKey(turnController.Key))
+            {
+                turnController.Value.SetBuffandDebuff(102);
+                if (102 != 0) turnController.Value.SetBuffandDebuff(102);
+            }
         }
     }
     private void Eve()
     {
         enemySkillController = BattleManager.Instance.enemySkillControllers;
-        foreach (EnemySkillController skillController in enemySkillController.Values)
+        foreach (KeyValuePair <int, EnemySkillController> skillController in enemySkillController)
         {
-            skillController.SetBuffandDebuff(202);
-            if (202 != 0) skillController.SetBuffandDebuff(202);
+            if (BattleManager.Instance.lUnitInfo.ContainsKey(skillController.Key))
+            {
+            skillController.Value.SetBuffandDebuff(202);
+            if (202 != 0) skillController.Value.SetBuffandDebuff(202);
+            }
         }
     }
     private void Adam()
     {
         enemySkillController = BattleManager.Instance.enemySkillControllers;
-        foreach (EnemySkillController skillController in enemySkillController.Values)
+        foreach (KeyValuePair<int, EnemySkillController> skillController in enemySkillController)
         {
-            skillController.SetBuffandDebuff(204);
-            if (204 != 0) skillController.SetBuffandDebuff(204);
+            if (BattleManager.Instance.lUnitInfo.ContainsKey(skillController.Key))
+            {
+                skillController.Value.SetBuffandDebuff(204);
+                if (204 != 0) skillController.Value.SetBuffandDebuff(204);
+            }
         }
     }
     private void Abel()
@@ -75,19 +84,25 @@ public class CharacterExclusiveSkill
     private void Kain()
     {
         characterSkillController = BattleManager.Instance.turnControllers;
-        foreach (CharacterTurnController turnController in characterSkillController.Values)
+        foreach (KeyValuePair<int, CharacterTurnController> turnController in characterSkillController)
         {
-            turnController.SetBuffandDebuff(101);
-            if (101 != 0) turnController.SetBuffandDebuff(101);
+            if (BattleManager.Instance.lUnitInfo.ContainsKey(turnController.Key))
+            {
+                turnController.Value.SetBuffandDebuff(101);
+                if (101 != 0) turnController.Value.SetBuffandDebuff(101);
+            }
         }
     }
     private void Kana()
     {
         characterSkillController = BattleManager.Instance.turnControllers;
-        foreach (CharacterTurnController turnController in characterSkillController.Values)
+        foreach (KeyValuePair<int, CharacterTurnController> turnController in characterSkillController)
         {
-            turnController.SetBuffandDebuff(103);
-            if (103 != 0) turnController.SetBuffandDebuff(103);
+            if (BattleManager.Instance.lUnitInfo.ContainsKey(turnController.Key))
+            {
+                turnController.Value.SetBuffandDebuff(103);
+                if (103 != 0) turnController.Value.SetBuffandDebuff(103);
+            }
         }
     }
 }

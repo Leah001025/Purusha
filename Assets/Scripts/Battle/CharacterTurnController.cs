@@ -238,11 +238,31 @@ public class CharacterTurnController : MonoBehaviour
                     Destroy(OnBuff[buffName].gameObject);
                     OnBuff.Remove(buffName);
                 }
-                if (buff.BuffID == 101) shield = null;
-                if (buff.BuffID == 102) attackUp = null;
-                if (buff.BuffID == 103) defUp = null;
-                if (buff.BuffID == 201|| buff.BuffID == 202) attackDown = null;
-                if (buff.BuffID == 203|| buff.BuffID == 204) defDown = null;
+                if (buff.BuffID == 101) 
+                {
+                    shieldQuantity = oriStat;
+                    shield = null;
+                }
+                if (buff.BuffID == 102) 
+                {
+                    characterBuffData.status.atk = oriStat;
+                    attackUp = null; 
+                }
+                if (buff.BuffID == 103)
+                {
+                    characterBuffData.status.def = oriStat;
+                    defUp = null;
+                }
+                if (buff.BuffID == 201|| buff.BuffID == 202)
+                {
+                    characterBuffData.status.atk = oriStat;
+                    attackDown = null;
+                }
+                if (buff.BuffID == 203|| buff.BuffID == 204)
+                {
+                    characterBuffData.status.def = oriStat;
+                    defDown = null;
+                }
                 if (buff.BuffID == 205 || buff.BuffID == 206) stun = null;
                 if (buff.BuffID == 207 || buff.BuffID == 208 || buff.BuffID == 209) provoke = null;
             }
@@ -276,12 +296,12 @@ public class CharacterTurnController : MonoBehaviour
             switch (characterData.skillData[1].range)
             {
                 case 0:
-                    StartCoroutine(MeleeSkillEffect("1"));
-                    StartCoroutine(WaitForSkillEffect(4f));
+                    //StartCoroutine(MeleeSkillEffect("1"));
+                    StartCoroutine(WaitForSkillEffect(MeleeSkillEffect("1")));
                     break;
                 case 1:
-                    StartCoroutine(RangedSkillEffect(1f, "1"));
-                    StartCoroutine(WaitForSkillEffect(3f));
+                    //StartCoroutine(RangedSkillEffect(1f, "1"));
+                    StartCoroutine(WaitForSkillEffect(RangedSkillEffect(1f, "1")));
                     break;
             }
             skill4Gauge += characterData.skillData[1].skillGage;
@@ -296,12 +316,12 @@ public class CharacterTurnController : MonoBehaviour
             switch (characterData.skillData[2].range)
             {
                 case 0:
-                    StartCoroutine(MeleeSkillEffect("2"));
-                    StartCoroutine(WaitForSkillEffect(3.5f));
+                    //StartCoroutine(MeleeSkillEffect("2"));
+                    StartCoroutine(WaitForSkillEffect(MeleeSkillEffect("2")));
                     break;
                 case 1:
-                    StartCoroutine(RangedSkillEffect(1f, "2"));
-                    StartCoroutine(WaitForSkillEffect(3f));
+                    //StartCoroutine(RangedSkillEffect(1f, "2"));
+                    StartCoroutine(WaitForSkillEffect(RangedSkillEffect(1f, "2")));
                     break;
             }
         }
@@ -313,14 +333,14 @@ public class CharacterTurnController : MonoBehaviour
             switch (characterData.skillData[3].range)
             {
                 case 0:
-                    StartCoroutine(MeleeSkillEffect("3"));
+                    //StartCoroutine(MeleeSkillEffect("3"));
+                    StartCoroutine(WaitForSkillEffect(MeleeSkillEffect("3")));
                     skill3CoolTime = characterData.skillData[3].coolTime;
-                    StartCoroutine(WaitForSkillEffect(4f));
                     break;
                 case 1:
-                    StartCoroutine(RangedSkillEffect(1f, "3"));
+                    //StartCoroutine(RangedSkillEffect(1f, "3"));
+                    StartCoroutine(WaitForSkillEffect(RangedSkillEffect(1f, "3")));
                     skill3CoolTime = characterData.skillData[3].coolTime;
-                    StartCoroutine(WaitForSkillEffect(2.5f));
                     break;
             }
             skill4Gauge += characterData.skillData[3].skillGage;
@@ -335,12 +355,12 @@ public class CharacterTurnController : MonoBehaviour
             switch (characterData.skillData[4].range)
             {
                 case 0:
-                    StartCoroutine(MeleeSkillEffect("4"));
-                    StartCoroutine(WaitForSkillEffect(3.7f));
+                    StartCoroutine(WaitForSkillEffect(MeleeSkillEffect("4")));
+                    //StartCoroutine(MeleeSkillEffect("4"));
                     break;
                 case 1:
-                    StartCoroutine(RangedSkillEffect(2f, "4"));
-                    StartCoroutine(WaitForSkillEffect(3f));
+                    StartCoroutine(WaitForSkillEffect(RangedSkillEffect(2f, "4")));
+                    //StartCoroutine(RangedSkillEffect(2f, "4"));
                     break;
             }
             skill4Gauge = 0;
@@ -367,9 +387,10 @@ public class CharacterTurnController : MonoBehaviour
         diffPos = startPos - transform.localPosition;
         if (diffPos.magnitude < 0.05f) { isStartPos = true; }
     }
-    IEnumerator WaitForSkillEffect(float time)
+    IEnumerator WaitForSkillEffect(IEnumerator coroutine)
     {
-        yield return new WaitForSeconds(time);
+        yield return StartCoroutine(coroutine);
+        yield return new WaitForSeconds(1f);
         //Camera.main.transform.SetLocalPositionAndRotation(battleManager.defalutCameraPos, Quaternion.Euler(20, 0, 0));
         battleManager.speedModifier = 1;
         battleManager.lUnitInfo[battleManager.onTurnIndex].unitGauge = 0;

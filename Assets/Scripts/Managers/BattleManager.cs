@@ -58,7 +58,7 @@ public class BattleManager : MonoBehaviour
     private WaveDataBase waveDB;
     private WaveData WaveData;
 
-    private WaitForSeconds dieForSeconds;
+    public WaitForSeconds dieForSeconds;
     private WaitForSeconds gameForSeconds;
     public WaitForSeconds animForSeconds;
 
@@ -93,6 +93,7 @@ public class BattleManager : MonoBehaviour
 
     public float speedModifier = 2;
     private bool isCritical = false;
+    public bool isEnemyTurn =false;
 
     [Header("TurnIndicator")]
     //public float turnIndicator1;
@@ -205,7 +206,7 @@ public class BattleManager : MonoBehaviour
                 unitInfo.actionController = unitInfo.unitObject.GetComponent<Enemy>().ActionController;
                 unitInfo.unitObject.transform.localPosition = enemySpawnPos[enemyIndex];
                 enemyIndex++;
-                unitInfo.unitData = CreateEnemyData(unitInfo.unitObject.tag);
+                unitInfo.unitData = CreateEnemyData(unitInfo.unitID);
                 
                 lUnitInfo.Add(lUnitInfo.Count + 1, unitInfo);
                 unitInfo.unitObject.name = lUnitInfo.Count.ToString();
@@ -216,10 +217,10 @@ public class BattleManager : MonoBehaviour
         }
         enemyUnitCount = enemyCreateCount;
     }
-    private SEnemyData CreateEnemyData(string name)
+    private SEnemyData CreateEnemyData(int id)
     {
-        int _id = (int)Enum.Parse(typeof(EnemyID), name);
-        SEnemyData sEnemyData = new SEnemyData(DataManager.Instance.EnemyDB.GetData(_id));
+        //int _id = (int)Enum.Parse(typeof(EnemyID), name);
+        SEnemyData sEnemyData = new SEnemyData(DataManager.Instance.EnemyDB.GetData(id));
         return sEnemyData;
     }
     private CharacterBattleInfo CreateCharacterBattleInfo()
@@ -278,26 +279,35 @@ public class BattleManager : MonoBehaviour
     }
     private IEnumerator UnitAttack(int index)
     {
-        switch (lUnitInfo[index].unitType)
+        if (!lUnitInfo.ContainsKey(index))
         {
-            case CharacterType.Player:
-                TargetChange(CharacterType.Enemy);
-                turnControllers[index].TurnOn();
-                var popup = UIManager.Instance.ShowPopup<SkillPopUp>();
-                break;
-            case CharacterType.Enemy:
-                TargetChange(CharacterType.Player);
-                enemySkillControllers[index].TurnOn();
-                //EnemyAttack(lUnitInfo[index]);
-
-                //AnimForSeconds(newAnimTime, beforeAnimTime);
-                //speedModifier = 1;
-                //isAttacking = false;
-                //yield return animForSeconds;
-                //lUnitInfo[index].unitGauge = 0;
-                break;
+            isAttacking = false;
         }
-        yield break;
+        else
+        {
+            switch (lUnitInfo[index].unitType)
+            {
+                case CharacterType.Player:
+                    TargetChange(CharacterType.Enemy);
+                    isEnemyTurn = false;
+                    turnControllers[index].TurnOn();
+                    var popup = UIManager.Instance.ShowPopup<SkillPopUp>();
+                    break;
+                case CharacterType.Enemy:
+                    TargetChange(CharacterType.Player);
+                    isEnemyTurn = true;
+                    enemySkillControllers[index].TurnOn();
+                    //EnemyAttack(lUnitInfo[index]);
+
+                    //AnimForSeconds(newAnimTime, beforeAnimTime);
+                    //speedModifier = 1;
+                    //isAttacking = false;
+                    //yield return animForSeconds;
+                    //lUnitInfo[index].unitGauge = 0;
+                    break;
+            }
+            yield break;
+        }       
     }
     //private void EnemyAttack(UnitInfo unitInfo)
     //{
@@ -327,21 +337,22 @@ public class BattleManager : MonoBehaviour
                 battleInfo.characterInfo[onTurnIndex].attackDamages += _damage;
                 lUnitInfo[targetIndex].actionController.BattleHit();
                 enemySkillControllers[targetIndex].SetBuffandDebuff(buffID);
-                if (buffID == 105031|| buffID == 105032 || buffID == 105033) provokeIndex = onTurnIndex;
+                if (buffID == 207|| buffID == 208 || buffID == 209) provokeIndex = onTurnIndex;
                 AddDamageUI(_damage, target.name, isCritical);
                 StartCoroutine(DieCheck(lUnitInfo[targetIndex]));
                 break;
             case 1:
                 int count = 1;
-                foreach (EnemySkillController skillController in enemySkillControllers.Values)
-                {
-                    skillController.SetBuffandDebuff(buffID);
-                }
+                //foreach (EnemySkillController skillController in enemySkillControllers.Values)
+                //{
+                //    skillController.SetBuffandDebuff(buffID);
+                //}
                 for (int i = 1; i <= enemyCreateCount + playerCreateCount; i++)
                 {
                     targetIndex = int.Parse(target.name);
                     if (lUnitInfo.ContainsKey(count) && lUnitInfo[count].unitType == CharacterType.Enemy)
                     {
+                        enemySkillControllers[count].SetBuffandDebuff(buffID);
                         _damage = AddDamage(characterData, skillNum, count);
                         lUnitInfo[count].unitData.Health -= _damage;
                         battleInfo.characterInfo[onTurnIndex].attackDamages += _damage;
@@ -435,15 +446,16 @@ public class BattleManager : MonoBehaviour
                 break;
             case 1:
                 int count = 1;
-                foreach (CharacterTurnController turnController in turnControllers.Values)
-                {
-                    turnController.SetBuffandDebuff(buffID);
-                }
+                //foreach (CharacterTurnController turnController in turnControllers.Values)
+                //{
+                //    turnController.SetBuffandDebuff(buffID);
+                //}
                 for (int i = 1; i <= enemyCreateCount + playerCreateCount; i++)
                 {
                     targetIndex = int.Parse(target.name);
                     if (lUnitInfo.ContainsKey(count) && lUnitInfo[count].unitType == CharacterType.Player)
                     {
+                        turnControllers[count].SetBuffandDebuff(buffID);
                         _damage = AddDamagePlayer(characterData, skillNum, count);
                         lUnitInfo[count].characterData.status.health -= _damage;
                         battleInfo.characterInfo[count].receivedDamages += _damage;
