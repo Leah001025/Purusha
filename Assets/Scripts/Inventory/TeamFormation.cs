@@ -115,6 +115,7 @@ public class TeamFormation : MonoBehaviour
 
     public void OffPointerClick(string characterID)
     {
+        if (GameManager.Instance.User.teamData.Count == 1) return;
         int index = 0;
         foreach (KeyValuePair<int, CharacterData> _data in GameManager.Instance.User.teamData)
         {

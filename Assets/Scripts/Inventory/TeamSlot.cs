@@ -16,6 +16,7 @@ public class TeamSlot : MonoBehaviour
 
     public void RemoveTeamSlot()
     {
+        if (GameManager.Instance.User.teamData.Count == 1) return;
         SoundManager.Instance.ButtonAudio("CharacterDown");
         teamFormation.OffPointerClick(gameObject.name);
         Destroy(gameObject);
