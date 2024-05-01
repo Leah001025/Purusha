@@ -19,6 +19,8 @@ public class SceneLoadManager : SingleTon<SceneLoadManager>
     public async void ChangeScene(string SceneName, Action callback = null, LoadSceneMode loadSceneMode = LoadSceneMode.Single)
     {
         var op = SceneManager.LoadSceneAsync(SceneName, loadSceneMode);
+        UIManager.Instance.charInventoryUI.Clear();
+        UIManager.Instance.popups.Clear();
         while (!op.isDone)
         {
             await Task.Yield();
@@ -46,6 +48,8 @@ public class SceneLoadManager : SingleTon<SceneLoadManager>
     public async void LoadingChangeScene(string SceneName)
     {
         NextSceneName = SceneName;
+        UIManager.Instance.charInventoryUI.Clear();
+        UIManager.Instance.popups.Clear();
         if (GameManager.Instance.User != null)
         {
             GameManager.Instance.SaveDatas();
