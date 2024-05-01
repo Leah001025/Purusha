@@ -223,9 +223,9 @@ public class EnemySkillController : MonoBehaviour
         }
         OnSkillEffect(enemyCharacterData.enemySkillData[skillNum]);
         yield return battleManager.animForSeconds;
-        Destroy(skillObj);
-        yield return new WaitForSeconds(0.2f);
         battleManager.OnSkillEnemy(enemyCharacterBuffData, skillNum);
+        Destroy(skillObj);
+        yield return new WaitForSeconds(1f);
         isAttack = false;
         yield break;
     }

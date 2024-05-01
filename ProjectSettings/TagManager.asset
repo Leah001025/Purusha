@@ -18,6 +18,7 @@ TagManager:
   - Cyborg
   - KillerRobot
   - Destiny
+  - SecurityRobot
   layers:
   - Default
   - TransparentFX

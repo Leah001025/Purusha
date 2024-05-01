@@ -133,6 +133,7 @@ public class BattleManager : MonoBehaviour
         dieForSeconds = new WaitForSeconds(0.5f);
         UIManager.Instance.ShowPopup<TurnIndicatorUI>();
         cameraPos = new Vector3(5f, 2f, -6.2f);
+        SoundManager.Instance.BgmAudio(GameManager.Instance.stageID.ToString());
     }
     private void Update()
     {

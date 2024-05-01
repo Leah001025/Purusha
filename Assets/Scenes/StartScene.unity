@@ -1377,7 +1377,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uAC1C\uBC1C\uC790.\n\n\uAE40\uCE58\uD5CC\n\uC9C4\uC8FC\uD558\n\uBC15\uD0DC\uD638\n\n\uC2A4\uD30C\uB974\uD0C0\uCF54\uB529\uD074\uB7FD.\n\nUnity_3\uAE30"
+  m_text: "\uAC1C\uBC1C\uC790.\n\n\uAE40\uCE58\uD5CC\n\uC9C4\uBCF4\uACBD\n\uBC15\uD0DC\uD638\n\n\uC2A4\uD30C\uB974\uD0C0\uCF54\uB529\uD074\uB7FD.\n\nUnity_3\uAE30"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e25c6dffca85b2b49bc654f4d6c3888b, type: 2}
   m_sharedMaterial: {fileID: -6808251517088078940, guid: e25c6dffca85b2b49bc654f4d6c3888b,
