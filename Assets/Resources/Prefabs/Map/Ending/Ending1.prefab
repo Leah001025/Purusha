@@ -6078,8 +6078,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1826885441518942425}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.052600786, y: -0.93815595, z: 0.16060089, w: 0.30216545}
-  m_LocalPosition: {x: -11.261, y: 0.082155764, z: -22.551617}
+  m_LocalRotation: {x: -0.13179672, y: 0.6930495, z: -0.13015929, w: -0.69668543}
+  m_LocalPosition: {x: -18.92153, y: -0.5925428, z: -15.934111}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7053,7 +7053,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1617146374184043531}
-  - {fileID: 1039871605973355751}
   m_Father: {fileID: 7237279549618070191}
   m_LocalEulerAnglesHint: {x: 0, y: -453.224, z: 0}
 --- !u!114 &1971535820695004638
@@ -7080,10 +7079,12 @@ MonoBehaviour:
     battleIdleParameterName: BattleIdle
     battleJumpParameterName: BattleJump
     battleMoveParameterName: BattleMove
+    battleHitParameterName: BattleHit
     battleSkill1ParameterName: BattleSkill1
     battleSkill2ParameterName: BattleSkill2
     battleSkill3ParameterName: BattleSkill3
     battleSkill4ParameterName: BattleSkill4
+  WorldMapAttackEffect: {fileID: 0}
 --- !u!114 &8892548813956883618
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14480,10 +14481,12 @@ MonoBehaviour:
     battleIdleParameterName: BattleIdle
     battleJumpParameterName: BattleJump
     battleMoveParameterName: BattleMove
+    battleHitParameterName: BattleHit
     battleSkill1ParameterName: BattleSkill1
     battleSkill2ParameterName: BattleSkill2
     battleSkill3ParameterName: BattleSkill3
     battleSkill4ParameterName: BattleSkill4
+  WorldMapAttackEffect: {fileID: 0}
 --- !u!114 &3049807754517756607
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24956,50 +24959,6 @@ Transform:
   - {fileID: 1895609755396491298}
   m_Father: {fileID: 8200190342293922860}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &7835432619438509143
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1039871605973355751}
-  - component: {fileID: 5932635984757070935}
-  m_Layer: 6
-  m_Name: TestScene
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1039871605973355751
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7835432619438509143}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3.3333333, y: 3.3333333, z: 3.3333333}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 6721347737537965434}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5932635984757070935
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7835432619438509143}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0a2941f06c6edfc419719ec9830659c9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &7837843217561586609
 GameObject:
   m_ObjectHideFlags: 0
