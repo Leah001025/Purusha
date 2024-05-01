@@ -12,7 +12,5 @@ public class MainScene : BaseScene
         {
             SoundManager.Instance.SceneAudioStart("MainScene");
         }
-        UIManager.Instance.charInventoryUI.Clear();
-        UIManager.Instance.popups.Clear();
     }
 }
