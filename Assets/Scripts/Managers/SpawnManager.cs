@@ -49,9 +49,9 @@ public class SpawnManager : MonoBehaviour
     }
     private void Start()
     {
-        SoundManager.Instance.BgmAudio(mapName);
         MonsterSpawn();
         PlayerSpawm();
+        SoundManager.Instance.BgmAudio(GameManager.Instance.stageID.ToString() + "OP");
     }
     private void PlayerSpawm()
     {
