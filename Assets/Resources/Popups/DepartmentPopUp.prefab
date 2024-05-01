@@ -465,8 +465,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8133682475968355853}
-        m_TargetAssemblyTypeName: PopupManager, Assembly-CSharp
+      - m_Target: {fileID: 4353457316262533197}
+        m_TargetAssemblyTypeName: InventoryMainUI, Assembly-CSharp
         m_MethodName: ShowSkill
         m_Mode: 1
         m_Arguments:
@@ -1281,10 +1281,10 @@ RectTransform:
   - {fileID: 1385868101040819255}
   m_Father: {fileID: 32123876981386198}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 275, y: -700}
-  m_SizeDelta: {x: 550, y: 200}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8425702758726192257
 CanvasRenderer:
@@ -1656,8 +1656,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8133682475968355853}
-        m_TargetAssemblyTypeName: PopupManager, Assembly-CSharp
+      - m_Target: {fileID: 4353457316262533197}
+        m_TargetAssemblyTypeName: InventoryMainUI, Assembly-CSharp
         m_MethodName: OnClickUpgrade
         m_Mode: 1
         m_Arguments:
@@ -2071,10 +2071,10 @@ RectTransform:
   - {fileID: 8538788649042304465}
   m_Father: {fileID: 32123876981386198}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 275, y: -1100}
-  m_SizeDelta: {x: 550, y: 200}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2606973172173005628
 CanvasRenderer:
@@ -4534,10 +4534,10 @@ RectTransform:
   - {fileID: 8084877479201668071}
   m_Father: {fileID: 32123876981386198}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 275, y: -500}
-  m_SizeDelta: {x: 550, y: 200}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &450453885313671397
 CanvasRenderer:
@@ -4799,7 +4799,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9023610759492291527}
-  - component: {fileID: 8133682475968355853}
+  - component: {fileID: 4353457316262533197}
   m_Layer: 5
   m_Name: InventoryMain
   m_TagString: Untagged
@@ -4831,7 +4831,7 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &8133682475968355853
+--- !u!114 &4353457316262533197
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4840,7 +4840,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3048233966525418276}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eabb854844a93e346baeab86f92f2862, type: 3}
+  m_Script: {fileID: 11500000, guid: dbe02c12bef47714c9cea7f2c34f6a2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   infoPanel: {fileID: 7211265276814697326}
@@ -8086,10 +8086,10 @@ RectTransform:
   - {fileID: 1026776330918721496}
   m_Father: {fileID: 32123876981386198}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 275, y: -100}
-  m_SizeDelta: {x: 550, y: 200}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4455396384177213989
 CanvasRenderer:
@@ -9538,10 +9538,10 @@ RectTransform:
   - {fileID: 559260768589210112}
   m_Father: {fileID: 32123876981386198}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 275, y: -300}
-  m_SizeDelta: {x: 550, y: 200}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4630728721289989102
 CanvasRenderer:
@@ -10216,10 +10216,10 @@ RectTransform:
   - {fileID: 2593499944912191276}
   m_Father: {fileID: 32123876981386198}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 275, y: -900}
-  m_SizeDelta: {x: 550, y: 200}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3887647035825442675
 CanvasRenderer:
@@ -12381,8 +12381,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8133682475968355853}
-        m_TargetAssemblyTypeName: PopupManager, Assembly-CSharp
+      - m_Target: {fileID: 4353457316262533197}
+        m_TargetAssemblyTypeName: InventoryMainUI, Assembly-CSharp
         m_MethodName: OnClicklevelUp
         m_Mode: 1
         m_Arguments:
@@ -12743,8 +12743,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8133682475968355853}
-        m_TargetAssemblyTypeName: PopupManager, Assembly-CSharp
+      - m_Target: {fileID: 4353457316262533197}
+        m_TargetAssemblyTypeName: InventoryMainUI, Assembly-CSharp
         m_MethodName: OnClickShowItem
         m_Mode: 1
         m_Arguments:
@@ -13517,15 +13517,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eabb854844a93e346baeab86f92f2862, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  infoPanel: {fileID: 0}
-  skillPanel: {fileID: 0}
-  statusPanel: {fileID: 0}
-  upgradePanel: {fileID: 0}
-  levelUpPanel: {fileID: 0}
-  isInventoryOn: 0
-  isstatusOn: 0
-  isUpgradeOn: 0
-  isLevelUp: 0
 --- !u!1 &7700698926138402924
 GameObject:
   m_ObjectHideFlags: 0
@@ -15576,8 +15567,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8133682475968355853}
-        m_TargetAssemblyTypeName: PopupManager, Assembly-CSharp
+      - m_Target: {fileID: 4353457316262533197}
+        m_TargetAssemblyTypeName: InventoryMainUI, Assembly-CSharp
         m_MethodName: HideSkill
         m_Mode: 1
         m_Arguments:

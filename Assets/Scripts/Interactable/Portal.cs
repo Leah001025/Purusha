@@ -24,6 +24,8 @@ public class Portal : MonoBehaviour, IInteractable
     public void Interaction()
     {
         StageClear();
+        if(GameManager.Instance.stageID==1701) SceneLoadManager.Instance.LoadingChangeScene("EndingScene");
+        else
         SceneLoadManager.Instance.LoadingChangeScene("OpenWorldScene");
     }
     private void StageClear()

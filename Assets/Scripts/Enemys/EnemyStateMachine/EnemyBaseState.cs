@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.ShaderGraph;
 using UnityEngine;
 
 public class EnemyBaseState : IState
@@ -38,18 +37,12 @@ public class EnemyBaseState : IState
     }
     public void PhysicsUpdate()
     {
-        
+
     }
 
     public virtual void Update()
     {
-        if (stateMachine.Enemy.Animator.GetCurrentAnimatorStateInfo(0).IsName("Idle") == false &&
-            stateMachine.Enemy.Animator.GetCurrentAnimatorStateInfo(0).IsName("Sikll1") == false &&
-            stateMachine.Enemy.Animator.GetCurrentAnimatorStateInfo(0).IsName("Sikll2") == false &&
-            stateMachine.Enemy.Animator.GetCurrentAnimatorStateInfo(0).IsName("Hit") == false)
-        {
-            OnEnemyIdle();
-        }
+
     }
     protected virtual void OnEnemyIdle()
     {
@@ -69,7 +62,7 @@ public class EnemyBaseState : IState
     }
     protected virtual void OnEnemySkill2()
     {
-        stateMachine.ChangeState(stateMachine.Skill2State); 
+        stateMachine.ChangeState(stateMachine.Skill2State);
     }
 
     protected void StartAnimation(int animationHash)

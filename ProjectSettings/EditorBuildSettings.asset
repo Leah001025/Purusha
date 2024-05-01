@@ -27,11 +27,8 @@ EditorBuildSettings:
     path: Assets/Scenes/BattleScene.unity
     guid: 1f7b814209473b44ca36df23aebb7e42
   - enabled: 1
-    path: Assets/Scenes/BattleScene2.unity
-    guid: 209786efd28adc24dabb7dbb679bfbe3
-  - enabled: 1
-    path: Assets/Scenes/BattleScene3.unity
-    guid: 142086164a948764393d48d1e9fedcf9
+    path: Assets/Scenes/EndingScene.unity
+    guid: b9441abac5c388049890da891da36bbe
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: 74dc9097cba278c428eb9f7042d125d8,
       type: 2}

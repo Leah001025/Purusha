@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.AddressableAssets.HostingServices;
 using UnityEngine;
 
 public class SoundManager : SingleTon<SoundManager>
@@ -119,8 +118,22 @@ public class SoundManager : SingleTon<SoundManager>
             var _clip = Resources.Load<AudioClip>($"Sound/Attack/{id}/{num}");
             _attackClips.Add(id + num, _clip);
         }
-        environmentAudioSource.clip = _attackClips[id + num];
+        attackAudioSource.clip = _attackClips[id + num];
         attackAudioSource.Play();
+    }
+    public void EffentAudio(string name)
+    {
+        if (effectAudioSource.isPlaying)
+        {
+            effectAudioSource.Stop();
+        }
+        if (_effectClips.ContainsKey(name) == false)
+        {
+            var _clip = Resources.Load<AudioClip>($"Sound/Effect/{name}");
+            _effectClips.Add(name, _clip);
+        }
+        effectAudioSource.clip = _effectClips[name];
+        effectAudioSource.Play();
     }
     public void EnvironmentAudio(string type)
     {

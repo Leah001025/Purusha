@@ -75,21 +75,6 @@ MonoBehaviour:
     _spritePath: CharacterIcon/Abel
   - _id: 105
     _name: "\uB77C\uC778"
-    _maxHealth: 2000
-    _health: 2000
-    _level: 1
-    _exp: 0
-    _equipLevel: 1
-    _atk: 110
-    _def: 30
-    _criticalChance: 0.5
-    _criticalDamage: 1.5
-    _avoid: 0.15
-    _speed: 1.2
-    _prefabPath: Prefabs/Skill/Kain
-    _spritePath: CharacterIcon/Kain
-  - _id: 106
-    _name: "\uCE74\uB098"
     _maxHealth: 4000
     _health: 4000
     _level: 1
@@ -101,6 +86,21 @@ MonoBehaviour:
     _criticalDamage: 1.5
     _avoid: 0.08
     _speed: 0.8
+    _prefabPath: Prefabs/Skill/Kain
+    _spritePath: CharacterIcon/Kain
+  - _id: 106
+    _name: "\uCE74\uB098"
+    _maxHealth: 2000
+    _health: 2000
+    _level: 1
+    _exp: 0
+    _equipLevel: 1
+    _atk: 110
+    _def: 30
+    _criticalChance: 0.5
+    _criticalDamage: 1.5
+    _avoid: 0.15
+    _speed: 1.2
     _prefabPath: Prefabs/Skill/Kana
     _spritePath: CharacterIcon/Kana
   ItemData:
@@ -227,9 +227,8 @@ MonoBehaviour:
     EffectPath: Prefabs/Skill/Breesha/Skill1
     IconPath: UI/Icon/Skill1
   - ID: 101021
-    Name: "\uC274\uB4DC"
-    Description: "\uD50C\uB808\uC774\uC5B4 \uBC29\uC5B4\uB825 \uBE44\uB840 \uC274\uB4DC
-      \uC0DD\uC131"
+    Name: "\uC804\uC6A9\uC2A4\uD0AC"
+    Description: "\uC544\uAD70 \uC804\uCCB4 \uACF5\uACA9\uB825 \uC99D\uAC00 (2\uD134)"
     Type: 2
     Range: 1
     BuffID: 101
@@ -250,7 +249,7 @@ MonoBehaviour:
     Range: 1
     BuffID: 0
     BuffID2: 0
-    AtkCoefficient: 0.7
+    AtkCoefficient: 1.2
     DefCoefficient: 0
     HealthCoefficient: 0
     CoolTime: 2
@@ -266,7 +265,7 @@ MonoBehaviour:
     Range: 1
     BuffID: 0
     BuffID2: 0
-    AtkCoefficient: 0.8
+    AtkCoefficient: 1.5
     DefCoefficient: 0
     HealthCoefficient: 0
     CoolTime: 2
@@ -282,7 +281,7 @@ MonoBehaviour:
     Range: 1
     BuffID: 0
     BuffID2: 0
-    AtkCoefficient: 0.9
+    AtkCoefficient: 1.8
     DefCoefficient: 0
     HealthCoefficient: 0
     CoolTime: 1
@@ -342,9 +341,8 @@ MonoBehaviour:
     EffectPath: Prefabs/Skill/Eve/Skill1
     IconPath: UI/Icon/Skill1
   - ID: 102021
-    Name: "\uC274\uB4DC"
-    Description: "\uD50C\uB808\uC774\uC5B4 \uBC29\uC5B4\uB825 \uBE44\uB840 \uC274\uB4DC
-      \uC0DD\uC131"
+    Name: "\uC804\uC6A9\uC2A4\uD0AC"
+    Description: "\uC801 \uC804\uCCB4 \uACF5\uACA9\uB825 \uAC10\uC18C(2\uD134)"
     Type: 2
     Range: 1
     BuffID: 101
@@ -412,10 +410,10 @@ MonoBehaviour:
   - ID: 102041
     Name: "\uAD81\uADF9(\uB808\uBCA81)"
     Description: "\uC778\uACF5\uC704\uC131\uC744 \uC774\uC6A9\uD55C \uC801 \uC804\uCCB4
-      \uACF5\uACA9"
+      \uACF5\uACA9(\uC2A4\uD13420%)"
     Type: 1
     Range: 1
-    BuffID: 0
+    BuffID: 205
     BuffID2: 0
     AtkCoefficient: 1.2
     DefCoefficient: 0
@@ -429,10 +427,10 @@ MonoBehaviour:
   - ID: 102042
     Name: "\uAD81\uADF9(\uB808\uBCA82)"
     Description: "\uC778\uACF5\uC704\uC131\uC744 \uC774\uC6A9\uD55C \uC801 \uC804\uCCB4
-      \uACF5\uACA9"
+      \uACF5\uACA9(\uC2A4\uD13430%)"
     Type: 1
     Range: 1
-    BuffID: 0
+    BuffID: 206
     BuffID2: 0
     AtkCoefficient: 1.4
     DefCoefficient: 0
@@ -460,9 +458,8 @@ MonoBehaviour:
     EffectPath: Prefabs/Skill/Adam/Skill1
     IconPath: UI/Icon/Skill1
   - ID: 103021
-    Name: "\uC274\uB4DC"
-    Description: "\uD50C\uB808\uC774\uC5B4 \uBC29\uC5B4\uB825 \uBE44\uB840 \uC274\uB4DC
-      \uC0DD\uC131"
+    Name: "\uC804\uC6A9\uC2A4\uD0AC"
+    Description: "\uC801 \uC804\uCCB4 \uBC29\uC5B4\uB825 \uAC10\uC18C(2\uD134)"
     Type: 2
     Range: 1
     BuffID: 101
@@ -578,9 +575,8 @@ MonoBehaviour:
     EffectPath: Prefabs/Skill/Abel/Skill1
     IconPath: UI/Icon/Skill1
   - ID: 104021
-    Name: "\uC274\uB4DC"
-    Description: "\uD50C\uB808\uC774\uC5B4 \uBC29\uC5B4\uB825 \uBE44\uB840 \uC274\uB4DC
-      \uC0DD\uC131"
+    Name: "\uC804\uC6A9\uC2A4\uD0AC"
+    Description: "\uC544\uAD70 \uC804\uCCB4 \uD589\uB3D9\uAC8C\uC774\uC9C0 +20"
     Type: 2
     Range: 1
     BuffID: 101
@@ -694,9 +690,8 @@ MonoBehaviour:
     EffectPath: Prefabs/Skill/Kain/Skill1
     IconPath: UI/Icon/Skill1
   - ID: 105021
-    Name: "\uC274\uB4DC"
-    Description: "\uD50C\uB808\uC774\uC5B4 \uBC29\uC5B4\uB825 \uBE44\uB840 \uC274\uB4DC
-      \uC0DD\uC131"
+    Name: "\uC804\uC6A9\uC2A4\uD0AC"
+    Description: "\uC544\uAD70 \uC804\uCCB4 \uC274\uB4DC"
     Type: 2
     Range: 1
     BuffID: 101
@@ -771,7 +766,7 @@ MonoBehaviour:
     BuffID2: 0
     AtkCoefficient: 1
     DefCoefficient: 0
-    HealthCoefficient: 0.3
+    HealthCoefficient: 0.1
     CoolTime: 0
     DebuffProbability: 1
     Duration: 0
@@ -788,7 +783,7 @@ MonoBehaviour:
     BuffID2: 0
     AtkCoefficient: 1
     DefCoefficient: 0
-    HealthCoefficient: 0.4
+    HealthCoefficient: 0.15
     CoolTime: 0
     DebuffProbability: 1
     Duration: 0
@@ -812,9 +807,8 @@ MonoBehaviour:
     EffectPath: Prefabs/Skill/Kana/Skill1
     IconPath: UI/Icon/Skill1
   - ID: 106021
-    Name: "\uC274\uB4DC"
-    Description: "\uD50C\uB808\uC774\uC5B4 \uBC29\uC5B4\uB825 \uBE44\uB840 \uC274\uB4DC
-      \uC0DD\uC131"
+    Name: "\uC804\uC6A9\uC2A4\uD0AC"
+    Description: "\uC544\uAD70 \uC804\uCCB4 \uBC29\uC5B4\uB825\uC99D\uAC00(2\uD134)"
     Type: 2
     Range: 1
     BuffID: 101
@@ -830,7 +824,7 @@ MonoBehaviour:
     IconPath: UI/Icon/Skill2
   - ID: 106031
     Name: "\uD2B9\uC218(\uB808\uBCA81)"
-    Description: "\uB300\uC0C1 1\uBA85\uC5D0\uAC8C \uC5F0\uBC1C\uC0AC\uACA9 (\uCE58\uBA85\uD0C0
+    Description: "\uB300\uC0C1 1\uBA85\uC5D0\uAC8C \uC0AC\uACA9 (\uCE58\uBA85\uD0C0
       \uC2DC \uD134\uD68D\uB4DD 1\uD68C)"
     Type: 0
     Range: 1
@@ -847,7 +841,7 @@ MonoBehaviour:
     IconPath: UI/Icon/Skill_Kana3
   - ID: 106032
     Name: "\uD2B9\uC218(\uB808\uBCA82)"
-    Description: "\uB300\uC0C1 1\uBA85\uC5D0\uAC8C \uC5F0\uBC1C\uC0AC\uACA9 (\uCE58\uBA85\uD0C0
+    Description: "\uB300\uC0C1 1\uBA85\uC5D0\uAC8C \uC0AC\uACA9 (\uCE58\uBA85\uD0C0
       \uC2DC \uD134\uD68D\uB4DD 1\uD68C)"
     Type: 0
     Range: 1
@@ -864,7 +858,7 @@ MonoBehaviour:
     IconPath: UI/Icon/Skill_Kana3
   - ID: 106033
     Name: "\uD2B9\uC218(\uB808\uBCA83)"
-    Description: "\uB300\uC0C1 1\uBA85\uC5D0\uAC8C \uC5F0\uBC1C\uC0AC\uACA9 (\uCE58\uBA85\uD0C0
+    Description: "\uB300\uC0C1 1\uBA85\uC5D0\uAC8C \uC0AC\uACA9 (\uCE58\uBA85\uD0C0
       \uC2DC \uD134\uD68D\uB4DD 1\uD68C)"
     Type: 0
     Range: 1
@@ -881,12 +875,12 @@ MonoBehaviour:
     IconPath: UI/Icon/Skill_Kana3
   - ID: 106041
     Name: "\uAD81\uADF9(\uB808\uBCA81)"
-    Description: "\uD5E4\uB4DC\uC0F7 (\uCE58\uD655+15%/\uCE58\uD53C+25\uD37C)"
+    Description: "\uB300\uC0C1 1\uBA85\uC5D0\uAC8C \uAC15\uB825\uD55C \uACF5\uACA9"
     Type: 0
     Range: 1
     BuffID: 0
     BuffID2: 0
-    AtkCoefficient: 2.2
+    AtkCoefficient: 2.5
     DefCoefficient: 0
     HealthCoefficient: 0
     CoolTime: 0
@@ -897,12 +891,12 @@ MonoBehaviour:
     IconPath: UI/Icon/Skill_Kana4
   - ID: 106042
     Name: "\uAD81\uADF9(\uB808\uBCA82)"
-    Description: "\uD5E4\uB4DC\uC0F7 (\uCE58\uD655+20%/\uCE58\uD53C+40\uD37C)"
+    Description: "\uB300\uC0C1 1\uBA85\uC5D0\uAC8C \uAC15\uB825\uD55C \uACF5\uACA9"
     Type: 0
     Range: 1
     BuffID: 0
     BuffID2: 0
-    AtkCoefficient: 2.7
+    AtkCoefficient: 3.1
     DefCoefficient: 0
     HealthCoefficient: 0
     CoolTime: 0
@@ -943,7 +937,327 @@ MonoBehaviour:
     SkillGage: 0
     EffectPath: Prefabs/Skill/Drone/Skill2
     IconPath: 
+  - ID: 102001011
+    Name: "\uC77C\uBC18\uACF5\uACA9"
+    Description: "\uC801 1\uBA85 \uC0AC\uACA9"
+    Type: 0
+    Range: 1
+    BuffID: 0
+    BuffID2: 0
+    AtkCoefficient: 1
+    DefCoefficient: 0
+    HealthCoefficient: 0
+    CoolTime: 0
+    DebuffProbability: 0
+    Duration: 0
+    SkillGage: 0
+    EffectPath: Prefabs/Skill/Drone/Skill1
+    IconPath: 
+  - ID: 102001021
+    Name: "\uD2B9\uC218"
+    Description: "\uC801 1\uBA85 \uC0AC\uACA9(\uBC29\uC5B4\uB825\uAC10\uC18C)"
+    Type: 0
+    Range: 1
+    BuffID: 203
+    BuffID2: 0
+    AtkCoefficient: 1.2
+    DefCoefficient: 0
+    HealthCoefficient: 0
+    CoolTime: 2
+    DebuffProbability: 0.7
+    Duration: 1
+    SkillGage: 0
+    EffectPath: Prefabs/Skill/Drone/Skill2
+    IconPath: 
+  - ID: 103001011
+    Name: "\uC77C\uBC18\uACF5\uACA9"
+    Description: "\uC801 1\uBA85 \uC0AC\uACA9"
+    Type: 0
+    Range: 1
+    BuffID: 0
+    BuffID2: 0
+    AtkCoefficient: 1
+    DefCoefficient: 0
+    HealthCoefficient: 0
+    CoolTime: 0
+    DebuffProbability: 0
+    Duration: 0
+    SkillGage: 0
+    EffectPath: Prefabs/Skill/Drone/Skill1
+    IconPath: 
+  - ID: 103001021
+    Name: "\uD2B9\uC218"
+    Description: "\uC801 1\uBA85 \uC0AC\uACA9(\uBC29\uC5B4\uB825\uAC10\uC18C)"
+    Type: 0
+    Range: 1
+    BuffID: 203
+    BuffID2: 0
+    AtkCoefficient: 1.2
+    DefCoefficient: 0
+    HealthCoefficient: 0
+    CoolTime: 2
+    DebuffProbability: 0.7
+    Duration: 1
+    SkillGage: 0
+    EffectPath: Prefabs/Skill/Drone/Skill2
+    IconPath: 
+  - ID: 104001011
+    Name: "\uC77C\uBC18\uACF5\uACA9"
+    Description: "\uC801 1\uBA85 \uC0AC\uACA9"
+    Type: 0
+    Range: 1
+    BuffID: 0
+    BuffID2: 0
+    AtkCoefficient: 1
+    DefCoefficient: 0
+    HealthCoefficient: 0
+    CoolTime: 0
+    DebuffProbability: 0
+    Duration: 0
+    SkillGage: 0
+    EffectPath: Prefabs/Skill/Drone/Skill1
+    IconPath: 
+  - ID: 104001021
+    Name: "\uD2B9\uC218"
+    Description: "\uC801 1\uBA85 \uC0AC\uACA9(\uBC29\uC5B4\uB825\uAC10\uC18C)"
+    Type: 0
+    Range: 1
+    BuffID: 203
+    BuffID2: 0
+    AtkCoefficient: 1.2
+    DefCoefficient: 0
+    HealthCoefficient: 0
+    CoolTime: 2
+    DebuffProbability: 0.7
+    Duration: 1
+    SkillGage: 0
+    EffectPath: Prefabs/Skill/Drone/Skill2
+    IconPath: 
+  - ID: 105001011
+    Name: "\uC77C\uBC18\uACF5\uACA9"
+    Description: "\uC801 1\uBA85 \uC0AC\uACA9"
+    Type: 0
+    Range: 1
+    BuffID: 0
+    BuffID2: 0
+    AtkCoefficient: 1
+    DefCoefficient: 0
+    HealthCoefficient: 0
+    CoolTime: 0
+    DebuffProbability: 0
+    Duration: 0
+    SkillGage: 0
+    EffectPath: Prefabs/Skill/Drone/Skill1
+    IconPath: 
+  - ID: 105001021
+    Name: "\uD2B9\uC218"
+    Description: "\uC801 1\uBA85 \uC0AC\uACA9(\uBC29\uC5B4\uB825\uAC10\uC18C)"
+    Type: 0
+    Range: 1
+    BuffID: 203
+    BuffID2: 0
+    AtkCoefficient: 1.2
+    DefCoefficient: 0
+    HealthCoefficient: 0
+    CoolTime: 2
+    DebuffProbability: 0.7
+    Duration: 1
+    SkillGage: 0
+    EffectPath: Prefabs/Skill/Drone/Skill2
+    IconPath: 
+  - ID: 106001011
+    Name: "\uC77C\uBC18\uACF5\uACA9"
+    Description: "\uC801 1\uBA85 \uC0AC\uACA9"
+    Type: 0
+    Range: 1
+    BuffID: 0
+    BuffID2: 0
+    AtkCoefficient: 1
+    DefCoefficient: 0
+    HealthCoefficient: 0
+    CoolTime: 0
+    DebuffProbability: 0
+    Duration: 0
+    SkillGage: 0
+    EffectPath: Prefabs/Skill/Drone/Skill1
+    IconPath: 
+  - ID: 106001021
+    Name: "\uD2B9\uC218"
+    Description: "\uC801 1\uBA85 \uC0AC\uACA9(\uBC29\uC5B4\uB825\uAC10\uC18C)"
+    Type: 0
+    Range: 1
+    BuffID: 203
+    BuffID2: 0
+    AtkCoefficient: 1.2
+    DefCoefficient: 0
+    HealthCoefficient: 0
+    CoolTime: 2
+    DebuffProbability: 0.7
+    Duration: 1
+    SkillGage: 0
+    EffectPath: Prefabs/Skill/Drone/Skill2
+    IconPath: 
   - ID: 101002011
+    Name: "\uC77C\uBC18\uACF5\uACA9"
+    Description: "\uC801 1\uBA85 \uC0AC\uACA9"
+    Type: 0
+    Range: 0
+    BuffID: 0
+    BuffID2: 0
+    AtkCoefficient: 1
+    DefCoefficient: 0
+    HealthCoefficient: 0
+    CoolTime: 0
+    DebuffProbability: 0
+    Duration: 0
+    SkillGage: 0
+    EffectPath: Prefabs/Skill/Android/Skill1
+    IconPath: 
+  - ID: 101002021
+    Name: "\uD2B9\uC218"
+    Description: "\uC801 1\uBA85 \uD0C0\uACA9(\uACF5\uACA9\uB825\uAC10\uC18C)"
+    Type: 0
+    Range: 0
+    BuffID: 202
+    BuffID2: 0
+    AtkCoefficient: 1.3
+    DefCoefficient: 0
+    HealthCoefficient: 0
+    CoolTime: 2
+    DebuffProbability: 0.7
+    Duration: 1
+    SkillGage: 0
+    EffectPath: Prefabs/Skill/Android/Skill2
+    IconPath: 
+  - ID: 102002011
+    Name: "\uC77C\uBC18\uACF5\uACA9"
+    Description: "\uC801 1\uBA85 \uC0AC\uACA9"
+    Type: 0
+    Range: 0
+    BuffID: 0
+    BuffID2: 0
+    AtkCoefficient: 1
+    DefCoefficient: 0
+    HealthCoefficient: 0
+    CoolTime: 0
+    DebuffProbability: 0
+    Duration: 0
+    SkillGage: 0
+    EffectPath: Prefabs/Skill/Android/Skill1
+    IconPath: 
+  - ID: 102002021
+    Name: "\uD2B9\uC218"
+    Description: "\uC801 1\uBA85 \uD0C0\uACA9(\uACF5\uACA9\uB825\uAC10\uC18C)"
+    Type: 0
+    Range: 0
+    BuffID: 202
+    BuffID2: 0
+    AtkCoefficient: 1.3
+    DefCoefficient: 0
+    HealthCoefficient: 0
+    CoolTime: 2
+    DebuffProbability: 0.7
+    Duration: 1
+    SkillGage: 0
+    EffectPath: Prefabs/Skill/Android/Skill2
+    IconPath: 
+  - ID: 103002011
+    Name: "\uC77C\uBC18\uACF5\uACA9"
+    Description: "\uC801 1\uBA85 \uC0AC\uACA9"
+    Type: 0
+    Range: 0
+    BuffID: 0
+    BuffID2: 0
+    AtkCoefficient: 1
+    DefCoefficient: 0
+    HealthCoefficient: 0
+    CoolTime: 0
+    DebuffProbability: 0
+    Duration: 0
+    SkillGage: 0
+    EffectPath: Prefabs/Skill/Android/Skill1
+    IconPath: 
+  - ID: 103002021
+    Name: "\uD2B9\uC218"
+    Description: "\uC801 1\uBA85 \uD0C0\uACA9(\uACF5\uACA9\uB825\uAC10\uC18C)"
+    Type: 0
+    Range: 0
+    BuffID: 202
+    BuffID2: 0
+    AtkCoefficient: 1.3
+    DefCoefficient: 0
+    HealthCoefficient: 0
+    CoolTime: 2
+    DebuffProbability: 0.7
+    Duration: 1
+    SkillGage: 0
+    EffectPath: Prefabs/Skill/Android/Skill2
+    IconPath: 
+  - ID: 104002011
+    Name: "\uC77C\uBC18\uACF5\uACA9"
+    Description: "\uC801 1\uBA85 \uC0AC\uACA9"
+    Type: 0
+    Range: 0
+    BuffID: 0
+    BuffID2: 0
+    AtkCoefficient: 1
+    DefCoefficient: 0
+    HealthCoefficient: 0
+    CoolTime: 0
+    DebuffProbability: 0
+    Duration: 0
+    SkillGage: 0
+    EffectPath: Prefabs/Skill/Android/Skill1
+    IconPath: 
+  - ID: 104002021
+    Name: "\uD2B9\uC218"
+    Description: "\uC801 1\uBA85 \uD0C0\uACA9(\uACF5\uACA9\uB825\uAC10\uC18C)"
+    Type: 0
+    Range: 0
+    BuffID: 202
+    BuffID2: 0
+    AtkCoefficient: 1.3
+    DefCoefficient: 0
+    HealthCoefficient: 0
+    CoolTime: 2
+    DebuffProbability: 0.7
+    Duration: 1
+    SkillGage: 0
+    EffectPath: Prefabs/Skill/Android/Skill2
+    IconPath: 
+  - ID: 105002011
+    Name: "\uC77C\uBC18\uACF5\uACA9"
+    Description: "\uC801 1\uBA85 \uC0AC\uACA9"
+    Type: 0
+    Range: 0
+    BuffID: 0
+    BuffID2: 0
+    AtkCoefficient: 1
+    DefCoefficient: 0
+    HealthCoefficient: 0
+    CoolTime: 0
+    DebuffProbability: 0
+    Duration: 0
+    SkillGage: 0
+    EffectPath: Prefabs/Skill/Android/Skill1
+    IconPath: 
+  - ID: 105002021
+    Name: "\uD2B9\uC218"
+    Description: "\uC801 1\uBA85 \uD0C0\uACA9(\uACF5\uACA9\uB825\uAC10\uC18C)"
+    Type: 0
+    Range: 0
+    BuffID: 202
+    BuffID2: 0
+    AtkCoefficient: 1.3
+    DefCoefficient: 0
+    HealthCoefficient: 0
+    CoolTime: 2
+    DebuffProbability: 0.7
+    Duration: 1
+    SkillGage: 0
+    EffectPath: Prefabs/Skill/Android/Skill2
+    IconPath: 
+  - ID: 106002011
     Name: "\uC77C\uBC18\uACF5\uACA9"
     Description: "\uC801 1\uBA85 \uD0C0\uACA9"
     Type: 0
@@ -959,7 +1273,7 @@ MonoBehaviour:
     SkillGage: 0
     EffectPath: Prefabs/Skill/Android/Skill1
     IconPath: 
-  - ID: 101002021
+  - ID: 106002021
     Name: "\uD2B9\uC218"
     Description: "\uC801 1\uBA85 \uD0C0\uACA9(\uACF5\uACA9\uB825\uAC10\uC18C)"
     Type: 0
@@ -1007,6 +1321,166 @@ MonoBehaviour:
     SkillGage: 0
     EffectPath: Prefabs/Skill/SecurityTurret/Skill2
     IconPath: 
+  - ID: 102003011
+    Name: "\uC77C\uBC18\uACF5\uACA9"
+    Description: "\uC801 1\uBA85 \uC0AC\uACA9"
+    Type: 0
+    Range: 1
+    BuffID: 0
+    BuffID2: 0
+    AtkCoefficient: 1
+    DefCoefficient: 0
+    HealthCoefficient: 0
+    CoolTime: 0
+    DebuffProbability: 0
+    Duration: 0
+    SkillGage: 0
+    EffectPath: Prefabs/Skill/SecurityTurret/Skill1
+    IconPath: 
+  - ID: 102003021
+    Name: "\uD2B9\uC218"
+    Description: "\uC801 \uC804\uCCB4 \uC0AC\uACA9"
+    Type: 1
+    Range: 1
+    BuffID: 0
+    BuffID2: 0
+    AtkCoefficient: 1.1
+    DefCoefficient: 0
+    HealthCoefficient: 0
+    CoolTime: 3
+    DebuffProbability: 0
+    Duration: 0
+    SkillGage: 0
+    EffectPath: Prefabs/Skill/SecurityTurret/Skill2
+    IconPath: 
+  - ID: 103003011
+    Name: "\uC77C\uBC18\uACF5\uACA9"
+    Description: "\uC801 1\uBA85 \uC0AC\uACA9"
+    Type: 0
+    Range: 1
+    BuffID: 0
+    BuffID2: 0
+    AtkCoefficient: 1
+    DefCoefficient: 0
+    HealthCoefficient: 0
+    CoolTime: 0
+    DebuffProbability: 0
+    Duration: 0
+    SkillGage: 0
+    EffectPath: Prefabs/Skill/SecurityTurret/Skill1
+    IconPath: 
+  - ID: 103003021
+    Name: "\uD2B9\uC218"
+    Description: "\uC801 \uC804\uCCB4 \uC0AC\uACA9"
+    Type: 1
+    Range: 1
+    BuffID: 0
+    BuffID2: 0
+    AtkCoefficient: 1.1
+    DefCoefficient: 0
+    HealthCoefficient: 0
+    CoolTime: 3
+    DebuffProbability: 0
+    Duration: 0
+    SkillGage: 0
+    EffectPath: Prefabs/Skill/SecurityTurret/Skill2
+    IconPath: 
+  - ID: 104003011
+    Name: "\uC77C\uBC18\uACF5\uACA9"
+    Description: "\uC801 1\uBA85 \uC0AC\uACA9"
+    Type: 0
+    Range: 1
+    BuffID: 0
+    BuffID2: 0
+    AtkCoefficient: 1
+    DefCoefficient: 0
+    HealthCoefficient: 0
+    CoolTime: 0
+    DebuffProbability: 0
+    Duration: 0
+    SkillGage: 0
+    EffectPath: Prefabs/Skill/SecurityTurret/Skill1
+    IconPath: 
+  - ID: 104003021
+    Name: "\uD2B9\uC218"
+    Description: "\uC801 \uC804\uCCB4 \uC0AC\uACA9"
+    Type: 1
+    Range: 1
+    BuffID: 0
+    BuffID2: 0
+    AtkCoefficient: 1.1
+    DefCoefficient: 0
+    HealthCoefficient: 0
+    CoolTime: 3
+    DebuffProbability: 0
+    Duration: 0
+    SkillGage: 0
+    EffectPath: Prefabs/Skill/SecurityTurret/Skill2
+    IconPath: 
+  - ID: 105003011
+    Name: "\uC77C\uBC18\uACF5\uACA9"
+    Description: "\uC801 1\uBA85 \uC0AC\uACA9"
+    Type: 0
+    Range: 1
+    BuffID: 0
+    BuffID2: 0
+    AtkCoefficient: 1
+    DefCoefficient: 0
+    HealthCoefficient: 0
+    CoolTime: 0
+    DebuffProbability: 0
+    Duration: 0
+    SkillGage: 0
+    EffectPath: Prefabs/Skill/SecurityTurret/Skill1
+    IconPath: 
+  - ID: 105003021
+    Name: "\uD2B9\uC218"
+    Description: "\uC801 \uC804\uCCB4 \uC0AC\uACA9"
+    Type: 1
+    Range: 1
+    BuffID: 0
+    BuffID2: 0
+    AtkCoefficient: 1.1
+    DefCoefficient: 0
+    HealthCoefficient: 0
+    CoolTime: 3
+    DebuffProbability: 0
+    Duration: 0
+    SkillGage: 0
+    EffectPath: Prefabs/Skill/SecurityTurret/Skill2
+    IconPath: 
+  - ID: 106003011
+    Name: "\uC77C\uBC18\uACF5\uACA9"
+    Description: "\uC801 1\uBA85 \uC0AC\uACA9"
+    Type: 0
+    Range: 1
+    BuffID: 0
+    BuffID2: 0
+    AtkCoefficient: 1
+    DefCoefficient: 0
+    HealthCoefficient: 0
+    CoolTime: 0
+    DebuffProbability: 0
+    Duration: 0
+    SkillGage: 0
+    EffectPath: Prefabs/Skill/SecurityTurret/Skill1
+    IconPath: 
+  - ID: 106003021
+    Name: "\uD2B9\uC218"
+    Description: "\uC801 \uC804\uCCB4 \uC0AC\uACA9"
+    Type: 1
+    Range: 1
+    BuffID: 0
+    BuffID2: 0
+    AtkCoefficient: 1.1
+    DefCoefficient: 0
+    HealthCoefficient: 0
+    CoolTime: 3
+    DebuffProbability: 0
+    Duration: 0
+    SkillGage: 0
+    EffectPath: Prefabs/Skill/SecurityTurret/Skill2
+    IconPath: 
   - ID: 201001011
     Name: "\uC77C\uBC18\uACF5\uACA9"
     Description: "\uC801 1\uBA85 \uC0AC\uACA9"
@@ -1039,6 +1513,166 @@ MonoBehaviour:
     SkillGage: 0
     EffectPath: Prefabs/Skill/CodeNumber001/Skill2
     IconPath: 
+  - ID: 202001011
+    Name: "\uC77C\uBC18\uACF5\uACA9"
+    Description: "\uC801 1\uBA85 \uC0AC\uACA9"
+    Type: 0
+    Range: 1
+    BuffID: 0
+    BuffID2: 0
+    AtkCoefficient: 1
+    DefCoefficient: 0
+    HealthCoefficient: 0
+    CoolTime: 0
+    DebuffProbability: 0
+    Duration: 0
+    SkillGage: 0
+    EffectPath: Prefabs/Skill/CodeNumber001/Skill1
+    IconPath: 
+  - ID: 202001021
+    Name: "\uD2B9\uC218"
+    Description: "\uC801 \uC804\uCCB4 \uC0AC\uACA9(\uACF5\uACA9\uB825\uAC10\uC18C)"
+    Type: 1
+    Range: 1
+    BuffID: 202
+    BuffID2: 0
+    AtkCoefficient: 1.2
+    DefCoefficient: 0
+    HealthCoefficient: 0
+    CoolTime: 3
+    DebuffProbability: 0.8
+    Duration: 1
+    SkillGage: 0
+    EffectPath: Prefabs/Skill/CodeNumber001/Skill2
+    IconPath: 
+  - ID: 203001011
+    Name: "\uC77C\uBC18\uACF5\uACA9"
+    Description: "\uC801 1\uBA85 \uC0AC\uACA9"
+    Type: 0
+    Range: 1
+    BuffID: 0
+    BuffID2: 0
+    AtkCoefficient: 1
+    DefCoefficient: 0
+    HealthCoefficient: 0
+    CoolTime: 0
+    DebuffProbability: 0
+    Duration: 0
+    SkillGage: 0
+    EffectPath: Prefabs/Skill/CodeNumber001/Skill1
+    IconPath: 
+  - ID: 203001021
+    Name: "\uD2B9\uC218"
+    Description: "\uC801 \uC804\uCCB4 \uC0AC\uACA9(\uACF5\uACA9\uB825\uAC10\uC18C)"
+    Type: 1
+    Range: 1
+    BuffID: 202
+    BuffID2: 0
+    AtkCoefficient: 1.2
+    DefCoefficient: 0
+    HealthCoefficient: 0
+    CoolTime: 3
+    DebuffProbability: 0.8
+    Duration: 1
+    SkillGage: 0
+    EffectPath: Prefabs/Skill/CodeNumber001/Skill2
+    IconPath: 
+  - ID: 204001011
+    Name: "\uC77C\uBC18\uACF5\uACA9"
+    Description: "\uC801 1\uBA85 \uC0AC\uACA9"
+    Type: 0
+    Range: 1
+    BuffID: 0
+    BuffID2: 0
+    AtkCoefficient: 1
+    DefCoefficient: 0
+    HealthCoefficient: 0
+    CoolTime: 0
+    DebuffProbability: 0
+    Duration: 0
+    SkillGage: 0
+    EffectPath: Prefabs/Skill/CodeNumber001/Skill1
+    IconPath: 
+  - ID: 204001021
+    Name: "\uD2B9\uC218"
+    Description: "\uC801 \uC804\uCCB4 \uC0AC\uACA9(\uACF5\uACA9\uB825\uAC10\uC18C)"
+    Type: 1
+    Range: 1
+    BuffID: 202
+    BuffID2: 0
+    AtkCoefficient: 1.2
+    DefCoefficient: 0
+    HealthCoefficient: 0
+    CoolTime: 3
+    DebuffProbability: 0.8
+    Duration: 1
+    SkillGage: 0
+    EffectPath: Prefabs/Skill/CodeNumber001/Skill2
+    IconPath: 
+  - ID: 205001011
+    Name: "\uC77C\uBC18\uACF5\uACA9"
+    Description: "\uC801 1\uBA85 \uC0AC\uACA9"
+    Type: 0
+    Range: 1
+    BuffID: 0
+    BuffID2: 0
+    AtkCoefficient: 1
+    DefCoefficient: 0
+    HealthCoefficient: 0
+    CoolTime: 0
+    DebuffProbability: 0
+    Duration: 0
+    SkillGage: 0
+    EffectPath: Prefabs/Skill/CodeNumber001/Skill1
+    IconPath: 
+  - ID: 205001021
+    Name: "\uD2B9\uC218"
+    Description: "\uC801 \uC804\uCCB4 \uC0AC\uACA9(\uACF5\uACA9\uB825\uAC10\uC18C)"
+    Type: 1
+    Range: 1
+    BuffID: 202
+    BuffID2: 0
+    AtkCoefficient: 1.2
+    DefCoefficient: 0
+    HealthCoefficient: 0
+    CoolTime: 3
+    DebuffProbability: 0.8
+    Duration: 1
+    SkillGage: 0
+    EffectPath: Prefabs/Skill/CodeNumber001/Skill2
+    IconPath: 
+  - ID: 206001011
+    Name: "\uC77C\uBC18\uACF5\uACA9"
+    Description: "\uC801 1\uBA85 \uC0AC\uACA9"
+    Type: 0
+    Range: 1
+    BuffID: 0
+    BuffID2: 0
+    AtkCoefficient: 1
+    DefCoefficient: 0
+    HealthCoefficient: 0
+    CoolTime: 0
+    DebuffProbability: 0
+    Duration: 0
+    SkillGage: 0
+    EffectPath: Prefabs/Skill/CodeNumber001/Skill1
+    IconPath: 
+  - ID: 206001021
+    Name: "\uD2B9\uC218"
+    Description: "\uC801 \uC804\uCCB4 \uC0AC\uACA9(\uACF5\uACA9\uB825\uAC10\uC18C)"
+    Type: 1
+    Range: 1
+    BuffID: 202
+    BuffID2: 0
+    AtkCoefficient: 1.2
+    DefCoefficient: 0
+    HealthCoefficient: 0
+    CoolTime: 3
+    DebuffProbability: 0.8
+    Duration: 1
+    SkillGage: 0
+    EffectPath: Prefabs/Skill/CodeNumber001/Skill2
+    IconPath: 
   - ID: 301001011
     Name: "\uC77C\uBC18\uACF5\uACA9"
     Description: "\uC801 \uC804\uCCB4 \uC0AC\uACA9"
@@ -1046,7 +1680,7 @@ MonoBehaviour:
     Range: 1
     BuffID: 0
     BuffID2: 0
-    AtkCoefficient: 1
+    AtkCoefficient: 0.6
     DefCoefficient: 0
     HealthCoefficient: 0
     CoolTime: 0
@@ -1066,10 +1700,170 @@ MonoBehaviour:
     DefCoefficient: 0
     HealthCoefficient: 0
     CoolTime: 3
+    DebuffProbability: 1
+    Duration: 2
+    SkillGage: 0
+    EffectPath: Prefabs/Skill/UpdatedDrone/Skill2
+    IconPath: 
+  - ID: 302001011
+    Name: "\uC77C\uBC18\uACF5\uACA9"
+    Description: "\uC801 \uC804\uCCB4 \uC0AC\uACA9"
+    Type: 1
+    Range: 1
+    BuffID: 0
+    BuffID2: 0
+    AtkCoefficient: 0.6
+    DefCoefficient: 0
+    HealthCoefficient: 0
+    CoolTime: 0
+    DebuffProbability: 0
+    Duration: 0
+    SkillGage: 0
+    EffectPath: Prefabs/Skill/UpdatedDrone/Skill1
+    IconPath: 
+  - ID: 302001021
+    Name: "\uD2B9\uC218"
+    Description: "\uC801 1\uBA85 \uC0AC\uACA9(\uACF5\uACA9\uB825\uAC10\uC18C)"
+    Type: 0
+    Range: 1
+    BuffID: 202
+    BuffID2: 0
+    AtkCoefficient: 1.2
+    DefCoefficient: 0
+    HealthCoefficient: 0
+    CoolTime: 3
+    DebuffProbability: 1
+    Duration: 2
+    SkillGage: 0
+    EffectPath: Prefabs/Skill/UpdatedDrone/Skill2
+    IconPath: 
+  - ID: 303001011
+    Name: "\uC77C\uBC18\uACF5\uACA9"
+    Description: "\uC801 1\uBA85 \uD0C0\uACA9(\uACF5\uACA9\uB825\uAC10\uC18C)"
+    Type: 0
+    Range: 0
+    BuffID: 202
+    BuffID2: 0
+    AtkCoefficient: 1
+    DefCoefficient: 0
+    HealthCoefficient: 0
+    CoolTime: 0
     DebuffProbability: 0.8
     Duration: 1
     SkillGage: 0
-    EffectPath: Prefabs/Skill/UpdatedDrone/Skill2
+    EffectPath: Prefabs/Skill/Cyborg/Skill1
+    IconPath: 
+  - ID: 303001021
+    Name: "\uD2B9\uC218"
+    Description: "\uC801 1\uBA85 \uD0C0\uACA9(\uACF5\uACA9\uB825\uAC10\uC18C)"
+    Type: 0
+    Range: 0
+    BuffID: 202
+    BuffID2: 0
+    AtkCoefficient: 1.2
+    DefCoefficient: 0
+    HealthCoefficient: 0
+    CoolTime: 3
+    DebuffProbability: 1
+    Duration: 2
+    SkillGage: 0
+    EffectPath: Prefabs/Skill/Cyborg/Skill2
+    IconPath: 
+  - ID: 304001011
+    Name: "\uC77C\uBC18\uACF5\uACA9"
+    Description: "\uC801 1\uBA85 \uD0C0\uACA9(\uACF5\uACA9\uB825\uAC10\uC18C)"
+    Type: 0
+    Range: 0
+    BuffID: 202
+    BuffID2: 0
+    AtkCoefficient: 1
+    DefCoefficient: 0
+    HealthCoefficient: 0
+    CoolTime: 0
+    DebuffProbability: 0.8
+    Duration: 1
+    SkillGage: 0
+    EffectPath: Prefabs/Skill/Cyborg/Skill1
+    IconPath: 
+  - ID: 304001021
+    Name: "\uD2B9\uC218"
+    Description: "\uC801 1\uBA85 \uD0C0\uACA9(\uACF5\uACA9\uB825\uAC10\uC18C)"
+    Type: 0
+    Range: 0
+    BuffID: 202
+    BuffID2: 0
+    AtkCoefficient: 1.2
+    DefCoefficient: 0
+    HealthCoefficient: 0
+    CoolTime: 3
+    DebuffProbability: 1
+    Duration: 2
+    SkillGage: 0
+    EffectPath: Prefabs/Skill/Cyborg/Skill2
+    IconPath: 
+  - ID: 305001011
+    Name: "\uC77C\uBC18\uACF5\uACA9"
+    Description: "\uC801 1\uBA85 \uD0C0\uACA9(\uBC29\uC5B4\uB825\uAC10\uC18C)"
+    Type: 0
+    Range: 0
+    BuffID: 203
+    BuffID2: 0
+    AtkCoefficient: 1.1
+    DefCoefficient: 0
+    HealthCoefficient: 0
+    CoolTime: 0
+    DebuffProbability: 0.8
+    Duration: 1
+    SkillGage: 0
+    EffectPath: Prefabs/Skill/KillerRobot/Skill1
+    IconPath: 
+  - ID: 305001021
+    Name: "\uD2B9\uC218"
+    Description: "\uC801 1\uBA85 \uD0C0\uACA9(\uACF5\uACA9\uB825\uAC10\uC18C)"
+    Type: 0
+    Range: 0
+    BuffID: 202
+    BuffID2: 0
+    AtkCoefficient: 1.5
+    DefCoefficient: 0
+    HealthCoefficient: 0
+    CoolTime: 3
+    DebuffProbability: 1
+    Duration: 2
+    SkillGage: 0
+    EffectPath: Prefabs/Skill/KillerRobot/Skill2
+    IconPath: 
+  - ID: 306001011
+    Name: "\uC77C\uBC18\uACF5\uACA9"
+    Description: "\uC801 \uC804\uCCB4 \uC0AC\uACA9(\uACF5\uACA9\uB825,\uBC29\uC5B4\uB825\uAC10\uC18C)"
+    Type: 1
+    Range: 1
+    BuffID: 202
+    BuffID2: 204
+    AtkCoefficient: 0.5
+    DefCoefficient: 0
+    HealthCoefficient: 0
+    CoolTime: 0
+    DebuffProbability: 1
+    Duration: 2
+    SkillGage: 0
+    EffectPath: Prefabs/Skill/Destiny/Skill1
+    IconPath: 
+  - ID: 306001021
+    Name: "\uD2B9\uC218"
+    Description: "\uC801 1\uBA85 \uD0C0\uACA9(\uBC29\uC5B4\uB825\uAC10\uC18C)"
+    Type: 0
+    Range: 0
+    BuffID: 203
+    BuffID2: 0
+    AtkCoefficient: 1.5
+    DefCoefficient: 0
+    HealthCoefficient: 0
+    CoolTime: 3
+    DebuffProbability: 1
+    Duration: 2
+    SkillGage: 0
+    EffectPath: Prefabs/Skill/Destiny/Skill2
     IconPath: 
   BuffData:
   - BuffID: 0
@@ -1104,28 +1898,28 @@ MonoBehaviour:
     Name: "\uACF5\uACA9\uB825\uAC10\uC18C(\uB2E8\uC77C)"
     CharacterData: 0
     Coefficient: -0.5
-    Duration: 1
+    Duration: 2
     DebuffProbability: 0.7
     IconPath: UI/BuffandDebuff/201
   - BuffID: 202
     Name: "\uACF5\uACA9\uB825\uAC10\uC18C(\uC804\uCCB4)"
     CharacterData: 0
     Coefficient: -0.5
-    Duration: 1
+    Duration: 2
     DebuffProbability: 0.5
     IconPath: UI/BuffandDebuff/201
   - BuffID: 203
     Name: "\uBC29\uC5B4\uB825\uAC10\uC18C(\uB2E8\uC77C)"
     CharacterData: 0
-    Coefficient: -0.5
-    Duration: 1
+    Coefficient: -0.7
+    Duration: 2
     DebuffProbability: 0.7
     IconPath: UI/BuffandDebuff/203
   - BuffID: 204
     Name: "\uBC29\uC5B4\uB825\uAC10\uC18C(\uC804\uCCB4)"
     CharacterData: 0
-    Coefficient: -0.5
-    Duration: 1
+    Coefficient: -0.7
+    Duration: 2
     DebuffProbability: 0.5
     IconPath: UI/BuffandDebuff/203
   - BuffID: 205
@@ -1170,31 +1964,200 @@ MonoBehaviour:
     _health: 200
     _atk: 50
     _def: 10
-    _criticalChance: 0.1
-    _criticalDamage: 1.5
+    _criticalChance: 0.5
+    _criticalDamage: 1.3
     _avoid: 10
     _speed: 1
     _breakGauge: 100
     _prefabPath: Prefabs/Monster/Drone
-    _spritePath: 
+    _spritePath: UI/Icon/Drone
+  - _id: 102001
+    _name: Drone
+    _level: 2
+    _health: 300
+    _atk: 60
+    _def: 15
+    _criticalChance: 0.5
+    _criticalDamage: 1.3
+    _avoid: 10
+    _speed: 1
+    _breakGauge: 100
+    _prefabPath: Prefabs/Monster/Drone
+    _spritePath: UI/Icon/Drone
+  - _id: 103001
+    _name: Drone
+    _level: 3
+    _health: 400
+    _atk: 80
+    _def: 20
+    _criticalChance: 0.5
+    _criticalDamage: 1.3
+    _avoid: 10
+    _speed: 1.1
+    _breakGauge: 100
+    _prefabPath: Prefabs/Monster/Drone
+    _spritePath: UI/Icon/Drone
+  - _id: 104001
+    _name: Drone
+    _level: 4
+    _health: 500
+    _atk: 100
+    _def: 25
+    _criticalChance: 0.5
+    _criticalDamage: 1.5
+    _avoid: 10
+    _speed: 1.1
+    _breakGauge: 100
+    _prefabPath: Prefabs/Monster/Drone
+    _spritePath: UI/Icon/Drone
+  - _id: 105001
+    _name: Drone
+    _level: 5
+    _health: 600
+    _atk: 130
+    _def: 30
+    _criticalChance: 0.5
+    _criticalDamage: 1.5
+    _avoid: 10
+    _speed: 1.2
+    _breakGauge: 100
+    _prefabPath: Prefabs/Monster/Drone
+    _spritePath: UI/Icon/Drone
+  - _id: 106001
+    _name: Drone
+    _level: 6
+    _health: 700
+    _atk: 160
+    _def: 35
+    _criticalChance: 0.5
+    _criticalDamage: 1.5
+    _avoid: 10
+    _speed: 1.2
+    _breakGauge: 100
+    _prefabPath: Prefabs/Monster/Drone
+    _spritePath: UI/Icon/Drone
   - _id: 101002
     _name: Android
-    _level: 3
+    _level: 2
     _health: 350
     _atk: 80
     _def: 20
-    _criticalChance: 0.2
-    _criticalDamage: 1.5
+    _criticalChance: 0.5
+    _criticalDamage: 1.3
     _avoid: 20
     _speed: 0.8
     _breakGauge: 200
     _prefabPath: Prefabs/Monster/Android
-    _spritePath: 
+    _spritePath: UI/Icon/Android
+  - _id: 102002
+    _name: Android
+    _level: 3
+    _health: 500
+    _atk: 90
+    _def: 25
+    _criticalChance: 0.5
+    _criticalDamage: 1.3
+    _avoid: 20
+    _speed: 0.8
+    _breakGauge: 200
+    _prefabPath: Prefabs/Monster/Android
+    _spritePath: UI/Icon/Android
+  - _id: 103002
+    _name: Android
+    _level: 5
+    _health: 900
+    _atk: 110
+    _def: 35
+    _criticalChance: 0.5
+    _criticalDamage: 1.3
+    _avoid: 20
+    _speed: 0.9
+    _breakGauge: 200
+    _prefabPath: Prefabs/Monster/Android
+    _spritePath: UI/Icon/Android
+  - _id: 104002
+    _name: Android
+    _level: 5
+    _health: 900
+    _atk: 150
+    _def: 35
+    _criticalChance: 0.5
+    _criticalDamage: 1.5
+    _avoid: 20
+    _speed: 0.9
+    _breakGauge: 200
+    _prefabPath: Prefabs/Monster/Android
+    _spritePath: UI/Icon/Android
+  - _id: 105002
+    _name: Android
+    _level: 7
+    _health: 1100
+    _atk: 180
+    _def: 45
+    _criticalChance: 0.5
+    _criticalDamage: 1.5
+    _avoid: 20
+    _speed: 1
+    _breakGauge: 200
+    _prefabPath: Prefabs/Monster/Android
+    _spritePath: UI/Icon/Android
+  - _id: 106002
+    _name: Android
+    _level: 8
+    _health: 1300
+    _atk: 210
+    _def: 60
+    _criticalChance: 0.5
+    _criticalDamage: 1.5
+    _avoid: 20
+    _speed: 1
+    _breakGauge: 200
+    _prefabPath: Prefabs/Monster/Android
+    _spritePath: UI/Icon/Android
   - _id: 101003
     _name: SecurityTurret
-    _level: 5
+    _level: 3
     _health: 500
     _atk: 100
+    _def: 5
+    _criticalChance: 0.5
+    _criticalDamage: 1.3
+    _avoid: 5
+    _speed: 1.2
+    _breakGauge: 300
+    _prefabPath: Prefabs/Monster/SecurityTurret
+    _spritePath: UI/Icon/SecurityTurret
+  - _id: 102003
+    _name: SecurityTurret
+    _level: 5
+    _health: 550
+    _atk: 120
+    _def: 5
+    _criticalChance: 0.5
+    _criticalDamage: 1.3
+    _avoid: 5
+    _speed: 1.2
+    _breakGauge: 300
+    _prefabPath: Prefabs/Monster/SecurityTurret
+    _spritePath: UI/Icon/SecurityTurret
+  - _id: 103003
+    _name: SecurityTurret
+    _level: 7
+    _health: 600
+    _atk: 150
+    _def: 5
+    _criticalChance: 0.5
+    _criticalDamage: 1.3
+    _avoid: 5
+    _speed: 1.2
+    _breakGauge: 300
+    _prefabPath: Prefabs/Monster/SecurityTurret
+    _spritePath: UI/Icon/SecurityTurret
+  - _id: 104003
+    _name: SecurityTurret
+    _level: 7
+    _health: 600
+    _atk: 180
     _def: 5
     _criticalChance: 0.5
     _criticalDamage: 1.5
@@ -1202,33 +2165,189 @@ MonoBehaviour:
     _speed: 1.2
     _breakGauge: 300
     _prefabPath: Prefabs/Monster/SecurityTurret
-    _spritePath: 
+    _spritePath: UI/Icon/SecurityTurret
+  - _id: 105003
+    _name: SecurityTurret
+    _level: 8
+    _health: 700
+    _atk: 210
+    _def: 5
+    _criticalChance: 0.5
+    _criticalDamage: 1.5
+    _avoid: 5
+    _speed: 1.2
+    _breakGauge: 300
+    _prefabPath: Prefabs/Monster/SecurityTurret
+    _spritePath: UI/Icon/SecurityTurret
+  - _id: 106003
+    _name: SecurityTurret
+    _level: 9
+    _health: 800
+    _atk: 250
+    _def: 5
+    _criticalChance: 0.5
+    _criticalDamage: 1.5
+    _avoid: 5
+    _speed: 1.2
+    _breakGauge: 300
+    _prefabPath: Prefabs/Monster/SecurityTurret
+    _spritePath: UI/Icon/SecurityTurret
   - _id: 201001
     _name: CodeNumber001
-    _level: 10
+    _level: 4
     _health: 1100
     _atk: 150
     _def: 30
-    _criticalChance: 0.2
-    _criticalDamage: 2
+    _criticalChance: 0.5
+    _criticalDamage: 1.3
     _avoid: 25
     _speed: 0.8
     _breakGauge: 300
     _prefabPath: Prefabs/Monster/CodeNumber001
-    _spritePath: 
+    _spritePath: UI/Icon/CodeNumber001
+  - _id: 202001
+    _name: CodeNumber001
+    _level: 7
+    _health: 700
+    _atk: 180
+    _def: 30
+    _criticalChance: 0.5
+    _criticalDamage: 1.3
+    _avoid: 25
+    _speed: 0.8
+    _breakGauge: 300
+    _prefabPath: Prefabs/Monster/CodeNumber001
+    _spritePath: UI/Icon/CodeNumber001
+  - _id: 203001
+    _name: CodeNumber001
+    _level: 10
+    _health: 1100
+    _atk: 220
+    _def: 50
+    _criticalChance: 0.5
+    _criticalDamage: 1.3
+    _avoid: 25
+    _speed: 0.9
+    _breakGauge: 300
+    _prefabPath: Prefabs/Monster/CodeNumber001
+    _spritePath: UI/Icon/CodeNumber001
+  - _id: 204001
+    _name: CodeNumber001
+    _level: 13
+    _health: 1400
+    _atk: 250
+    _def: 60
+    _criticalChance: 0.5
+    _criticalDamage: 1.5
+    _avoid: 25
+    _speed: 1
+    _breakGauge: 300
+    _prefabPath: Prefabs/Monster/CodeNumber001
+    _spritePath: UI/Icon/CodeNumber001
+  - _id: 205001
+    _name: CodeNumber001
+    _level: 16
+    _health: 1700
+    _atk: 280
+    _def: 70
+    _criticalChance: 0.5
+    _criticalDamage: 1.5
+    _avoid: 25
+    _speed: 1.1
+    _breakGauge: 300
+    _prefabPath: Prefabs/Monster/CodeNumber001
+    _spritePath: UI/Icon/CodeNumber001
+  - _id: 206001
+    _name: CodeNumber001
+    _level: 20
+    _health: 2000
+    _atk: 320
+    _def: 70
+    _criticalChance: 0.5
+    _criticalDamage: 1.5
+    _avoid: 25
+    _speed: 1.2
+    _breakGauge: 300
+    _prefabPath: Prefabs/Monster/CodeNumber001
+    _spritePath: UI/Icon/CodeNumber001
   - _id: 301001
     _name: UpdatedDrone
-    _level: 20
-    _health: 3500
+    _level: 5
+    _health: 3000
     _atk: 200
     _def: 50
-    _criticalChance: 0.22
-    _criticalDamage: 2
+    _criticalChance: 0.5
+    _criticalDamage: 1.3
     _avoid: 10
     _speed: 0.5
     _breakGauge: 400
     _prefabPath: Prefabs/Monster/UpdatedDrone
-    _spritePath: 
+    _spritePath: UI/Icon/UpdatedDrone
+  - _id: 302001
+    _name: UpdatedDrone
+    _level: 10
+    _health: 2000
+    _atk: 150
+    _def: 200
+    _criticalChance: 0.5
+    _criticalDamage: 1.3
+    _avoid: 10
+    _speed: 1
+    _breakGauge: 400
+    _prefabPath: Prefabs/Monster/UpdatedDrone
+    _spritePath: UI/Icon/UpdatedDrone
+  - _id: 303001
+    _name: Cyborg
+    _level: 15
+    _health: 2000
+    _atk: 300
+    _def: 70
+    _criticalChance: 0.5
+    _criticalDamage: 1.3
+    _avoid: 10
+    _speed: 1.1
+    _breakGauge: 400
+    _prefabPath: Prefabs/Monster/Cyborg
+    _spritePath: UI/Icon/Cyborg
+  - _id: 304001
+    _name: Cyborg
+    _level: 20
+    _health: 3000
+    _atk: 250
+    _def: 300
+    _criticalChance: 0.5
+    _criticalDamage: 1.5
+    _avoid: 10
+    _speed: 1
+    _breakGauge: 400
+    _prefabPath: Prefabs/Monster/Cyborg
+    _spritePath: UI/Icon/Cyborg
+  - _id: 305001
+    _name: KillerRobot
+    _level: 25
+    _health: 3000
+    _atk: 350
+    _def: 100
+    _criticalChance: 0.5
+    _criticalDamage: 1.5
+    _avoid: 10
+    _speed: 1.2
+    _breakGauge: 400
+    _prefabPath: Prefabs/Monster/KillerRobot
+    _spritePath: UI/Icon/KillerRobot
+  - _id: 306001
+    _name: Destiny
+    _level: 30
+    _health: 4000
+    _atk: 400
+    _def: 300
+    _criticalChance: 0.5
+    _criticalDamage: 1.5
+    _avoid: 10
+    _speed: 1.2
+    _breakGauge: 400
+    _prefabPath: Prefabs/Monster/Destiny
+    _spritePath: UI/Icon/Destiny
   WaveData:
   - _id: 110101
     _battleMapPath: Prefabs/Map/BattleMap/BattleMap_1
@@ -1242,28 +2361,28 @@ MonoBehaviour:
     _enemyCount_4: 0
     _enemyID_5: 0
     _enemyCount_5: 0
-    _compensation_1: 10401
+    _compensation_1: 10501
     _compensationCount_1: 1
-    _compensation_2: 10101
-    _compensationCount_2: 3
-    _compensation_3: 0
-    _compensationCount_3: 0
+    _compensation_2: 10401
+    _compensationCount_2: 1
+    _compensation_3: 10101
+    _compensationCount_3: 3
   - _id: 110102
     _battleMapPath: Prefabs/Map/BattleMap/BattleMap_1
-    _enemyID_1: 101001
-    _enemyCount_1: 3
-    _enemyID_2: 0
-    _enemyCount_2: 0
+    _enemyID_1: 101002
+    _enemyCount_1: 1
+    _enemyID_2: 101001
+    _enemyCount_2: 2
     _enemyID_3: 0
     _enemyCount_3: 0
     _enemyID_4: 0
     _enemyCount_4: 0
     _enemyID_5: 0
     _enemyCount_5: 0
-    _compensation_1: 0
-    _compensationCount_1: 0
-    _compensation_2: 0
-    _compensationCount_2: 0
+    _compensation_1: 10501
+    _compensationCount_1: 1
+    _compensation_2: 10201
+    _compensationCount_2: 1
     _compensation_3: 0
     _compensationCount_3: 0
   - _id: 110103
@@ -1278,12 +2397,12 @@ MonoBehaviour:
     _enemyCount_4: 0
     _enemyID_5: 0
     _enemyCount_5: 0
-    _compensation_1: 0
-    _compensationCount_1: 0
-    _compensation_2: 0
-    _compensationCount_2: 0
-    _compensation_3: 0
-    _compensationCount_3: 0
+    _compensation_1: 10501
+    _compensationCount_1: 2
+    _compensation_2: 10401
+    _compensationCount_2: 2
+    _compensation_3: 10101
+    _compensationCount_3: 5
   - _id: 110201
     _battleMapPath: Prefabs/Map/BattleMap/BattleMap_1
     _enemyID_1: 101002
@@ -1296,10 +2415,10 @@ MonoBehaviour:
     _enemyCount_4: 0
     _enemyID_5: 0
     _enemyCount_5: 0
-    _compensation_1: 0
-    _compensationCount_1: 0
-    _compensation_2: 0
-    _compensationCount_2: 0
+    _compensation_1: 10501
+    _compensationCount_1: 1
+    _compensation_2: 10301
+    _compensationCount_2: 1
     _compensation_3: 0
     _compensationCount_3: 0
   - _id: 110202
@@ -1314,70 +2433,70 @@ MonoBehaviour:
     _enemyCount_4: 0
     _enemyID_5: 0
     _enemyCount_5: 0
-    _compensation_1: 0
-    _compensationCount_1: 0
-    _compensation_2: 0
-    _compensationCount_2: 0
+    _compensation_1: 10501
+    _compensationCount_1: 1
+    _compensation_2: 10601
+    _compensationCount_2: 2
     _compensation_3: 0
     _compensationCount_3: 0
   - _id: 110203
     _battleMapPath: Prefabs/Map/BattleMap/BattleMap_1
-    _enemyID_1: 101002
-    _enemyCount_1: 3
-    _enemyID_2: 0
-    _enemyCount_2: 0
+    _enemyID_1: 101003
+    _enemyCount_1: 1
+    _enemyID_2: 101002
+    _enemyCount_2: 2
     _enemyID_3: 0
     _enemyCount_3: 0
     _enemyID_4: 0
     _enemyCount_4: 0
     _enemyID_5: 0
     _enemyCount_5: 0
-    _compensation_1: 0
-    _compensationCount_1: 0
-    _compensation_2: 0
-    _compensationCount_2: 0
-    _compensation_3: 0
-    _compensationCount_3: 0
+    _compensation_1: 10501
+    _compensationCount_1: 3
+    _compensation_2: 10401
+    _compensationCount_2: 2
+    _compensation_3: 10101
+    _compensationCount_3: 7
   - _id: 110301
     _battleMapPath: Prefabs/Map/BattleMap/BattleMap_1
-    _enemyID_1: 101001
-    _enemyCount_1: 2
-    _enemyID_2: 0
-    _enemyCount_2: 0
+    _enemyID_1: 101002
+    _enemyCount_1: 1
+    _enemyID_2: 101001
+    _enemyCount_2: 2
     _enemyID_3: 0
     _enemyCount_3: 0
     _enemyID_4: 0
     _enemyCount_4: 0
     _enemyID_5: 0
     _enemyCount_5: 0
-    _compensation_1: 0
-    _compensationCount_1: 0
-    _compensation_2: 0
-    _compensationCount_2: 0
+    _compensation_1: 10501
+    _compensationCount_1: 1
+    _compensation_2: 10602
+    _compensationCount_2: 2
     _compensation_3: 0
     _compensationCount_3: 0
   - _id: 110302
     _battleMapPath: Prefabs/Map/BattleMap/BattleMap_1
-    _enemyID_1: 101001
-    _enemyCount_1: 3
-    _enemyID_2: 0
-    _enemyCount_2: 0
-    _enemyID_3: 0
-    _enemyCount_3: 0
+    _enemyID_1: 201001
+    _enemyCount_1: 1
+    _enemyID_2: 101002
+    _enemyCount_2: 2
+    _enemyID_3: 101001
+    _enemyCount_3: 2
     _enemyID_4: 0
     _enemyCount_4: 0
     _enemyID_5: 0
     _enemyCount_5: 0
-    _compensation_1: 0
-    _compensationCount_1: 0
-    _compensation_2: 0
-    _compensationCount_2: 0
+    _compensation_1: 10501
+    _compensationCount_1: 1
+    _compensation_2: 10301
+    _compensationCount_2: 2
     _compensation_3: 0
     _compensationCount_3: 0
   - _id: 110303
     _battleMapPath: Prefabs/Map/BattleMap/BattleMap_1
-    _enemyID_1: 101001
-    _enemyCount_1: 5
+    _enemyID_1: 301001
+    _enemyCount_1: 1
     _enemyID_2: 0
     _enemyCount_2: 0
     _enemyID_3: 0
@@ -1386,15 +2505,15 @@ MonoBehaviour:
     _enemyCount_4: 0
     _enemyID_5: 0
     _enemyCount_5: 0
-    _compensation_1: 0
-    _compensationCount_1: 0
-    _compensation_2: 0
-    _compensationCount_2: 0
-    _compensation_3: 0
-    _compensationCount_3: 0
+    _compensation_1: 10501
+    _compensationCount_1: 5
+    _compensation_2: 10401
+    _compensationCount_2: 2
+    _compensation_3: 10101
+    _compensationCount_3: 10
   - _id: 120101
     _battleMapPath: Prefabs/Map/BattleMap/BattleMap_1
-    _enemyID_1: 101001
+    _enemyID_1: 102001
     _enemyCount_1: 2
     _enemyID_2: 0
     _enemyCount_2: 0
@@ -1404,70 +2523,70 @@ MonoBehaviour:
     _enemyCount_4: 0
     _enemyID_5: 0
     _enemyCount_5: 0
-    _compensation_1: 0
-    _compensationCount_1: 0
-    _compensation_2: 0
-    _compensationCount_2: 0
+    _compensation_1: 10501
+    _compensationCount_1: 2
+    _compensation_2: 10201
+    _compensationCount_2: 2
     _compensation_3: 0
     _compensationCount_3: 0
   - _id: 120102
     _battleMapPath: Prefabs/Map/BattleMap/BattleMap_1
-    _enemyID_1: 101001
-    _enemyCount_1: 3
-    _enemyID_2: 0
-    _enemyCount_2: 0
+    _enemyID_1: 102002
+    _enemyCount_1: 1
+    _enemyID_2: 102001
+    _enemyCount_2: 2
     _enemyID_3: 0
     _enemyCount_3: 0
     _enemyID_4: 0
     _enemyCount_4: 0
     _enemyID_5: 0
     _enemyCount_5: 0
-    _compensation_1: 0
-    _compensationCount_1: 0
-    _compensation_2: 0
-    _compensationCount_2: 0
+    _compensation_1: 10501
+    _compensationCount_1: 2
+    _compensation_2: 10603
+    _compensationCount_2: 2
     _compensation_3: 0
     _compensationCount_3: 0
   - _id: 120103
     _battleMapPath: Prefabs/Map/BattleMap/BattleMap_1
-    _enemyID_1: 101001
-    _enemyCount_1: 5
-    _enemyID_2: 0
-    _enemyCount_2: 0
+    _enemyID_1: 102002
+    _enemyCount_1: 1
+    _enemyID_2: 102001
+    _enemyCount_2: 2
     _enemyID_3: 0
     _enemyCount_3: 0
     _enemyID_4: 0
     _enemyCount_4: 0
     _enemyID_5: 0
     _enemyCount_5: 0
-    _compensation_1: 0
-    _compensationCount_1: 0
-    _compensation_2: 0
-    _compensationCount_2: 0
-    _compensation_3: 0
-    _compensationCount_3: 0
+    _compensation_1: 10501
+    _compensationCount_1: 5
+    _compensation_2: 10401
+    _compensationCount_2: 2
+    _compensation_3: 10102
+    _compensationCount_3: 5
   - _id: 120201
     _battleMapPath: Prefabs/Map/BattleMap/BattleMap_1
-    _enemyID_1: 101001
-    _enemyCount_1: 2
-    _enemyID_2: 0
-    _enemyCount_2: 0
+    _enemyID_1: 102002
+    _enemyCount_1: 1
+    _enemyID_2: 102001
+    _enemyCount_2: 2
     _enemyID_3: 0
     _enemyCount_3: 0
     _enemyID_4: 0
     _enemyCount_4: 0
     _enemyID_5: 0
     _enemyCount_5: 0
-    _compensation_1: 0
-    _compensationCount_1: 0
-    _compensation_2: 0
-    _compensationCount_2: 0
+    _compensation_1: 10501
+    _compensationCount_1: 2
+    _compensation_2: 10301
+    _compensationCount_2: 3
     _compensation_3: 0
     _compensationCount_3: 0
   - _id: 120202
     _battleMapPath: Prefabs/Map/BattleMap/BattleMap_1
-    _enemyID_1: 101001
-    _enemyCount_1: 3
+    _enemyID_1: 102002
+    _enemyCount_1: 2
     _enemyID_2: 0
     _enemyCount_2: 0
     _enemyID_3: 0
@@ -1476,70 +2595,70 @@ MonoBehaviour:
     _enemyCount_4: 0
     _enemyID_5: 0
     _enemyCount_5: 0
-    _compensation_1: 0
-    _compensationCount_1: 0
-    _compensation_2: 0
-    _compensationCount_2: 0
+    _compensation_1: 10501
+    _compensationCount_1: 2
+    _compensation_2: 10604
+    _compensationCount_2: 2
     _compensation_3: 0
     _compensationCount_3: 0
   - _id: 120203
     _battleMapPath: Prefabs/Map/BattleMap/BattleMap_1
-    _enemyID_1: 101001
-    _enemyCount_1: 5
-    _enemyID_2: 0
-    _enemyCount_2: 0
+    _enemyID_1: 102003
+    _enemyCount_1: 1
+    _enemyID_2: 102002
+    _enemyCount_2: 2
     _enemyID_3: 0
     _enemyCount_3: 0
     _enemyID_4: 0
     _enemyCount_4: 0
     _enemyID_5: 0
     _enemyCount_5: 0
-    _compensation_1: 0
-    _compensationCount_1: 0
-    _compensation_2: 0
-    _compensationCount_2: 0
-    _compensation_3: 0
-    _compensationCount_3: 0
+    _compensation_1: 10501
+    _compensationCount_1: 5
+    _compensation_2: 10402
+    _compensationCount_2: 1
+    _compensation_3: 10102
+    _compensationCount_3: 5
   - _id: 120301
     _battleMapPath: Prefabs/Map/BattleMap/BattleMap_1
-    _enemyID_1: 101001
-    _enemyCount_1: 2
-    _enemyID_2: 0
-    _enemyCount_2: 0
+    _enemyID_1: 102002
+    _enemyCount_1: 1
+    _enemyID_2: 102001
+    _enemyCount_2: 2
     _enemyID_3: 0
     _enemyCount_3: 0
     _enemyID_4: 0
     _enemyCount_4: 0
     _enemyID_5: 0
     _enemyCount_5: 0
-    _compensation_1: 0
-    _compensationCount_1: 0
-    _compensation_2: 0
-    _compensationCount_2: 0
+    _compensation_1: 10501
+    _compensationCount_1: 2
+    _compensation_2: 10603
+    _compensationCount_2: 2
     _compensation_3: 0
     _compensationCount_3: 0
   - _id: 120302
     _battleMapPath: Prefabs/Map/BattleMap/BattleMap_1
-    _enemyID_1: 101001
-    _enemyCount_1: 3
-    _enemyID_2: 0
-    _enemyCount_2: 0
-    _enemyID_3: 0
-    _enemyCount_3: 0
+    _enemyID_1: 202001
+    _enemyCount_1: 1
+    _enemyID_2: 102002
+    _enemyCount_2: 2
+    _enemyID_3: 102001
+    _enemyCount_3: 2
     _enemyID_4: 0
     _enemyCount_4: 0
     _enemyID_5: 0
     _enemyCount_5: 0
-    _compensation_1: 0
-    _compensationCount_1: 0
-    _compensation_2: 0
-    _compensationCount_2: 0
+    _compensation_1: 10501
+    _compensationCount_1: 2
+    _compensation_2: 10601
+    _compensationCount_2: 2
     _compensation_3: 0
     _compensationCount_3: 0
   - _id: 120303
     _battleMapPath: Prefabs/Map/BattleMap/BattleMap_1
-    _enemyID_1: 101001
-    _enemyCount_1: 5
+    _enemyID_1: 302001
+    _enemyCount_1: 1
     _enemyID_2: 0
     _enemyCount_2: 0
     _enemyID_3: 0
@@ -1548,15 +2667,15 @@ MonoBehaviour:
     _enemyCount_4: 0
     _enemyID_5: 0
     _enemyCount_5: 0
-    _compensation_1: 0
-    _compensationCount_1: 0
-    _compensation_2: 0
-    _compensationCount_2: 0
-    _compensation_3: 0
-    _compensationCount_3: 0
+    _compensation_1: 10501
+    _compensationCount_1: 5
+    _compensation_2: 10402
+    _compensationCount_2: 1
+    _compensation_3: 10102
+    _compensationCount_3: 5
   - _id: 130101
     _battleMapPath: Prefabs/Map/BattleMap/BattleMap_2
-    _enemyID_1: 101001
+    _enemyID_1: 103001
     _enemyCount_1: 2
     _enemyID_2: 0
     _enemyCount_2: 0
@@ -1566,70 +2685,70 @@ MonoBehaviour:
     _enemyCount_4: 0
     _enemyID_5: 0
     _enemyCount_5: 0
-    _compensation_1: 0
-    _compensationCount_1: 0
-    _compensation_2: 0
-    _compensationCount_2: 0
+    _compensation_1: 10501
+    _compensationCount_1: 3
+    _compensation_2: 10201
+    _compensationCount_2: 3
     _compensation_3: 0
     _compensationCount_3: 0
   - _id: 130102
     _battleMapPath: Prefabs/Map/BattleMap/BattleMap_2
-    _enemyID_1: 101001
-    _enemyCount_1: 3
-    _enemyID_2: 0
-    _enemyCount_2: 0
+    _enemyID_1: 103002
+    _enemyCount_1: 1
+    _enemyID_2: 103001
+    _enemyCount_2: 2
     _enemyID_3: 0
     _enemyCount_3: 0
     _enemyID_4: 0
     _enemyCount_4: 0
     _enemyID_5: 0
     _enemyCount_5: 0
-    _compensation_1: 0
-    _compensationCount_1: 0
-    _compensation_2: 0
-    _compensationCount_2: 0
+    _compensation_1: 10501
+    _compensationCount_1: 3
+    _compensation_2: 10301
+    _compensationCount_2: 2
     _compensation_3: 0
     _compensationCount_3: 0
   - _id: 130103
     _battleMapPath: Prefabs/Map/BattleMap/BattleMap_2
-    _enemyID_1: 101001
-    _enemyCount_1: 5
-    _enemyID_2: 0
-    _enemyCount_2: 0
+    _enemyID_1: 103002
+    _enemyCount_1: 1
+    _enemyID_2: 103001
+    _enemyCount_2: 2
     _enemyID_3: 0
     _enemyCount_3: 0
     _enemyID_4: 0
     _enemyCount_4: 0
     _enemyID_5: 0
     _enemyCount_5: 0
-    _compensation_1: 0
-    _compensationCount_1: 0
-    _compensation_2: 0
-    _compensationCount_2: 0
-    _compensation_3: 0
-    _compensationCount_3: 0
+    _compensation_1: 10501
+    _compensationCount_1: 5
+    _compensation_2: 10402
+    _compensationCount_2: 2
+    _compensation_3: 10102
+    _compensationCount_3: 5
   - _id: 130201
     _battleMapPath: Prefabs/Map/BattleMap/BattleMap_2
-    _enemyID_1: 101001
-    _enemyCount_1: 2
-    _enemyID_2: 0
-    _enemyCount_2: 0
+    _enemyID_1: 103002
+    _enemyCount_1: 1
+    _enemyID_2: 103001
+    _enemyCount_2: 2
     _enemyID_3: 0
     _enemyCount_3: 0
     _enemyID_4: 0
     _enemyCount_4: 0
     _enemyID_5: 0
     _enemyCount_5: 0
-    _compensation_1: 0
-    _compensationCount_1: 0
-    _compensation_2: 0
-    _compensationCount_2: 0
+    _compensation_1: 10501
+    _compensationCount_1: 3
+    _compensation_2: 10605
+    _compensationCount_2: 2
     _compensation_3: 0
     _compensationCount_3: 0
   - _id: 130202
     _battleMapPath: Prefabs/Map/BattleMap/BattleMap_2
-    _enemyID_1: 101001
-    _enemyCount_1: 3
+    _enemyID_1: 103002
+    _enemyCount_1: 2
     _enemyID_2: 0
     _enemyCount_2: 0
     _enemyID_3: 0
@@ -1638,70 +2757,70 @@ MonoBehaviour:
     _enemyCount_4: 0
     _enemyID_5: 0
     _enemyCount_5: 0
-    _compensation_1: 0
-    _compensationCount_1: 0
-    _compensation_2: 0
-    _compensationCount_2: 0
+    _compensation_1: 10501
+    _compensationCount_1: 3
+    _compensation_2: 10301
+    _compensationCount_2: 2
     _compensation_3: 0
     _compensationCount_3: 0
   - _id: 130203
     _battleMapPath: Prefabs/Map/BattleMap/BattleMap_2
-    _enemyID_1: 101001
-    _enemyCount_1: 5
-    _enemyID_2: 0
-    _enemyCount_2: 0
+    _enemyID_1: 103003
+    _enemyCount_1: 1
+    _enemyID_2: 103002
+    _enemyCount_2: 2
     _enemyID_3: 0
     _enemyCount_3: 0
     _enemyID_4: 0
     _enemyCount_4: 0
     _enemyID_5: 0
     _enemyCount_5: 0
-    _compensation_1: 0
-    _compensationCount_1: 0
-    _compensation_2: 0
-    _compensationCount_2: 0
-    _compensation_3: 0
-    _compensationCount_3: 0
+    _compensation_1: 10501
+    _compensationCount_1: 5
+    _compensation_2: 10402
+    _compensationCount_2: 2
+    _compensation_3: 10103
+    _compensationCount_3: 4
   - _id: 130301
     _battleMapPath: Prefabs/Map/BattleMap/BattleMap_2
-    _enemyID_1: 101001
-    _enemyCount_1: 2
-    _enemyID_2: 0
-    _enemyCount_2: 0
+    _enemyID_1: 103002
+    _enemyCount_1: 1
+    _enemyID_2: 103001
+    _enemyCount_2: 2
     _enemyID_3: 0
     _enemyCount_3: 0
     _enemyID_4: 0
     _enemyCount_4: 0
     _enemyID_5: 0
     _enemyCount_5: 0
-    _compensation_1: 0
-    _compensationCount_1: 0
-    _compensation_2: 0
-    _compensationCount_2: 0
+    _compensation_1: 10501
+    _compensationCount_1: 3
+    _compensation_2: 10201
+    _compensationCount_2: 4
     _compensation_3: 0
     _compensationCount_3: 0
   - _id: 130302
     _battleMapPath: Prefabs/Map/BattleMap/BattleMap_2
-    _enemyID_1: 101001
-    _enemyCount_1: 3
-    _enemyID_2: 0
-    _enemyCount_2: 0
-    _enemyID_3: 0
-    _enemyCount_3: 0
+    _enemyID_1: 203001
+    _enemyCount_1: 1
+    _enemyID_2: 103002
+    _enemyCount_2: 2
+    _enemyID_3: 103001
+    _enemyCount_3: 2
     _enemyID_4: 0
     _enemyCount_4: 0
     _enemyID_5: 0
     _enemyCount_5: 0
-    _compensation_1: 0
-    _compensationCount_1: 0
-    _compensation_2: 0
-    _compensationCount_2: 0
+    _compensation_1: 10501
+    _compensationCount_1: 3
+    _compensation_2: 10301
+    _compensationCount_2: 1
     _compensation_3: 0
     _compensationCount_3: 0
   - _id: 130303
     _battleMapPath: Prefabs/Map/BattleMap/BattleMap_2
-    _enemyID_1: 101001
-    _enemyCount_1: 5
+    _enemyID_1: 303001
+    _enemyCount_1: 1
     _enemyID_2: 0
     _enemyCount_2: 0
     _enemyID_3: 0
@@ -1710,15 +2829,15 @@ MonoBehaviour:
     _enemyCount_4: 0
     _enemyID_5: 0
     _enemyCount_5: 0
-    _compensation_1: 0
-    _compensationCount_1: 0
-    _compensation_2: 0
-    _compensationCount_2: 0
-    _compensation_3: 0
-    _compensationCount_3: 0
+    _compensation_1: 10501
+    _compensationCount_1: 5
+    _compensation_2: 10402
+    _compensationCount_2: 2
+    _compensation_3: 10103
+    _compensationCount_3: 4
   - _id: 140101
     _battleMapPath: Prefabs/Map/BattleMap/BattleMap_3
-    _enemyID_1: 101001
+    _enemyID_1: 104001
     _enemyCount_1: 2
     _enemyID_2: 0
     _enemyCount_2: 0
@@ -1728,70 +2847,70 @@ MonoBehaviour:
     _enemyCount_4: 0
     _enemyID_5: 0
     _enemyCount_5: 0
-    _compensation_1: 0
-    _compensationCount_1: 0
-    _compensation_2: 0
-    _compensationCount_2: 0
+    _compensation_1: 10501
+    _compensationCount_1: 5
+    _compensation_2: 10606
+    _compensationCount_2: 2
     _compensation_3: 0
     _compensationCount_3: 0
   - _id: 140102
     _battleMapPath: Prefabs/Map/BattleMap/BattleMap_3
-    _enemyID_1: 101001
-    _enemyCount_1: 3
-    _enemyID_2: 0
-    _enemyCount_2: 0
+    _enemyID_1: 104002
+    _enemyCount_1: 1
+    _enemyID_2: 104001
+    _enemyCount_2: 2
     _enemyID_3: 0
     _enemyCount_3: 0
     _enemyID_4: 0
     _enemyCount_4: 0
     _enemyID_5: 0
     _enemyCount_5: 0
-    _compensation_1: 0
-    _compensationCount_1: 0
-    _compensation_2: 0
-    _compensationCount_2: 0
-    _compensation_3: 0
-    _compensationCount_3: 0
+    _compensation_1: 10501
+    _compensationCount_1: 5
+    _compensation_2: 10601
+    _compensationCount_2: 2
+    _compensation_3: 10602
+    _compensationCount_3: 2
   - _id: 140103
     _battleMapPath: Prefabs/Map/BattleMap/BattleMap_3
-    _enemyID_1: 101001
-    _enemyCount_1: 5
-    _enemyID_2: 0
-    _enemyCount_2: 0
+    _enemyID_1: 104002
+    _enemyCount_1: 1
+    _enemyID_2: 104001
+    _enemyCount_2: 2
     _enemyID_3: 0
     _enemyCount_3: 0
     _enemyID_4: 0
     _enemyCount_4: 0
     _enemyID_5: 0
     _enemyCount_5: 0
-    _compensation_1: 0
-    _compensationCount_1: 0
-    _compensation_2: 0
-    _compensationCount_2: 0
-    _compensation_3: 0
-    _compensationCount_3: 0
+    _compensation_1: 10501
+    _compensationCount_1: 7
+    _compensation_2: 10402
+    _compensationCount_2: 3
+    _compensation_3: 10103
+    _compensationCount_3: 4
   - _id: 140201
     _battleMapPath: Prefabs/Map/BattleMap/BattleMap_3
-    _enemyID_1: 101001
-    _enemyCount_1: 2
-    _enemyID_2: 0
-    _enemyCount_2: 0
+    _enemyID_1: 104002
+    _enemyCount_1: 1
+    _enemyID_2: 104001
+    _enemyCount_2: 2
     _enemyID_3: 0
     _enemyCount_3: 0
     _enemyID_4: 0
     _enemyCount_4: 0
     _enemyID_5: 0
     _enemyCount_5: 0
-    _compensation_1: 0
-    _compensationCount_1: 0
-    _compensation_2: 0
-    _compensationCount_2: 0
+    _compensation_1: 10501
+    _compensationCount_1: 5
+    _compensation_2: 10602
+    _compensationCount_2: 2
     _compensation_3: 0
     _compensationCount_3: 0
   - _id: 140202
     _battleMapPath: Prefabs/Map/BattleMap/BattleMap_3
-    _enemyID_1: 101001
-    _enemyCount_1: 3
+    _enemyID_1: 104002
+    _enemyCount_1: 2
     _enemyID_2: 0
     _enemyCount_2: 0
     _enemyID_3: 0
@@ -1800,70 +2919,70 @@ MonoBehaviour:
     _enemyCount_4: 0
     _enemyID_5: 0
     _enemyCount_5: 0
-    _compensation_1: 0
-    _compensationCount_1: 0
-    _compensation_2: 0
-    _compensationCount_2: 0
+    _compensation_1: 10501
+    _compensationCount_1: 5
+    _compensation_2: 10301
+    _compensationCount_2: 1
     _compensation_3: 0
     _compensationCount_3: 0
   - _id: 140203
     _battleMapPath: Prefabs/Map/BattleMap/BattleMap_3
-    _enemyID_1: 101001
-    _enemyCount_1: 5
-    _enemyID_2: 0
-    _enemyCount_2: 0
+    _enemyID_1: 104003
+    _enemyCount_1: 1
+    _enemyID_2: 104002
+    _enemyCount_2: 2
     _enemyID_3: 0
     _enemyCount_3: 0
     _enemyID_4: 0
     _enemyCount_4: 0
     _enemyID_5: 0
     _enemyCount_5: 0
-    _compensation_1: 0
-    _compensationCount_1: 0
-    _compensation_2: 0
-    _compensationCount_2: 0
-    _compensation_3: 0
-    _compensationCount_3: 0
+    _compensation_1: 10501
+    _compensationCount_1: 7
+    _compensation_2: 10402
+    _compensationCount_2: 3
+    _compensation_3: 10103
+    _compensationCount_3: 4
   - _id: 140301
     _battleMapPath: Prefabs/Map/BattleMap/BattleMap_3
-    _enemyID_1: 101001
-    _enemyCount_1: 2
-    _enemyID_2: 0
-    _enemyCount_2: 0
+    _enemyID_1: 104002
+    _enemyCount_1: 1
+    _enemyID_2: 104001
+    _enemyCount_2: 2
     _enemyID_3: 0
     _enemyCount_3: 0
     _enemyID_4: 0
     _enemyCount_4: 0
     _enemyID_5: 0
     _enemyCount_5: 0
-    _compensation_1: 0
-    _compensationCount_1: 0
-    _compensation_2: 0
-    _compensationCount_2: 0
+    _compensation_1: 10501
+    _compensationCount_1: 5
+    _compensation_2: 10201
+    _compensationCount_2: 5
     _compensation_3: 0
     _compensationCount_3: 0
   - _id: 140302
     _battleMapPath: Prefabs/Map/BattleMap/BattleMap_3
-    _enemyID_1: 101001
-    _enemyCount_1: 3
-    _enemyID_2: 0
-    _enemyCount_2: 0
-    _enemyID_3: 0
-    _enemyCount_3: 0
+    _enemyID_1: 204001
+    _enemyCount_1: 1
+    _enemyID_2: 104002
+    _enemyCount_2: 2
+    _enemyID_3: 104001
+    _enemyCount_3: 2
     _enemyID_4: 0
     _enemyCount_4: 0
     _enemyID_5: 0
     _enemyCount_5: 0
-    _compensation_1: 0
-    _compensationCount_1: 0
-    _compensation_2: 0
-    _compensationCount_2: 0
-    _compensation_3: 0
-    _compensationCount_3: 0
+    _compensation_1: 10501
+    _compensationCount_1: 5
+    _compensation_2: 10402
+    _compensationCount_2: 3
+    _compensation_3: 10603
+    _compensationCount_3: 2
   - _id: 140303
     _battleMapPath: Prefabs/Map/BattleMap/BattleMap_3
-    _enemyID_1: 101001
-    _enemyCount_1: 5
+    _enemyID_1: 304001
+    _enemyCount_1: 1
     _enemyID_2: 0
     _enemyCount_2: 0
     _enemyID_3: 0
@@ -1872,15 +2991,15 @@ MonoBehaviour:
     _enemyCount_4: 0
     _enemyID_5: 0
     _enemyCount_5: 0
-    _compensation_1: 0
-    _compensationCount_1: 0
-    _compensation_2: 0
-    _compensationCount_2: 0
-    _compensation_3: 0
-    _compensationCount_3: 0
+    _compensation_1: 10501
+    _compensationCount_1: 7
+    _compensation_2: 10402
+    _compensationCount_2: 3
+    _compensation_3: 10103
+    _compensationCount_3: 5
   - _id: 150101
     _battleMapPath: Prefabs/Map/BattleMap/BattleMap_3
-    _enemyID_1: 101001
+    _enemyID_1: 105001
     _enemyCount_1: 2
     _enemyID_2: 0
     _enemyCount_2: 0
@@ -1890,105 +3009,69 @@ MonoBehaviour:
     _enemyCount_4: 0
     _enemyID_5: 0
     _enemyCount_5: 0
-    _compensation_1: 0
-    _compensationCount_1: 0
-    _compensation_2: 0
-    _compensationCount_2: 0
+    _compensation_1: 10501
+    _compensationCount_1: 5
+    _compensation_2: 10604
+    _compensationCount_2: 2
     _compensation_3: 0
     _compensationCount_3: 0
   - _id: 150102
     _battleMapPath: Prefabs/Map/BattleMap/BattleMap_3
-    _enemyID_1: 101001
-    _enemyCount_1: 3
-    _enemyID_2: 0
-    _enemyCount_2: 0
+    _enemyID_1: 105002
+    _enemyCount_1: 1
+    _enemyID_2: 105001
+    _enemyCount_2: 2
     _enemyID_3: 0
     _enemyCount_3: 0
     _enemyID_4: 0
     _enemyCount_4: 0
     _enemyID_5: 0
     _enemyCount_5: 0
-    _compensation_1: 0
-    _compensationCount_1: 0
-    _compensation_2: 0
-    _compensationCount_2: 0
+    _compensation_1: 10501
+    _compensationCount_1: 5
+    _compensation_2: 10301
+    _compensationCount_2: 1
     _compensation_3: 0
     _compensationCount_3: 0
   - _id: 150103
     _battleMapPath: Prefabs/Map/BattleMap/BattleMap_3
-    _enemyID_1: 101001
-    _enemyCount_1: 5
-    _enemyID_2: 0
-    _enemyCount_2: 0
+    _enemyID_1: 105002
+    _enemyCount_1: 1
+    _enemyID_2: 105001
+    _enemyCount_2: 2
     _enemyID_3: 0
     _enemyCount_3: 0
     _enemyID_4: 0
     _enemyCount_4: 0
     _enemyID_5: 0
     _enemyCount_5: 0
-    _compensation_1: 0
-    _compensationCount_1: 0
-    _compensation_2: 0
-    _compensationCount_2: 0
-    _compensation_3: 0
-    _compensationCount_3: 0
+    _compensation_1: 10501
+    _compensationCount_1: 10
+    _compensation_2: 10402
+    _compensationCount_2: 4
+    _compensation_3: 10103
+    _compensationCount_3: 7
   - _id: 150201
     _battleMapPath: Prefabs/Map/BattleMap/BattleMap_3
-    _enemyID_1: 101001
-    _enemyCount_1: 2
-    _enemyID_2: 0
-    _enemyCount_2: 0
+    _enemyID_1: 105002
+    _enemyCount_1: 1
+    _enemyID_2: 105001
+    _enemyCount_2: 2
     _enemyID_3: 0
     _enemyCount_3: 0
     _enemyID_4: 0
     _enemyCount_4: 0
     _enemyID_5: 0
     _enemyCount_5: 0
-    _compensation_1: 0
-    _compensationCount_1: 0
-    _compensation_2: 0
-    _compensationCount_2: 0
+    _compensation_1: 10501
+    _compensationCount_1: 5
+    _compensation_2: 10201
+    _compensationCount_2: 6
     _compensation_3: 0
     _compensationCount_3: 0
   - _id: 150202
     _battleMapPath: Prefabs/Map/BattleMap/BattleMap_3
-    _enemyID_1: 101001
-    _enemyCount_1: 3
-    _enemyID_2: 0
-    _enemyCount_2: 0
-    _enemyID_3: 0
-    _enemyCount_3: 0
-    _enemyID_4: 0
-    _enemyCount_4: 0
-    _enemyID_5: 0
-    _enemyCount_5: 0
-    _compensation_1: 0
-    _compensationCount_1: 0
-    _compensation_2: 0
-    _compensationCount_2: 0
-    _compensation_3: 0
-    _compensationCount_3: 0
-  - _id: 150203
-    _battleMapPath: Prefabs/Map/BattleMap/BattleMap_3
-    _enemyID_1: 101001
-    _enemyCount_1: 5
-    _enemyID_2: 0
-    _enemyCount_2: 0
-    _enemyID_3: 0
-    _enemyCount_3: 0
-    _enemyID_4: 0
-    _enemyCount_4: 0
-    _enemyID_5: 0
-    _enemyCount_5: 0
-    _compensation_1: 0
-    _compensationCount_1: 0
-    _compensation_2: 0
-    _compensationCount_2: 0
-    _compensation_3: 0
-    _compensationCount_3: 0
-  - _id: 150301
-    _battleMapPath: Prefabs/Map/BattleMap/BattleMap_3
-    _enemyID_1: 101001
+    _enemyID_1: 105002
     _enemyCount_1: 2
     _enemyID_2: 0
     _enemyCount_2: 0
@@ -1998,34 +3081,70 @@ MonoBehaviour:
     _enemyCount_4: 0
     _enemyID_5: 0
     _enemyCount_5: 0
-    _compensation_1: 0
-    _compensationCount_1: 0
-    _compensation_2: 0
-    _compensationCount_2: 0
+    _compensation_1: 10501
+    _compensationCount_1: 5
+    _compensation_2: 10606
+    _compensationCount_2: 2
+    _compensation_3: 10605
+    _compensationCount_3: 2
+  - _id: 150203
+    _battleMapPath: Prefabs/Map/BattleMap/BattleMap_3
+    _enemyID_1: 105003
+    _enemyCount_1: 1
+    _enemyID_2: 105002
+    _enemyCount_2: 2
+    _enemyID_3: 0
+    _enemyCount_3: 0
+    _enemyID_4: 0
+    _enemyCount_4: 0
+    _enemyID_5: 0
+    _enemyCount_5: 0
+    _compensation_1: 10501
+    _compensationCount_1: 10
+    _compensation_2: 10402
+    _compensationCount_2: 4
+    _compensation_3: 10103
+    _compensationCount_3: 7
+  - _id: 150301
+    _battleMapPath: Prefabs/Map/BattleMap/BattleMap_3
+    _enemyID_1: 105002
+    _enemyCount_1: 1
+    _enemyID_2: 105001
+    _enemyCount_2: 2
+    _enemyID_3: 0
+    _enemyCount_3: 0
+    _enemyID_4: 0
+    _enemyCount_4: 0
+    _enemyID_5: 0
+    _enemyCount_5: 0
+    _compensation_1: 10501
+    _compensationCount_1: 5
+    _compensation_2: 10301
+    _compensationCount_2: 1
     _compensation_3: 0
     _compensationCount_3: 0
   - _id: 150302
     _battleMapPath: Prefabs/Map/BattleMap/BattleMap_3
-    _enemyID_1: 101001
-    _enemyCount_1: 3
-    _enemyID_2: 0
-    _enemyCount_2: 0
-    _enemyID_3: 0
-    _enemyCount_3: 0
+    _enemyID_1: 205001
+    _enemyCount_1: 1
+    _enemyID_2: 105002
+    _enemyCount_2: 2
+    _enemyID_3: 105001
+    _enemyCount_3: 2
     _enemyID_4: 0
     _enemyCount_4: 0
     _enemyID_5: 0
     _enemyCount_5: 0
-    _compensation_1: 0
-    _compensationCount_1: 0
-    _compensation_2: 0
-    _compensationCount_2: 0
+    _compensation_1: 10501
+    _compensationCount_1: 5
+    _compensation_2: 10201
+    _compensationCount_2: 10
     _compensation_3: 0
     _compensationCount_3: 0
   - _id: 150303
     _battleMapPath: Prefabs/Map/BattleMap/BattleMap_3
-    _enemyID_1: 101001
-    _enemyCount_1: 5
+    _enemyID_1: 305001
+    _enemyCount_1: 1
     _enemyID_2: 0
     _enemyCount_2: 0
     _enemyID_3: 0
@@ -2034,12 +3153,174 @@ MonoBehaviour:
     _enemyCount_4: 0
     _enemyID_5: 0
     _enemyCount_5: 0
-    _compensation_1: 0
-    _compensationCount_1: 0
-    _compensation_2: 0
-    _compensationCount_2: 0
+    _compensation_1: 10501
+    _compensationCount_1: 10
+    _compensation_2: 10402
+    _compensationCount_2: 4
+    _compensation_3: 10103
+    _compensationCount_3: 7
+  - _id: 160101
+    _battleMapPath: Prefabs/Map/BattleMap/BattleMap_3
+    _enemyID_1: 106001
+    _enemyCount_1: 2
+    _enemyID_2: 0
+    _enemyCount_2: 0
+    _enemyID_3: 0
+    _enemyCount_3: 0
+    _enemyID_4: 0
+    _enemyCount_4: 0
+    _enemyID_5: 0
+    _enemyCount_5: 0
+    _compensation_1: 10501
+    _compensationCount_1: 5
+    _compensation_2: 10604
+    _compensationCount_2: 2
     _compensation_3: 0
     _compensationCount_3: 0
+  - _id: 160102
+    _battleMapPath: Prefabs/Map/BattleMap/BattleMap_3
+    _enemyID_1: 106002
+    _enemyCount_1: 1
+    _enemyID_2: 106001
+    _enemyCount_2: 2
+    _enemyID_3: 0
+    _enemyCount_3: 0
+    _enemyID_4: 0
+    _enemyCount_4: 0
+    _enemyID_5: 0
+    _enemyCount_5: 0
+    _compensation_1: 10501
+    _compensationCount_1: 5
+    _compensation_2: 10301
+    _compensationCount_2: 1
+    _compensation_3: 0
+    _compensationCount_3: 0
+  - _id: 160103
+    _battleMapPath: Prefabs/Map/BattleMap/BattleMap_3
+    _enemyID_1: 106002
+    _enemyCount_1: 1
+    _enemyID_2: 106001
+    _enemyCount_2: 2
+    _enemyID_3: 0
+    _enemyCount_3: 0
+    _enemyID_4: 0
+    _enemyCount_4: 0
+    _enemyID_5: 0
+    _enemyCount_5: 0
+    _compensation_1: 10501
+    _compensationCount_1: 10
+    _compensation_2: 10402
+    _compensationCount_2: 4
+    _compensation_3: 10103
+    _compensationCount_3: 7
+  - _id: 160201
+    _battleMapPath: Prefabs/Map/BattleMap/BattleMap_3
+    _enemyID_1: 106002
+    _enemyCount_1: 1
+    _enemyID_2: 106001
+    _enemyCount_2: 2
+    _enemyID_3: 0
+    _enemyCount_3: 0
+    _enemyID_4: 0
+    _enemyCount_4: 0
+    _enemyID_5: 0
+    _enemyCount_5: 0
+    _compensation_1: 10501
+    _compensationCount_1: 5
+    _compensation_2: 10201
+    _compensationCount_2: 6
+    _compensation_3: 0
+    _compensationCount_3: 0
+  - _id: 160202
+    _battleMapPath: Prefabs/Map/BattleMap/BattleMap_3
+    _enemyID_1: 106002
+    _enemyCount_1: 2
+    _enemyID_2: 0
+    _enemyCount_2: 0
+    _enemyID_3: 0
+    _enemyCount_3: 0
+    _enemyID_4: 0
+    _enemyCount_4: 0
+    _enemyID_5: 0
+    _enemyCount_5: 0
+    _compensation_1: 10501
+    _compensationCount_1: 5
+    _compensation_2: 10606
+    _compensationCount_2: 2
+    _compensation_3: 10605
+    _compensationCount_3: 2
+  - _id: 160203
+    _battleMapPath: Prefabs/Map/BattleMap/BattleMap_3
+    _enemyID_1: 106003
+    _enemyCount_1: 1
+    _enemyID_2: 106002
+    _enemyCount_2: 2
+    _enemyID_3: 0
+    _enemyCount_3: 0
+    _enemyID_4: 0
+    _enemyCount_4: 0
+    _enemyID_5: 0
+    _enemyCount_5: 0
+    _compensation_1: 10501
+    _compensationCount_1: 10
+    _compensation_2: 10402
+    _compensationCount_2: 4
+    _compensation_3: 10103
+    _compensationCount_3: 7
+  - _id: 160301
+    _battleMapPath: Prefabs/Map/BattleMap/BattleMap_3
+    _enemyID_1: 106002
+    _enemyCount_1: 1
+    _enemyID_2: 106001
+    _enemyCount_2: 2
+    _enemyID_3: 0
+    _enemyCount_3: 0
+    _enemyID_4: 0
+    _enemyCount_4: 0
+    _enemyID_5: 0
+    _enemyCount_5: 0
+    _compensation_1: 10501
+    _compensationCount_1: 5
+    _compensation_2: 10301
+    _compensationCount_2: 1
+    _compensation_3: 0
+    _compensationCount_3: 0
+  - _id: 160302
+    _battleMapPath: Prefabs/Map/BattleMap/BattleMap_3
+    _enemyID_1: 206001
+    _enemyCount_1: 1
+    _enemyID_2: 106002
+    _enemyCount_2: 2
+    _enemyID_3: 106001
+    _enemyCount_3: 2
+    _enemyID_4: 0
+    _enemyCount_4: 0
+    _enemyID_5: 0
+    _enemyCount_5: 0
+    _compensation_1: 10501
+    _compensationCount_1: 5
+    _compensation_2: 10201
+    _compensationCount_2: 10
+    _compensation_3: 0
+    _compensationCount_3: 0
+  - _id: 160303
+    _battleMapPath: Prefabs/Map/BattleMap/BattleMap_3
+    _enemyID_1: 306001
+    _enemyCount_1: 1
+    _enemyID_2: 0
+    _enemyCount_2: 0
+    _enemyID_3: 0
+    _enemyCount_3: 0
+    _enemyID_4: 0
+    _enemyCount_4: 0
+    _enemyID_5: 0
+    _enemyCount_5: 0
+    _compensation_1: 10501
+    _compensationCount_1: 10
+    _compensation_2: 10402
+    _compensationCount_2: 4
+    _compensation_3: 10103
+    _compensationCount_3: 7
   StageData:
   - _id: 1101
     _openMapPath: Prefabs/Map/Chapter1/Chap1-1

@@ -10,6 +10,7 @@ public class EnemyClickController : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0))
             {
+                if (BattleManager.Instance.isEnemyTurn) return;
                 if (BattleManager.Instance.target != null)
                 {
                     BattleManager.Instance.OffTarget();

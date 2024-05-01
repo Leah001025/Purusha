@@ -19,6 +19,8 @@ public class SceneLoadManager : SingleTon<SceneLoadManager>
     public async void ChangeScene(string SceneName, Action callback = null, LoadSceneMode loadSceneMode = LoadSceneMode.Single)
     {
         var op = SceneManager.LoadSceneAsync(SceneName, loadSceneMode);
+        UIManager.Instance.charInventoryUI.Clear();
+        UIManager.Instance.popups.Clear();
         while (!op.isDone)
         {
             await Task.Yield();
@@ -43,19 +45,18 @@ public class SceneLoadManager : SingleTon<SceneLoadManager>
 
     }
 
-        // 씬이 이동할시 , 로딩씬이 필요한경우 해당 함수의 매개변수의 인자값으로 씬 이름을 넣어주시면 됩니다!
-        // 로딩씬 거친 후에 다음씬으로 넘어가짐(비동기로)
-        //LoadingChangeScene("SceneName"); 이리 적어주시면 되요!
     public async void LoadingChangeScene(string SceneName)
     {
         NextSceneName = SceneName;
-        if (GameManager.Instance.User != null) 
+        UIManager.Instance.charInventoryUI.Clear();
+        UIManager.Instance.popups.Clear();
+        if (GameManager.Instance.User != null)
         {
             GameManager.Instance.SaveDatas();
-        }       
+        }
         ChangeScene("LoadingScene");
     }
 
 
-    
+
 }

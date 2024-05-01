@@ -5,9 +5,9 @@ using UnityEngine;
 public class StageInfo
 {
     public int stageID;
-    public bool wave1Clear;
-    public bool wave2Clear;
-    public bool wave3Clear;
+    public bool wave1Clear = false;
+    public bool wave2Clear = false;
+    public bool wave3Clear = false;
 }
 public class GameManager : SingleTon<GameManager>
 {
